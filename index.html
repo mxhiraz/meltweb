@@ -384,12 +384,12 @@ You can work with us in two ways:
       }
     }
   }
-  function run(){ if(window.__mwo) window.__mwo.disconnect(); try{fix();}catch(e){} if(window.__mwo) window.__mwo.observe(document.body,{childList:true,subtree:true,characterData:true}); }
+  window.run=function run(){ if(window.__mwo) window.__mwo.disconnect(); try{fix();}catch(e){} if(window.__mwo) window.__mwo.observe(document.body,{childList:true,subtree:true,characterData:true}); }
   if(document.readyState!=="loading") run(); else document.addEventListener("DOMContentLoaded",run);
   window.addEventListener("load",run);
   [200,500,1000,2000,3500].forEach(function(d){setTimeout(run,d);});
   var _mf=0;(function raf(){ try{run();}catch(e){} if(++_mf<30) requestAnimationFrame(raf); })();
-  window.addEventListener("load",function(){ window.__mwo=new MutationObserver(function(){ clearTimeout(window.__mwt); window.__mwt=setTimeout(run,200); }); window.__mwo.observe(document.body,{childList:true,subtree:true,characterData:true}); });
+  window.addEventListener("load",function(){ window.__mwo=new MutationObserver(function(){ clearTimeout(window.__mwt); window.__mwt=queueMicrotask(run); }); window.__mwo.observe(document.body,{childList:true,subtree:true,characterData:true}); });
 })();
-</script></body>
+</script><script>document.addEventListener("click",function(){requestAnimationFrame(function(){try{window.run&&window.run()}catch(e){}})},true);// click-swap</script></body>
 </html>
