@@ -111,6 +111,10 @@
 [style*="filter:blur"],[style*="filter: blur"],[style*="backdrop-filter"]{filter:none!important;-webkit-filter:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
 img{content-visibility:auto;contain-intrinsic-size:auto 200px}
 [data-framer-name="Brand Logo"] img{filter:invert(45%) sepia(99%) saturate(420%) hue-rotate(176deg) brightness(95%) contrast(90%)!important}
+/* CLS reduction */
+img{aspect-ratio:attr(width)/attr(height)}
+h1,h2{contain:layout style}
+@font-face{font-display:optional!important}
 [id="3xfaster"],[id="process"],[data-framer-name="Companies"],[data-framer-name="Toggle"]{display:none!important}
 </style></head>
 <body>
