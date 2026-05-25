@@ -124,6 +124,10 @@ img{content-visibility:auto;contain-intrinsic-size:auto 200px}
 [data-framer-name="Brand Logo"] img{filter:invert(45%) sepia(99%) saturate(420%) hue-rotate(176deg) brightness(95%) contrast(90%)!important}
 /* hide blanked-out img placeholders (deleted IgnytLabs content) */
 img[src=""],img:not([src]),img[src^="data:image/gif;base64,R0lGOD"]{display:none!important}
+/* force final visible state - kill all entrance animations */
+[data-framer-name],[data-framer-component-type],main *{opacity:1!important;visibility:visible!important}
+[style*="opacity:0"],[style*="opacity: 0"]{opacity:1!important}
+[style*="translateY"],[style*="translateX"]{transform:none!important}
 /* CLS reduction */
 img{aspect-ratio:attr(width)/attr(height)}
 h1,h2{contain:layout style}
@@ -378,6 +382,9 @@ You can work with us in two ways:
       } } }
         var lg=document.querySelectorAll('a[href="./"]');
     for(var li=0;li<lg.length;li++){ if(!lg[li].getAttribute("aria-label")){lg[li].setAttribute("aria-label","MeltWeb home");lg[li].setAttribute("data-mwlogo","1");} }
+    // force visible on all framer-named elements (kill entrance animations)
+    var all=document.querySelectorAll('[data-framer-name],[data-framer-appear-id]');
+    for(var ai=0;ai<all.length;ai++){var el=all[ai];if(el.style){el.style.opacity="1";el.style.transform="";el.style.visibility="visible"}}
     // unified nav scroll via global delegation (capture phase, catches any variant)
     if(!window.__mwNavBound){ window.__mwNavBound=1;
       var NAVMAP={"process":"whyus","projects":"whyus-1"};
