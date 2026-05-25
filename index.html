@@ -1,7 +1,7 @@
 <!doctype html>
 <!-- Made in Framer · framer.com ✨ -->
 <!-- Published Jan 8, 2026, 3:33 PM UTC -->
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     
@@ -10,7 +10,7 @@
     <!-- Start of headStart -->
     
     <!-- End of headStart -->
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="generator" content="MeltWeb">
     <title>MeltWeb — Websites that convert, not just exist</title>
     <meta name="description" content="MeltWeb turns slow, forgettable websites into fast, beautiful machines that bring in leads while you sleep.  Flat pricing, hosting included, live in days">
@@ -363,6 +363,8 @@ You can work with us in two ways:
         var tim=tcards[tx].querySelectorAll("img,video");
         for(var tk=0;tk<tim.length;tk++){ tim[tk].removeAttribute("src");tim[tk].removeAttribute("srcset");tim[tk].removeAttribute("poster"); }
       } } }
+        var lg=document.querySelectorAll('a[href="./"]');
+    for(var li=0;li<lg.length;li++){ if(!lg[li].getAttribute("aria-label")){lg[li].setAttribute("aria-label","MeltWeb home");lg[li].setAttribute("data-mwlogo","1");} }
     // unified nav scroll via global delegation (capture phase, catches any variant)
     if(!window.__mwNavBound){ window.__mwNavBound=1;
       var NAVMAP={"process":"whyus","projects":"whyus-1"};
