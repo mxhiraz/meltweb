@@ -359,19 +359,24 @@ You can work with us in two ways:
         var tim=tcards[tx].querySelectorAll("img,video");
         for(var tk=0;tk<tim.length;tk++){ tim[tk].removeAttribute("src");tim[tk].removeAttribute("srcset");tim[tk].removeAttribute("poster"); }
       } } }
-    // unified nav scroll: Why us -> #whyus, Work -> #whyus-1
-    var NAVMAP={"./#process":"whyus","./#projects":"whyus-1"};
-    Object.keys(NAVMAP).forEach(function(href){
-      var els=document.querySelectorAll('a[href="'+href+'"]');
-      for(var i=0;i<els.length;i++){ var a=els[i];
-        if(a.getAttribute("data-mwnav")) continue;
-        a.setAttribute("data-mwnav","1");
-        a.addEventListener("click",function(targetId){return function(e){
-          var t=document.getElementById(targetId);
-          if(t){ e.preventDefault(); e.stopPropagation(); t.scrollIntoView({block:"start"}); }
-        }}(NAVMAP[href]),true);
-      }
-    });
+    // unified nav scroll via global delegation (capture phase, catches any variant)
+    if(!window.__mwNavBound){ window.__mwNavBound=1;
+      var NAVMAP={"process":"whyus","projects":"whyus-1"};
+      document.addEventListener("click",function(e){
+        var a=e.target.closest && e.target.closest("a[href]");
+        if(!a) return;
+        var href=a.getAttribute("href")||"";
+        for(var key in NAVMAP){
+          if(href.indexOf("#"+key)>=0){
+            var t=document.getElementById(NAVMAP[key]);
+            if(t){ e.preventDefault(); e.stopImmediatePropagation();
+              var top=t.getBoundingClientRect().top+window.pageYOffset-20;
+              window.scrollTo({top:top,behavior:"auto"}); }
+            break;
+          }
+        }
+      },true);
+    }
     var lg=document.querySelectorAll('[data-framer-name="Brand Logo"] img');
     for(var li=0;li<lg.length;li++){ var im=lg[li];
       if(im.getAttribute("src")!=="assets/meltweb-logo.png") im.setAttribute("src","assets/meltweb-logo.png");
