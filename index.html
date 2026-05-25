@@ -117,10 +117,6 @@ img[src=""],img:not([src]),img[src^="data:image/gif;base64,R0lGOD"]{display:none
 [data-framer-name],[data-framer-component-type],main *{opacity:1!important;visibility:visible!important}
 [style*="opacity:0"],[style*="opacity: 0"]{opacity:1!important}
 [style*="translateY"],[style*="translateX"]{transform:none!important}
-/* kill noise/grain SVG filters + backdrop blur */
-*{filter:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
-/* exempt logo color filter */
-[data-framer-name="Brand Logo"] img{filter:invert(45%) sepia(99%) saturate(420%) hue-rotate(176deg) brightness(95%) contrast(90%)!important}
 /* CLS reduction */
 img{aspect-ratio:attr(width)/attr(height)}
 h1,h2{contain:layout style}
