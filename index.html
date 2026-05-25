@@ -118,13 +118,14 @@ img{content-visibility:auto;contain-intrinsic-size:auto 200px}
 /* hide blanked-out img placeholders (deleted MeltWeb content) */
 img[src=""],img:not([src]),img[src^="data:image/gif;base64,R0lGOD"]{display:none!important}
 /* style Book Now Variant 2 to match hero blue + kill noise overlay */
-[data-framer-name="Variant 2"] [data-framer-name="CTA"],
-[data-framer-name="CTA"][data-framer-variant="Variant 2"]{
+/* style all Book Now CTA variants to light blue, kill noise */
+[data-framer-name="CTA"],[data-framer-name="Variant 2"] [data-framer-name="CTA"],[data-framer-name="Variant 3"] [data-framer-name="CTA"]{
   background:linear-gradient(180deg,#7ec5ff 0%,#3a9bff 100%)!important;
   color:#0a2a4d!important;
   filter:none!important;
   box-shadow:0 4px 16px rgba(58,155,255,0.25),inset 0 1px 0 rgba(255,255,255,0.45)!important;
 }
+[data-framer-name="CTA"] *{filter:none!important;color:inherit!important}
 [data-framer-name="Variant 2"] [data-framer-name="CTA"] *,
 [data-framer-name="CTA"][data-framer-variant="Variant 2"] *{filter:none!important}
 
