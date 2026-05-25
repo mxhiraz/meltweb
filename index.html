@@ -354,16 +354,19 @@ You can work with us in two ways:
     var tRoot=document.getElementById("testimonials")||document.querySelector('[data-framer-name="Testimonials"]');
     if(tRoot){ var tcards=tRoot.querySelectorAll('[data-framer-name="Project Card"],[data-framer-name="Review Card"]');
       for(var tx=0;tx<tcards.length;tx++){ if(tcards[tx].style) tcards[tx].style.display="none"; } }
-    var wl=document.querySelectorAll('a[href="./#projects"],a[href="./#whyus-1"]');
-    for(var wi2=0;wi2<wl.length;wi2++){ var wa=wl[wi2]; wa.setAttribute("href","./#whyus-1");
-      if(!wa.getAttribute("data-mwwork")){ wa.setAttribute("data-mwwork","1");
-        wa.addEventListener("click",function(e){
-          var t=document.getElementById("whyus-1");
-          if(!t){ var ww=document.querySelectorAll('[data-framer-name="Why us?"]'); for(var q=0;q<ww.length;q++){ var s=ww[q].textContent.replace(/\s+/g,"").toLowerCase(); if(s.indexOf("landingpages")>-1||s.indexOf("buildalandingpage")>-1){ t=ww[q]; break; } } }
-          if(t){ e.preventDefault(); e.stopPropagation(); t.scrollIntoView({behavior:"smooth",block:"start"}); }
-        },true);
+    // unified nav scroll: Why us -> #whyus, Work -> #whyus-1
+    var NAVMAP={"./#process":"whyus","./#projects":"whyus-1"};
+    Object.keys(NAVMAP).forEach(function(href){
+      var els=document.querySelectorAll('a[href="'+href+'"]');
+      for(var i=0;i<els.length;i++){ var a=els[i];
+        if(a.getAttribute("data-mwnav")) continue;
+        a.setAttribute("data-mwnav","1");
+        a.addEventListener("click",function(targetId){return function(e){
+          var t=document.getElementById(targetId);
+          if(t){ e.preventDefault(); e.stopPropagation(); t.scrollIntoView({block:"start"}); }
+        }}(NAVMAP[href]),true);
       }
-    }
+    });
     var lg=document.querySelectorAll('[data-framer-name="Brand Logo"] img');
     for(var li=0;li<lg.length;li++){ var im=lg[li];
       if(im.getAttribute("src")!=="assets/meltweb-logo.png") im.setAttribute("src","assets/meltweb-logo.png");
@@ -374,15 +377,7 @@ You can work with us in two ways:
     }
     var cals=document.querySelectorAll('a[href*="cal.com"]');
     for(var ck=0;ck<cals.length;ck++){ if(cals[ck].getAttribute("href")!=="https://cal.com/tanmay-s-uw3d6q/book?overlayCalendar=true") cals[ck].setAttribute("href","https://cal.com/tanmay-s-uw3d6q/book?overlayCalendar=true"); }
-        var pl=document.querySelectorAll('a[href="./#process"]');
-    for(var pi=0;pi<pl.length;pi++){
-      var box=pl[pi].closest('[class*="-container"]')||pl[pi].parentNode;
-      if(box && box.style){ box.style.display="none";
-        var s=box.previousElementSibling;
-        if(!(s&&s.getAttribute&&s.getAttribute("data-framer-name")==="Small Square")) s=box.nextElementSibling;
-        if(s&&s.getAttribute&&s.getAttribute("data-framer-name")==="Small Square") s.style.display="none";
-      }
-    }
+    
   }
   window.run=function run(){ if(window.__mwo) window.__mwo.disconnect(); try{fix();}catch(e){} if(window.__mwo) window.__mwo.observe(document.body,{childList:true,subtree:true,characterData:true}); }
   if(document.readyState!=="loading") run(); else document.addEventListener("DOMContentLoaded",run);
