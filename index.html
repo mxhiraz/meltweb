@@ -129,6 +129,9 @@ img[src=""],img:not([src]),img[src^="data:image/gif;base64,R0lGOD"]{display:none
 [data-framer-name="Variant 2"] [data-framer-name="CTA"] *,
 [data-framer-name="CTA"][data-framer-variant="Variant 2"] *{filter:none!important}
 
+/* hide body until MeltWeb swap completes - prevents IgnytLabs FOUC */
+body{opacity:0;transition:opacity .2s ease-in}
+body.mw-ready{opacity:1}
 /* CLS reduction */
 img{aspect-ratio:attr(width)/attr(height)}
 h1,h2{contain:layout style}
@@ -413,7 +416,8 @@ You can work with us in two ways:
     for(var ck=0;ck<cals.length;ck++){ if(cals[ck].getAttribute("href")!=="https://cal.com/tanmay-s-uw3d6q/book?overlayCalendar=true") cals[ck].setAttribute("href","https://cal.com/tanmay-s-uw3d6q/book?overlayCalendar=true"); }
     
   }
-  window.run=function run(){ if(window.__mwo) window.__mwo.disconnect(); try{fix();}catch(e){} if(window.__mwo) window.__mwo.observe(document.body,{childList:true,subtree:true,characterData:true}); }
+  setTimeout(function(){document.body&&document.body.classList.add("mw-ready")},3000);
+  window.run=function run(){ if(window.__mwo) window.__mwo.disconnect(); try{fix();}catch(e){} if(window.__mwo) window.__mwo.observe(document.body,{childList:true,subtree:true,characterData:true}); document.body.classList.add("mw-ready"); }
   if(document.readyState!=="loading") run(); else document.addEventListener("DOMContentLoaded",run);
   window.addEventListener("load",run);
   [200,500,1000,2000,3500].forEach(function(d){setTimeout(run,d);});
