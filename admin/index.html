@@ -457,8 +457,8 @@ function copyShareLink(){if(!current.path)return;const url=location.origin+"/"+c
 function reloadPreview(){if(current.path&&current.mode!=="meta")$("preview").src="/"+current.path+"?t="+Date.now()}
 
 async function delFile(path,sha){if(!confirm(`Delete ${path}?`))return;try{await api("delete",{method:"POST",body:JSON.stringify({path,sha})});toast("Deleted","ok");loadList()}catch(e){toast("Delete failed: "+e.message,"err")}}
-async function delLead(lead){if(!confirm(`Delete entire lead "${prettyName(lead)}" (${leads[lead]?.length||0} files)?`))return;try{const t=files.filter(f=>f.path.startsWith(`sample/${lead}/`));for(const f of t)await api("delete",{method:"POST",body:JSON.stringify({path:f.path,sha:f.sha})});toast("Lead deleted","ok");loadList()}catch(e){toast("Delete failed: "+e.message,"err")}}
-async function delDir(dirPath){if(!confirm(`Delete folder ${dirPath} and all its contents?`))return;const t=files.filter(f=>f.path.startsWith(dirPath+"/"));try{for(const f of t)await api("delete",{method:"POST",body:JSON.stringify({path:f.path,sha:f.sha})});toast("Folder deleted","ok");loadList()}catch(e){toast("Delete failed: "+e.message,"err")}}
+async function delLead(lead){if(!confirm(`Delete entire lead "${prettyName(lead)}" (${leads[lead]?.length||0} files)?`))return;try{const r=await api("deleteDir",{method:"POST",body:JSON.stringify({prefix:`sample/${lead}/`})});toast(`Deleted ${r.removed} files`,"ok");loadList()}catch(e){toast("Delete failed: "+e.message,"err")}}
+async function delDir(dirPath){if(!confirm(`Delete folder ${dirPath} and all its contents?`))return;try{const r=await api("deleteDir",{method:"POST",body:JSON.stringify({prefix:dirPath+"/"})});toast(`Deleted ${r.removed} files`,"ok");loadList()}catch(e){toast("Delete failed: "+e.message,"err")}}
 
 function openNew(){$("newScrim").classList.remove("hidden");$("newScrim").classList.add("flex");["nl_name","nl_slug","nl_site","nl_email"].forEach(id=>$(id).value="");setTimeout(()=>$("nl_name").focus(),50)}
 function closeNew(){$("newScrim").classList.add("hidden");$("newScrim").classList.remove("flex")}
