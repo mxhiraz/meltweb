@@ -280,7 +280,7 @@ function renderList(){
       ${expanded?`<div onclick="openMeta('${lead}')" data-meta="${lead}" class="meta-row row-line cursor-pointer flex items-center gap-2.5 py-2 px-3 hover:bg-surface-2 text-[13.5px] text-ink-2 font-semibold transition">
         <span class="meta-ic shrink-0 text-gray-400">${ICONS.info}</span>
         <span class="flex-1">Lead info</span>
-      </div>`:''}\`;
+      </div>`:''}
     if(expanded)html+=renderTree(lead,allFiles);
     html+=`</div>`;
   });
