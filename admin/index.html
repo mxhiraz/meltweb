@@ -234,8 +234,8 @@ async function doLogin(){
 function logout(){localStorage.removeItem(KEY);location.reload()}
 function showApp(){$("login").classList.add("hidden");$("app").classList.remove("hidden");$("app").classList.add("flex");initEditor()}
 
-const STATUS_STYLE={'draft':'bg-gray-100 text-gray-600','needs-changes':'bg-red-100 text-red-700','review':'bg-amber-100 text-amber-700','sent':'bg-blue-100 text-blue-700','done':'bg-emerald-100 text-emerald-700'};
-const STATUS_LABEL={'draft':'Draft','needs-changes':'Needs changes','review':'In review','sent':'Sent','done':'Done'};
+const STATUS_STYLE={'new':'bg-violet-100 text-violet-700','draft':'bg-gray-100 text-gray-600','needs-changes':'bg-red-100 text-red-700','review':'bg-amber-100 text-amber-700','sent':'bg-blue-100 text-blue-700','done':'bg-emerald-100 text-emerald-700','hot':'bg-rose-100 text-rose-700','on-hold':'bg-yellow-100 text-yellow-700','cancelled':'bg-gray-200 text-gray-500 line-through'};
+const STATUS_LABEL={'new':'New','draft':'Draft','needs-changes':'Needs changes','review':'In review','sent':'Sent','done':'Done','hot':'Hot lead','on-hold':'On hold','cancelled':'Cancelled'};
 const leadMeta={};
 async function loadList(){
   try{
@@ -420,7 +420,7 @@ function renderMetaForm(meta,lead){
       <div class="grid grid-cols-2 gap-3"><div><label class="${lbl}">Website</label><input id=m_website placeholder="https://…" value="${esc(meta.website)}" class="${inp}"></div><div><label class="${lbl}">Phone</label><input id=m_phone value="${esc(meta.phone)}" class="${inp}"></div></div>
       <div class="grid grid-cols-2 gap-3"><div><label class="${lbl}">Contact name</label><input id=m_contact value="${esc(meta.contact)}" class="${inp}"></div><div><label class="${lbl}">Email</label><input id=m_email type=email value="${esc(meta.email)}" class="${inp}"></div></div>
       <div class="grid grid-cols-2 gap-3"><div><label class="${lbl}">Industry</label><input id=m_industry value="${esc(meta.industry)}" class="${inp}"></div><div><label class="${lbl}">Location</label><input id=m_location value="${esc(meta.location)}" class="${inp}"></div></div>
-      <div><label class="${lbl}">Status</label><select id=m_status class="${inp}"><option value="" ${meta.status===""?"selected":""}>— No tag —</option><option value="draft" ${meta.status==="draft"?"selected":""}>Draft</option><option value="needs-changes" ${meta.status==="needs-changes"?"selected":""}>Needs changes</option><option value="review" ${meta.status==="review"?"selected":""}>In review</option><option value="sent" ${meta.status==="sent"?"selected":""}>Sent to client</option><option value="done" ${meta.status==="done"?"selected":""}>Done</option></select></div>
+      <div><label class="${lbl}">Status</label><select id=m_status class="${inp}"><option value="" ${meta.status===""?"selected":""}>— No tag —</option><option value="new" ${meta.status==="new"?"selected":""}>New</option><option value="draft" ${meta.status==="draft"?"selected":""}>Draft</option><option value="hot" ${meta.status==="hot"?"selected":""}>Hot lead</option><option value="needs-changes" ${meta.status==="needs-changes"?"selected":""}>Needs changes</option><option value="review" ${meta.status==="review"?"selected":""}>In review</option><option value="sent" ${meta.status==="sent"?"selected":""}>Sent to client</option><option value="done" ${meta.status==="done"?"selected":""}>Done</option><option value="on-hold" ${meta.status==="on-hold"?"selected":""}>On hold</option><option value="cancelled" ${meta.status==="cancelled"?"selected":""}>Cancelled</option></select></div>
       <div><label class="${lbl}">Sales notes / description</label><textarea id=m_description rows=5 class="${inp} resize-y">${esc(meta.description)}</textarea></div>
     </div>`;
 }
