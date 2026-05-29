@@ -61,6 +61,9 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
       <div id=crumbs class="text-[13px] text-gray-500">Lead Portal</div>
     </div>
     <div class="flex gap-1.5">
+      <button onclick=toggleView() class="px-3 py-1.5 text-[12.5px] font-medium text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md flex items-center gap-1.5 transition" id=viewToggleBtn title="Switch view">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg><span id=viewLabel>Sidebar</span>
+      </button>
       <button onclick=openNew() class="px-3 py-1.5 text-[12.5px] font-medium text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md flex items-center gap-1.5 transition">
         <span><svg xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
         New lead
@@ -73,7 +76,8 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
   </header>
 
   <!-- Split layout -->
-  <div class="grid grid-cols-[300px_1fr_1fr] flex-1 min-h-0">
+  <div id=tabStrip class="hidden border-b border-line bg-white overflow-x-auto" style="height:42px"><div id=tabBar class="flex h-full"></div></div>
+  <div class="split grid grid-cols-[300px_1fr_1fr] flex-1 min-h-0">
     <!-- Sidebar -->
     <aside class="bg-white border-r border-line flex flex-col overflow-hidden">
       <div class="p-2.5 border-b border-line">
@@ -241,6 +245,41 @@ function showApp(){$("login").classList.add("hidden");$("app").classList.remove(
 
 const STATUS_STYLE={'new':'bg-violet-100 text-violet-700','draft':'bg-gray-100 text-gray-600','needs-changes':'bg-red-100 text-red-700','review':'bg-amber-100 text-amber-700','sent':'bg-blue-100 text-blue-700','done':'bg-emerald-100 text-emerald-700','hot':'bg-rose-100 text-rose-700','on-hold':'bg-yellow-100 text-yellow-700','cancelled':'bg-gray-200 text-gray-500 line-through'};
 const STATUS_LABEL={'new':'New','draft':'Draft','needs-changes':'Needs changes','review':'In review','sent':'Sent','done':'Done','hot':'Hot lead','on-hold':'On hold','cancelled':'Cancelled'};
+
+const VIEW_KEY="mw_admin_view";
+let viewMode=localStorage.getItem(VIEW_KEY)||"sidebar";
+let activeLead=null;
+function toggleView(){viewMode=viewMode==="sidebar"?"tabs":"sidebar";localStorage.setItem(VIEW_KEY,viewMode);applyView();renderList()}
+function applyView(){
+  const split=document.querySelector(".split");
+  if(viewMode==="tabs"){
+    split.style.gridTemplateColumns="1fr 1fr";
+    document.querySelector("aside.side")?.classList.add("hidden");
+    document.getElementById("tabStrip").classList.remove("hidden");
+    document.getElementById("tabStrip").classList.add("flex");
+    document.getElementById("viewLabel").textContent="Tabs";
+  }else{
+    split.style.gridTemplateColumns="300px 1fr 1fr";
+    document.querySelector("aside.side")?.classList.remove("hidden");
+    document.getElementById("tabStrip").classList.add("hidden");
+    document.getElementById("tabStrip").classList.remove("flex");
+    document.getElementById("viewLabel").textContent="Sidebar";
+  }
+}
+function setActiveLead(l){activeLead=l;openLeads.clear();openLeads.add(l);renderList();if(viewMode==="tabs")renderTabBar();renderTabBar()}
+function renderTabBar(){
+  const bar=document.getElementById("tabBar");
+  if(!bar)return;
+  const sorted=Object.keys(leads).sort();
+  bar.innerHTML=sorted.map((lead,i)=>{
+    const st=leadMeta[lead]?.status;
+    const stEl=st?`<span class="ml-1 text-[9px] px-1 py-0.5 rounded ${STATUS_STYLE[st]||''}">${STATUS_LABEL[st]||st}</span>`:'';
+    return `<button onclick="setActiveLead('${lead}')" class="px-3 py-2 text-[12px] font-medium whitespace-nowrap border-b-2 ${activeLead===lead?'border-blue-500 text-ink bg-blue-50':'border-transparent text-gray-600 hover:text-ink hover:bg-surface-2'} transition flex items-center gap-1.5">
+      <span class="text-gray-400 text-[10px]">${i+1}</span><span class="uppercase tracking-wide font-bold text-[11px]">${prettyName(lead)}</span>${stEl}
+    </button>`;
+  }).join("");
+}
+
 const leadMeta={};
 async function loadList(){
   try{
@@ -271,7 +310,8 @@ function renderList(){
   const q=$("search").value.toLowerCase().trim();
   const sorted=Object.keys(leads).sort();
   let html="";
-  sorted.forEach((lead,i)=>{
+  const onlyLeads=viewMode==="tabs"&&activeLead?[activeLead]:sorted;
+  onlyLeads.forEach((lead,i)=>{
     if(q&&!lead.toLowerCase().includes(q))return;
     const allFiles=leads[lead].filter(f=>!f.path.endsWith("/meta.json"));
     const expanded=openLeads.has(lead);
@@ -447,7 +487,7 @@ async function save(){
     }else content=editor.getValue();
     const d=await api("save",{method:"POST",body:JSON.stringify({path:current.path,sha:current.sha,content})});
     current.sha=d.sha;
-    if(current.mode==="meta"&&current.lead)leadMeta[current.lead]=JSON.parse(content);renderList();toast("Saved → deploying","ok");
+    if(current.mode==="meta"&&current.lead)leadMeta[current.lead]=JSON.parse(content);renderList();if(viewMode==="tabs")renderTabBar();toast("Saved → deploying","ok");
     if(current.mode==="html")setTimeout(reloadPreview,2500);
   }catch(e){toast("Save failed: "+e.message,"err")}
   btn.innerHTML="Save";btn.disabled=false;
