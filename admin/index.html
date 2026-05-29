@@ -2,6 +2,7 @@
 <meta charset=utf-8><title>MeltWeb Admin</title>
 <link rel="preconnect" href="https://rsms.me/"><link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script>
 tailwind.config={theme:{extend:{
   fontFamily:{sans:['Inter','system-ui','sans-serif'],mono:['SF Mono','ui-monospace','monospace']},
@@ -60,11 +61,11 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
     </div>
     <div class="flex gap-1.5">
       <button onclick=openNew() class="px-3 py-1.5 text-[12.5px] font-medium text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md flex items-center gap-1.5 transition">
-        <svg width=12 height=12 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round><path d="M8 3v10M3 8h10"/></svg>
+        <i data-lucide="plus" style="width:13px;height:13px"></i>
         New lead
       </button>
       <button onclick=loadList() class="p-1.5 text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md transition" title=Refresh>
-        <svg width=14 height=14 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.8 stroke-linecap=round><path d="M14 3v4h-4M2 13v-4h4"/><path d="M2.5 8a5.5 5.5 0 0 1 10-3.5L14 7M13.5 8a5.5 5.5 0 0 1-10 3.5L2 9"/></svg>
+        <i data-lucide="refresh-cw" style="width:13px;height:13px"></i>
       </button>
       <button onclick=logout() class="px-3 py-1.5 text-[12.5px] font-medium text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md transition">Logout</button>
     </div>
@@ -76,7 +77,7 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
     <aside class="bg-white border-r border-line flex flex-col overflow-hidden">
       <div class="p-2.5 border-b border-line">
         <div class="relative">
-          <svg class="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400" width=14 height=14 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5><circle cx=7 cy=7 r=4.5/><path d="M13 13l-2.5-2.5"/></svg>
+          <i data-lucide="search" class="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400" style="width:14px;height:14px"></i>
           <input id=search placeholder="Search leads…" oninput=renderList() class="w-full pl-8 pr-3 py-1.5 text-[12.5px] border border-line rounded-md focus:border-ink focus:ring-2 focus:ring-ink/10 focus:outline-none">
         </div>
       </div>
@@ -92,7 +93,7 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
         </div>
         <span id=curPath class="flex-1 text-[12px] text-gray-500 font-mono truncate">Select a file from sidebar</span>
         <button id=copyBtn onclick=copyShareLink() disabled class="px-2.5 py-1 text-[12px] font-medium text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 transition">
-          <svg width=11 height=11 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5><rect x=5 y=5 width=9 height=9 rx=1.5/><path d="M3 11h-.5a1.5 1.5 0 0 1-1.5-1.5v-7A1.5 1.5 0 0 1 2.5 1h7A1.5 1.5 0 0 1 11 2.5V3"/></svg>
+          <i data-lucide="copy" style="width:11px;height:11px"></i>
           Copy link
         </button>
         <button id=saveBtn onclick=save() disabled class="px-3 py-1 text-[12px] font-medium text-white bg-brand hover:bg-brand-hover rounded-md disabled:opacity-40 disabled:cursor-not-allowed transition">Save</button>
@@ -120,16 +121,16 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
       <div class="flex items-center gap-2 px-3.5 border-b border-line" style="height:52px">
         <div id=previewUrl class="flex-1 bg-surface-2 border border-line px-2.5 py-1 rounded text-[11px] text-gray-500 font-mono truncate">Live preview here</div>
         <button onclick=reloadPreview() class="p-1.5 text-ink-2 border border-line bg-white hover:bg-surface-2 rounded-md transition" title=Refresh>
-          <svg width=12 height=12 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round><path d="M14 3v4h-4M2 13v-4h4"/><path d="M2.5 8a5.5 5.5 0 0 1 10-3.5L14 7M13.5 8a5.5 5.5 0 0 1-10 3.5L2 9"/></svg>
+          <i data-lucide="refresh-cw" style="width:13px;height:13px"></i>
         </button>
         <a id=openExternal target=_blank href=# class="p-1.5 text-ink-2 border border-line bg-white hover:bg-surface-2 rounded-md transition" title="Open in new tab">
-          <svg width=12 height=12 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round><path d="M11 1h4v4M15 1L7 9M11 9v5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg>
+          <i data-lucide="external-link" style="width:13px;height:13px"></i>
         </a>
       </div>
       <div id=previewEmpty class="flex-1 grid place-items-center text-gray-400 text-[13px] text-center p-10">
         <div>
           <div class="w-12 h-12 mx-auto mb-3 bg-surface-2 rounded-xl grid place-items-center">
-            <svg width=22 height=22 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx=12 cy=12 r=3/></svg>
+            <i data-lucide="eye" style="width:22px;height:22px"></i>
           </div>
           No file selected
           <div class="text-[11.5px] text-gray-400 mt-1">Choose a page to see live preview</div>
@@ -188,15 +189,17 @@ const KEY="mw_admin_pw",$=id=>document.getElementById(id),pw=()=>localStorage.ge
 let editor,files=[],leads={},current={path:null,sha:null,lead:null,mode:"html"};
 const openDirs=new Set();
 
+const lucide=()=>{if(window.lucide&&lucide.createIcons)try{lucide.createIcons()}catch(e){}};
+const I=(name,size=14,cls="")=>`<i data-lucide="${name}" style="width:${size}px;height:${size}px" class="${cls} inline-block align-middle"></i>`;
 const ICONS={
-  chev:`<svg width=10 height=10 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><polyline points="6 4 10 8 6 12"/></svg>`,
-  folder:`<svg width=14 height=14 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><path d="M1.75 4.5a1 1 0 0 1 1-1h3l1.5 1.5h6a1 1 0 0 1 1 1v6.25a1 1 0 0 1-1 1H2.75a1 1 0 0 1-1-1V4.5z"/></svg>`,
-  folderOpen:`<svg width=14 height=14 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><path d="M1.75 6.25h12.5a.5.5 0 0 1 .49.6l-.8 5a.5.5 0 0 1-.49.4H2.75a1 1 0 0 1-1-1V6.25zM1.75 6.25v-1.75a1 1 0 0 1 1-1h3l1.5 1.5h6a1 1 0 0 1 1 1v1.5"/></svg>`,
-  file:`<svg width=14 height=14 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><path d="M3.5 1.75a1 1 0 0 1 1-1h5L13 4.25v9a1 1 0 0 1-1 1H4.5a1 1 0 0 1-1-1V1.75z"/><path d="M9.5 .75v3.5h3.5"/></svg>`,
-  info:`<svg width=14 height=14 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round><circle cx=8 cy=8 r=6.5/><line x1=8 y1=7 x2=8 y2=11.5 stroke-linecap=round/><circle cx=8 cy=4.7 r=.7 fill=currentColor stroke=none/></svg>`,
-  dots:`<svg width=14 height=14 viewBox="0 0 16 16" fill=currentColor><circle cx=8 cy=3 r=1.3/><circle cx=8 cy=8 r=1.3/><circle cx=8 cy=13 r=1.3/></svg>`,
-  upload:`<svg width=11 height=11 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><path d="M8 11V2M4 6l4-4 4 4M2 13.5h12"/></svg>`,
-  trash:`<svg width=11 height=11 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><path d="M3 4h10M6 4V2.5h4V4M5 4l.5 9.5a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1L11 4"/></svg>`,
+  chev:I("chevron-right",10),
+  folder:I("folder",14),
+  folderOpen:I("folder-open",14),
+  file:I("file",14),
+  info:I("info",14),
+  dots:I("more-vertical",14),
+  upload:I("upload",11),
+  trash:I("trash-2",11),
   spin:`<svg class=spin width=12 height=12 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=2><path d="M8 1.5a6.5 6.5 0 1 1-6.5 6.5" stroke-linecap=round/></svg>`
 };
 
@@ -275,6 +278,7 @@ function renderList(){
     html+=`</div>`;
   });
   $("list").innerHTML=html||`<div class="py-12 text-center text-gray-400 text-[12.5px]">${q?"No matches":"No leads yet. Click + New lead"}</div>`;
+  lucide();
 }
 
 function renderTree(lead,filesArr){
@@ -358,7 +362,7 @@ async function openMeta(lead){
   $("copyBtn").disabled=true;$("saveBtn").disabled=false;
   let meta={name:prettyName(lead),website:"",contact:"",email:"",phone:"",description:"",industry:"",location:""};
   try{const d=await api("read?path="+encodeURIComponent(current.path));meta={...meta,...JSON.parse(d.content||"{}")};current.sha=d.sha}catch(e){}
-  renderMetaForm(meta,lead);
+  renderMetaForm(meta,lead);lucide();
   $("previewEmpty").classList.remove("hidden");$("preview").classList.add("hidden");
 }
 
@@ -385,7 +389,7 @@ async function openAsset(path,sha,lead,isImg){
     <div class="flex gap-2">
       <button onclick='openUp("${dirPath}")' class="px-3.5 py-2 text-[13px] font-medium text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md transition">Replace / upload here</button>
       <button onclick='delFile("${path}","${sha}")' class="px-3.5 py-2 text-[13px] font-medium text-red-600 bg-white border border-line hover:bg-red-50 hover:border-red-300 rounded-md transition">Delete this file</button>
-    </div>`;
+    </div>`;lucide();
 }
 
 const esc=s=>String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -461,7 +465,7 @@ async function handleFiles(fl){
   for(const f of fl){
     const row=document.createElement("div");row.className="flex items-center gap-2 py-1.5 border-b border-line-2 last:border-b-0";
     row.innerHTML=`<span class="text-gray-400">${ICONS.spin}</span><span class="flex-1 truncate">${f.name}</span><span class="text-gray-400 text-[11px]">${(f.size/1024).toFixed(0)}KB</span>`;
-    list.appendChild(row);
+    list.appendChild(row);lucide();
     try{const buf=await f.arrayBuffer();const b64=btoa(new Uint8Array(buf).reduce((s,b)=>s+String.fromCharCode(b),""));await api("upload",{method:"POST",body:JSON.stringify({path:`${upTarget}/${f.name}`,contentBase64:b64})});row.firstElementChild.outerHTML=`<span class="text-emerald-600 font-bold">✓</span>`}
     catch(e){row.firstElementChild.outerHTML=`<span class="text-red-600 font-bold">✗</span>`;row.insertAdjacentHTML("beforeend",`<span class="text-red-600 text-[11px]">${e.message}</span>`)}
   }
@@ -494,7 +498,7 @@ function showCtx(e,type,path,sha,isDir){
   m.innerHTML=items.map(it=>it.sep?'<hr class="my-1 border-line-2">':`<button class="w-full flex items-center gap-2.5 px-2.5 py-1.5 text-left rounded text-[12.5px] ${it.danger?"text-red-600 hover:bg-red-50":"text-ink-2 hover:bg-surface-2"} transition" onclick="hideCtx();${it.fn}">${it.icon||'<span class="w-3"></span>'} ${it.label}</button>`).join("");
   m.classList.remove("hidden");m.classList.add("block");
   const x=Math.min(e.clientX,window.innerWidth-220),y=Math.min(e.clientY,window.innerHeight-260);
-  m.style.left=x+"px";m.style.top=y+"px";
+  m.style.left=x+"px";m.style.top=y+"px";lucide();
 }
 function hideCtx(){$("ctxMenu").classList.add("hidden");$("ctxMenu").classList.remove("block")}
 document.addEventListener("click",e=>{if(!e.target.closest("#ctxMenu"))hideCtx()});
@@ -507,9 +511,9 @@ function initEditor(){
     editor=monaco.editor.create($("editor"),{value:"",language:"html",theme:"vs",automaticLayout:true,minimap:{enabled:false},fontSize:13,wordWrap:"on",scrollBeyondLastLine:false,padding:{top:14},lineNumbersMinChars:3});
     editor.addCommand(monaco.KeyMod.CtrlCmd|monaco.KeyCode.KeyS,()=>save());
     loadList();
-  });
+  });setTimeout(lucide,50);
 }
 
-if(pw())showApp();
+lucide();if(pw())showApp();
 </script>
 </body></html>
