@@ -2,175 +2,215 @@
 <meta charset=utf-8><title>MeltWeb Admin</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--ink:#0F172A;--ink-2:#334155;--muted:#64748B;--line:#E2E8F0;--bg:#F8FAFC;--bg-2:#F1F5F9;--accent:#3B82F6;--accent-dark:#2563EB;--green:#10B981;--red:#EF4444;--radius:10px;--shadow:0 1px 3px rgba(15,23,42,.06),0 1px 2px rgba(15,23,42,.04)}
-html,body{height:100%;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:14px;line-height:1.5}
-button,input{font:inherit;color:inherit}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;font:inherit}
+:root{
+  --ink:#0F172A;--ink-2:#475569;--muted:#94A3B8;
+  --line:#E2E8F0;--line-2:#F1F5F9;
+  --bg:#FAFBFC;--surface:#fff;--surface-2:#F8FAFC;
+  --accent:#2563EB;--accent-hover:#1D4ED8;--accent-soft:#EFF6FF;
+  --ok:#059669;--err:#DC2626;--warn:#D97706;
+  --radius:8px;--radius-lg:12px;
+  --shadow-sm:0 1px 2px rgba(15,23,42,.05);
+  --shadow:0 1px 3px rgba(15,23,42,.08),0 1px 2px rgba(15,23,42,.04);
+  --shadow-lg:0 10px 30px rgba(15,23,42,.12);
+}
+html,body{height:100%;font:14px/1.5 Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+button,input,textarea,select{font:inherit;color:inherit;outline:0}
 button{cursor:pointer;border:0;background:none}
+input,textarea{border:1px solid var(--line);border-radius:var(--radius);padding:9px 12px;width:100%;background:#fff;transition:.15s}
+input:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+textarea{resize:vertical;min-height:80px;font-family:inherit}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:var(--radius);font-weight:600;font-size:13px;transition:.15s;border:1px solid transparent;white-space:nowrap}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-ghost{background:var(--surface);color:var(--ink-2);border-color:var(--line)}
+.btn-ghost:hover{background:var(--surface-2)}
+.btn-danger{background:var(--surface);color:var(--err);border-color:var(--line)}
+.btn-danger:hover{background:#FEF2F2;border-color:#FCA5A5}
+.btn-sm{padding:5px 10px;font-size:12px}
+.btn:disabled{opacity:.5;cursor:not-allowed}
 a{color:var(--accent);text-decoration:none}
+code{font-family:ui-monospace,SF Mono,monospace;font-size:12px;background:var(--line-2);padding:2px 6px;border-radius:4px}
 
 /* Login */
-.login{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
-.login-card{width:100%;max-width:380px;background:#fff;border-radius:16px;padding:36px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.login{display:grid;place-items:center;height:100vh;padding:20px}
+.login-card{width:100%;max-width:400px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:40px;box-shadow:var(--shadow)}
+.login-card .logo{display:flex;align-items:center;gap:10px;margin-bottom:24px}
+.login-card .logo-dot{width:32px;height:32px;background:var(--accent);border-radius:8px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:14px}
+.login-card .logo-text{font-weight:800;font-size:17px}
 .login-card h1{font-size:22px;font-weight:700;margin-bottom:6px}
-.login-card p{color:var(--muted);margin-bottom:20px;font-size:13px}
-.login-card input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:14px;margin-bottom:12px}
-.login-card input:focus{outline:0;border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,130,246,.1)}
-.login-card .btn{width:100%;padding:12px;background:var(--accent);color:#fff;border-radius:10px;font-weight:600;transition:.15s}
-.login-card .btn:hover{background:var(--accent-dark)}
-.err{color:var(--red);font-size:13px;margin-top:8px}
+.login-card p{color:var(--muted);font-size:13px;margin-bottom:24px}
+.login-card input{margin-bottom:12px;padding:12px 14px}
+.login-card .btn{width:100%;justify-content:center;padding:12px}
 
-/* App */
+/* App layout */
 .app{display:none;height:100vh;flex-direction:column}
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:#fff;border-bottom:1px solid var(--line)}
-.topbar .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
-.brand .dot{width:8px;height:8px;background:var(--accent);border-radius:50%}
-.topbar .actions{display:flex;gap:8px}
-.btn{padding:7px 14px;border-radius:8px;font-weight:600;font-size:13px;transition:.15s;display:inline-flex;align-items:center;gap:6px}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-primary:hover{background:var(--accent-dark)}
-.btn-ghost{color:var(--ink-2);border:1px solid var(--line);background:#fff}
-.btn-ghost:hover{background:var(--bg-2)}
-.btn-danger{color:var(--red);border:1px solid var(--line);background:#fff}
-.btn-danger:hover{background:#FEF2F2;border-color:#FECACA}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:var(--surface);border-bottom:1px solid var(--line);z-index:5}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px}
+.brand .dot{width:24px;height:24px;background:var(--accent);border-radius:6px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:11px}
+.actions{display:flex;gap:8px}
 
-.split{display:grid;grid-template-columns:300px 1fr 1fr;flex:1;overflow:hidden}
+.split{display:grid;grid-template-columns:300px 1fr 1fr;flex:1;overflow:hidden;min-height:0}
 
 /* Sidebar */
-.sidebar{background:#fff;border-right:1px solid var(--line);overflow-y:auto;display:flex;flex-direction:column}
-.sidebar-head{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;gap:8px;flex-direction:column}
-.search{width:100%;padding:8px 12px;border:1px solid var(--line);border-radius:8px;font-size:13px}
-.search:focus{outline:0;border-color:var(--accent)}
-.lead-group{border-bottom:1px solid var(--bg-2)}
-.lead-head{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--bg-2);font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;position:sticky;top:0;z-index:2}
-.lead-head .lead-name{display:flex;align-items:center;gap:8px;flex:1;cursor:pointer}
-.lead-head .num{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:#fff;border:1px solid var(--line);border-radius:5px;font-size:10px;color:var(--ink-2)}
-.lead-actions{display:flex;gap:4px;opacity:0;transition:.15s}
+.sidebar{background:var(--surface);border-right:1px solid var(--line);display:flex;flex-direction:column;overflow:hidden}
+.sidebar-head{padding:12px;border-bottom:1px solid var(--line)}
+.search-wrap{position:relative}
+.search{padding:8px 12px 8px 32px;font-size:13px}
+.search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.lead-list{flex:1;overflow-y:auto}
+.lead-group{border-bottom:1px solid var(--line-2)}
+.lead-head{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:var(--surface-2);font-size:11px;font-weight:700;color:var(--ink-2);text-transform:uppercase;letter-spacing:.5px;cursor:pointer;user-select:none;position:sticky;top:0;z-index:1}
+.lead-head:hover{background:var(--line-2)}
+.lead-head-left{display:flex;align-items:center;gap:8px;flex:1;min-width:0}
+.lead-num{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:var(--surface);border:1px solid var(--line);border-radius:5px;font-size:10px;color:var(--ink-2);flex-shrink:0}
+.lead-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lead-actions{display:flex;gap:2px;opacity:0;transition:.15s}
 .lead-group:hover .lead-actions{opacity:1}
-.lead-actions button{width:22px;height:22px;border-radius:5px;display:inline-flex;align-items:center;justify-content:center;color:var(--muted);font-size:14px;background:transparent}
-.lead-actions button:hover{background:#fff;color:var(--ink)}
-.lead-actions button.danger:hover{color:var(--red);background:#FEF2F2}
-.file-item{padding:8px 16px 8px 28px;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:space-between;border-left:3px solid transparent;transition:.1s}
-.file-item:hover{background:var(--bg-2)}
-.file-item.active{background:#EFF6FF;border-left-color:var(--accent);color:var(--accent-dark);font-weight:500}
-.file-actions{opacity:0;display:flex;gap:2px}
+.icon-btn{width:22px;height:22px;border-radius:5px;display:grid;place-items:center;color:var(--muted);font-size:12px;background:transparent}
+.icon-btn:hover{background:#fff;color:var(--ink);box-shadow:var(--shadow-sm)}
+.icon-btn.danger:hover{color:var(--err)}
+.file-item{padding:7px 14px 7px 30px;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:space-between;border-left:2px solid transparent;transition:.1s}
+.file-item:hover{background:var(--surface-2)}
+.file-item.active{background:var(--accent-soft);border-left-color:var(--accent);color:var(--accent-hover);font-weight:600}
+.file-actions{opacity:0}
 .file-item:hover .file-actions{opacity:1}
-.file-actions button{width:20px;height:20px;border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted)}
-.file-actions button:hover{background:#fff;color:var(--red)}
+.meta-item{padding:6px 14px 6px 30px;font-size:12px;color:var(--muted);cursor:pointer}
+.meta-item:hover{background:var(--surface-2);color:var(--ink-2)}
+.meta-item.active{color:var(--accent);font-weight:600}
 
-/* Editor */
-.editor-pane{display:flex;flex-direction:column;border-right:1px solid var(--line);background:#fff;overflow:hidden}
-.editor-bar{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);background:#fff}
-.editor-bar .path{flex:1;font-size:12px;color:var(--muted);font-family:ui-monospace,monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.editor{flex:1;overflow:hidden}
+/* Editor pane */
+.editor-pane{display:flex;flex-direction:column;border-right:1px solid var(--line);background:var(--surface);overflow:hidden;min-width:0}
+.pane-head{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--surface);min-height:50px}
+.pane-head .path{flex:1;font-size:12px;color:var(--ink-2);font-family:ui-monospace,monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.editor{flex:1;overflow:hidden;background:#fff}
 
-/* Preview */
-.preview-pane{background:#fff;display:flex;flex-direction:column;overflow:hidden}
-.preview-bar{padding:10px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;font-size:12px;color:var(--muted)}
-.preview-bar .url{flex:1;background:var(--bg-2);padding:5px 10px;border-radius:6px;font-family:ui-monospace,monospace;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.preview-iframe{flex:1;border:0;width:100%;background:#fff}
+/* Metadata form */
+.meta-form{padding:20px;overflow-y:auto;flex:1}
+.meta-form h2{font-size:16px;font-weight:700;margin-bottom:4px}
+.meta-form .hint{color:var(--muted);font-size:12px;margin-bottom:20px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-2);margin-bottom:6px}
+
+/* Preview pane */
+.preview-pane{background:var(--surface);display:flex;flex-direction:column;overflow:hidden;min-width:0}
+.preview-url{flex:1;background:var(--surface-2);padding:5px 10px;border-radius:6px;font:11px ui-monospace,monospace;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.preview-frame{flex:1;border:0;width:100%;background:#fff}
+.preview-empty{flex:1;display:grid;place-items:center;color:var(--muted);font-size:13px;text-align:center;padding:40px}
 
 /* Modal */
-.modal-bg{display:none;position:fixed;inset:0;background:rgba(15,23,42,.4);z-index:99;align-items:center;justify-content:center;padding:20px}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(15,23,42,.5);z-index:99;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
 .modal-bg.show{display:flex}
-.modal{background:#fff;border-radius:14px;padding:24px;max-width:480px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.modal{background:var(--surface);border-radius:14px;padding:28px;max-width:480px;width:100%;box-shadow:var(--shadow-lg)}
 .modal h2{font-size:18px;font-weight:700;margin-bottom:6px}
-.modal p{color:var(--muted);font-size:13px;margin-bottom:18px}
-.modal label{display:block;font-weight:600;font-size:12px;margin-bottom:6px;color:var(--ink-2)}
-.modal input,.modal textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font-size:13px;margin-bottom:14px}
-.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
-.dropzone{border:2px dashed var(--line);border-radius:10px;padding:30px;text-align:center;color:var(--muted);cursor:pointer;transition:.15s}
-.dropzone:hover,.dropzone.drag{border-color:var(--accent);background:#EFF6FF;color:var(--accent-dark)}
+.modal .desc{color:var(--muted);font-size:13px;margin-bottom:20px}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
+.dropzone{border:2px dashed var(--line);border-radius:var(--radius-lg);padding:36px 20px;text-align:center;color:var(--muted);cursor:pointer;transition:.15s}
+.dropzone:hover,.dropzone.drag{border-color:var(--accent);background:var(--accent-soft);color:var(--accent-hover)}
 
 /* Toast */
-.toast{position:fixed;bottom:20px;right:20px;background:var(--ink);color:#fff;padding:12px 18px;border-radius:10px;font-size:13px;display:none;box-shadow:0 8px 24px rgba(0,0,0,.2);z-index:200;max-width:360px}
-.toast.show{display:block;animation:slide .25s ease}
-.toast.err{background:var(--red)}
-.toast.ok{background:var(--green)}
-@keyframes slide{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+.toast{position:fixed;bottom:20px;right:20px;background:var(--ink);color:#fff;padding:12px 18px;border-radius:10px;font-size:13px;display:none;box-shadow:var(--shadow-lg);z-index:200;max-width:380px;animation:slide .2s ease}
+.toast.show{display:block}
+.toast.err{background:var(--err)}
+.toast.ok{background:var(--ok)}
+@keyframes slide{from{transform:translateY(15px);opacity:0}to{transform:translateY(0);opacity:1}}
 
-.empty{padding:40px 20px;text-align:center;color:var(--muted);font-size:13px}
-.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite}
+.empty{padding:60px 20px;text-align:center;color:var(--muted);font-size:13px}
+.spinner{display:inline-block;width:13px;height:13px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .7s linear infinite;opacity:.6}
 @keyframes spin{to{transform:rotate(360deg)}}
-.spinner.dark{border-color:var(--line);border-top-color:var(--accent)}
+.tabs{display:flex;gap:2px;background:var(--line-2);padding:3px;border-radius:8px;font-size:12px}
+.tab{padding:6px 12px;border-radius:6px;color:var(--ink-2);font-weight:500;transition:.15s;cursor:pointer}
+.tab.active{background:var(--surface);color:var(--ink);box-shadow:var(--shadow-sm);font-weight:600}
 </style></head><body>
 
-<div class="login" id="login">
-  <div class="login-card">
-    <h1>MeltWeb Portal</h1>
-    <p>Enter password to access lead samples</p>
-    <input id=pw type=password placeholder="Password" autofocus onkeydown="if(event.key==='Enter')doLogin()">
-    <button class=btn onclick="doLogin()">Sign in</button>
-    <div class=err id=loginErr></div>
+<div class=login id=login>
+  <div class=login-card>
+    <div class=logo><div class=logo-dot>M</div><div class=logo-text>MeltWeb</div></div>
+    <h1>Welcome back</h1>
+    <p>Sign in to manage lead samples</p>
+    <input id=pw type=password placeholder="Enter password" autofocus onkeydown="event.key==='Enter'&&doLogin()">
+    <button class="btn btn-primary" onclick=doLogin()>Sign in</button>
+    <div id=loginErr style="color:var(--err);font-size:12px;margin-top:10px"></div>
   </div>
 </div>
 
 <div class=app id=app>
-  <div class=topbar>
-    <div class=brand><span class=dot></span> MeltWeb Lead Portal</div>
+  <header class=topbar>
+    <div class=brand><div class=dot>M</div> Lead Portal</div>
     <div class=actions>
-      <button class="btn btn-ghost" onclick="openNewLead()">+ New Lead</button>
-      <button class="btn btn-ghost" onclick="reload()">Reload</button>
-      <button class="btn btn-ghost" onclick="logout()">Logout</button>
+      <button class="btn btn-ghost btn-sm" onclick=openNewLead()>+ New Lead</button>
+      <button class="btn btn-ghost btn-sm" onclick=loadList()>Reload</button>
+      <button class="btn btn-ghost btn-sm" onclick=logout()>Logout</button>
     </div>
-  </div>
+  </header>
+
   <div class=split>
-    <div class=sidebar>
+    <aside class=sidebar>
       <div class=sidebar-head>
-        <input class=search id=search placeholder="Search leads..." oninput="filterList()">
+        <div class=search-wrap>
+          <span class=search-icon>🔍</span>
+          <input class=search id=search placeholder="Search leads…" oninput=renderList()>
+        </div>
       </div>
-      <div id=list><div class=empty>Loading...</div></div>
-    </div>
-    <div class=editor-pane>
-      <div class=editor-bar>
+      <div class=lead-list id=list><div class=empty>Loading…</div></div>
+    </aside>
+
+    <section class=editor-pane id=editorPane>
+      <div class=pane-head>
+        <div class=tabs id=tabs style=display:none>
+          <div class=tab data-mode=html onclick=switchMode('html')>HTML</div>
+          <div class=tab data-mode=meta onclick=switchMode('meta')>Lead Info</div>
+        </div>
         <span class=path id=curPath>Select a file to edit</span>
-        <button class="btn btn-ghost" onclick="copyShareLink()">Copy share link</button>
-        <button class="btn btn-primary" onclick="save()" id=saveBtn disabled>Save</button>
+        <button class="btn btn-ghost btn-sm" onclick=copyShareLink() id=copyBtn disabled>Copy link</button>
+        <button class="btn btn-primary btn-sm" onclick=save() id=saveBtn disabled>Save</button>
       </div>
       <div class=editor id=editor></div>
-    </div>
-    <div class=preview-pane>
-      <div class=preview-bar>
-        <span>Preview</span>
-        <div class=url id=previewUrl>—</div>
-        <button class="btn btn-ghost" onclick="reloadPreview()" style="padding:4px 10px">↻</button>
+      <div class=meta-form id=metaForm style=display:none></div>
+    </section>
+
+    <section class=preview-pane>
+      <div class=pane-head>
+        <div class=preview-url id=previewUrl>No preview</div>
+        <button class="btn btn-ghost btn-sm" onclick=reloadPreview() title=Refresh>↻</button>
+        <a class="btn btn-ghost btn-sm" id=openExternal target=_blank href=#>Open ↗</a>
       </div>
-      <iframe class=preview-iframe id=preview src=about:blank></iframe>
-    </div>
+      <iframe class=preview-frame id=preview src=about:blank></iframe>
+      <div class=preview-empty id=previewEmpty>Select a file from sidebar to preview</div>
+    </section>
   </div>
 </div>
 
 <!-- New Lead Modal -->
-<div class=modal-bg id=newLeadModal onclick="if(event.target===this)closeNewLead()">
+<div class=modal-bg id=newLeadModal onclick=event.target===this&&closeNewLead()>
   <div class=modal>
-    <h2>New Lead</h2>
-    <p>Creates <code>sample/{slug}/v1/index.html</code> + <code>v2/index.html</code> with starter template</p>
-    <label>Company name</label>
-    <input id=newLeadName placeholder="e.g. Acme Plumbing" autofocus>
-    <label>Slug (auto)</label>
-    <input id=newLeadSlug placeholder="acme-plumbing" readonly style="background:var(--bg-2)">
+    <h2>Create new lead</h2>
+    <div class=desc>Generates <code>sample/{slug}/v1/index.html</code>, <code>v2/index.html</code>, and <code>meta.json</code></div>
+    <div class=field><label>Company name</label><input id=nl_name placeholder="Acme Plumbing" autofocus oninput=updateSlug()></div>
+    <div class=field><label>Slug (auto)</label><input id=nl_slug readonly style="background:var(--surface-2);color:var(--muted)"></div>
+    <div class=field><label>Website (optional)</label><input id=nl_site placeholder="https://acmeplumbing.com"></div>
+    <div class=field><label>Contact email (optional)</label><input id=nl_email type=email placeholder="owner@acmeplumbing.com"></div>
     <div class=modal-actions>
-      <button class="btn btn-ghost" onclick="closeNewLead()">Cancel</button>
-      <button class="btn btn-primary" onclick="createLead()" id=createBtn>Create</button>
+      <button class="btn btn-ghost" onclick=closeNewLead()>Cancel</button>
+      <button class="btn btn-primary" onclick=createLead() id=createBtn>Create lead</button>
     </div>
   </div>
 </div>
 
 <!-- Upload Modal -->
-<div class=modal-bg id=uploadModal onclick="if(event.target===this)closeUpload()">
+<div class=modal-bg id=uploadModal onclick=event.target===this&&closeUpload()>
   <div class=modal>
-    <h2>Upload to <span id=uploadTarget></span></h2>
-    <p>Drop files or click to select. Supports HTML, images, assets.</p>
-    <div class=dropzone id=dropzone ondrop="handleDrop(event)" ondragover="event.preventDefault();this.classList.add('drag')" ondragleave="this.classList.remove('drag')" onclick="document.getElementById('fileInput').click()">
-      <div>Drop files here or <b>click to browse</b></div>
-      <input type=file id=fileInput multiple style=display:none onchange="handleFiles(this.files)">
+    <h2>Upload to <code id=uploadTarget></code></h2>
+    <div class=desc>Drag files or click to browse. HTML, images, fonts, anything.</div>
+    <div class=dropzone id=dropzone ondrop=handleDrop(event) ondragover="event.preventDefault();this.classList.add('drag')" ondragleave="this.classList.remove('drag')" onclick=document.getElementById('fileInput').click()>
+      <div style="font-size:24px;margin-bottom:8px">📁</div>
+      <div>Drop files or <b>click to browse</b></div>
     </div>
-    <div id=uploadList style="margin-top:14px;font-size:12px;color:var(--muted)"></div>
-    <div class=modal-actions>
-      <button class="btn btn-ghost" onclick="closeUpload()">Close</button>
-    </div>
+    <input type=file id=fileInput multiple style=display:none onchange=handleFiles(this.files)>
+    <div id=uploadList style="margin-top:14px;font-size:12px;max-height:200px;overflow-y:auto"></div>
+    <div class=modal-actions><button class="btn btn-ghost" onclick=closeUpload()>Close</button></div>
   </div>
 </div>
 
@@ -178,126 +218,224 @@ a{color:var(--accent);text-decoration:none}
 
 <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
 <script>
-const PW_KEY="mw_admin_pw";
-let editor=null,curPath=null,curSha=null,files=[],leads={},uploadTargetPath="";
+const KEY="mw_admin_pw";
+const $=id=>document.getElementById(id);
+const pw=()=>localStorage.getItem(KEY);
 
-function toast(m,kind){const t=document.getElementById("toast");t.textContent=m;t.className="toast show "+(kind||"");setTimeout(()=>t.className="toast",2800)}
-const pw=()=>localStorage.getItem(PW_KEY);
-async function api(p,opts={}){const r=await fetch("/api/"+p,{...opts,headers:{"x-admin-pw":pw(),"Content-Type":"application/json",...(opts.headers||{})}});if(r.status===401){logout();throw new Error("auth")}const d=await r.json();if(!r.ok)throw new Error(d.error||"err");return d}
+let editor,files=[],leads={},current={path:null,sha:null,lead:null,mode:"html"},metaCache={};
 
-async function doLogin(){const p=document.getElementById("pw").value;localStorage.setItem(PW_KEY,p);try{await api("list");show()}catch(e){document.getElementById("loginErr").textContent="Wrong password";localStorage.removeItem(PW_KEY)}}
-function logout(){localStorage.removeItem(PW_KEY);location.reload()}
-function show(){document.getElementById("login").style.display="none";document.getElementById("app").style.display="flex";initEditor()}
-function reload(){loadList()}
+const toast=(m,kind="")=>{const t=$("toast");t.textContent=m;t.className=`toast show ${kind}`;clearTimeout(toast._);toast._=setTimeout(()=>t.className="toast",2800)}
+
+async function api(p,opts={}){
+  const r=await fetch("/api/"+p,{...opts,headers:{"x-admin-pw":pw(),"Content-Type":"application/json",...(opts.headers||{})}});
+  if(r.status===401){logout();throw new Error("auth")}
+  const d=await r.json();
+  if(!r.ok)throw new Error(d.error||"Request failed");
+  return d;
+}
+
+async function doLogin(){
+  localStorage.setItem(KEY,$("pw").value);
+  try{await api("list");showApp()}
+  catch(e){$("loginErr").textContent="Wrong password";localStorage.removeItem(KEY)}
+}
+function logout(){localStorage.removeItem(KEY);location.reload()}
+function showApp(){$("login").style.display="none";$("app").style.display="flex";initEditor()}
 
 async function loadList(){
   try{
     const d=await api("list");
     files=d.files;
     leads={};
-    files.forEach(f=>{const p=f.path.split("/");if(p[0]==="sample"&&p.length>=2){leads[p[1]]=leads[p[1]]||[];leads[p[1]].push(f)}});
+    files.forEach(f=>{
+      const p=f.path.split("/");
+      if(p[0]==="sample"&&p.length>=2){
+        leads[p[1]]=leads[p[1]]||[];
+        leads[p[1]].push(f);
+      }
+    });
     renderList();
   }catch(e){toast("Load failed: "+e.message,"err")}
 }
 
 function renderList(){
-  const q=document.getElementById("search").value.toLowerCase();
+  const q=$("search").value.toLowerCase().trim();
+  const sorted=Object.keys(leads).sort();
   let html="";
-  const sortedLeads=Object.keys(leads).sort();
-  sortedLeads.filter(L=>!q||L.includes(q)).forEach((lead,i)=>{
-    const idx=sortedLeads.indexOf(lead)+1;
+  sorted.forEach((lead,i)=>{
+    if(q&&!lead.toLowerCase().includes(q))return;
     const pages=leads[lead].filter(f=>f.path.endsWith(".html"));
-    if(!pages.length) return;
+    const metaFile=leads[lead].find(f=>f.path.endsWith("/meta.json"));
     html+=`<div class=lead-group>
       <div class=lead-head>
-        <div class=lead-name><span class=num>${idx}</span>${lead.replace(/-/g," ")}</div>
-        <div class=lead-actions>
-          <button onclick="openUpload('sample/${lead}')" title="Upload assets">⬆</button>
-          <button class=danger onclick="deleteLead('${lead}')" title="Delete lead">✕</button>
+        <div class=lead-head-left>
+          <span class=lead-num>${i+1}</span>
+          <span class=lead-name>${prettyName(lead)}</span>
         </div>
-      </div>`;
+        <div class=lead-actions>
+          <button class=icon-btn onclick="event.stopPropagation();openUpload('sample/${lead}')" title="Upload files">⬆</button>
+          <button class="icon-btn danger" onclick="event.stopPropagation();deleteLead('${lead}')" title="Delete lead">✕</button>
+        </div>
+      </div>
+      <div class=meta-item onclick="openMeta('${lead}')">⚙ Lead info & metadata</div>`;
     pages.forEach(p=>{
       const label=p.path.replace(`sample/${lead}/`,"");
-      html+=`<div class=file-item data-path="${p.path}" onclick="openFile('${p.path}','${p.sha}')">
-        <span>${label}</span>
-        <div class=file-actions>
-          <button onclick="event.stopPropagation();deleteFile('${p.path}','${p.sha}')" title=Delete>🗑</button>
-        </div>
+      html+=`<div class=file-item data-path="${p.path}" onclick="openFile('${p.path}','${p.sha}','${lead}')">
+        <span>📄 ${label}</span>
+        <div class="file-actions"><button class="icon-btn danger" onclick="event.stopPropagation();deleteFile('${p.path}','${p.sha}')" title=Delete>🗑</button></div>
       </div>`;
     });
     html+=`</div>`;
   });
-  document.getElementById("list").innerHTML=html||`<div class=empty>No leads found. Click + New Lead.</div>`;
+  $("list").innerHTML=html||`<div class=empty>${q?"No matches":"No leads. Click + New Lead"}</div>`;
 }
 
-function filterList(){renderList()}
+const prettyName=s=>s.replace(/-redesign$/,"").replace(/-/g," ").replace(/\b\w/g,c=>c.toUpperCase());
 
-async function openFile(path,sha){
-  document.querySelectorAll(".file-item").forEach(el=>el.classList.toggle("active",el.dataset.path===path));
-  curPath=path;curSha=sha;
-  document.getElementById("curPath").textContent=path;
-  document.getElementById("saveBtn").disabled=true;
+async function openFile(path,sha,lead){
+  document.querySelectorAll(".file-item,.meta-item").forEach(el=>el.classList.toggle("active",el.dataset.path===path));
+  current={path,sha,lead,mode:"html"};
+  $("curPath").textContent=path;
+  $("saveBtn").disabled=true;$("copyBtn").disabled=false;
+  $("tabs").style.display="flex";
+  document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.mode==="html"));
+  $("editor").style.display="block";$("metaForm").style.display="none";
   const url="/"+path;
-  document.getElementById("previewUrl").textContent=url;
-  document.getElementById("preview").src=url+"?t="+Date.now();
+  $("previewUrl").textContent=url;
+  $("openExternal").href=url;
+  $("previewEmpty").style.display="none";
+  $("preview").style.display="block";
+  $("preview").src=url+"?t="+Date.now();
   try{
     const d=await api("read?path="+encodeURIComponent(path));
     editor.setValue(d.content);
-    document.getElementById("saveBtn").disabled=false;
+    editor.getModel().setValue(d.content);
+    $("saveBtn").disabled=false;
   }catch(e){toast("Read failed: "+e.message,"err")}
 }
 
-function reloadPreview(){if(curPath)document.getElementById("preview").src="/"+curPath+"?t="+Date.now()}
+async function openMeta(lead){
+  document.querySelectorAll(".file-item,.meta-item").forEach(el=>el.classList.remove("active"));
+  current={path:`sample/${lead}/meta.json`,sha:null,lead,mode:"meta"};
+  $("curPath").textContent=`sample/${lead}/meta.json`;
+  $("tabs").style.display="none";
+  $("editor").style.display="none";$("metaForm").style.display="block";
+  $("copyBtn").disabled=true;
+  let meta={name:"",website:"",contact:"",email:"",phone:"",description:"",industry:"",location:""};
+  let sha=null;
+  try{
+    const d=await api("read?path="+encodeURIComponent(current.path));
+    meta={...meta,...JSON.parse(d.content||"{}")};
+    sha=d.sha;
+  }catch(e){}
+  current.sha=sha;
+  renderMetaForm(meta,lead);
+  $("saveBtn").disabled=false;
+}
+
+function renderMetaForm(meta,lead){
+  $("metaForm").innerHTML=`
+    <h2>Lead metadata</h2>
+    <div class=hint>For internal use + sales context. Saved to <code>sample/${lead}/meta.json</code>.</div>
+    <div class=field><label>Company name</label><input id=m_name value="${esc(meta.name||prettyName(lead))}"></div>
+    <div class=field><label>Website</label><input id=m_website placeholder="https://..." value="${esc(meta.website||"")}"></div>
+    <div class=field><label>Contact name</label><input id=m_contact value="${esc(meta.contact||"")}"></div>
+    <div class=field><label>Email</label><input id=m_email type=email value="${esc(meta.email||"")}"></div>
+    <div class=field><label>Phone</label><input id=m_phone value="${esc(meta.phone||"")}"></div>
+    <div class=field><label>Industry</label><input id=m_industry value="${esc(meta.industry||"")}"></div>
+    <div class=field><label>Location</label><input id=m_location value="${esc(meta.location||"")}"></div>
+    <div class=field><label>Description / sales notes</label><textarea id=m_description rows=5>${esc(meta.description||"")}</textarea></div>
+  `;
+}
+const esc=s=>String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function switchMode(m){
+  if(m===current.mode)return;
+  if(!current.lead)return;
+  if(m==="meta")openMeta(current.lead);
+  else{
+    const f=leads[current.lead]?.find(x=>x.path.endsWith("index.html"));
+    if(f)openFile(f.path,f.sha,current.lead);
+  }
+}
 
 async function save(){
-  if(!curPath)return;
-  const btn=document.getElementById("saveBtn");
-  btn.innerHTML='<span class=spinner></span> Saving';btn.disabled=true;
+  if(!current.path)return;
+  const btn=$("saveBtn");btn.innerHTML='<span class=spinner></span> Saving';btn.disabled=true;
   try{
-    const d=await api("save",{method:"POST",body:JSON.stringify({path:curPath,sha:curSha,content:editor.getValue()})});
-    curSha=d.sha;
+    let content;
+    if(current.mode==="meta"){
+      const meta={name:$("m_name").value,website:$("m_website").value,contact:$("m_contact").value,email:$("m_email").value,phone:$("m_phone").value,industry:$("m_industry").value,location:$("m_location").value,description:$("m_description").value};
+      content=JSON.stringify(meta,null,2);
+    }else{
+      content=editor.getValue();
+    }
+    const d=await api("save",{method:"POST",body:JSON.stringify({path:current.path,sha:current.sha,content})});
+    current.sha=d.sha;
     toast("Saved → Vercel deploying","ok");
-    setTimeout(reloadPreview,2500);
+    if(current.mode==="html")setTimeout(reloadPreview,2500);
   }catch(e){toast("Save failed: "+e.message,"err")}
   btn.innerHTML="Save";btn.disabled=false;
 }
 
-function copyShareLink(){if(!curPath)return;const url=location.origin+"/"+curPath.replace(/index\.html$/,"");navigator.clipboard.writeText(url);toast("Copied: "+url,"ok")}
+function copyShareLink(){
+  if(!current.path)return;
+  const url=location.origin+"/"+current.path.replace(/\/index\.html$/,"/");
+  navigator.clipboard.writeText(url);toast("Link copied","ok");
+}
+function reloadPreview(){if(current.path&&current.mode==="html")$("preview").src="/"+current.path+"?t="+Date.now()}
 
-async function deleteFile(path,sha){if(!confirm("Delete "+path+"?"))return;try{await api("delete",{method:"POST",body:JSON.stringify({path,sha})});toast("Deleted","ok");loadList()}catch(e){toast("Delete failed: "+e.message,"err")}}
-async function deleteLead(lead){if(!confirm("Delete ENTIRE lead folder sample/"+lead+"? This removes all files."))return;try{const toDelete=files.filter(f=>f.path.startsWith(`sample/${lead}/`));for(const f of toDelete){await api("delete",{method:"POST",body:JSON.stringify({path:f.path,sha:f.sha})})}toast("Lead deleted","ok");loadList()}catch(e){toast("Delete failed: "+e.message,"err")}}
-
-function openNewLead(){document.getElementById("newLeadModal").classList.add("show");document.getElementById("newLeadName").value="";document.getElementById("newLeadSlug").value="";setTimeout(()=>document.getElementById("newLeadName").focus(),50)}
-function closeNewLead(){document.getElementById("newLeadModal").classList.remove("show")}
-document.addEventListener("input",e=>{if(e.target.id==="newLeadName"){document.getElementById("newLeadSlug").value=e.target.value.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}})
-async function createLead(){
-  const slug=document.getElementById("newLeadSlug").value;
-  const name=document.getElementById("newLeadName").value;
-  if(!slug)return toast("Enter company name","err");
-  const btn=document.getElementById("createBtn");
-  btn.innerHTML='<span class=spinner></span> Creating';btn.disabled=true;
+async function deleteFile(path,sha){
+  if(!confirm(`Delete ${path}?`))return;
+  try{await api("delete",{method:"POST",body:JSON.stringify({path,sha})});toast("Deleted","ok");loadList()}
+  catch(e){toast("Delete failed: "+e.message,"err")}
+}
+async function deleteLead(lead){
+  if(!confirm(`Delete ENTIRE lead "${prettyName(lead)}" and all its files?`))return;
   try{
-    const starter=`<!doctype html><html lang=en><head><meta charset=utf-8><title>${name} - MeltWeb Sample</title><meta name=viewport content="width=device-width,initial-scale=1"><style>body{font:16px system-ui;padding:60px 20px;max-width:720px;margin:auto;color:#0F172A;line-height:1.6}h1{font-size:32px;margin-bottom:12px}p{color:#475569}</style></head><body><h1>${name}</h1><p>Sample landing built by MeltWeb. Edit this file in the admin portal.</p></body></html>`;
-    await api("save",{method:"POST",body:JSON.stringify({path:`sample/${slug}/v1/index.html`,content:starter})});
-    await api("save",{method:"POST",body:JSON.stringify({path:`sample/${slug}/v2/index.html`,content:starter.replace("v1","v2")})});
-    toast("Lead created","ok");closeNewLead();loadList();
-  }catch(e){toast("Create failed: "+e.message,"err")}
-  btn.innerHTML="Create";btn.disabled=false;
+    const toDelete=files.filter(f=>f.path.startsWith(`sample/${lead}/`));
+    for(const f of toDelete)await api("delete",{method:"POST",body:JSON.stringify({path:f.path,sha:f.sha})});
+    toast("Lead deleted","ok");loadList();
+  }catch(e){toast("Delete failed: "+e.message,"err")}
 }
 
-function openUpload(targetPath){uploadTargetPath=targetPath;document.getElementById("uploadTarget").textContent=targetPath;document.getElementById("uploadList").innerHTML="";document.getElementById("uploadModal").classList.add("show")}
-function closeUpload(){document.getElementById("uploadModal").classList.remove("show")}
+function openNewLead(){$("newLeadModal").classList.add("show");["nl_name","nl_slug","nl_site","nl_email"].forEach(id=>$(id).value="");setTimeout(()=>$("nl_name").focus(),50)}
+function closeNewLead(){$("newLeadModal").classList.remove("show")}
+function updateSlug(){$("nl_slug").value=$("nl_name").value.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
+
+async function createLead(){
+  const name=$("nl_name").value.trim();
+  const slug=$("nl_slug").value;
+  if(!slug)return toast("Enter company name","err");
+  const btn=$("createBtn");btn.innerHTML='<span class=spinner></span> Creating';btn.disabled=true;
+  try{
+    const starter=v=>`<!doctype html><html lang=en><head><meta charset=utf-8><title>${name} - MeltWeb ${v}</title><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{--ink:#0F172A;--accent:#2563EB}*{box-sizing:border-box;margin:0}body{font:16px/1.6 system-ui;color:var(--ink);padding:80px 20px;max-width:760px;margin:auto}h1{font-size:40px;font-weight:800;margin-bottom:16px;letter-spacing:-.02em}p{color:#475569;margin-bottom:24px}.btn{display:inline-block;background:var(--accent);color:#fff;padding:14px 28px;border-radius:10px;font-weight:600;text-decoration:none}.tag{display:inline-block;background:#EFF6FF;color:var(--accent);padding:4px 10px;border-radius:20px;font-size:12px;font-weight:600;margin-bottom:16px}</style></head><body><div class=tag>${v.toUpperCase()} · Sample</div><h1>${name}</h1><p>Starter MeltWeb sample. Edit this file in the admin portal to customize the design.</p><a class=btn href="#">Book a call →</a></body></html>`;
+    const meta={name,website:$("nl_site").value,email:$("nl_email").value,contact:"",phone:"",industry:"",location:"",description:""};
+    await api("save",{method:"POST",body:JSON.stringify({path:`sample/${slug}/v1/index.html`,content:starter("v1")})});
+    await api("save",{method:"POST",body:JSON.stringify({path:`sample/${slug}/v2/index.html`,content:starter("v2")})});
+    await api("save",{method:"POST",body:JSON.stringify({path:`sample/${slug}/meta.json`,content:JSON.stringify(meta,null,2)})});
+    toast("Lead created","ok");closeNewLead();loadList();
+  }catch(e){toast("Create failed: "+e.message,"err")}
+  btn.innerHTML="Create lead";btn.disabled=false;
+}
+
+let uploadTarget="";
+function openUpload(t){uploadTarget=t;$("uploadTarget").textContent=t;$("uploadList").innerHTML="";$("uploadModal").classList.add("show")}
+function closeUpload(){$("uploadModal").classList.remove("show")}
 function handleDrop(e){e.preventDefault();e.target.classList.remove("drag");handleFiles(e.dataTransfer.files)}
-async function handleFiles(fileList){
-  const list=document.getElementById("uploadList");
-  for(const f of fileList){
-    const row=document.createElement("div");row.style.padding="4px 0";row.innerHTML=`<span class=spinner></span> ${f.name}`;list.appendChild(row);
+async function handleFiles(fl){
+  const list=$("uploadList");
+  for(const f of fl){
+    const row=document.createElement("div");
+    row.style.cssText="padding:6px 0;display:flex;align-items:center;gap:8px";
+    row.innerHTML=`<span class=spinner></span> <span>${f.name}</span> <span style=color:var(--muted)>${(f.size/1024).toFixed(0)}KB</span>`;
+    list.appendChild(row);
     try{
       const buf=await f.arrayBuffer();
       const b64=btoa(new Uint8Array(buf).reduce((s,b)=>s+String.fromCharCode(b),""));
-      await api("upload",{method:"POST",body:JSON.stringify({path:`${uploadTargetPath}/${f.name}`,contentBase64:b64})});
-      row.innerHTML=`✓ ${f.name}`;
-    }catch(e){row.innerHTML=`✗ ${f.name} - ${e.message}`}
+      await api("upload",{method:"POST",body:JSON.stringify({path:`${uploadTarget}/${f.name}`,contentBase64:b64})});
+      row.innerHTML=`<span style=color:var(--ok)>✓</span> <span>${f.name}</span>`;
+    }catch(e){row.innerHTML=`<span style=color:var(--err)>✗</span> <span>${f.name}</span> <span style=color:var(--err);font-size:11px>${e.message}</span>`}
   }
   loadList();
 }
@@ -305,11 +443,11 @@ async function handleFiles(fileList){
 function initEditor(){
   require.config({paths:{vs:"https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs"}});
   require(["vs/editor/editor.main"],()=>{
-    editor=monaco.editor.create(document.getElementById("editor"),{value:"<!-- Select a file from sidebar to edit -->",language:"html",theme:"vs-light",automaticLayout:true,minimap:{enabled:false},fontSize:13,wordWrap:"on",scrollBeyondLastLine:false,padding:{top:12}});
+    editor=monaco.editor.create($("editor"),{value:"",language:"html",theme:"vs",automaticLayout:true,minimap:{enabled:false},fontSize:13,wordWrap:"on",scrollBeyondLastLine:false,padding:{top:14},lineNumbersMinChars:3,renderLineHighlight:"all"});
     loadList();
   });
 }
 
-if(pw())show();
+if(pw())showApp();
 </script>
 </body></html>
