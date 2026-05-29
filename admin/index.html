@@ -18,7 +18,8 @@ html,body{font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased
 .chev{transition:transform .15s ease}
 .chev.open{transform:rotate(90deg)}
 .row-line{box-shadow:inset 2px 0 0 transparent;transition:background-color .08s}
-.row-line.active{box-shadow:inset 2px 0 0 #2563EB;background-color:rgba(37,99,235,.06)}
+.row-line.active{box-shadow:inset 2px 0 0 #2563EB;background-color:rgba(37,99,235,.08)}
+[data-meta].row-line.active{background-color:rgb(199 210 254);box-shadow:inset 2px 0 0 #4F46E5}
 .scrollbar{scrollbar-width:thin;scrollbar-color:#D1D5DB transparent}
 .scrollbar::-webkit-scrollbar{width:8px;height:8px}
 .scrollbar::-webkit-scrollbar-thumb{background:#D1D5DB;border-radius:4px}
@@ -37,8 +38,7 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
 <div id=login class="min-h-screen grid place-items-center p-5 bg-surface-2">
   <div class="w-full max-w-sm bg-white border border-line rounded-2xl p-9">
     <div class="flex items-center gap-2.5 mb-6 pb-5 border-b border-line">
-      <div class="w-8 h-8 bg-ink text-white rounded-lg grid place-items-center font-bold text-sm">M</div>
-      <div class="font-semibold text-[15px]">MeltWeb</div>
+      <img src="/assets/meltweb-logo.png" alt=MeltWeb class="h-7 w-auto">
     </div>
     <h1 class="text-xl font-semibold mb-1 tracking-tight">Sign in</h1>
     <p class="text-gray-500 text-[13px] mb-6">Enter password to manage lead samples</p>
@@ -54,8 +54,7 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
   <header class="flex items-center justify-between px-5 h-13 bg-white border-b border-line shrink-0" style="height:52px">
     <div class="flex items-center gap-6">
       <div class="flex items-center gap-2 font-semibold text-[13px]">
-        <div class="w-6 h-6 bg-ink text-white rounded-md grid place-items-center text-[11px] font-bold">M</div>
-        MeltWeb
+        <img src="/assets/meltweb-logo.png" alt=MeltWeb class="h-5 w-auto">
       </div>
       <div id=crumbs class="text-xs text-gray-500">Lead Portal</div>
     </div>
@@ -267,11 +266,10 @@ function renderList(){
           <button onclick="event.stopPropagation();delLead('${lead}')" class="px-2 py-1 text-[10.5px] font-medium text-gray-500 bg-surface-2 border border-line hover:text-red-600 hover:bg-red-50 hover:border-red-300 rounded flex items-center gap-1 transition">${ICONS.trash}</button>
         </div>
       </div>
-      <div onclick="openMeta('${lead}')" data-meta="${lead}" class="row-line cursor-pointer flex items-center py-1.5 px-3 hover:bg-surface-2 text-[12.5px] text-ink-2">
-        <div class="flex items-center gap-2 flex-1 min-w-0 pl-5">
-          <span class="text-indigo-500 shrink-0">${ICONS.info}</span>
-          <span class="font-medium">Lead info</span>
-        </div>
+      <div onclick="openMeta('${lead}')" data-meta="${lead}" class="row-line cursor-pointer flex items-center gap-2 py-2 px-3 mx-2 my-1 bg-indigo-50 hover:bg-indigo-100 rounded-md text-[12.5px] text-indigo-900 border border-indigo-200/60 transition">
+        <span class="w-5 h-5 rounded bg-indigo-500 text-white grid place-items-center text-[11px] font-bold shrink-0">i</span>
+        <span class="font-semibold flex-1">Lead info</span>
+        <span class="text-[10px] text-indigo-500 opacity-0 group-hover:opacity-100">EDIT →</span>
       </div>`;
     html+=renderTree(lead,allFiles);
     html+=`</div>`;
