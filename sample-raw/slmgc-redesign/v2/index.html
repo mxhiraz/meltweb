@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SLM General Contractors & Roofing — Protecting What Matters Most in North Dallas</title>
+<meta name="description" content="Family-owned general contractor and GAF-certified roofer serving 27 Texas cities since 2010. Roofing, remodeling, electrical, and storm damage repair." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="icon" href="assets/logo.png" />
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#f6f1e8;
+    --bg-paper:#faf6ee;
+    --bg-cream:#efe7d6;
+    --ink:#2a2620;
+    --ink-soft:#5a5247;
+    --muted:#8a7f6f;
+    --line:#d8cdb6;
+    --accent:#7d6b3a;
+    --accent-dark:#5c4f2a;
+    --gold:#a78a3f;
+  }
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    font-size:15.5px;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{max-width:1240px;margin:0 auto;padding:0 28px}
+  .serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:-0.005em}
+  .eyebrow{
+    font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--accent);font-weight:600;display:inline-block
+  }
+
+  /* Top nav (over hero) */
+  .topnav{
+    position:absolute;top:0;left:0;right:0;z-index:30;
+    padding:28px 40px;display:flex;justify-content:space-between;align-items:center;
+    color:#fff;
+  }
+  .topnav-left,.topnav-right{display:flex;align-items:center;gap:32px;flex:1}
+  .topnav-right{justify-content:flex-end}
+  .topnav button.menu,.topnav a.shop,.topnav a.book{
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+    background:none;border:0;color:#fff;cursor:pointer;display:inline-flex;align-items:center;gap:10px
+  }
+  .topnav button.menu::before{content:"";width:20px;height:2px;background:#fff;box-shadow:0 6px 0 #fff,0 -6px 0 #fff;display:inline-block;margin-right:4px}
+  .topnav a.book{
+    border:1px solid rgba(255,255,255,.85);padding:13px 22px;transition:.3s;
+  }
+  .topnav a.book:hover{background:#fff;color:var(--ink)}
+  .topnav a.book::after{content:"→"}
+  .topnav-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center}
+  .topnav-logo img{height:62px;filter:brightness(0) invert(1);margin:0 auto}
+  .topnav-logo small{display:block;font-size:9px;letter-spacing:.34em;color:#fff;margin-top:6px;font-weight:600}
+
+  /* Hero: 3 panels with labels */
+  .hero{
+    position:relative;height:92vh;min-height:640px;
+    background:url('assets/home4.jpg') center/cover no-repeat;
+  }
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,15,8,.55) 0%,rgba(20,15,8,.35) 40%,rgba(20,15,8,.7) 100%)}
+  .hero-panels{position:absolute;inset:0;display:flex;z-index:2}
+  .hero-panel{
+    flex:1;display:flex;align-items:center;justify-content:center;color:#fff;
+    border-right:1px solid rgba(255,255,255,.15);position:relative;transition:.4s;
+    cursor:pointer;
+  }
+  .hero-panel:last-child{border-right:0}
+  .hero-panel:hover{background:rgba(0,0,0,.18)}
+  .hero-panel h2{
+    font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4.6vw,64px);font-weight:500;
+    letter-spacing:.01em;text-shadow:0 2px 24px rgba(0,0,0,.35);
+    display:flex;flex-direction:column;align-items:center;gap:14px
+  }
+  .hero-panel h2 small{font-size:11px;letter-spacing:.36em;text-transform:uppercase;font-family:'Inter',sans-serif;opacity:.85;font-weight:500}
+  .hero-panel h2::after{
+    content:"";width:0;height:1px;background:#fff;transition:width .4s ease;
+  }
+  .hero-panel:hover h2::after{width:60px}
+
+  /* Welcome paragraph */
+  .welcome{padding:120px 0 100px;background:var(--bg-paper);text-align:center}
+  .ornament{
+    width:30px;height:30px;margin:0 auto 38px;color:var(--gold);
+  }
+  .welcome p{
+    max-width:660px;margin:0 auto;font-family:'Cormorant Garamond',serif;
+    font-size:21px;line-height:1.7;color:var(--ink);font-style:italic;font-weight:400
+  }
+  .welcome p b{font-style:normal;font-weight:600;color:var(--accent-dark)}
+
+  /* Two-column section: tab list + image */
+  .section{padding:90px 0}
+  .section.alt{background:var(--bg-paper)}
+  .two-col{display:grid;grid-template-columns:0.85fr 1fr;gap:90px;align-items:center}
+  .two-col-flip{grid-template-columns:1fr 0.85fr}
+  .two-col-flip .col-text{order:2}
+  .two-col-flip .col-img{order:1}
+  .col-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4.3vw,54px);line-height:1.05;color:var(--ink);margin:14px 0 32px;font-weight:500}
+  .col-text h2 em{font-style:italic;color:var(--accent)}
+  .col-text > p{color:var(--ink-soft);margin-bottom:22px;max-width:480px}
+  .tab-list{list-style:none;margin:24px 0 36px;border-top:1px solid var(--line)}
+  .tab-list li{
+    padding:18px 4px;border-bottom:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;cursor:pointer;
+    transition:.25s;font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ink)
+  }
+  .tab-list li:hover,.tab-list li.active{color:var(--accent);padding-left:8px}
+  .tab-list li::after{content:"→";color:var(--accent);opacity:0;transition:.25s;font-family:'Inter',sans-serif;font-size:16px}
+  .tab-list li:hover::after,.tab-list li.active::after{opacity:1}
+  .btn-out{
+    display:inline-flex;align-items:center;gap:14px;border:1px solid var(--ink);color:var(--ink);
+    padding:18px 36px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;transition:.3s;
+  }
+  .btn-out:hover{background:var(--ink);color:#fff}
+  .col-img{position:relative}
+  .col-img .frame{position:absolute;top:24px;left:24px;right:-24px;bottom:-24px;background:var(--bg-cream);z-index:0}
+  .col-img img{position:relative;z-index:1;width:100%;height:560px;object-fit:cover}
+
+  /* 3 image cards row */
+  .triple{padding:0;background:var(--bg)}
+  .triple-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  .triple-card{
+    position:relative;height:460px;display:grid;place-items:center;color:#fff;
+    overflow:hidden;cursor:pointer;
+  }
+  .triple-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease;filter:brightness(.7)}
+  .triple-card:hover img{transform:scale(1.06);filter:brightness(.6)}
+  .triple-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.5) 100%)}
+  .triple-content{position:relative;z-index:2;text-align:center;padding:20px}
+  .triple-content h3{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:500;margin-bottom:18px;line-height:1}
+  .triple-learn{
+    display:inline-block;border:1px solid #fff;padding:11px 26px;font-size:10px;letter-spacing:.28em;
+    text-transform:uppercase;font-weight:600;color:#fff;transition:.3s;
+  }
+  .triple-learn:hover{background:#fff;color:var(--ink)}
+
+  /* About / dining-style two-col */
+  .about-section{padding:100px 0;background:var(--bg-paper)}
+  .col-img-overlap{position:relative}
+  .col-img-overlap img{height:540px;width:100%;object-fit:cover}
+  .col-img-overlap .badge{
+    position:absolute;bottom:-30px;right:-30px;background:var(--accent-dark);color:#fff;
+    padding:30px 36px;width:200px;text-align:center;
+  }
+  .col-img-overlap .badge b{display:block;font-family:'Cormorant Garamond',serif;font-size:54px;line-height:1;font-weight:500}
+  .col-img-overlap .badge span{font-size:10px;letter-spacing:.28em;text-transform:uppercase;display:block;margin-top:6px;opacity:.9}
+
+  /* Stats row */
+  .stats{background:var(--bg-cream);padding:80px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+  .stats-grid .stat b{font-family:'Cormorant Garamond',serif;font-size:60px;color:var(--accent-dark);line-height:1;display:block;font-weight:500}
+  .stats-grid .stat span{display:block;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-top:14px;font-weight:600}
+
+  /* Why choose / values */
+  .values{padding:110px 0;background:var(--bg)}
+  .values-head{text-align:center;max-width:680px;margin:0 auto 70px}
+  .values-head h2{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4.2vw,52px);color:var(--ink);margin-top:14px;line-height:1.1;font-weight:500}
+  .values-head h2 em{font-style:italic;color:var(--accent)}
+  .values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px}
+  .val{text-align:center;padding:0 14px}
+  .val-ico{width:64px;height:64px;border:1px solid var(--accent);border-radius:50%;display:grid;place-items:center;margin:0 auto 22px;color:var(--accent)}
+  .val-ico svg{width:26px;height:26px}
+  .val h4{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ink);font-weight:600;margin-bottom:12px}
+  .val p{color:var(--ink-soft);font-size:14px;line-height:1.8}
+
+  /* Testimonials */
+  .testimonials{padding:120px 0;background:var(--bg-cream);position:relative}
+  .test-wrap{max-width:880px;margin:0 auto;text-align:center}
+  .test-wrap .ornament{margin-bottom:30px}
+  .test-quote{
+    font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.6vw,34px);line-height:1.5;
+    color:var(--ink);font-style:italic;font-weight:400;margin-bottom:40px
+  }
+  .test-meta{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .test-meta b{color:var(--accent-dark);font-weight:700}
+  .test-dots{display:flex;gap:8px;justify-content:center;margin-top:40px}
+  .test-dots span{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer;transition:.25s}
+  .test-dots span.active{background:var(--accent);width:24px;border-radius:4px}
+
+  /* Ratings strip */
+  .ratings-band{background:var(--bg-paper);padding:60px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .ratings-band-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;align-items:center;text-align:center}
+  .rating-item{padding:0 20px;border-right:1px solid var(--line)}
+  .rating-item:last-child{border-right:0}
+  .rating-item .stars{color:var(--gold);letter-spacing:3px;font-size:16px;margin-bottom:6px}
+  .rating-item b{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--ink);display:block;font-weight:600}
+  .rating-item span{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+  /* Service areas */
+  .areas{padding:100px 0;background:var(--bg)}
+  .areas-head{text-align:center;max-width:600px;margin:0 auto 60px}
+  .areas-head h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,48px);margin-top:14px;line-height:1.1;font-weight:500;color:var(--ink)}
+  .areas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+  .areas-grid a{background:var(--bg-paper);padding:18px 22px;font-size:14px;color:var(--ink-soft);transition:.25s;text-align:center;letter-spacing:.02em;font-family:'Cormorant Garamond',serif;font-size:18px}
+  .areas-grid a:hover{background:var(--accent-dark);color:#fff}
+
+  /* CTA */
+  .cta{
+    position:relative;padding:130px 0;
+    background:linear-gradient(rgba(20,15,8,.55),rgba(20,15,8,.65)),url('assets/home3.jpg') center/cover no-repeat;
+    text-align:center;color:#fff;
+  }
+  .cta .ornament{color:#fff;margin-bottom:30px}
+  .cta h2{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4.4vw,58px);max-width:720px;margin:0 auto 22px;line-height:1.1;font-weight:500}
+  .cta h2 em{font-style:italic;color:#e7d49b}
+  .cta p{max-width:560px;margin:0 auto 38px;color:#e2dccf;font-size:16px;line-height:1.8}
+  .cta-actions{display:inline-flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .cta .btn-light{
+    background:#fff;color:var(--ink);padding:18px 36px;font-size:11px;letter-spacing:.24em;
+    text-transform:uppercase;font-weight:600;transition:.3s;display:inline-flex;align-items:center;gap:14px;
+  }
+  .cta .btn-light:hover{background:var(--accent);color:#fff}
+  .cta .btn-light::after{content:"→"}
+  .cta .btn-ghost{
+    border:1px solid #fff;color:#fff;padding:18px 36px;font-size:11px;letter-spacing:.24em;
+    text-transform:uppercase;font-weight:600;transition:.3s
+  }
+  .cta .btn-ghost:hover{background:#fff;color:var(--ink)}
+
+  /* Footer */
+  footer{background:#1f1a14;color:#c8bfae;padding:90px 0 0}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:60px;padding-bottom:60px}
+  .foot-brand img{height:64px;filter:brightness(0) invert(1);margin-bottom:24px}
+  .foot-brand p{font-size:14px;line-height:1.85;margin-bottom:28px;max-width:380px;color:#a89e8a}
+  .foot-socials{display:flex;gap:10px}
+  .foot-socials a{width:38px;height:38px;border:1px solid #3d362a;border-radius:50%;display:grid;place-items:center;color:#a89e8a;transition:.25s;font-size:13px}
+  .foot-socials a:hover{background:var(--gold);border-color:var(--gold);color:#1f1a14}
+  .foot-col h5{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#fff;margin-bottom:22px;font-weight:600}
+  .foot-col ul{list-style:none}
+  .foot-col li{margin-bottom:11px}
+  .foot-col a{color:#a89e8a;font-size:14px;transition:.2s;font-family:'Cormorant Garamond',serif;font-size:17px}
+  .foot-col a:hover{color:#fff}
+  .foot-contact div{margin-bottom:18px;color:#a89e8a;font-size:14px;line-height:1.7;font-family:'Cormorant Garamond',serif;font-size:17px}
+  .foot-contact b{display:block;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#fff;margin-bottom:6px;font-family:'Inter',sans-serif;font-weight:600}
+  .foot-bottom{padding:24px 0;border-top:1px solid #3d362a;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#7a7060}
+  .foot-bottom a{color:#7a7060;margin-left:20px}
+  .foot-bottom a:hover{color:#fff}
+
+  /* Responsive */
+  @media (max-width:1024px){
+    .two-col{grid-template-columns:1fr;gap:60px}
+    .two-col-flip .col-text{order:1}
+    .two-col-flip .col-img{order:2}
+    .col-img img,.col-img-overlap img{height:440px}
+    .triple-grid{grid-template-columns:1fr}
+    .triple-card{height:340px}
+    .stats-grid{grid-template-columns:1fr 1fr;gap:40px 20px}
+    .values-grid{grid-template-columns:1fr 1fr;gap:40px}
+    .ratings-band-grid{grid-template-columns:1fr 1fr;gap:24px}
+    .rating-item{border-right:0}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:46px}
+  }
+  @media (max-width:768px){
+    .topnav{padding:18px 22px}
+    .topnav-left,.topnav-right{flex:initial;gap:14px}
+    .topnav-left a:not(.menu),.topnav-right a.shop{display:none}
+    .topnav-logo img{height:48px}
+    .topnav-logo small{font-size:8px;letter-spacing:.28em}
+    .hero{height:auto;min-height:auto}
+    .hero-panels{position:relative;flex-direction:column;height:auto}
+    .hero-panel{height:240px;border-right:0;border-bottom:1px solid rgba(255,255,255,.15)}
+    .welcome{padding:80px 0 70px}
+    .welcome p{font-size:18px}
+    .section{padding:70px 0}
+    .col-img .frame{display:none}
+    .col-img-overlap .badge{position:relative;bottom:auto;right:auto;margin:24px auto 0}
+    .stats-grid{grid-template-columns:1fr 1fr}
+    .values-grid{grid-template-columns:1fr;gap:36px}
+    .areas-grid{grid-template-columns:1fr 1fr}
+    .foot-grid{grid-template-columns:1fr;gap:40px}
+    .test-quote{font-size:22px}
+    .ratings-band-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:480px){
+    .stats-grid{grid-template-columns:1fr}
+    .ratings-band-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero with overlay nav -->
+<section class="hero">
+  <header class="topnav">
+    <div class="topnav-left">
+      <button class="menu" onclick="alert('Menu')">Menu</button>
+      <a href="tel:+14698442300">(469) 844-2300</a>
+    </div>
+    <div class="topnav-logo">
+      <img src="assets/logo.png" alt="SLM General Contractors & Roofing" />
+      <small>Since 2010</small>
+    </div>
+    <div class="topnav-right">
+      <a href="#testimonials" class="shop">Reviews</a>
+      <a href="#contact" class="book">Get a Quote</a>
+    </div>
+  </header>
+
+  <div class="hero-panels">
+    <a href="#roofing" class="hero-panel">
+      <h2>Roof<small>Repair · Replace · Inspect</small></h2>
+    </a>
+    <a href="#remodel" class="hero-panel">
+      <h2>Remodel<small>Kitchen · Bath · Additions</small></h2>
+    </a>
+    <a href="#contract" class="hero-panel">
+      <h2>Build<small>Contracting · Electrical · Floors</small></h2>
+    </a>
+  </div>
+</section>
+
+<!-- Welcome -->
+<section class="welcome">
+  <svg class="ornament" viewBox="0 0 30 30" fill="currentColor">
+    <path d="M15 2c1 4 3 6 7 7-4 1-6 3-7 7-1-4-3-6-7-7 4-1 6-3 7-7z"/>
+    <circle cx="15" cy="24" r="1.5"/>
+  </svg>
+  <p>Welcome to <b>SLM General Contractors & Roofing</b>. Family-owned in McKinney since 2010, we've built a reputation across North Dallas for delivering high-quality roofing, remodeling, and contracting at honest, affordable rates. Whether you're recovering from a Texas storm or designing a dream remodel, our HAAG-certified team is here to <b>protect what matters the most</b>.</p>
+</section>
+
+<!-- Stay options / services tab -->
+<section class="section" id="roofing">
+  <div class="container">
+    <div class="two-col">
+      <div class="col-text">
+        <span class="eyebrow">Service Options</span>
+        <h2>Pick the right <em>roof</em> for the next 25 years</h2>
+        <p>From a single shingle replacement to a full commercial reconstruction — every roof we touch carries the GAF-certified guarantee and a workmanship warranty backed by 15 years on the ground in North Texas.</p>
+        <ul class="tab-list">
+          <li class="active">Residential Roofing<small>+</small></li>
+          <li>Commercial Roofing</li>
+          <li>New Roof Installation</li>
+          <li>Roof Leak Repair</li>
+          <li>Wind, Hail & Storm Damage</li>
+          <li>Roofing Additions</li>
+        </ul>
+        <a href="#contact" class="btn-out">Free Inspection</a>
+      </div>
+      <div class="col-img">
+        <span class="frame"></span>
+        <img src="assets/roof4.jpg" alt="GAF residential roofing project" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3-card collection (services) -->
+<section class="triple">
+  <div class="triple-grid">
+    <a class="triple-card">
+      <img src="assets/card1.jpg" alt="Storm damage" />
+      <div class="triple-content">
+        <h3>Storm Damage</h3>
+        <span class="triple-learn">Learn More</span>
+      </div>
+    </a>
+    <a class="triple-card">
+      <img src="assets/card2.jpg" alt="Kitchen remodel" />
+      <div class="triple-content">
+        <h3>Kitchen & Bath</h3>
+        <span class="triple-learn">Learn More</span>
+      </div>
+    </a>
+    <a class="triple-card">
+      <img src="assets/card3.jpg" alt="Home additions" />
+      <div class="triple-content">
+        <h3>Home Additions</h3>
+        <span class="triple-learn">Learn More</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- About / Dining-style section -->
+<section class="about-section" id="remodel">
+  <div class="container">
+    <div class="two-col two-col-flip">
+      <div class="col-text">
+        <span class="eyebrow">Who We Are</span>
+        <h2>Craftsmanship rooted in <em>North Texas</em></h2>
+        <p>SLM General Contractors & Roofing was founded by Sergio Maldonado, a HAAG Certified Inspector and GAF Certified Installer who built this company on one principle — treat every home as if it were your own.</p>
+        <p>Today, our crews handle everything from emergency leak repairs to full kitchen remodels, electrical contracting, and commercial reconstruction. We're a Better Business Bureau member, a Best of Houzz winner in 2017 and 2018, and a proud partner of the North Texas Roofing Contractors Association.</p>
+        <a href="#contact" class="btn-out" style="margin-top:14px">Our Story</a>
+      </div>
+      <div class="col-img col-img-overlap">
+        <img src="assets/roof5.jpg" alt="Sergio Maldonado, founder" />
+        <div class="badge">
+          <b>15+</b>
+          <span>Years of Service</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats band -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat"><b>27</b><span>Cities Served</span></div>
+      <div class="stat"><b>1500+</b><span>Roofs Installed</span></div>
+      <div class="stat"><b>4.9★</b><span>Google Rating</span></div>
+      <div class="stat"><b>2x</b><span>Best of Houzz</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="values">
+  <div class="container">
+    <div class="values-head">
+      <span class="eyebrow">Why Choose SLM</span>
+      <h2>An extremely high standard of <em>customer satisfaction</em></h2>
+    </div>
+    <div class="values-grid">
+      <div class="val">
+        <div class="val-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h4>Full Service</h4>
+        <p>We handle every aspect of your project, from removing the old to delivering the new — no subcontractor chaos.</p>
+      </div>
+      <div class="val">
+        <div class="val-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg></div>
+        <h4>Deliver Value</h4>
+        <p>Value means many things to different people. We pledge to always provide optimal value for each and every client.</p>
+      </div>
+      <div class="val">
+        <div class="val-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h4>Partners</h4>
+        <p>We view our stakeholders as partners in our ultimate mission — to make beautiful, lasting work that endures.</p>
+      </div>
+      <div class="val">
+        <div class="val-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4>Integrity</h4>
+        <p>Relationships drive business forward. Integrity forms the bedrock of every relationship we build — clients, crews, and partners.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonial editorial -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="test-wrap">
+      <svg class="ornament" viewBox="0 0 30 30" fill="var(--gold)">
+        <path d="M15 2c1 4 3 6 7 7-4 1-6 3-7 7-1-4-3-6-7-7 4-1 6-3 7-7z"/>
+      </svg>
+      <span class="eyebrow">Client Stories</span>
+      <p class="test-quote" style="margin-top:24px">"SLM Contractors did an outstanding job on a horrible leak. Sergio was kind and extremely helpful from the first inspection to the final clean-up. We've recommended them to half the neighborhood."</p>
+      <div class="test-meta"><b>Judy Sinclair</b> &nbsp;·&nbsp; Google Maps Review</div>
+      <div class="test-dots"><span></span><span class="active"></span><span></span><span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Ratings band -->
+<section class="ratings-band">
+  <div class="container">
+    <div class="ratings-band-grid">
+      <div class="rating-item"><div class="stars">★★★★★</div><b>4.9 / 5</b><span>Google</span></div>
+      <div class="rating-item"><div class="stars">★★★★☆</div><b>4.3 / 5</b><span>Yelp</span></div>
+      <div class="rating-item"><div class="stars">★★★★★</div><b>5.0 / 5</b><span>Facebook</span></div>
+      <div class="rating-item"><div class="stars">★★★★★</div><b>Best of</b><span>Houzz 2017·2018</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Process / two-col -->
+<section class="section alt" id="contract">
+  <div class="container">
+    <div class="two-col">
+      <div class="col-text">
+        <span class="eyebrow">Our Process</span>
+        <h2>Done in <em>1–2 days</em>, clean as the day you bought it</h2>
+        <p>Most residential roofs are completed in a single day or two. We pull every required permit, coordinate directly with your insurance for storm claims, and clean the site spotless — so you only experience the result, not the disruption.</p>
+        <ul class="tab-list">
+          <li class="active">Free Inspection & Diagnosis</li>
+          <li>Transparent Line-Item Estimate</li>
+          <li>Insurance Claim Assistance</li>
+          <li>GAF-Certified Installation</li>
+          <li>Final Walkthrough & Cleanup</li>
+        </ul>
+        <a href="tel:+14698442300" class="btn-out">Call (469) 844-2300</a>
+      </div>
+      <div class="col-img">
+        <span class="frame"></span>
+        <img src="assets/home2.jpg" alt="Roofing process" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Service areas -->
+<section class="areas" id="areas">
+  <div class="container">
+    <div class="areas-head">
+      <span class="eyebrow">Service Areas</span>
+      <h2>Serving 27 cities across <em>North Texas</em></h2>
+    </div>
+    <div class="areas-grid">
+      <a>Allen</a><a>Arlington</a><a>Celina</a><a>Collin County</a><a>Coppell</a><a>Dallas</a><a>Fairview</a><a>Fort Worth</a><a>Frisco</a><a>Garland</a><a>Grapevine</a><a>Gunter</a><a>Irving</a><a>Little Elm</a><a>Lowry Crossing</a><a>McKinney</a><a>Melissa</a><a>Murphy</a><a>New Hope</a><a>North Dallas</a><a>Plano</a><a>Princeton</a><a>Prosper</a><a>Richardson</a><a>Rockwall</a><a>Weston</a><a>Wylie</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="container">
+    <svg class="ornament" viewBox="0 0 30 30" fill="currentColor">
+      <path d="M15 2c1 4 3 6 7 7-4 1-6 3-7 7-1-4-3-6-7-7 4-1 6-3 7-7z"/>
+    </svg>
+    <span class="eyebrow" style="color:#e7d49b">Get In Touch</span>
+    <h2>Talk to a real <em>licensed roofer</em> today</h2>
+    <p>Free inspections, transparent pricing, and same-day service for emergency repairs. Financing available — subject to credit approval.</p>
+    <div class="cta-actions">
+      <a href="tel:+14698442300" class="btn-light">Call (469) 844-2300</a>
+      <a href="mailto:info@slmgc.com" class="btn-ghost">Email info@slmgc.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/logo.png" alt="SLM General Contractors & Roofing" />
+        <p>Family-owned in McKinney since 2010 — top-rated GAF-certified roofer and general contractor serving North Dallas, Collin County and the DFW metroplex. Protecting what matters the most.</p>
+        <div class="foot-socials">
+          <a href="https://facebook.com/slmgeneralcontractors">f</a>
+          <a href="https://instagram.com/slmgcroof">ig</a>
+          <a>Y</a>
+          <a>H</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a>Residential Roofing</a></li>
+          <li><a>Commercial Roofing</a></li>
+          <li><a>Storm Damage</a></li>
+          <li><a>Home Remodeling</a></li>
+          <li><a>Kitchen & Bath</a></li>
+          <li><a>Electrical</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a>About Us</a></li>
+          <li><a>Latest Projects</a></li>
+          <li><a>Reviews</a></li>
+          <li><a>Referrals</a></li>
+          <li><a>Blog</a></li>
+          <li><a>FAQs</a></li>
+        </ul>
+      </div>
+      <div class="foot-col foot-contact">
+        <h5>Contact</h5>
+        <div><b>Phone</b>(469) 844-2300</div>
+        <div><b>Email</b>info@slmgc.com</div>
+        <div><b>Address</b>McKinney, TX 75069</div>
+        <div><b>Hours</b>Mon–Sat · 7 AM – 7 PM</div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 SLM General Contractors & Roofing LLC. All rights reserved.</div>
+      <div><a>Privacy Policy</a><a>Terms of Service</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const id=a.getAttribute('href');
+      if(id.length>1){
+        const el=document.querySelector(id);
+        if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth'})}
+      }
+    })
+  });
+  document.querySelectorAll('.tab-list').forEach(list=>{
+    list.querySelectorAll('li').forEach(li=>{
+      li.addEventListener('click',()=>{
+        list.querySelectorAll('li').forEach(x=>x.classList.remove('active'));
+        li.classList.add('active');
+      })
+    })
+  });
+</script>
+</body>
+</html>

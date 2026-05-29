@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>An Experience Beauty Clinic | A Holistic Approach to Skin, Melbourne CBD</title>
+<meta name="description" content="An Experience Beauty Clinic by Facialist Ashvinie — a holistic approach to skin & beauty therapy in Melbourne CBD. 30+ years of expert, results-driven care.">
+<link rel="icon" href="https://anexperiencebeautyclinic.com/wp-content/uploads/2022/11/an-experience-beauty-clinic-logO.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --espresso:#2c1c12;
+  --gold:#bf9b56;
+  --gold-deep:#a37f3c;
+  --cream:#fbf8f2;
+  --sage:#e9e2d4;        /* warm neutral panel (brand-tinted "sage") */
+  --panel:#f1ebdf;
+  --ink:#33271c;
+  --muted:#7c6e5e;
+  --line:rgba(44,28,18,.12);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Jost',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);font-weight:300;line-height:1.75;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.14}
+.wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--gold-deep);letter-spacing:.02em}
+.btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--sans);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:1.05em 2.3em;border-radius:40px;cursor:pointer;transition:.35s;border:1px solid transparent}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:var(--espresso)}
+.btn-soft{background:rgba(191,155,86,.16);color:var(--gold-deep)}
+.btn-soft:hover{background:var(--gold);color:#fff}
+.btn-ghost-light{border-color:rgba(255,255,255,.65);color:#fff}
+.btn-ghost-light:hover{background:#fff;color:var(--espresso)}
+.pad{padding:104px 0}
+.center{text-align:center}
+
+/* HEADER */
+header{position:absolute;top:0;left:0;right:0;z-index:60}
+header.solid{position:fixed;background:rgba(251,248,242,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);animation:drop .4s ease}
+@keyframes drop{from{transform:translateY(-100%)}to{transform:none}}
+.nav{display:flex;align-items:center;justify-content:space-between;height:88px}
+.logo img{height:54px;filter:brightness(0) invert(1)}
+header.solid .logo img{filter:none}
+.menu{display:flex;gap:34px;list-style:none}
+.menu a{font-size:.8rem;letter-spacing:.13em;text-transform:uppercase;color:#fff;font-weight:400;transition:.3s}
+header.solid .menu a{color:var(--espresso)}
+.menu a:hover{color:var(--gold)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
+.burger span{width:26px;height:2px;background:#fff;transition:.3s}
+header.solid .burger span{background:var(--espresso)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;position:relative;background:linear-gradient(rgba(30,20,12,.5),rgba(30,20,12,.55)),url('https://anexperiencebeautyclinic.com/wp-content/uploads/2022/11/buccal-facial.jpg') center/cover fixed}
+.hero .inner{max-width:760px;padding:120px 28px 60px}
+.hero .rate{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:22px}
+.hero .rate b{color:var(--gold)}
+.hero h1{font-size:clamp(2.8rem,7vw,5rem);font-weight:500;line-height:1.08}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero p{font-size:1.1rem;color:rgba(255,255,255,.9);margin:1.5rem auto 2.2rem;max-width:540px;font-weight:300}
+
+/* HOLISTIC two-col */
+.holistic .grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.holistic h2{font-size:clamp(2rem,4vw,2.9rem);color:var(--espresso);margin-bottom:20px}
+.holistic>.wrap>.grid>div>p.lead{color:var(--muted);margin-bottom:30px;max-width:460px}
+.points{list-style:none;margin-bottom:34px}
+.points li{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
+.points .pi{width:44px;height:44px;flex:none;border-radius:50%;background:var(--panel);display:flex;align-items:center;justify-content:center;color:var(--gold-deep)}
+.points h4{font-size:1.3rem;color:var(--espresso);margin-bottom:2px;font-weight:500}
+.points p{font-size:.9rem;color:var(--muted)}
+.holistic .pics{position:relative}
+.holistic .pics .main{width:100%;height:520px;object-fit:cover;border-radius:160px 160px 12px 12px}
+.holistic .pics .inset{position:absolute;left:-30px;bottom:40px;width:46%;height:200px;object-fit:cover;border-radius:12px;border:8px solid var(--cream);box-shadow:0 26px 50px -28px rgba(44,28,18,.5)}
+
+/* STATS */
+.stats{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats .grid{display:grid;grid-template-columns:repeat(4,1fr);text-align:center}
+.stats .s{padding:54px 18px;border-right:1px solid var(--line)}
+.stats .s:last-child{border-right:0}
+.stats .n{font-family:var(--serif);font-size:3.2rem;color:var(--gold-deep);line-height:1}
+.stats .l{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+
+/* SPECIALTY */
+.spec{background:var(--sage)}
+.spec .head{text-align:center;max-width:620px;margin:0 auto 56px}
+.spec .head h2{font-size:clamp(2rem,4vw,2.9rem);color:var(--espresso);margin-top:6px}
+.spec .layout{display:grid;grid-template-columns:1fr 1.25fr;gap:34px;align-items:stretch}
+.spec .feature{border-radius:14px;overflow:hidden;min-height:420px;background:url('https://anexperiencebeautyclinic.com/wp-content/uploads/2026/04/new-home-banner.jpg') center/cover;position:relative;display:flex;align-items:flex-end}
+.spec .feature .cap{background:linear-gradient(transparent,rgba(30,20,12,.85));color:#fff;padding:38px 30px;width:100%}
+.spec .feature .cap h3{font-size:1.7rem;color:#fff}
+.spec .feature .cap p{font-size:.9rem;color:rgba(255,255,255,.85)}
+.spec .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.scard{background:#fff;border-radius:12px;padding:30px 26px;transition:.35s}
+.scard:hover{transform:translateY(-5px);box-shadow:0 24px 44px -28px rgba(44,28,18,.4)}
+.scard.hl{background:var(--gold);color:#fff}
+.scard.hl h4,.scard.hl .ic{color:#fff}
+.scard .ic{color:var(--gold-deep);margin-bottom:16px}
+.scard h4{font-size:1.4rem;color:var(--espresso);margin-bottom:6px;font-weight:500}
+.scard p{font-size:.88rem;color:var(--muted)}
+.scard.hl p{color:rgba(255,255,255,.9)}
+.spec .more{text-align:center;margin-top:48px}
+
+/* GALLERY */
+.gallery .head{text-align:center;max-width:600px;margin:0 auto 50px}
+.gallery .head h2{font-size:clamp(2rem,4vw,2.9rem);color:var(--espresso);margin-top:6px}
+.ggrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.ggrid figure{position:relative;overflow:hidden;border-radius:12px;aspect-ratio:3/4}
+.ggrid figure.tall{grid-row:span 2;aspect-ratio:auto}
+.ggrid img{width:100%;height:100%;object-fit:cover;transition:.7s}
+.ggrid figure:hover img{transform:scale(1.08)}
+
+/* PRODUCTS strip */
+.shop{background:var(--panel)}
+.shop .head{text-align:center;max-width:600px;margin:0 auto 50px}
+.shop .head h2{font-size:clamp(2rem,4vw,2.9rem);color:var(--espresso);margin-top:6px}
+.shoprow{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.pcard{background:#fff;border-radius:12px;overflow:hidden;transition:.35s}
+.pcard:hover{transform:translateY(-5px);box-shadow:0 24px 44px -28px rgba(44,28,18,.4)}
+.pcard .im{aspect-ratio:1;overflow:hidden;background:var(--cream)}
+.pcard .im img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.pcard:hover .im img{transform:scale(1.06)}
+.pcard .b{padding:20px 22px 24px}
+.pcard .c{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:7px}
+.pcard h4{font-size:1.18rem;color:var(--espresso);margin-bottom:8px;font-weight:500}
+.pcard .pr{font-family:var(--serif);font-size:1.35rem;color:var(--gold-deep)}
+.brands{margin-top:60px;display:flex;flex-wrap:wrap;justify-content:center;gap:42px}
+.brands span{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--muted)}
+
+/* TESTIMONIALS */
+.quotes{background:var(--espresso);color:#fff}
+.quotes .head{text-align:center;margin-bottom:54px}
+.quotes .head .eyebrow{color:var(--gold)}
+.quotes .head h2{font-size:clamp(2rem,4vw,2.9rem);color:#fff;margin-top:6px}
+.qgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.q{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:38px 32px}
+.q .st{color:var(--gold);letter-spacing:3px;margin-bottom:16px}
+.q p{font-family:var(--serif);font-size:1.3rem;font-style:italic;line-height:1.5;color:rgba(255,255,255,.92);margin-bottom:20px}
+.q .who{font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+
+/* CTA / CONTACT */
+.cta{background:var(--sage)}
+.cta .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:0;border-radius:18px;overflow:hidden;box-shadow:0 40px 80px -50px rgba(44,28,18,.6)}
+.cta .pic{background:url('https://anexperiencebeautyclinic.com/wp-content/uploads/2022/11/our-location-home.jpg') center/cover;min-height:480px}
+.cta .panel{background:var(--espresso);color:#fff;padding:64px 56px}
+.cta .eyebrow{color:var(--gold)}
+.cta h2{font-size:clamp(2rem,4vw,2.7rem);color:#fff;margin:6px 0 14px}
+.cta .panel>p{color:rgba(255,255,255,.72);margin-bottom:28px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+label{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+input,select{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);color:#fff;padding:.92em 1em;font-family:var(--sans);font-size:.92rem;border-radius:8px;font-weight:300}
+input::placeholder{color:rgba(255,255,255,.45)}
+input:focus,select:focus{outline:none;border-color:var(--gold)}
+select{appearance:none;cursor:pointer}select option{color:#000}
+form .btn{grid-column:1/-1;justify-content:center;margin-top:6px}
+
+/* FOOTER */
+footer{background:#241710;color:rgba(255,255,255,.72);padding:80px 0 0}
+.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:46px;padding-bottom:56px}
+footer .flogo img{height:62px;margin-bottom:20px;filter:brightness(0) invert(1);opacity:.92}
+footer p{font-size:.92rem;line-height:1.8}
+footer h4{font-family:var(--sans);font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+footer ul{list-style:none}
+footer ul li{margin-bottom:11px}
+footer ul a:hover{color:var(--gold)}
+.fc div{display:flex;gap:10px;margin-bottom:13px;font-size:.9rem;align-items:flex-start}
+.fc svg{stroke:var(--gold);flex:none;margin-top:3px}
+.socials{display:flex;gap:12px;margin-top:18px}
+.socials a{width:38px;height:38px;border:1px solid rgba(255,255,255,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.3s}
+.socials a:hover{background:var(--gold);border-color:var(--gold);color:var(--espresso)}
+.fbot{border-top:1px solid rgba(255,255,255,.12);padding:22px 0;text-align:center;font-size:.8rem;color:rgba(255,255,255,.5)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:1024px){
+  .holistic .grid{grid-template-columns:1fr;gap:46px}
+  .stats .grid{grid-template-columns:1fr 1fr}.stats .s:nth-child(2){border-right:0}
+  .spec .layout{grid-template-columns:1fr}
+  .ggrid{grid-template-columns:repeat(2,1fr)}.ggrid figure.tall{grid-row:auto}
+  .shoprow{grid-template-columns:repeat(2,1fr)}
+  .qgrid{grid-template-columns:1fr}
+  .cta .grid{grid-template-columns:1fr}.cta .pic{min-height:300px}
+}
+@media(max-width:760px){
+  .menu{display:none}.burger{display:flex}
+  .menu.open{display:flex;position:absolute;top:88px;left:0;right:0;flex-direction:column;background:var(--cream);padding:24px 28px;gap:16px;border-bottom:1px solid var(--line)}
+  .menu.open a{color:var(--espresso)}
+  .hero{background-attachment:scroll}
+  .holistic .pics .inset{position:static;width:60%;margin:-50px auto 0;display:block}
+  .cta .panel{padding:48px 30px}
+}
+@media(max-width:560px){
+  .pad{padding:68px 0}
+  .stats .grid{grid-template-columns:1fr}.stats .s{border-right:0;border-bottom:1px solid var(--line)}
+  .spec .cards,.ggrid,.shoprow{grid-template-columns:1fr}
+  form{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr;gap:34px}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#top" class="logo"><img src="https://anexperiencebeautyclinic.com/wp-content/uploads/2022/11/an-experience-beauty-clinic-logO.png" alt="An Experience Beauty Clinic"></a>
+    <ul class="menu" id="menu">
+      <li><a href="#top">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#specialty">Treatments</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#shop">Products</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-gold" style="padding:.85em 1.8em">Book Now</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="inner">
+    <div class="rate">★★★★★ &nbsp; Trusted by Melbourne &nbsp;·&nbsp; <b>4.9 on Google</b></div>
+    <h1>Skin &amp; Beauty Therapy<br>for <em>Body &amp; Soul</em></h1>
+    <p>More than results-driven treatments — the welcoming warmth of an oasis, by Facialist Ashvinie with over 30 years of mastery.</p>
+    <a href="#contact" class="btn btn-gold">Request an Appointment</a>
+  </div>
+</section>
+
+<!-- HOLISTIC -->
+<section class="holistic pad" id="about">
+  <div class="wrap">
+    <div class="grid">
+      <div class="reveal">
+        <span class="eyebrow">Melbourne's best kept secret</span>
+        <h2>A holistic approach to skin &amp; beauty therapy</h2>
+        <p class="lead">An Experience Beauty Clinic is more than skincare. It's the warmth you feel as you step into our oasis — losing yourself as expert hands glide across your complexion, delivering results from products like Environ, Essel and Jane Iredale.</p>
+        <ul class="points">
+          <li><div class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 2l2.4 6.6L21 9l-5 4 1.8 7L12 16l-5.8 4L8 13 3 9l6.6-.4z"/></svg></div><div><h4>Expert Practitioner</h4><p>Treatments by Facialist Ashvinie, a lifelong learner with 30+ years of experience.</p></div></li>
+          <li><div class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div><div><h4>Advanced Technology</h4><p>Omnilux LED, microcurrent, RF skin tightening, mesotherapy &amp; skin needling.</p></div></li>
+          <li><div class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div><h4>Tailored Treatments</h4><p>Customised to your skin — from ageing concerns to acne, redness and pigmentation.</p></div></li>
+        </ul>
+        <a href="#specialty" class="btn btn-gold">Find Out More</a>
+      </div>
+      <div class="pics reveal">
+        <img class="main" src="https://anexperiencebeautyclinic.com/wp-content/uploads/2022/11/home-about-us.jpg" alt="Relaxing facial treatment">
+        <img class="inset" src="https://anexperiencebeautyclinic.com/wp-content/uploads/2022/11/buccal-facial.jpg" alt="Buccal facial massage">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap grid">
+    <div class="s reveal"><div class="n">30+</div><div class="l">Years of Experience</div></div>
+    <div class="s reveal"><div class="n">4.9</div><div class="l">Google Rating</div></div>
+    <div class="s reveal"><div class="n">7</div><div class="l">Premium Brands</div></div>
+    <div class="s reveal"><div class="n">2025</div><div class="l">Awards Finalist</div></div>
+  </div>
+</section>
+
+<!-- SPECIALTY -->
+<section class="spec pad" id="specialty">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Areas of Specialty</span>
+      <h2>Providing excellent service to our clients</h2>
+    </div>
+    <div class="layout">
+      <div class="feature reveal">
+        <div class="cap">
+          <h3>Buccal Facial Massage</h3>
+          <p>Our signature sculptural facelift facial — compared to surgical lifts and botox, mastered over decades.</p>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="scard reveal"><div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M9 15c1 1 5 1 6 0"/></svg></div><h4>Facials &amp; Skin</h4><p>Environ machine treatments, peels &amp; bespoke facials.</p></div>
+        <div class="scard reveal"><div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="1.4"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div><h4>Omnilux Light</h4><p>Clinically proven LED light therapy for radiance.</p></div>
+        <div class="scard reveal"><div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="1.4"><path d="M5 19l4-4M9 15l6-10 4 2-8 9z"/></svg></div><h4>Microdermabrasion</h4><p>Gentle resurfacing for smooth, refreshed skin.</p></div>
+        <div class="scard reveal"><div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="1.4"><path d="M4 18s2-8 8-8 8 8 8 8M9 8c0-2 1.5-4 3-4s3 2 3 4"/></svg></div><h4>Mesotherapy</h4><p>Hair-loss treatment for men &amp; women.</p></div>
+        <div class="scard reveal"><div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="1.4"><circle cx="12" cy="12" r="8"/><path d="M8 13c1.5 2 6.5 2 8 0"/></svg></div><h4>Microbiome Skin</h4><p>FloraBiome probiotic treatments for balance.</p></div>
+        <div class="scard hl reveal"><div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><path d="M12 3c3 4 6 6 6 10a6 6 0 0 1-12 0c0-4 3-6 6-10z"/></svg></div><h4>Make-Up &amp; Beauty</h4><p>Jane Iredale make-up &amp; finishing beauty treatments.</p></div>
+      </div>
+    </div>
+    <div class="more reveal"><a href="#contact" class="btn btn-soft">View All Services</a></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery pad" id="gallery">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Photo Gallery</span>
+      <h2>A visual journey of skin &amp; beauty</h2>
+    </div>
+    <div class="ggrid">
+      <figure class="tall reveal"><img src="https://anexperiencebeautyclinic.com/wp-content/uploads/2022/11/home-about-us.jpg" alt="Facial treatment"></figure>
+      <figure class="reveal"><img src="https://anexperiencebeautyclinic.com/wp-content/uploads/2022/11/buccal-facial.jpg" alt="Buccal facial"></figure>
+      <figure class="reveal"><img src="https://anexperiencebeautyclinic.com/wp-content/uploads/2026/04/new-home-banner.jpg" alt="Clinic treatment"></figure>
+      <figure class="tall reveal"><img src="https://anexperiencebeautyclinic.com/wp-content/uploads/2022/11/our-location-home.jpg" alt="Our Melbourne location"></figure>
+      <figure class="reveal"><img src="https://anexperiencebeautyclinic.com/wp-content/uploads/2022/11/home-reqest-an-appointment.jpg" alt="Request an appointment"></figure>
+      <figure class="reveal"><img src="https://anexperiencebeautyclinic.com/wp-content/uploads/2022/11/slider-products.jpg" alt="Skincare products"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="shop pad" id="shop">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Featured Products</span>
+      <h2>Boost your skin with our products</h2>
+    </div>
+    <div class="shoprow">
+      <div class="pcard reveal"><div class="im"><img src="https://anexperiencebeautyclinic.com/wp-content/uploads/2024/05/Prologic-Gel-Cleanser_Web-450x450.jpg" alt="Prologic Gel Cleanser"></div><div class="b"><div class="c">Prologic</div><h4>Gel Cleanser 125ml</h4><div class="pr">$89.00</div></div></div>
+      <div class="pcard reveal"><div class="im"><img src="https://anexperiencebeautyclinic.com/wp-content/uploads/2024/05/Probiome-Probiotic-Serum-Web-450x450.jpg" alt="Probiotic Serum"></div><div class="b"><div class="c">FloraBiome</div><h4>Probiotic Serum 15ml</h4><div class="pr">$116.00</div></div></div>
+      <div class="pcard reveal"><div class="im"><img src="https://anexperiencebeautyclinic.com/wp-content/uploads/2024/05/Omega-3-Treatment-Oil-450x450.jpg" alt="Omega 3 Treatment Oil"></div><div class="b"><div class="c">Treatment Oil</div><h4>Omega 3 Oil 30ml</h4><div class="pr">$107.00</div></div></div>
+      <div class="pcard reveal"><div class="im"><img src="https://anexperiencebeautyclinic.com/wp-content/uploads/2022/11/Omnilux-Contour-FACE-450x450.jpg" alt="Omnilux Contour Face"></div><div class="b"><div class="c">Omnilux</div><h4>Contour FACE</h4><div class="pr">$610.00</div></div></div>
+    </div>
+    <div class="brands reveal">
+      <span>Environ</span><span>Essel</span><span>FloraBiome</span><span>Jane Iredale</span><span>Prologic</span><span>Advanced Nutrition Programme</span><span>Omnilux</span>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="quotes pad" id="reviews">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Latest Google Reviews</span>
+      <h2>"Ashvinie has magic hands"</h2>
+    </div>
+    <div class="qgrid">
+      <div class="q reveal"><div class="st">★★★★★</div><p>"Ashvinie is incredible. She was recommended to me by a friend and has helped improve my skin so much."</p><div class="who">— Georgina Cue</div></div>
+      <div class="q reveal"><div class="st">★★★★★</div><p>"I cannot thank Ashvinie enough for completely transforming my skin!"</p><div class="who">— Shrika Vangipuram</div></div>
+      <div class="q reveal"><div class="st">★★★★★</div><p>"Ash has magical hands! Thee most amazing, beautiful, relaxing facial ever."</p><div class="who">— Romola Naicker</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="cta pad" id="contact">
+  <div class="wrap">
+    <div class="grid">
+      <div class="pic reveal"></div>
+      <div class="panel reveal">
+        <span class="eyebrow">Request a Booking</span>
+        <h2>Book your consultation</h2>
+        <p>Every concern has its solution. Let's meet and discuss your skin with our expert.</p>
+        <form onsubmit="event.preventDefault();this.reset();alert('Thank you — we will be in touch to confirm your appointment.');">
+          <div class="field"><label>Name</label><input type="text" placeholder="Full name" required></div>
+          <div class="field"><label>Phone</label><input type="tel" placeholder="04xx xxx xxx" required></div>
+          <div class="field full"><label>Email</label><input type="email" placeholder="you@email.com" required></div>
+          <div class="field"><label>Treatment</label><select required><option value="" disabled selected>Select</option><option>Facial / Skin</option><option>Buccal Facial</option><option>Omnilux Light</option><option>Microdermabrasion</option><option>Mesotherapy</option><option>Make-Up</option></select></div>
+          <div class="field"><label>Date</label><input type="date"></div>
+          <button type="submit" class="btn btn-gold">Confirm Request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap fgrid">
+    <div class="flogo">
+      <img src="https://anexperiencebeautyclinic.com/wp-content/uploads/2022/11/an-experience-beauty-clinic-logO.png" alt="An Experience Beauty Clinic">
+      <p>An Experience Beauty Clinic by Facialist Ashvinie — luxury skin &amp; beauty therapy in the heart of Melbourne CBD.</p>
+      <div class="socials">
+        <a href="https://www.facebook.com/anexperiencebeautyclinic" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H9v3h2v7h3v-7h2.5l.5-3H14V9.5c0-.3.2-.5.5-.5z"/></svg></a>
+        <a href="https://www.instagram.com/anexperiencebeautyclinic/" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4>Links</h4>
+      <ul>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#shop">Shop Online</a></li>
+        <li><a href="#contact">Request an Appointment</a></li>
+        <li><a href="#">Gift Voucher</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Help Center</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Returns &amp; Refunds</a></li>
+        <li><a href="#">Shipping Policy</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h4>Our Location</h4>
+      <div><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>365 Little Collins Street, Level 2 Suite 2.11, Melbourne 3000</span></div>
+      <div><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><a href="tel:+61401139754">0401 139 754</a></div>
+      <div><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><a href="mailto:anexperience2020@gmail.com">anexperience2020@gmail.com</a></div>
+    </div>
+  </div>
+  <div class="fbot">© 2026 An Experience Beauty Clinic — by Facialist Ashvinie. All rights reserved.</div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('solid',scrollY>80));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*80)+'ms';io.observe(el)});
+</script>
+</body>
+</html>

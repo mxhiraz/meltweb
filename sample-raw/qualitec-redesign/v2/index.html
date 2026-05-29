@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Qualitec Distributors — A Full-Service Infrared Heating Distributor</title>
+<meta name="description" content="Western Canada's specialist distributor of SRP infrared heaters and GreenTek HRV/ERV ventilation. Edmonton & Calgary warehouses serving Alberta, BC and NWT since 1980." />
+<link rel="icon" href="assets/logo-cropped.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#0d1f3c;
+    --navy-2:#0a172d;
+    --amber:#e88c2b;
+    --amber-2:#cf6e15;
+    --ink:#101626;
+    --muted:#5a6273;
+    --line:#e5e7ec;
+    --bg:#ffffff;
+    --soft:#f4f5f8;
+    --cream:#f7f3ec;
+    --max:1220px;
+    --shadow:0 20px 60px rgba(13,31,60,.18);
+    --shadow-soft:0 8px 24px rgba(13,31,60,.08);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    color:var(--ink);background:var(--bg);
+    -webkit-font-smoothing:antialiased;line-height:1.6;
+  }
+  h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;color:var(--ink);margin:0 0 .35em;line-height:1.08;letter-spacing:-0.015em;font-weight:600}
+  h2{font-size:clamp(30px,4vw,52px)}
+  h3{font-size:22px;font-weight:600}
+  p{margin:0 0 1em;color:var(--muted)}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%;height:auto}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;padding:14px 24px;
+    border-radius:999px;font-weight:600;font-size:14px;
+    background:var(--amber);color:#fff;border:1px solid var(--amber);
+    transition:background .15s ease, transform .15s ease;cursor:pointer;
+  }
+  .btn:hover{background:var(--amber-2);border-color:var(--amber-2);transform:translateY(-1px)}
+  .btn.dark{background:var(--navy);border-color:var(--navy)}
+  .btn.dark:hover{background:#000;border-color:#000}
+  .btn.outline-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+  .btn.outline-light:hover{background:#fff;color:var(--navy);border-color:#fff}
+
+  /* === NAV === */
+  header.nav{background:#fff;border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:78px}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand img{height:48px;width:auto}
+  nav.menu{display:flex;gap:8px;align-items:center}
+  nav.menu a{
+    padding:10px 14px;font-size:14px;font-weight:600;color:#1a2236;border-radius:6px;
+  }
+  nav.menu a:hover{color:var(--amber)}
+  .nav-cta{background:var(--amber);color:#fff;padding:10px 18px;border-radius:8px;font-weight:700;font-size:13px;display:inline-flex;align-items:center;gap:8px}
+  .nav-cta:hover{background:var(--amber-2)}
+  .burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+  .burger span{display:block;width:22px;height:2px;background:#222;margin:5px 0;border-radius:2px}
+
+  /* === HERO === */
+  .hero{
+    position:relative;height:clamp(420px,62vh,640px);overflow:hidden;color:#fff;
+    background:#1a1a1a;
+  }
+  .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.78}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,30,.05) 0%, rgba(10,15,30,.7) 100%)}
+  .hero .wrap{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:50px}
+  .hero .ribbon{position:absolute;top:0;left:0;right:0;height:36px;background:var(--navy);z-index:3}
+  .hero .lead-line{font-family:'Inter';text-transform:uppercase;letter-spacing:.2em;font-size:12px;font-weight:700;opacity:.85;margin-bottom:12px;color:#fff}
+  .hero h1{
+    font-family:'Fraunces',Georgia,serif;
+    font-size:clamp(32px,4.8vw,60px);font-weight:600;color:#fff;max-width:780px;line-height:1.08;
+  }
+  .hero h1 em{font-style:italic;font-weight:500;color:#ffd9a8}
+
+  /* === SECTION === */
+  section{padding:90px 0}
+  .center{text-align:center}
+  .eyebrow{
+    font-family:'Inter';font-size:12px;font-weight:700;
+    text-transform:uppercase;letter-spacing:.22em;color:var(--amber);margin-bottom:14px;display:block;
+  }
+
+  /* === FULL-SERVICE 4-UP === */
+  .full-service h2{max-width:880px;margin:0 auto .8em;text-align:center}
+  .full-service .intro{text-align:center;max-width:680px;margin:0 auto 56px;color:var(--muted)}
+  .svc4{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+  .svc4 .item .img{
+    aspect-ratio:4/3;border-radius:6px;overflow:hidden;background:#eee;margin-bottom:18px;
+  }
+  .svc4 .item .img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .svc4 .item:hover .img img{transform:scale(1.04)}
+  .svc4 .item h3{font-size:24px;margin-bottom:8px}
+  .svc4 .item p{font-size:14px;line-height:1.6;color:var(--muted);margin:0}
+  .svc4 .item .arrow{margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--amber);font-size:13px;text-transform:uppercase;letter-spacing:.1em}
+
+  /* === EMERGENCY / FEATURED SPLIT === */
+  .feature{position:relative;padding:0;background:var(--soft)}
+  .feature-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;min-height:560px}
+  .feature .photo{position:relative;background:#000;overflow:hidden}
+  .feature .photo img{width:100%;height:100%;object-fit:cover;opacity:.9}
+  .feature .panel{
+    background:#fff;padding:60px;display:flex;flex-direction:column;justify-content:center;
+    box-shadow:var(--shadow);
+    margin:60px 60px 60px -120px;position:relative;z-index:2;border-radius:6px;
+  }
+  .feature .panel h2{font-size:clamp(28px,3vw,40px);margin-bottom:18px;max-width:480px}
+  .feature .panel p{max-width:460px;font-size:15px}
+  .feature .phone{
+    font-family:'Fraunces',serif;font-size:30px;font-weight:600;color:var(--navy);
+    margin:14px 0 26px;display:block;
+  }
+  .feature .phone:hover{color:var(--amber)}
+
+  /* === SAFETY MINDSET === */
+  .mindset{background:var(--navy);color:#fff;padding:0}
+  .mindset-grid{display:grid;grid-template-columns:1fr 1.1fr;align-items:stretch;min-height:560px}
+  .mindset .panel{
+    background:#fff;color:var(--ink);padding:60px;
+    margin:80px -100px 80px 60px;z-index:2;position:relative;border-radius:6px;
+    box-shadow:0 30px 80px rgba(0,0,0,.4);
+  }
+  .mindset .panel h2{font-size:clamp(28px,3vw,40px);margin-bottom:18px}
+  .mindset .photo{background:#000;overflow:hidden}
+  .mindset .photo img{width:100%;height:100%;object-fit:cover;opacity:.9}
+
+  /* === STATS BAND === */
+  .stats{background:var(--cream)}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+  .stat b{display:block;font-family:'Fraunces',serif;font-weight:600;font-size:54px;color:var(--navy);line-height:1}
+  .stat span{display:block;margin-top:8px;font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+
+  /* === DIVISIONS LIST === */
+  .divisions{background:#fff}
+  .div-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:50px;gap:30px;flex-wrap:wrap}
+  .div-head h2{margin:0;max-width:600px}
+  .div-row{
+    display:grid;grid-template-columns:80px 1.3fr 2fr 140px;gap:24px;align-items:center;
+    padding:28px 0;border-top:1px solid var(--line);
+    transition:background .15s ease;
+  }
+  .div-row:last-child{border-bottom:1px solid var(--line)}
+  .div-row:hover{background:#fbfaf6}
+  .div-row .num{font-family:'Fraunces',serif;font-size:32px;color:var(--amber);font-weight:600}
+  .div-row h3{margin:0;font-size:24px}
+  .div-row p{margin:0;font-size:14px;color:var(--muted)}
+  .div-row .more{text-align:right;font-weight:700;color:var(--navy);font-size:13px;text-transform:uppercase;letter-spacing:.12em;display:inline-flex;align-items:center;gap:6px;justify-content:flex-end}
+  .div-row:hover .more{color:var(--amber)}
+
+  /* === PARTNERS / CLIENTS STRIP === */
+  .clients{background:#fff;padding:60px 0;border-top:1px solid var(--line)}
+  .clients h4{text-align:center;font-family:'Inter';font-weight:700;font-size:13px;color:var(--navy);letter-spacing:.2em;text-transform:uppercase;margin:0 0 30px}
+  .clients-row{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;align-items:center}
+  .client-card{
+    background:var(--soft);border-radius:10px;padding:22px;text-align:center;
+    border:1px solid var(--line);
+  }
+  .client-card b{display:block;font-family:'Fraunces',serif;font-size:22px;color:var(--navy);margin-bottom:4px}
+  .client-card span{font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+
+  /* === LOCATIONS / CONTACT === */
+  .contact{background:var(--soft)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:50px}
+  .loc-card{
+    background:#fff;border-radius:8px;padding:36px;border:1px solid var(--line);
+    box-shadow:var(--shadow-soft);
+  }
+  .loc-card .tag{font-size:12px;color:var(--amber);letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:8px;display:block}
+  .loc-card h3{margin:0 0 18px;font-size:28px}
+  .loc-card .row{display:grid;gap:10px;font-size:15px;color:#1a2236}
+  .loc-card .row a{border-bottom:1px solid transparent;transition:border-color .15s ease, color .15s ease}
+  .loc-card .row a:hover{color:var(--amber);border-color:var(--amber)}
+  .loc-card .row .ic{display:inline-flex;gap:10px;align-items:flex-start}
+  .loc-card .row .ic svg{flex-shrink:0;margin-top:3px;color:var(--amber)}
+
+  /* === FOOTER === */
+  footer{background:var(--navy-2);color:#cfd6e6;padding:70px 0 30px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px}
+  footer h5{font-family:'Inter';font-size:13px;color:#fff;margin:0 0 18px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+  footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:14px}
+  footer a:hover{color:var(--amber)}
+  footer .brandcol img{height:56px;margin-bottom:16px;filter:brightness(0) invert(1)}
+  footer .brandcol p{font-size:14px;color:#9aa5bd;max-width:340px}
+  .foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid #1a2849;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#7c87a3;font-size:13px}
+
+  /* === RESPONSIVE === */
+  @media (max-width:1024px){
+    .svc4{grid-template-columns:repeat(2,1fr);gap:36px}
+    .feature-grid,.mindset-grid{grid-template-columns:1fr}
+    .feature .panel,.mindset .panel{margin:0;border-radius:0}
+    .feature .photo,.mindset .photo{min-height:340px}
+    .stats-grid{grid-template-columns:repeat(2,1fr)}
+    .clients-row{grid-template-columns:repeat(2,1fr)}
+    .contact-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .div-row{grid-template-columns:60px 1fr 60px;row-gap:6px}
+    .div-row p{grid-column:2/4}
+    .div-row .more{grid-column:3/4}
+  }
+  @media (max-width:720px){
+    section{padding:60px 0}
+    nav.menu{display:none}
+    .burger{display:block}
+    nav.menu.open{
+      display:flex;flex-direction:column;align-items:stretch;
+      position:absolute;top:78px;left:0;right:0;background:#fff;
+      border-bottom:1px solid var(--line);padding:14px 20px;box-shadow:var(--shadow-soft);z-index:50;
+    }
+    .nav-cta{display:none}
+    .svc4{grid-template-columns:1fr}
+    .feature .panel,.mindset .panel{padding:36px 24px}
+    .stats-grid{grid-template-columns:1fr 1fr;gap:18px}
+    .clients-row{grid-template-columns:1fr 1fr;gap:14px}
+    .foot-grid{grid-template-columns:1fr}
+    .div-row{grid-template-columns:50px 1fr;padding:20px 0}
+    .div-row p,.div-row .more{grid-column:1/3}
+    .div-row .more{text-align:left}
+    .hero{height:clamp(420px,72vh,620px)}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap" style="position:relative">
+    <a class="brand" href="#">
+      <img src="assets/logo.png" alt="Qualitec Distributors logo" />
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#about">About</a>
+      <a href="#divisions">Divisions</a>
+      <a href="#products">Products</a>
+      <a href="#partners">Partners</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div style="display:flex;gap:10px;align-items:center">
+      <a href="tel:7804666611" class="nav-cta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+        Edmonton 780-466-6611
+      </a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="ribbon"></div>
+  <img class="bg" src="assets/commercial.jpg" alt="Industrial infrared heating system installed by Qualitec" />
+  <div class="wrap">
+    <div class="lead-line">Infrared Heating · Since 1980</div>
+    <h1>Custom heating layouts <em>built around your building</em> — not pulled from a catalogue.</h1>
+  </div>
+</section>
+
+<!-- FULL SERVICE 4-UP -->
+<section class="full-service" id="about">
+  <div class="wrap">
+    <h2>A Full-Service Infrared Heating Distributor</h2>
+    <p class="intro">Qualitec specifies, supplies and supports SRP gas-fired infrared heating and GreenTek HRV/ERV ventilation across six industries — from a single-bay garage to a 200,000 sq ft warehouse.</p>
+    <div class="svc4" id="products">
+      <div class="item">
+        <div class="img"><img src="assets/patio.jpg" alt="Residential garage and patio heaters" /></div>
+        <h3>Residential</h3>
+        <p>Space-saving, energy-efficient free-standing or suspended infrared heaters for garages, workshops and outdoor patios.</p>
+        <span class="arrow">Learn more →</span>
+      </div>
+      <div class="item">
+        <div class="img"><img src="assets/commercial.jpg" alt="Commercial infrared heating" /></div>
+        <h3>Commercial</h3>
+        <p>Custom layouts for warehouses, car washes and vehicle service centers — designed around your structure.</p>
+        <span class="arrow">Learn more →</span>
+      </div>
+      <div class="item">
+        <div class="img"><img src="assets/agricultural.jpg" alt="Agricultural infrared heating" /></div>
+        <h3>Agricultural</h3>
+        <p>Customized solutions that account for building structure, ceiling height and the environmental factors of your operation.</p>
+        <span class="arrow">Learn more →</span>
+      </div>
+      <div class="item">
+        <div class="img"><img src="assets/sport.jpg" alt="Sport venue infrared heating" /></div>
+        <h3>Sport & Arenas</h3>
+        <p>Heat for indoor ice arenas and outdoor sporting venues — comfort for athletes and spectators alike.</p>
+        <span class="arrow">Learn more →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED / SAME-DAY SUPPLY -->
+<section class="feature">
+  <div class="feature-grid">
+    <div class="photo">
+      <img src="assets/patio-gallery.jpg" alt="Qualitec warehouse stock and patio heater inventory" />
+    </div>
+    <div style="position:relative">
+      <div class="panel">
+        <h2>Two warehouses. <br/>Two cities. One promise.</h2>
+        <p>With fully-stocked branches in Edmonton and Calgary, the product you specified is the product we ship — fast. Contractors and engineers across Alberta, southeastern BC and the NWT rely on us for short lead times and real support.</p>
+        <a class="phone" href="tel:7804666611">Edmonton · 780-466-6611</a>
+        <a href="mailto:edmontonsales@qualitec.ca" class="btn">Request a Quote
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- A SPECIALIST MINDSET (dark) -->
+<section class="mindset">
+  <div class="mindset-grid">
+    <div style="position:relative">
+      <div class="panel">
+        <span class="eyebrow">Our Mindset</span>
+        <h2>A specialist mindset.</h2>
+        <p>Infrared heating isn't a side line for us — it's the entire focus. Radiant heaters emit infrared energy that converts to heat when it contacts solid objects: floors, walls, equipment, people. The result is faster comfort, lower bills, and systems that hold up to Western Canada's climates.</p>
+        <p>That focus is what makes our advice useful, our specs accurate, and our 40-year partnership with SRP — Canada's leading infrared manufacturer — possible.</p>
+      </div>
+    </div>
+    <div class="photo">
+      <img src="assets/agricultural.jpg" alt="Specialist infrared heating installation" />
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="stats">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:50px">
+      <span class="eyebrow">By the Numbers</span>
+      <h2>Four decades of one focus.</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat"><b>1980</b><span>Founded in Lethbridge</span></div>
+      <div class="stat"><b>1995</b><span>SRP partnership begins</span></div>
+      <div class="stat"><b>50%</b><span>Up to energy savings</span></div>
+      <div class="stat"><b>6</b><span>Industries served</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVISIONS / PRODUCT LINES -->
+<section class="divisions" id="divisions">
+  <div class="wrap">
+    <div class="div-head">
+      <div>
+        <span class="eyebrow">Divisions</span>
+        <h2>Every product line, one supplier.</h2>
+      </div>
+      <p style="max-width:380px;margin:0">From single residential heaters to multi-unit commercial layouts and full ventilation systems — all from a single, accountable team.</p>
+    </div>
+    <div class="div-row">
+      <div class="num">01</div>
+      <h3>Garage & Patio Heaters</h3>
+      <p>Space-saving residential heaters — free-standing or suspended, for garages, workshops and patios.</p>
+      <a href="#contact" class="more">Get Spec →</a>
+    </div>
+    <div class="div-row">
+      <div class="num">02</div>
+      <h3>Commercial Heating</h3>
+      <p>Tailored layouts for warehouses, car washes and vehicle service centers, designed building-by-building.</p>
+      <a href="#contact" class="more">Get Spec →</a>
+    </div>
+    <div class="div-row">
+      <div class="num">03</div>
+      <h3>Agricultural Systems</h3>
+      <p>Heat layouts that account for ceiling height, building structure and environmental conditions on your site.</p>
+      <a href="#contact" class="more">Get Spec →</a>
+    </div>
+    <div class="div-row">
+      <div class="num">04</div>
+      <h3>Sport &amp; Arena Heating</h3>
+      <p>Indoor ice arenas and outdoor sporting venues — comfort for athletes and spectators in any climate.</p>
+      <a href="#contact" class="more">Get Spec →</a>
+    </div>
+    <div class="div-row">
+      <div class="num">05</div>
+      <h3>HRV &amp; ERV by GreenTek</h3>
+      <p>Heat and energy recovery ventilation across commercial, industrial, hospitality, residential and sport.</p>
+      <a href="#contact" class="more">Get Spec →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS / CLIENTS STRIP -->
+<section class="clients" id="partners">
+  <div class="wrap">
+    <h4>Trusted Brands & Partnerships</h4>
+    <div class="clients-row">
+      <div class="client-card"><b>SRP</b><span>Superior Radiant Products · since 1995</span></div>
+      <div class="client-card"><b>GreenTek</b><span>HRV / ERV Ventilation</span></div>
+      <div class="client-card"><b>40+ Years</b><span>Industry experience</span></div>
+      <div class="client-card"><b>AB · BC · NWT</b><span>Service area</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div style="text-align:center;max-width:680px;margin:0 auto">
+      <span class="eyebrow">Visit or Call</span>
+      <h2>Two locations. Same standard.</h2>
+      <p>Open Monday to Friday, 8:00 AM – 4:30 PM. Drop by either warehouse, give us a call, or send a quote request and we'll be in touch the same business day.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="loc-card">
+        <span class="tag">Headquarters</span>
+        <h3>Edmonton</h3>
+        <div class="row">
+          <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> 4903 68 Ave NW, Edmonton, AB T6B 3S4</span>
+          <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg> <a href="tel:7804666611">780-466-6611</a></span>
+          <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg> <a href="mailto:edmontonsales@qualitec.ca">edmontonsales@qualitec.ca</a></span>
+          <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Mon–Fri · 8:00 AM – 4:30 PM</span>
+        </div>
+      </div>
+      <div class="loc-card">
+        <span class="tag">Southern Branch</span>
+        <h3>Calgary</h3>
+        <div class="row">
+          <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> 5421 11 St NE, Bay 103, Calgary, AB T2E 6M4</span>
+          <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg> <a href="tel:4032580022">403-258-0022</a></span>
+          <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg> <a href="mailto:calgarysales@qualitec.ca">calgarysales@qualitec.ca</a></span>
+          <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Mon–Fri · 8:00 AM – 4:30 PM</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="mailto:edmontonsales@qualitec.ca" class="btn">Request a Quote
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="brandcol">
+        <img src="assets/logo.png" alt="Qualitec" />
+        <p>Qualitec Distributors Inc. — Western Canada's specialist distributor of SRP infrared heating and GreenTek HRV/ERV ventilation since 1980.</p>
+      </div>
+      <div>
+        <h5>Divisions</h5>
+        <ul>
+          <li><a href="#divisions">Garage Heaters</a></li>
+          <li><a href="#divisions">Patio Heaters</a></li>
+          <li><a href="#divisions">Commercial Heating</a></li>
+          <li><a href="#divisions">HRV / ERV</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#partners">Partners</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Request a Quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Reach Us</h5>
+        <ul>
+          <li>Edmonton: <a href="tel:7804666611">780-466-6611</a></li>
+          <li>Calgary: <a href="tel:4032580022">403-258-0022</a></li>
+          <li><a href="mailto:edmontonsales@qualitec.ca">edmontonsales@qualitec.ca</a></li>
+          <li>Mon–Fri · 8:00 AM – 4:30 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Qualitec Distributors Inc. All rights reserved.</span>
+      <span>Serving Alberta, Southeastern BC &amp; NWT.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('menu');
+  burger && burger.addEventListener('click', () => menu.classList.toggle('open'));
+  document.querySelectorAll('nav.menu a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+</script>
+
+</body>
+</html>

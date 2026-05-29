@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Cold Texas Air — Reliable HVAC Solutions for Your Home & Business</title>
+<meta name="description" content="Cold Texas Air delivers expert A/C, heating and commercial refrigeration services across Sugar Land, Ft. Bend & surrounding counties. Lifetime guarantee, 24/7 emergency." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#1e63d8;
+    --blue-700:#1851b4;
+    --blue-900:#143e89;
+    --blue-50:#eaf2ff;
+    --ink:#0e1730;
+    --ink-2:#1d2742;
+    --muted:#5b6783;
+    --line:#e5eaf2;
+    --bg:#ffffff;
+    --bg-soft:#f5f7fb;
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);margin:0 0 .5em;line-height:1.1;letter-spacing:-.025em}
+  h1{font-size:clamp(2.4rem,5.2vw,4.2rem);font-weight:800;color:#fff}
+  h2{font-size:clamp(1.9rem,3.4vw,2.8rem);font-weight:800}
+  h3{font-size:1.15rem;font-weight:700}
+  p{margin:0 0 1em;color:var(--muted)}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{max-width:1240px;margin:0 auto;padding:0 28px}
+  .eyebrow{display:inline-block;color:var(--blue);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;margin-bottom:1rem}
+
+  /* Header */
+  header.site{background:#fff;padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+  header.site .container{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .logo img{height:54px;width:auto}
+  nav.main{display:flex;gap:34px}
+  nav.main a{font-weight:500;color:var(--ink-2);font-size:.95rem;transition:.2s;position:relative}
+  nav.main a:hover,nav.main a.active{color:var(--blue)}
+  nav.main a.active::after{content:"";position:absolute;left:0;right:0;bottom:-22px;height:3px;background:var(--blue);border-radius:3px}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:#fff;padding:14px 28px;font-weight:700;border-radius:30px;font-size:.92rem;transition:.2s;border:none;cursor:pointer;font-family:'Plus Jakarta Sans'}
+  .btn:hover{background:var(--blue-700);transform:translateY(-2px);box-shadow:0 12px 24px -10px rgba(30,99,216,.5)}
+  .btn-light{background:#fff;color:var(--blue)}
+  .btn-light:hover{background:#fff;color:var(--blue-700);box-shadow:0 12px 24px -10px rgba(0,0,0,.2)}
+  .menu-toggle{display:none;background:none;border:1px solid var(--line);border-radius:6px;padding:8px 12px;font-size:1.2rem;cursor:pointer}
+
+  /* HERO */
+  .hero{position:relative;background:#fff;padding:0 0 120px}
+  .hero-inner{position:relative;display:grid;grid-template-columns:1fr 1.15fr;gap:0;align-items:stretch;min-height:540px}
+  .hero-copy{background:var(--blue);color:#fff;padding:80px 60px 90px;border-radius:20px 0 0 20px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+  .hero-copy p{color:#cfddf6;font-size:1.02rem;max-width:440px;margin:1.4rem 0 2rem}
+  .hero-copy h1 span{display:block}
+  .hero-img{position:relative;border-radius:0 20px 20px 0;overflow:hidden;background:#dde4ef}
+  .hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero-img::after{content:"";position:absolute;left:0;top:0;bottom:0;width:90px;background:linear-gradient(90deg,var(--blue),transparent);pointer-events:none}
+
+  /* Floating service cards */
+  .svc-float{position:relative;z-index:5;margin-top:-90px;display:grid;grid-template-columns:repeat(3,1fr) auto;gap:18px;max-width:780px;padding-left:28px}
+  .svc-card{background:#fff;border-radius:14px;padding:22px 22px 24px;box-shadow:0 24px 50px -22px rgba(20,40,90,.18);transition:.25s;cursor:default;border:1px solid #eef1f7}
+  .svc-card:hover{transform:translateY(-6px);box-shadow:0 28px 60px -20px rgba(20,40,90,.25)}
+  .svc-card .check{width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .svc-card h3{font-size:1.05rem;margin:0 0 4px;color:var(--ink)}
+  .svc-card p{font-size:.85rem;color:var(--muted);margin:0}
+  .svc-more{align-self:end;display:inline-flex;align-items:center;gap:6px;background:var(--blue);color:#fff;padding:10px 18px;border-radius:30px;font-size:.82rem;font-weight:700;font-family:'Plus Jakarta Sans';white-space:nowrap;margin-bottom:8px;transition:.2s}
+  .svc-more:hover{background:var(--blue-700)}
+
+  /* Section */
+  section{padding:90px 0}
+
+  /* About — organic image + copy */
+  .about .grid{display:grid;grid-template-columns:.95fr 1fr;gap:80px;align-items:center}
+  .blob{position:relative;width:100%;aspect-ratio:1/1;max-width:480px;margin:0 auto}
+  .blob-img{position:absolute;inset:0;overflow:hidden;border-radius:46% 54% 60% 40% / 50% 44% 56% 50%;background:#dde4ef}
+  .blob-img img{width:100%;height:100%;object-fit:cover}
+  .blob-dot{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--blue)}
+  .blob-dot.d1{top:8%;right:6%}
+  .blob-dot.d2{bottom:14%;left:-6px}
+  .about-cta{display:inline-flex;align-items:center;gap:14px;margin-top:14px}
+  .about-cta .circle{width:48px;height:48px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;transition:.2s}
+  .about-cta:hover .circle{background:var(--blue);transform:rotate(-20deg)}
+  .about-cta strong{font-family:'Plus Jakarta Sans';color:var(--ink);font-weight:700;font-size:1rem}
+  .about-bullets{list-style:none;padding:0;margin:1.5rem 0 1.6rem}
+  .about-bullets li{display:flex;align-items:center;gap:12px;padding:8px 0;color:var(--ink);font-weight:500;font-size:.97rem}
+  .about-bullets li .ico{width:24px;height:24px;border-radius:50%;background:var(--blue-50);color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+  /* Services full grid */
+  .services{background:var(--bg-soft)}
+  .services .head{text-align:center;margin-bottom:60px;max-width:680px;margin-left:auto;margin-right:auto}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .svc-tile{background:#fff;border-radius:16px;overflow:hidden;transition:.25s;border:1px solid transparent}
+  .svc-tile:hover{transform:translateY(-6px);box-shadow:0 24px 50px -22px rgba(20,40,90,.2)}
+  .svc-tile .img{height:200px;overflow:hidden}
+  .svc-tile .img img{width:100%;height:100%;object-fit:cover;transition:.4s}
+  .svc-tile:hover .img img{transform:scale(1.06)}
+  .svc-tile .body{padding:26px 26px 28px}
+  .svc-tile h3{font-size:1.15rem;margin:0 0 8px}
+  .svc-tile p{font-size:.92rem;margin:0 0 14px}
+  .svc-tile a.more{color:var(--blue);font-weight:700;font-size:.88rem;display:inline-flex;align-items:center;gap:6px}
+
+  /* Why us strip */
+  .why .head{text-align:center;max-width:640px;margin:0 auto 50px}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .why-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px 24px;text-align:center;transition:.25s}
+  .why-card:hover{border-color:var(--blue-50);box-shadow:0 18px 40px -22px rgba(20,40,90,.2);transform:translateY(-4px)}
+  .why-card .ico{width:54px;height:54px;border-radius:14px;background:var(--blue-50);color:var(--blue);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+  .why-card h3{font-size:1.05rem;margin:0 0 8px}
+  .why-card p{font-size:.88rem;margin:0}
+
+  /* Blue CTA band (FAQ style) */
+  .cta-band{background:var(--blue);color:#fff;border-radius:24px;padding:60px;display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:center;position:relative;overflow:hidden;margin:0 28px}
+  .cta-band::before{content:"";position:absolute;right:-150px;top:-150px;width:400px;height:400px;border-radius:50%;background:rgba(255,255,255,.04)}
+  .cta-band::after{content:"";position:absolute;left:-100px;bottom:-100px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.04)}
+  .cta-band h2{color:#fff;font-size:2rem;margin:0 0 12px;position:relative;z-index:2}
+  .cta-band .sub{color:#cfddf6;position:relative;z-index:2;margin:0}
+  .cta-band .right{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  .faq-item{display:flex;gap:14px;align-items:flex-start}
+  .faq-item .qi{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans';font-weight:700;font-size:.85rem}
+  .faq-item h4{color:#fff;font-family:'Plus Jakarta Sans';font-weight:700;font-size:1rem;margin:0 0 4px}
+  .faq-item p{color:#cfddf6;font-size:.88rem;margin:0}
+  .band-wrap{padding:0 0 90px}
+
+  /* Footer */
+  footer{background:#0a1b3a;color:#bcc8e0;padding:70px 0 0}
+  footer .grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:48px}
+  footer h4{color:#fff;font-family:'Plus Jakarta Sans';font-size:1rem;margin-bottom:20px}
+  footer ul{list-style:none;padding:0;margin:0}
+  footer li{margin-bottom:10px}
+  footer a{color:#bcc8e0;font-size:.92rem;transition:.2s}
+  footer a:hover{color:#fff}
+  footer p{color:#bcc8e0;font-size:.92rem}
+  footer .logo-light img{height:64px;margin-bottom:18px}
+  .ci{display:flex;gap:10px;margin-bottom:12px;align-items:flex-start;font-size:.9rem}
+  .ci svg{flex-shrink:0;width:16px;color:var(--blue);margin-top:3px}
+  .copy{border-top:1px solid rgba(255,255,255,.08);margin-top:50px;padding:22px 0;text-align:center;font-size:.85rem}
+
+  /* Responsive */
+  @media (max-width:1024px){
+    nav.main{display:none}
+    .menu-toggle{display:block}
+    .hero{padding-bottom:30px}
+    .hero-inner{grid-template-columns:1fr;min-height:auto}
+    .hero-copy{padding:60px 36px 70px;border-radius:20px 20px 0 0}
+    .hero-img{border-radius:0 0 20px 20px;height:340px;position:relative}
+    .hero-img::after{display:none}
+    .svc-float{display:grid;grid-template-columns:repeat(3,1fr);max-width:none;padding:0;margin:40px 0 0;gap:14px}
+    .svc-more{grid-column:1/-1;justify-self:start}
+    .about .grid{grid-template-columns:1fr;gap:50px}
+    .blob{max-width:380px}
+    .svc-grid{grid-template-columns:1fr 1fr}
+    .why-grid{grid-template-columns:1fr 1fr}
+    .cta-band{grid-template-columns:1fr;padding:50px 36px;gap:30px}
+    footer .grid{grid-template-columns:1fr 1fr}
+    section{padding:60px 0}
+  }
+  @media (max-width:640px){
+    .svc-float,.svc-grid,.why-grid,.cta-band .right,footer .grid{grid-template-columns:1fr}
+    .hero-copy{padding:48px 28px 56px}
+    .cta-band{padding:40px 26px;margin:0 14px}
+    h1{font-size:2.3rem}
+  }
+
+  /* Mobile menu */
+  .mobile-menu{position:fixed;top:0;right:0;bottom:0;width:80%;max-width:320px;background:#fff;z-index:100;padding:80px 30px 30px;box-shadow:-10px 0 40px rgba(0,0,0,.15);transform:translateX(100%);transition:.3s}
+  .mobile-menu.open{transform:translateX(0)}
+  .mobile-menu a{display:block;padding:14px 0;font-weight:600;border-bottom:1px solid var(--line);color:var(--ink)}
+  .mobile-menu .close{position:absolute;top:20px;right:20px;background:none;border:none;font-size:2rem;cursor:pointer;color:var(--ink)}
+  .backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:99}
+  .backdrop.open{display:block}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site">
+  <div class="container">
+    <div class="logo"><img src="assets/logo.png" alt="Cold Texas Air"/></div>
+    <nav class="main">
+      <a href="#" class="active">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#why">Why Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:14px">
+      <a href="#contact" class="btn">Get A Quote</a>
+      <button class="menu-toggle" onclick="document.getElementById('mm').classList.add('open');document.getElementById('bd').classList.add('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="backdrop" id="bd" onclick="this.classList.remove('open');document.getElementById('mm').classList.remove('open')"></div>
+<div class="mobile-menu" id="mm">
+  <button class="close" onclick="document.getElementById('mm').classList.remove('open');document.getElementById('bd').classList.remove('open')">×</button>
+  <a href="#">Home</a>
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#why">Why Us</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="btn" style="margin-top:20px;justify-content:center">Get A Quote</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h1>Reliable HVAC <span>Solutions for</span> <span>Your Home</span></h1>
+        <p>Cold Texas Air delivers expert A/C installation, repair, heating and commercial refrigeration across Sugar Land and Ft. Bend County. Where your comfort takes center stage — backed by a lifetime guarantee.</p>
+        <a href="#contact" class="btn btn-light" style="align-self:flex-start">Get Your Quote</a>
+      </div>
+      <div class="hero-img">
+        <img src="assets/banner.jpg" alt="Cold Texas Air technician servicing an air conditioning unit"/>
+      </div>
+    </div>
+
+    <!-- Floating service cards -->
+    <div class="svc-float">
+      <div class="svc-card">
+        <div class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+        <h3>A/C Repair</h3>
+        <p>Restore cooling fast<br/>with skilled techs</p>
+      </div>
+      <div class="svc-card">
+        <div class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+        <h3>A/C Installation</h3>
+        <p>Tailored to your home<br/>or business needs</p>
+      </div>
+      <div class="svc-card">
+        <div class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+        <h3>Refrigeration</h3>
+        <p>Commercial coolers<br/>& kitchen repair</p>
+      </div>
+      <a href="#services" class="svc-more">See All Services →</a>
+    </div>
+  </div>
+</section>
+
+<!-- About / organic image -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="grid">
+      <div class="blob">
+        <div class="blob-img"><img src="assets/tech1.webp" alt="Cold Texas Air technician working on a job site"/></div>
+        <span class="blob-dot d1"></span>
+        <span class="blob-dot d2"></span>
+      </div>
+      <div>
+        <span class="eyebrow">About Cold Texas Air</span>
+        <h2>Your Comfort, Backed By Decades of Trusted HVAC Expertise</h2>
+        <p>We go the extra mile to provide HVAC solutions tailored to your unique needs — creating comfortable homes and reliable commercial environments through innovative service, transparent pricing, and a lifetime guarantee on every install.</p>
+        <ul class="about-bullets">
+          <li><span class="ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span> 600+ projects completed across Texas</li>
+          <li><span class="ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span> Licensed, insured, after-hours emergency ready</li>
+          <li><span class="ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span> 10-year warranty with every new A/C installation</li>
+        </ul>
+        <a href="#services" class="about-cta">
+          <span class="circle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <strong>Discover Our Services</strong>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services grid -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">What We Offer</span>
+      <h2>Complete HVAC & Refrigeration Services</h2>
+      <p>From a single A/C repair to full commercial kitchen refrigeration — one trusted team for every climate-control need in Ft. Bend County.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc-tile">
+        <div class="img"><img src="assets/ac-install.webp" alt="AC installation by Cold Texas Air"/></div>
+        <div class="body">
+          <h3>A/C Installation</h3>
+          <p>Beat the heat with expert installation tailored to your home or business cooling needs.</p>
+          <a class="more" href="#contact">Learn more →</a>
+        </div>
+      </article>
+      <article class="svc-tile">
+        <div class="img"><img src="assets/ac-repair.webp" alt="AC repair service"/></div>
+        <div class="body">
+          <h3>A/C Repair</h3>
+          <p>Skilled technicians restore malfunctioning systems with fast diagnostics and lasting fixes.</p>
+          <a class="more" href="#contact">Learn more →</a>
+        </div>
+      </article>
+      <article class="svc-tile">
+        <div class="img"><img src="assets/duct.webp" alt="Air duct installation"/></div>
+        <div class="body">
+          <h3>Air Duct Installation</h3>
+          <p>Professional installation for fresh, pollutant-free indoor air throughout your space.</p>
+          <a class="more" href="#contact">Learn more →</a>
+        </div>
+      </article>
+      <article class="svc-tile">
+        <div class="img"><img src="assets/heater.webp" alt="Heater installation"/></div>
+        <div class="body">
+          <h3>Heater Installation</h3>
+          <p>Seamless heater services delivering comfort and efficiency through every cold front.</p>
+          <a class="more" href="#contact">Learn more →</a>
+        </div>
+      </article>
+      <article class="svc-tile">
+        <div class="img"><img src="assets/refrigeration.webp" alt="Commercial refrigeration"/></div>
+        <div class="body">
+          <h3>Commercial Refrigeration</h3>
+          <p>Top-of-the-line walk-ins and refrigerators ensuring optimal food storage for businesses.</p>
+          <a class="more" href="#contact">Learn more →</a>
+        </div>
+      </article>
+      <article class="svc-tile">
+        <div class="img"><img src="assets/kitchen.webp" alt="Restaurant kitchen equipment repair"/></div>
+        <div class="body">
+          <h3>Kitchen Equipment Repair</h3>
+          <p>Specialized restaurant kitchen repair solutions for fast-paced dining environments.</p>
+          <a class="more" href="#contact">Learn more →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Why us -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">People Trust</span>
+      <h2>Why Choose Cold Texas Air</h2>
+      <p>Integrity, professionalism and transparency from your first call to lifetime aftercare.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L4 7v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V7l-8-5z"/></svg></div>
+        <h3>Lifetime Guarantee</h3>
+        <p>Every install backed by our lifetime guarantee and 10-yr A/C warranty.</p>
+      </div>
+      <div class="why-card">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3>24/7 Emergency</h3>
+        <p>After-hours response across Ft. Bend & surrounding counties when you need it.</p>
+      </div>
+      <div class="why-card">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12h4l3-9 6 18 3-9h4"/></svg></div>
+        <h3>Eco-Friendly</h3>
+        <p>Energy-efficient upgrades that cut utility bills and environmental impact.</p>
+      </div>
+      <div class="why-card">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h18v4H3zM3 10h18v4H3zM3 17h18v4H3z"/></svg></div>
+        <h3>Flexible Financing</h3>
+        <p>Residential & commercial financing options to fit any project budget.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA band -->
+<div class="band-wrap" id="contact">
+  <div class="cta-band">
+    <div>
+      <h2>Clear, Honest HVAC Help — When You Need It</h2>
+      <p class="sub">Free consultations, transparent estimates, and a team that picks up the phone. Call us or send a message and we'll get back the same day.</p>
+      <div style="margin-top:24px;display:flex;gap:14px;flex-wrap:wrap;position:relative;z-index:2">
+        <a href="tel:+12812018920" class="btn btn-light">📞 (281) 201-8920</a>
+        <a href="mailto:contact@coldtexasair.com" class="btn" style="background:transparent;border:1.5px solid #fff;color:#fff">Email Us</a>
+      </div>
+    </div>
+    <div class="right">
+      <div class="faq-item">
+        <div class="qi">?</div>
+        <div><h4>Free Consultations</h4><p>We assess your space, then send a detailed estimate — no obligation.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="qi">i</div>
+        <div><h4>Same-Day Response</h4><p>After-hours emergency available across Sugar Land and surrounding counties.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="qi">$</div>
+        <div><h4>Flexible Financing</h4><p>Residential and commercial financing options for projects of any size.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="qi">✓</div>
+        <div><h4>Lifetime Guarantee</h4><p>Every installation comes with our lifetime workmanship guarantee.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="grid">
+      <div class="logo-light">
+        <img src="assets/logo.png" alt="Cold Texas Air"/>
+        <p>Professional HVAC and commercial refrigeration where your comfort takes center stage. Licensed, insured, and trusted across Sugar Land, TX.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#why">Why Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">A/C Installation</a></li>
+          <li><a href="#services">A/C Repair</a></li>
+          <li><a href="#services">Heater Installation</a></li>
+          <li><a href="#services">Air Duct Installation</a></li>
+          <li><a href="#services">Commercial Refrigeration</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <div class="ci"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 2 5 5 5 9c0 5.3 7 13 7 13s7-7.8 7-13c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg><span>13500 W Airport Blvd, Suite B 2036, Sugar Land, TX 77498</span></div>
+        <div class="ci"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a1 1 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1 17 17 0 0017 17 1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg><span>(281) 201-8920<br/>(210) 232-0130</span></div>
+        <div class="ci"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><span>contact@coldtexasair.com</span></div>
+      </div>
+    </div>
+    <div class="copy">© 2026 Cold Texas Air. All rights reserved. · Licensed & Insured · Sugar Land, TX</div>
+  </div>
+</footer>
+
+</body>
+</html>
