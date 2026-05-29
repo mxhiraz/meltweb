@@ -67,19 +67,20 @@ code{font-family:ui-monospace,SF Mono,monospace;font-size:12px;background:var(--
 .lead-head-left{display:flex;align-items:center;gap:8px;flex:1;min-width:0}
 .lead-num{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:var(--surface);border:1px solid var(--line);border-radius:5px;font-size:10px;color:var(--ink-2);flex-shrink:0}
 .lead-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.lead-actions{display:flex;gap:2px;opacity:0;transition:.15s}
-.lead-group:hover .lead-actions{opacity:1}
-.icon-btn{width:22px;height:22px;border-radius:5px;display:grid;place-items:center;color:var(--muted);font-size:12px;background:transparent}
-.icon-btn:hover{background:#fff;color:var(--ink);box-shadow:var(--shadow-sm)}
+
+.lead-actions{display:flex;gap:2px;opacity:1;transition:.15s}
+.lead-group .lead-actions{opacity:.7}.lead-group:hover .lead-actions{opacity:1}
+.icon-btn{width:26px;height:26px;border-radius:6px;display:grid;place-items:center;color:var(--ink-2);background:transparent;transition:.15s}
+.icon-btn:hover{background:#fff;color:var(--ink);box-shadow:var(--shadow-sm);transform:scale(1.05)}
 .icon-btn.danger:hover{color:var(--err)}
-.file-item{padding:7px 14px 7px 30px;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:space-between;border-left:2px solid transparent;transition:.1s}
+.file-item{padding:8px 14px 8px 30px;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:space-between;border-left:2px solid transparent;transition:.1s}
 .file-item:hover{background:var(--surface-2)}
 .file-item.active{background:var(--accent-soft);border-left-color:var(--accent);color:var(--accent-hover);font-weight:600}
-.file-actions{opacity:0}
-.file-item:hover .file-actions{opacity:1}
-.meta-item{padding:6px 14px 6px 30px;font-size:12px;color:var(--muted);cursor:pointer}
-.meta-item:hover{background:var(--surface-2);color:var(--ink-2)}
-.meta-item.active{color:var(--accent);font-weight:600}
+.file-actions{opacity:.5;transition:.15s}
+.file-item:hover .file-actions{opacity:1}.file-item.active .file-actions{opacity:1}
+.meta-item{padding:8px 14px 8px 30px;font-size:12.5px;color:var(--ink-2);cursor:pointer;display:flex;align-items:center;gap:8px;border-left:2px solid transparent;font-weight:500}
+.meta-item:hover{background:var(--surface-2);color:var(--ink)}
+.meta-item.active{background:var(--accent-soft);border-left-color:var(--accent);color:var(--accent-hover);font-weight:600}
 
 /* Editor pane */
 .editor-pane{display:flex;flex-direction:column;border-right:1px solid var(--line);background:var(--surface);overflow:hidden;min-width:0}
@@ -175,7 +176,7 @@ code{font-family:ui-monospace,SF Mono,monospace;font-size:12px;background:var(--
       <div class=pane-head>
         <div class=preview-url id=previewUrl>No preview</div>
         <button class="btn btn-ghost btn-sm" onclick=reloadPreview() title=Refresh>↻</button>
-        <a class="btn btn-ghost btn-sm" id=openExternal target=_blank href=#>Open ↗</a>
+        <a class="btn btn-ghost btn-sm" id=openExternal target=_blank href=#>Open ↗ in new tab</a>
       </div>
       <iframe class=preview-frame id=preview src=about:blank></iframe>
       <div class=preview-empty id=previewEmpty>Select a file from sidebar to preview</div>
@@ -273,16 +274,16 @@ function renderList(){
           <span class=lead-name>${prettyName(lead)}</span>
         </div>
         <div class=lead-actions>
-          <button class=icon-btn onclick="event.stopPropagation();openUpload('sample/${lead}')" title="Upload files">⬆</button>
-          <button class="icon-btn danger" onclick="event.stopPropagation();deleteLead('${lead}')" title="Delete lead">✕</button>
+          <button class=icon-btn onclick="event.stopPropagation();openUpload('sample/${lead}')" title="Upload files"><svg width=14 height=14 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2.2 stroke-linecap=round stroke-linejoin=round><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1=12 y1=3 x2=12 y2=15/></svg></button>
+          <button class="icon-btn danger" onclick="event.stopPropagation();deleteLead('${lead}')" title="Delete lead"><svg width=14 height=14 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2.2 stroke-linecap=round stroke-linejoin=round><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1.5 14a2 2 0 0 1-2 2H8.5a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
         </div>
       </div>
-      <div class=meta-item onclick="openMeta('${lead}')">⚙ Lead info & metadata</div>`;
+      <div class=meta-item onclick="openMeta('${lead}')"><svg width=12 height=12 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2.2 stroke-linecap=round stroke-linejoin=round><circle cx=12 cy=12 r=3/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Lead info & metadata</div>`;
     pages.forEach(p=>{
       const label=p.path.replace(`sample/${lead}/`,"");
       html+=`<div class=file-item data-path="${p.path}" onclick="openFile('${p.path}','${p.sha}','${lead}')">
-        <span>📄 ${label}</span>
-        <div class="file-actions"><button class="icon-btn danger" onclick="event.stopPropagation();deleteFile('${p.path}','${p.sha}')" title=Delete>🗑</button></div>
+        <span><svg width=13 height=13 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> <span style="margin-left:6px">${label}</span></span>
+        <div class="file-actions"><button class="icon-btn danger" onclick="event.stopPropagation();deleteFile('${p.path}','${p.sha}')" title=Delete><svg width=14 height=14 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2.2 stroke-linecap=round stroke-linejoin=round><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1.5 14a2 2 0 0 1-2 2H8.5a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg></button></div>
       </div>`;
     });
     html+=`</div>`;
