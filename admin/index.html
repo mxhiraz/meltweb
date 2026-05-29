@@ -54,7 +54,7 @@ hr{border:0;border-top:1px solid var(--line)}
 .crumbs span{color:var(--ink-2);font-weight:500}
 .top-r{display:flex;gap:6px}
 
-.split{display:grid;grid-template-columns:280px 1fr 1fr;flex:1;min-height:0}
+.split{display:grid;grid-template-columns:320px 1fr 1fr;flex:1;min-height:0}
 
 /* Sidebar */
 .side{background:#fff;border-right:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column}
@@ -139,6 +139,23 @@ hr{border:0;border-top:1px solid var(--line)}
 .empty{padding:50px 20px;text-align:center;color:var(--mute-2);font-size:13px}
 .spin{display:inline-block;width:12px;height:12px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:r .7s linear infinite;opacity:.6}
 @keyframes r{to{transform:rotate(360deg)}}
+
+.mini-btn{display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:5px;font-size:11.5px;font-weight:500;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line);transition:.12s;text-transform:none;letter-spacing:0}
+.mini-btn:hover{background:#fff;border-color:var(--mute-2);color:var(--ink)}
+.mini-btn.mini-danger:hover{background:#FEF2F2;border-color:#FCA5A5;color:var(--err)}
+.mini-btn svg{width:11px;height:11px}
+.row{padding:9px 14px 9px 36px;font-size:13.5px}
+.lead-head{padding:14px 14px 8px;background:var(--surface-2);text-transform:none;font-size:13px}
+.lead-name{font-size:13.5px;font-weight:600}
+.lead-acts{margin-top:6px;display:flex;gap:6px;opacity:1}
+.lead-head{flex-direction:column;align-items:stretch;gap:0}
+.lead-head-l{padding:0 0 4px}
+.row .lbl svg{width:14px;height:14px}
+.row[data-meta]{background:rgba(37,99,235,.04);font-weight:600;color:var(--ink)}
+.row[data-meta] .lbl svg{color:var(--blue)}
+.row[data-meta]:hover{background:rgba(37,99,235,.08)}
+.row[data-meta].active{background:rgba(37,99,235,.1);border-left-color:var(--blue);color:var(--blue)}
+
 .kbd-hint{font-size:11px;color:var(--mute-2);margin-top:14px;text-align:center}
 </style></head><body>
 
@@ -200,7 +217,7 @@ hr{border:0;border-top:1px solid var(--line)}
       </div>
       <div class=editor id=editor></div>
       <div class=meta id=metaForm style=display:none></div>
-      <div id=midHint style=display:none>
+      <div id=midHint>
         <div class=hint>
           <h3>How to use this portal</h3>
           <ul>
@@ -308,11 +325,11 @@ function renderList(){
           <span class=lead-name>${prettyName(lead)}</span>
         </div>
         <div class=lead-acts>
-          <button class=act onclick="event.stopPropagation();openUp('sample/${lead}')" title="Upload to this lead"><svg><use href=#i-upload/></svg></button>
-          <button class="act act-danger" onclick="event.stopPropagation();delLead('${lead}')" title="Delete lead"><svg><use href=#i-trash/></svg></button>
+          <button class=mini-btn onclick="event.stopPropagation();openUp('sample/${lead}')" title="Upload files"><svg><use href=#i-upload/></svg> Add files</button>
+          <button class="mini-btn mini-danger" onclick="event.stopPropagation();delLead('${lead}')" title="Delete entire lead"><svg><use href=#i-trash/></svg> Delete</button>
         </div>
       </div>
-      <div class=row data-meta="${lead}" onclick="openMeta('${lead}')"><div class=lbl><svg><use href=#i-info/></svg> Lead info</div></div>`;
+      <div class=row data-meta="${lead}" onclick="openMeta('${lead}')"><div class=lbl><svg><use href=#i-info/></svg> Edit lead info (website, email, notes)</div></div>`;
     pages.forEach(p=>{
       const label=p.path.replace(`sample/${lead}/`,"");
       html+=`<div class=row data-path="${p.path}" onclick="openFile('${p.path}','${p.sha}','${lead}')">
