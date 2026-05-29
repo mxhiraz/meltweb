@@ -163,6 +163,19 @@ hr{border:0;border-top:1px solid var(--line)}
 .row.dir .lbl svg:nth-child(2){color:#60A5FA}
 .row.dir{font-weight:500}
 
+
+/* file/folder icons - force visible + color-coded */
+.row .lbl svg,.row .chev{width:14px!important;height:14px!important;flex-shrink:0}
+.row .chev{width:11px!important;height:11px!important;color:var(--mute-2)}
+.ic-folder{color:#3B82F6}
+.ic-html{color:#EA580C}
+.ic-img{color:#10B981}
+.ic-css{color:#8B5CF6}
+.ic-js{color:#EAB308}
+.ic-json{color:#EC4899}
+.ic-file{color:var(--mute-2)}
+.ic-info{color:#6366F1}
+
 .section-label{padding:8px 14px 4px 30px;font-size:10.5px;font-weight:700;color:var(--mute-2);text-transform:uppercase;letter-spacing:.6px;background:#fff}
 
 .kbd-hint{font-size:11px;color:var(--mute-2);margin-top:14px;text-align:center}
@@ -184,6 +197,11 @@ hr{border:0;border-top:1px solid var(--line)}
 <symbol id=i-code viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
 <symbol id=i-folder viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></symbol>
 <symbol id=i-chev viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><polyline points="9 18 15 12 9 6"/></symbol>
+<symbol id=i-html viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M8 13l2 4 2-4"/><path d="M14 13v4M16 15h-2"/></symbol>
+<symbol id=i-img2 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><rect x=3 y=3 width=18 height=18 rx=2/><circle cx=8.5 cy=8.5 r=1.5 fill=currentColor/><polyline points="21 15 16 10 5 21"/></symbol>
+<symbol id=i-css viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><circle cx=12 cy=15 r=2/></symbol>
+<symbol id=i-js viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 13v4a2 2 0 0 1-2 2H6"/><path d="M14 13h2a1 1 0 0 1 0 2h-1a1 1 0 0 0 0 2h2"/></symbol>
+<symbol id=i-json viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M5 3a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2 2 2 0 0 1 2 2v4a2 2 0 0 0 2 2"/><path d="M19 3a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2 2 2 0 0 0-2 2v4a2 2 0 0 1-2 2"/></symbol>
 </defs></svg>
 
 <div class=login id=login>
@@ -342,7 +360,7 @@ function renderList(){
           <button class="mini-btn mini-danger" onclick="event.stopPropagation();delLead('${lead}')" title="Delete entire lead"><svg><use href=#i-trash/></svg> Delete</button>
         </div>
       </div>
-      <div class=row data-meta="${lead}" onclick="openMeta('${lead}')"><div class=lbl><svg><use href=#i-info/></svg> Edit lead info (website, email, notes)</div></div>`;
+      <div class=row data-meta="${lead}" onclick="openMeta('${lead}')"><div class=lbl><svg class=ic-info><use href=#i-info/></svg> Edit lead info (website, email, notes)</div></div>`;
     html+=renderTree(lead,allFiles);
     html+=`</div>`;
   });
@@ -372,7 +390,7 @@ function renderTree(lead,files){
       s+=`<div class="row dir" data-dir="${fullPath}" style="padding-left:${14+depth*16}px" onclick="toggleDir('${fullPath}')">
         <div class=lbl>
           <svg class="chev ${open?'open':''}"><use href=#i-chev/></svg>
-          <svg><use href=#i-folder/></svg>
+          <svg class=ic-folder><use href=#i-folder/></svg>
           <span style="font-weight:500">${d}</span>
         </div>
         <div class=row-acts>
@@ -384,12 +402,17 @@ function renderTree(lead,files){
     // then files
     node.files.sort((a,b)=>a.name.localeCompare(b.name)).forEach(f=>{
       const ext=f.name.split(".").pop().toLowerCase();
-      const isImg=["png","jpg","jpeg","webp","svg","gif"].includes(ext);
-      const isText=["html","htm","css","js","json","txt","md","xml"].includes(ext);
-      const icon=isImg?"#i-image":(isText?"#i-file":"#i-file");
+      const isImg=["png","jpg","jpeg","webp","svg","gif","avif"].includes(ext);
+      const isText=["html","htm","css","js","json","txt","md","xml","mjs"].includes(ext);
+      let icon="#i-file",cls="ic-file";
+      if(ext==="html"||ext==="htm"){icon="#i-html";cls="ic-html"}
+      else if(isImg){icon="#i-img2";cls="ic-img"}
+      else if(ext==="css"){icon="#i-css";cls="ic-css"}
+      else if(ext==="js"||ext==="mjs"){icon="#i-js";cls="ic-js"}
+      else if(ext==="json"){icon="#i-json";cls="ic-json"}
       const fn=isImg?`openAsset('${f.path}','${f.sha}','${lead}',true)`:(isText?`openFile('${f.path}','${f.sha}','${lead}')`:`openAsset('${f.path}','${f.sha}','${lead}',false)`);
       s+=`<div class=row data-path="${f.path}" style="padding-left:${14+depth*16+14}px" onclick="${fn}">
-        <div class=lbl><svg><use href=${icon}/></svg> ${f.name} <span style="color:var(--mute-2);font-size:11px;font-weight:400;margin-left:6px">${f.size?(f.size/1024).toFixed(0)+"KB":""}</span></div>
+        <div class=lbl><svg class="${cls}"><use href=${icon}/></svg> ${f.name} <span style="color:var(--mute-2);font-size:11px;font-weight:400;margin-left:6px">${f.size?(f.size/1024).toFixed(0)+"KB":""}</span></div>
         <div class=row-acts><button class="act act-danger" onclick="event.stopPropagation();delFile('${f.path}','${f.sha}')" title=Delete><svg><use href=#i-trash/></svg></button></div>
       </div>`;
     });
