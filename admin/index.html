@@ -2,7 +2,6 @@
 <meta charset=utf-8><title>MeltWeb Admin</title>
 <link rel="preconnect" href="https://rsms.me/"><link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script>
 tailwind.config={theme:{extend:{
   fontFamily:{sans:['Inter','system-ui','sans-serif'],mono:['SF Mono','ui-monospace','monospace']},
@@ -278,7 +277,7 @@ function renderList(){
     html+=`</div>`;
   });
   $("list").innerHTML=html||`<div class="py-12 text-center text-gray-400 text-[12.5px]">${q?"No matches":"No leads yet. Click + New lead"}</div>`;
-  lucide();
+  paintStaticIcons();
 }
 
 function renderTree(lead,filesArr){
@@ -362,7 +361,7 @@ async function openMeta(lead){
   $("copyBtn").disabled=true;$("saveBtn").disabled=false;
   let meta={name:prettyName(lead),website:"",contact:"",email:"",phone:"",description:"",industry:"",location:""};
   try{const d=await api("read?path="+encodeURIComponent(current.path));meta={...meta,...JSON.parse(d.content||"{}")};current.sha=d.sha}catch(e){}
-  renderMetaForm(meta,lead);lucide();
+  renderMetaForm(meta,lead);paintStaticIcons();
   $("previewEmpty").classList.remove("hidden");$("preview").classList.add("hidden");
 }
 
@@ -389,7 +388,7 @@ async function openAsset(path,sha,lead,isImg){
     <div class="flex gap-2">
       <button onclick='openUp("${dirPath}")' class="px-3.5 py-2 text-[13px] font-medium text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md transition">Replace / upload here</button>
       <button onclick='delFile("${path}","${sha}")' class="px-3.5 py-2 text-[13px] font-medium text-red-600 bg-white border border-line hover:bg-red-50 hover:border-red-300 rounded-md transition">Delete this file</button>
-    </div>`;lucide();
+    </div>`;paintStaticIcons();
 }
 
 const esc=s=>String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -465,7 +464,7 @@ async function handleFiles(fl){
   for(const f of fl){
     const row=document.createElement("div");row.className="flex items-center gap-2 py-1.5 border-b border-line-2 last:border-b-0";
     row.innerHTML=`<span class="text-gray-400">${ICONS.spin}</span><span class="flex-1 truncate">${f.name}</span><span class="text-gray-400 text-[11px]">${(f.size/1024).toFixed(0)}KB</span>`;
-    list.appendChild(row);lucide();
+    list.appendChild(row);paintStaticIcons();
     try{const buf=await f.arrayBuffer();const b64=btoa(new Uint8Array(buf).reduce((s,b)=>s+String.fromCharCode(b),""));await api("upload",{method:"POST",body:JSON.stringify({path:`${upTarget}/${f.name}`,contentBase64:b64})});row.firstElementChild.outerHTML=`<span class="text-emerald-600 font-bold">✓</span>`}
     catch(e){row.firstElementChild.outerHTML=`<span class="text-red-600 font-bold">✗</span>`;row.insertAdjacentHTML("beforeend",`<span class="text-red-600 text-[11px]">${e.message}</span>`)}
   }
@@ -498,7 +497,7 @@ function showCtx(e,type,path,sha,isDir){
   m.innerHTML=items.map(it=>it.sep?'<hr class="my-1 border-line-2">':`<button class="w-full flex items-center gap-2.5 px-2.5 py-1.5 text-left rounded text-[12.5px] ${it.danger?"text-red-600 hover:bg-red-50":"text-ink-2 hover:bg-surface-2"} transition" onclick="hideCtx();${it.fn}">${it.icon||'<span class="w-3"></span>'} ${it.label}</button>`).join("");
   m.classList.remove("hidden");m.classList.add("block");
   const x=Math.min(e.clientX,window.innerWidth-220),y=Math.min(e.clientY,window.innerHeight-260);
-  m.style.left=x+"px";m.style.top=y+"px";lucide();
+  m.style.left=x+"px";m.style.top=y+"px";paintStaticIcons();
 }
 function hideCtx(){$("ctxMenu").classList.add("hidden");$("ctxMenu").classList.remove("block")}
 document.addEventListener("click",e=>{if(!e.target.closest("#ctxMenu"))hideCtx()});
@@ -514,6 +513,6 @@ function initEditor(){
   });setTimeout(lucide,50);
 }
 
-lucide();if(pw())showApp();
+paintStaticIcons();if(pw())showApp();
 </script>
 </body></html>
