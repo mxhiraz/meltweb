@@ -538,7 +538,7 @@ function initEditor(){
     editor=monaco.editor.create($("editor"),{value:"",language:"html",theme:"vs",automaticLayout:true,minimap:{enabled:false},fontSize:13,wordWrap:"on",scrollBeyondLastLine:false,padding:{top:14},lineNumbersMinChars:3});
     editor.addCommand(monaco.KeyMod.CtrlCmd|monaco.KeyCode.KeyS,()=>save());
     loadList();
-  });setTimeout(lucide,50);
+  });setTimeout(paintStaticIcons,50);
 }
 
 paintStaticIcons();
