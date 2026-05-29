@@ -198,8 +198,8 @@ hr{border:0;border-top:1px solid var(--line)}
 .row[data-meta] .lbl svg{color:#6366F1}
 
 /* Dots menu button */
-.dots-btn{width:22px;height:22px;border-radius:4px;display:none;align-items:center;justify-content:center;color:var(--mute-2);background:transparent;padding:0;margin-left:auto}
-.row:hover .dots-btn,.row.menu-open .dots-btn{display:inline-flex}
+.dots-btn{width:22px;height:22px;border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--mute-2);background:transparent;padding:0;margin-left:auto;opacity:.4;transition:.12s}.row:hover .dots-btn{opacity:1}
+
 .dots-btn:hover{background:rgba(0,0,0,.08);color:var(--ink)}
 .dots-btn svg{width:14px;height:14px}
 .row-acts{display:none}
@@ -207,6 +207,10 @@ hr{border:0;border-top:1px solid var(--line)}
 /* Indent guides */
 .row.dir, .row.file{position:relative}
 .indent-guide{position:absolute;top:0;bottom:0;width:1px;background:var(--line);left:0}
+
+
+/* indent guides like VS Code */
+.row{background-image:linear-gradient(to right,transparent calc(var(--depth,0)*14px - 1px),var(--line-2) calc(var(--depth,0)*14px),transparent calc(var(--depth,0)*14px + 1px));background-repeat:no-repeat}
 
 /* Context menu */
 .ctx{position:fixed;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 12px 30px rgba(0,0,0,.15);padding:5px;z-index:300;min-width:180px;display:none;font-size:13px}
@@ -421,7 +425,7 @@ function renderList(){
           <button class="mini-btn mini-danger" onclick="event.stopPropagation();delLead('${lead}')" title="Delete entire lead"><svg><use href=#i-trash/></svg> Delete</button>
         </div>
       </div>
-      <div class=row data-meta="${lead}" onclick="openMeta('${lead}')"><div class=lbl><svg class=ic-info><use href=#i-info/></svg> Edit lead info (website, email, notes)</div></div>`;
+      <div class=row data-meta="${lead}" onclick="openMeta('${lead}')"><div class=lbl><svg class=ic-info width=14 height=14><use href=#i-info/></svg> Edit lead info (website, email, notes)</div></div>`;
     html+=renderTree(lead,allFiles);
     html+=`</div>`;
   });
@@ -448,13 +452,13 @@ function renderTree(lead,files){
       const dirPath=prefix?`${prefix}/${d}`:d;
       const fullPath=`sample/${lead}/${dirPath}`;
       const open=openDirs.has(fullPath);
-      s+=`<div class="row dir" data-dir="${fullPath}" style="padding-left:${8+depth*14}px" onclick="toggleDir('${fullPath}')" oncontextmenu="event.preventDefault();showCtx(event,'dir','${fullPath}','',true)">
+      s+=`<div class="row dir" data-dir="${fullPath}" style="--depth:${depth};padding-left:${8+depth*14}px" onclick="toggleDir('${fullPath}')" oncontextmenu="event.preventDefault();showCtx(event,'dir','${fullPath}','',true)">
         <div class=lbl>
-          <svg class="chev ${open?'open':''}"><use href=#i-chev/></svg>
-          <svg class=ic-folder><use href=#i-folder/></svg>
+          <svg class="chev ${open?'open':''}" width=12 height=12><use href=#i-chev/></svg>
+          <svg class=ic-folder width=14 height=14><use href=#i-folder/></svg>
           <span>${d}</span>
         </div>
-        <button class=dots-btn onclick="event.stopPropagation();showCtx(event,'dir','${fullPath}','',true)" title=More><svg><use href=#i-dots/></svg></button>
+        <button class=dots-btn onclick="event.stopPropagation();showCtx(event,'dir','${fullPath}','',true)" title=More><svg width=14 height=14><use href=#i-dots/></svg></button>
       </div>`;
       if(open) s+=walk(node.dirs[d],dirPath,depth+1);
     });
@@ -470,9 +474,9 @@ function renderTree(lead,files){
       else if(ext==="js"||ext==="mjs"){icon="#i-js";cls="ic-js"}
       else if(ext==="json"){icon="#i-json";cls="ic-json"}
       const fn=isImg?`openAsset('${f.path}','${f.sha}','${lead}',true)`:(isText?`openFile('${f.path}','${f.sha}','${lead}')`:`openAsset('${f.path}','${f.sha}','${lead}',false)`);
-      s+=`<div class="row file" data-path="${f.path}" style="padding-left:${8+depth*14+12}px" onclick="${fn}" oncontextmenu="event.preventDefault();showCtx(event,'file','${f.path}','${f.sha}',false)">
-        <div class=lbl><svg class="${cls}"><use href=${icon}/></svg> <span>${f.name}</span> <span class=size>${f.size?(f.size/1024).toFixed(0)+"KB":""}</span></div>
-        <button class=dots-btn onclick="event.stopPropagation();showCtx(event,'file','${f.path}','${f.sha}',false)" title=More><svg><use href=#i-dots/></svg></button>
+      s+=`<div class="row file" data-path="${f.path}" style="--depth:${depth};padding-left:${8+depth*14+12}px" onclick="${fn}" oncontextmenu="event.preventDefault();showCtx(event,'file','${f.path}','${f.sha}',false)">
+        <div class=lbl><svg class="${cls}" width=14 height=14><use href=${icon}/></svg> <span>${f.name}</span> <span class=size>${f.size?(f.size/1024).toFixed(0)+"KB":""}</span></div>
+        <button class=dots-btn onclick="event.stopPropagation();showCtx(event,'file','${f.path}','${f.sha}',false)" title=More><svg width=14 height=14><use href=#i-dots/></svg></button>
       </div>`;
     });
     return s;
