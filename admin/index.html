@@ -190,7 +190,10 @@ const KEY="mw_admin_pw",$=id=>document.getElementById(id),pw=()=>localStorage.ge
 let editor,files=[],leads={},current={path:null,sha:null,lead:null,mode:"html"};
 const openDirs=new Set();
 
-const lucide=()=>{if(window.lucide&&lucide.createIcons)try{lucide.createIcons()}catch(e){}};
+function paintStaticIcons(){
+  const map={"search":ICONS.search,"plus":ICONS.plus,"refresh-cw":ICONS.refresh,"copy":ICONS.copy,"external-link":ICONS.external,"eye":ICONS.eye,"upload":ICONS.upload,"trash-2":ICONS.trash,"folder":ICONS.folder,"folder-open":ICONS.folderOpen,"file":ICONS.file,"info":ICONS.info,"more-vertical":ICONS.dots,"chevron-right":ICONS.chev};
+  document.querySelectorAll("[data-lucide]").forEach(el=>{const n=el.dataset.lucide;if(map[n]){const wrap=document.createElement("span");if(el.className)wrap.className=el.className;if(el.style.cssText)wrap.style.cssText=el.style.cssText;wrap.innerHTML=map[n];el.replaceWith(wrap)}});
+}
 const I=(name,size=14,cls="")=>`<i data-lucide="${name}" style="width:${size}px;height:${size}px" class="${cls} inline-block align-middle"></i>`;
 const ICONS={
   chev:I("chevron-right",10),
