@@ -209,6 +209,13 @@ hr{border:0;border-top:1px solid var(--line)}
 .indent-guide{position:absolute;top:0;bottom:0;width:1px;background:var(--line);left:0}
 
 
+
+.fi{display:inline-block;width:16px;text-align:center;font-size:12px;line-height:1;flex-shrink:0}
+.chev{display:inline-block;width:10px;color:var(--mute-2);font-size:10px;line-height:1;transition:transform .12s;flex-shrink:0}
+.chev.open{transform:rotate(90deg)}
+.dots-btn{font-size:16px;line-height:1;color:var(--mute-2)}
+.row .lbl{gap:6px}
+
 /* indent guides like VS Code */
 .row{background-image:linear-gradient(to right,transparent calc(var(--depth,0)*14px - 1px),var(--line-2) calc(var(--depth,0)*14px),transparent calc(var(--depth,0)*14px + 1px));background-repeat:no-repeat}
 
@@ -425,7 +432,7 @@ function renderList(){
           <button class="mini-btn mini-danger" onclick="event.stopPropagation();delLead('${lead}')" title="Delete entire lead"><svg><use href=#i-trash/></svg> Delete</button>
         </div>
       </div>
-      <div class=row data-meta="${lead}" onclick="openMeta('${lead}')"><div class=lbl><svg class=ic-info width=14 height=14><use href=#i-info/></svg> Edit lead info (website, email, notes)</div></div>`;
+      <div class=row data-meta="${lead}" onclick="openMeta('${lead}')"><div class=lbl><span class=fi>ℹ️</span> Edit lead info (website, email, notes)</div></div>`;
     html+=renderTree(lead,allFiles);
     html+=`</div>`;
   });
@@ -454,11 +461,11 @@ function renderTree(lead,files){
       const open=openDirs.has(fullPath);
       s+=`<div class="row dir" data-dir="${fullPath}" style="--depth:${depth};padding-left:${8+depth*14}px" onclick="toggleDir('${fullPath}')" oncontextmenu="event.preventDefault();showCtx(event,'dir','${fullPath}','',true)">
         <div class=lbl>
-          <svg class="chev ${open?'open':''}" width=12 height=12><use href=#i-chev/></svg>
-          <svg class=ic-folder width=14 height=14><use href=#i-folder/></svg>
+          <span class="chev ${open?'open':''}">▸</span>
+          <span class=fi>📁</span>
           <span>${d}</span>
         </div>
-        <button class=dots-btn onclick="event.stopPropagation();showCtx(event,'dir','${fullPath}','',true)" title=More><svg width=14 height=14><use href=#i-dots/></svg></button>
+        <button class=dots-btn onclick="event.stopPropagation();showCtx(event,'dir','${fullPath}','',true)" title=More>⋯</button>
       </div>`;
       if(open) s+=walk(node.dirs[d],dirPath,depth+1);
     });
@@ -468,15 +475,16 @@ function renderTree(lead,files){
       const isImg=["png","jpg","jpeg","webp","svg","gif","avif"].includes(ext);
       const isText=["html","htm","css","js","json","txt","md","xml","mjs"].includes(ext);
       let icon="#i-file",cls="ic-file";
-      if(ext==="html"||ext==="htm"){icon="#i-html";cls="ic-html"}
-      else if(isImg){icon="#i-img2";cls="ic-img"}
-      else if(ext==="css"){icon="#i-css";cls="ic-css"}
-      else if(ext==="js"||ext==="mjs"){icon="#i-js";cls="ic-js"}
-      else if(ext==="json"){icon="#i-json";cls="ic-json"}
+let emoji="📄";
+      if(ext==="html"||ext==="htm"){emoji="🌐";cls="ic-html"}
+      else if(isImg){emoji="🖼️";cls="ic-img"}
+      else if(ext==="css"){emoji="🎨";cls="ic-css"}
+      else if(ext==="js"||ext==="mjs"){emoji="⚡";cls="ic-js"}
+      else if(ext==="json"){emoji="{}";cls="ic-json"}
       const fn=isImg?`openAsset('${f.path}','${f.sha}','${lead}',true)`:(isText?`openFile('${f.path}','${f.sha}','${lead}')`:`openAsset('${f.path}','${f.sha}','${lead}',false)`);
       s+=`<div class="row file" data-path="${f.path}" style="--depth:${depth};padding-left:${8+depth*14+12}px" onclick="${fn}" oncontextmenu="event.preventDefault();showCtx(event,'file','${f.path}','${f.sha}',false)">
-        <div class=lbl><svg class="${cls}" width=14 height=14><use href=${icon}/></svg> <span>${f.name}</span> <span class=size>${f.size?(f.size/1024).toFixed(0)+"KB":""}</span></div>
-        <button class=dots-btn onclick="event.stopPropagation();showCtx(event,'file','${f.path}','${f.sha}',false)" title=More><svg width=14 height=14><use href=#i-dots/></svg></button>
+        <div class=lbl><span class="fi ${cls}">${emoji}</span> <span>${f.name}</span> <span class=size>${f.size?(f.size/1024).toFixed(0)+"KB":""}</span></div>
+        <button class=dots-btn onclick="event.stopPropagation();showCtx(event,'file','${f.path}','${f.sha}',false)" title=More>⋯</button>
       </div>`;
     });
     return s;
@@ -664,24 +672,24 @@ function showCtx(e,type,path,sha,isDir){
   let items=[];
   if(isDir){
     items=[
-      {label:"Upload files here",icon:"#i-upload",fn:`openUp('${path}')`},
-      {label:"Copy path",icon:"#i-copy2",fn:`copyToClip('${path}')`},
-      {label:"Open in GitHub",icon:"#i-link",fn:`window.open('https://github.com/${REPO}/tree/main/${path}','_blank')`},
+      {label:"Upload files here",emoji:"⬆️",fn:`openUp('${path}')`},
+      {label:"Copy path",emoji:"📋",fn:`copyToClip('${path}')`},
+      {label:"Open in GitHub",emoji:"🔗",fn:`window.open('https://github.com/${REPO}/tree/main/${path}','_blank')`},
       {sep:true},
-      {label:"Delete folder",icon:"#i-trash",fn:`delDir('${path}')`,danger:true}
+      {label:"Delete folder",emoji:"🗑️",fn:`delDir('${path}')`,danger:true}
     ];
   }else{
     const url=location.origin+"/"+path;
     items=[
-      {label:"Open preview",icon:"#i-eye",fn:`window.open('${url}','_blank')`},
-      {label:"Copy share link",icon:"#i-copy2",fn:`copyToClip('${url}')`},
-      {label:"Copy file path",icon:"#i-copy2",fn:`copyToClip('${path}')`},
-      {label:"Open in GitHub",icon:"#i-link",fn:`window.open('https://github.com/${REPO}/blob/main/${path}','_blank')`},
+      {label:"Open preview",emoji:"👁",fn:`window.open('${url}','_blank')`},
+      {label:"Copy share link",emoji:"🔗",fn:`copyToClip('${url}')`},
+      {label:"Copy file path",emoji:"📋",fn:`copyToClip('${path}')`},
+      {label:"Open in GitHub",emoji:"💾",fn:`window.open('https://github.com/${REPO}/blob/main/${path}','_blank')`},
       {sep:true},
-      {label:"Delete file",icon:"#i-trash",fn:`delFile('${path}','${sha}')`,danger:true}
+      {label:"Delete file",emoji:"🗑️",fn:`delFile('${path}','${sha}')`,danger:true}
     ];
   }
-  m.innerHTML=items.map(it=>it.sep?'<hr>':`<button class="${it.danger?'danger':''}" onclick="hideCtx();${it.fn}"><svg><use href=${it.icon}/></svg> ${it.label}</button>`).join("");
+  m.innerHTML=items.map(it=>it.sep?'<hr>':`<button class="${it.danger?'danger':''}" onclick="hideCtx();${it.fn}"><span style="width:16px;text-align:center;display:inline-block">${it.emoji||"•"}</span> ${it.label}</button>`).join("");
   m.classList.add("on");
   // position
   const x=Math.min(e.clientX,window.innerWidth-220);
