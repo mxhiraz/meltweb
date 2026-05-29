@@ -1,435 +1,216 @@
-<!doctype html><html lang=en><head>
+<!doctype html><html lang=en class="h-full"><head>
 <meta charset=utf-8><title>MeltWeb Admin</title>
 <link rel="preconnect" href="https://rsms.me/"><link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{
+  fontFamily:{sans:['Inter','system-ui','sans-serif'],mono:['SF Mono','ui-monospace','monospace']},
+  colors:{
+    ink:{DEFAULT:'#111827',2:'#374151'},
+    line:{DEFAULT:'#E5E7EB',2:'#F3F4F6'},
+    surface:{DEFAULT:'#FFFFFF',2:'#F9FAFB'},
+    brand:{DEFAULT:'#2563EB',hover:'#1D4ED8'},
+  }
+}}};
+</script>
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;font:inherit}
-:root{
-  --ink:#111827;--ink-2:#374151;--muted:#6B7280;--mute-2:#9CA3AF;
-  --line:#E5E7EB;--line-2:#F3F4F6;
-  --bg:#FFFFFF;--surface-2:#F9FAFB;
-  --accent:#111827;--accent-2:#1F2937;
-  --blue:#2563EB;--err:#DC2626;--ok:#059669;
-  --r:6px;--r2:10px;
-}
-html,body{height:100%;font:14px/1.55 "Inter",system-ui,sans-serif;color:var(--ink);background:var(--bg);font-feature-settings:"cv11","ss01"}
-button,input,textarea{font:inherit;color:inherit;outline:0}
-button{cursor:pointer;border:0;background:none}
-input,textarea{border:1px solid var(--line);border-radius:var(--r);padding:9px 12px;width:100%;background:#fff;transition:.12s}
-input:focus,textarea:focus{border-color:var(--ink);box-shadow:0 0 0 3px rgba(17,24,39,.08)}
-textarea{resize:vertical;min-height:90px;font-family:inherit}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:var(--r);font-weight:500;font-size:13px;transition:.12s;border:1px solid transparent}
-.btn-primary{background:var(--ink);color:#fff}
-.btn-primary:hover{background:#000}
-.btn-outline{background:#fff;color:var(--ink);border-color:var(--line)}
-.btn-outline:hover{background:var(--surface-2);border-color:var(--mute-2)}
-.btn-danger{background:#fff;color:var(--err);border-color:var(--line)}
-.btn-danger:hover{background:#FEF2F2;border-color:#FCA5A5}
-.btn-sm{padding:5px 10px;font-size:12px}
-.btn:disabled{opacity:.45;cursor:not-allowed}
-.btn-link{background:none;color:var(--blue);padding:0;font-weight:500}
-.btn-link:hover{text-decoration:underline}
-a{color:var(--blue);text-decoration:none}
-code,kbd{font-family:"SF Mono",ui-monospace,monospace;font-size:12px;background:var(--surface-2);padding:1px 6px;border-radius:4px;color:var(--ink-2)}
-kbd{border:1px solid var(--line);box-shadow:0 1px 0 var(--line)}
-hr{border:0;border-top:1px solid var(--line)}
+html,body{font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased}
+.chev{transition:transform .15s ease}
+.chev.open{transform:rotate(90deg)}
+.row-line{box-shadow:inset 2px 0 0 transparent;transition:background-color .08s}
+.row-line.active{box-shadow:inset 2px 0 0 #2563EB;background-color:rgba(37,99,235,.06)}
+.scrollbar{scrollbar-width:thin;scrollbar-color:#D1D5DB transparent}
+.scrollbar::-webkit-scrollbar{width:8px;height:8px}
+.scrollbar::-webkit-scrollbar-thumb{background:#D1D5DB;border-radius:4px}
+.scrollbar::-webkit-scrollbar-thumb:hover{background:#9CA3AF}
+.toast{animation:slide-up .2s ease}
+@keyframes slide-up{from{transform:translateY(15px);opacity:0}to{transform:translateY(0);opacity:1}}
+kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px solid #E5E7EB;border-bottom-width:2px;border-radius:4px;padding:1px 5px;font-size:11px;color:#374151}
+.dz.drag{border-color:#2563EB!important;background:#EFF6FF!important;color:#2563EB!important}
+.spin{animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style></head>
 
-/* Login */
-.login{display:grid;place-items:center;height:100vh;padding:20px;background:var(--surface-2)}
-.login-card{width:100%;max-width:380px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:36px}
-.login-card h1{font-size:20px;font-weight:600;margin-bottom:4px;letter-spacing:-.01em}
-.login-card p{color:var(--muted);font-size:13px;margin-bottom:22px}
-.login-card input{padding:11px 13px;margin-bottom:10px}
-.login-card .btn{width:100%;justify-content:center;padding:11px}
-.brand-block{display:flex;align-items:center;gap:10px;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--line)}
-.brand-mark{width:32px;height:32px;background:var(--ink);color:#fff;border-radius:8px;display:grid;place-items:center;font-weight:700;font-size:13px}
-.brand-name{font-weight:600;font-size:15px}
+<body class="font-sans text-[14px] text-ink antialiased bg-white h-full">
 
-/* App */
-.app{display:none;height:100vh;flex-direction:column}
-.top{display:flex;align-items:center;justify-content:space-between;padding:10px 18px;background:#fff;border-bottom:1px solid var(--line);height:52px}
-.top-l{display:flex;align-items:center;gap:24px}
-.top .brand-mark{width:24px;height:24px;font-size:11px;border-radius:6px}
-.top .brand-row{display:flex;align-items:center;gap:8px;font-weight:600;font-size:13px}
-.crumbs{font-size:12px;color:var(--muted)}
-.crumbs span{color:var(--ink-2);font-weight:500}
-.top-r{display:flex;gap:6px}
-
-.split{display:grid;grid-template-columns:320px 1fr 1fr;flex:1;min-height:0}
-
-/* Sidebar */
-.side{background:#fff;border-right:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column}
-.side-top{padding:12px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
-.search-row{position:relative}
-.search-row input{padding:7px 12px 7px 30px;font-size:13px}
-.search-row .ico{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--mute-2);width:14px;height:14px}
-.btn-new{padding:7px;font-size:12.5px;display:flex;align-items:center;justify-content:center;gap:6px}
-
-.lead-scroll{flex:1;overflow-y:auto}
-.lead{border-bottom:1px solid var(--line-2)}
-.lead-head{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;font-size:12px;color:var(--ink-2);font-weight:600;background:#fff;position:sticky;top:0}
-.lead-head-l{display:flex;align-items:center;gap:8px;min-width:0;flex:1}
-.lead-num{font-size:11px;color:var(--mute-2);font-variant-numeric:tabular-nums;font-weight:500;min-width:18px}
-.lead-name{text-transform:capitalize;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600;color:var(--ink)}
-.lead-acts{display:flex;gap:4px}
-.act{width:24px;height:24px;border-radius:5px;display:grid;place-items:center;color:var(--mute-2);background:transparent;transition:.12s}
-.act:hover{background:var(--surface-2);color:var(--ink)}
-.act-danger:hover{background:#FEF2F2;color:var(--err)}
-.act svg{width:13px;height:13px}
-
-.row{padding:7px 14px 7px 36px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--ink-2);border-left:2px solid transparent;transition:.1s;position:relative}
-.row:hover{background:var(--surface-2);color:var(--ink)}
-.row.active{background:var(--surface-2);border-left-color:var(--ink);color:var(--ink);font-weight:500}
-.row .lbl{display:flex;align-items:center;gap:8px;min-width:0}
-.row .lbl svg{width:13px;height:13px;color:var(--mute-2);flex-shrink:0}
-.row.active .lbl svg{color:var(--ink)}
-.row-acts{display:flex;gap:2px;opacity:0;transition:.12s}
-.row:hover .row-acts,.row.active .row-acts{opacity:1}
-
-/* Center pane */
-.mid{display:flex;flex-direction:column;background:#fff;border-right:1px solid var(--line);overflow:hidden;min-width:0}
-.head{height:52px;display:flex;align-items:center;gap:10px;padding:0 16px;border-bottom:1px solid var(--line);background:#fff}
-.head .path{flex:1;font-family:"SF Mono",ui-monospace,monospace;font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.tabs{display:flex;background:var(--surface-2);border-radius:6px;padding:2px}
-.tab{padding:4px 10px;font-size:12px;color:var(--muted);font-weight:500;cursor:pointer;border-radius:4px;transition:.12s}
-.tab.active{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.06)}
-.editor{flex:1;overflow:hidden}
-
-.meta{padding:24px;overflow-y:auto;flex:1;max-width:640px;margin:0 auto;width:100%}
-.meta h2{font-size:15px;font-weight:600;margin-bottom:4px}
-.meta .sub{color:var(--muted);font-size:12.5px;margin-bottom:22px}
-.fld{margin-bottom:14px}
-.fld label{display:block;font-size:11px;font-weight:600;color:var(--ink-2);margin-bottom:5px;text-transform:uppercase;letter-spacing:.4px}
-.fld input,.fld textarea{font-size:13px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-
-/* Right pane */
-.right{background:#fff;display:flex;flex-direction:column;overflow:hidden;min-width:0}
-.right-empty{flex:1;display:grid;place-items:center;padding:40px;text-align:center;color:var(--muted);font-size:13px}
-.right-empty .ico{width:44px;height:44px;margin:0 auto 12px;background:var(--surface-2);border-radius:10px;display:grid;place-items:center;color:var(--mute-2)}
-.url-bar{flex:1;background:var(--surface-2);padding:5px 10px;border-radius:5px;font:11px/1 "SF Mono",ui-monospace,monospace;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border:1px solid var(--line)}
-.frame{flex:1;border:0;width:100%;background:#fff}
-
-/* Empty state hints */
-.hint{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:20px;margin:20px;font-size:13px;line-height:1.6}
-.hint h3{font-size:13px;font-weight:600;margin-bottom:6px}
-.hint ul{margin:8px 0 0 16px;color:var(--muted)}
-.hint li{margin-bottom:4px}
-
-/* Modal */
-.scrim{display:none;position:fixed;inset:0;background:rgba(17,24,39,.4);z-index:99;align-items:center;justify-content:center;padding:20px}
-.scrim.on{display:flex}
-.mdl{background:#fff;border-radius:12px;padding:24px;max-width:440px;width:100%;border:1px solid var(--line);box-shadow:0 20px 50px rgba(0,0,0,.15)}
-.mdl h2{font-size:16px;font-weight:600;margin-bottom:4px}
-.mdl .sub{color:var(--muted);font-size:12.5px;margin-bottom:18px}
-.mdl-act{display:flex;gap:8px;justify-content:flex-end;margin-top:14px}
-
-.drop{border:1.5px dashed var(--line);border-radius:10px;padding:32px 20px;text-align:center;color:var(--muted);cursor:pointer;transition:.12s;font-size:13px}
-.drop:hover,.drop.drag{border-color:var(--ink);background:var(--surface-2);color:var(--ink)}
-.drop b{color:var(--ink)}
-.up-row{padding:6px 0;display:flex;align-items:center;gap:8px;font-size:12px;border-top:1px solid var(--line-2)}
-.up-row:first-child{border-top:0}
-
-/* Toast */
-.toast{position:fixed;bottom:20px;right:20px;background:var(--ink);color:#fff;padding:11px 16px;border-radius:8px;font-size:13px;display:none;box-shadow:0 8px 24px rgba(0,0,0,.15);z-index:200;max-width:380px}
-.toast.on{display:block;animation:s .2s ease}
-.toast.err{background:var(--err)}
-.toast.ok{background:var(--ok)}
-@keyframes s{from{transform:translateY(10px);opacity:0}to{transform:translateY(0);opacity:1}}
-
-.empty{padding:50px 20px;text-align:center;color:var(--mute-2);font-size:13px}
-.spin{display:inline-block;width:12px;height:12px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:r .7s linear infinite;opacity:.6}
-@keyframes r{to{transform:rotate(360deg)}}
-
-.mini-btn{display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:5px;font-size:11.5px;font-weight:500;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line);transition:.12s;text-transform:none;letter-spacing:0}
-.mini-btn:hover{background:#fff;border-color:var(--mute-2);color:var(--ink)}
-.mini-btn.mini-danger:hover{background:#FEF2F2;border-color:#FCA5A5;color:var(--err)}
-.mini-btn svg{width:11px;height:11px}
-.row{padding:9px 14px 9px 36px;font-size:13.5px}
-.lead-head{padding:14px 14px 8px;background:var(--surface-2);text-transform:none;font-size:13px}
-.lead-name{font-size:13.5px;font-weight:600}
-.lead-acts{margin-top:6px;display:flex;gap:6px;opacity:1}
-.lead-head{flex-direction:column;align-items:stretch;gap:0}
-.lead-head-l{padding:0 0 4px}
-.row .lbl svg{width:14px;height:14px}
-.row[data-meta]{background:rgba(37,99,235,.04);font-weight:600;color:var(--ink)}
-.row[data-meta] .lbl svg{color:var(--blue)}
-.row[data-meta]:hover{background:rgba(37,99,235,.08)}
-.row[data-meta].active{background:rgba(37,99,235,.1);border-left-color:var(--blue);color:var(--blue)}
-
-
-
-.row .chev{width:11px;height:11px;color:var(--mute-2);transition:transform .15s}
-.row 
-.row.dir .lbl svg:nth-child(2){color:#60A5FA}
-.row.dir{font-weight:500}
-
-
-
-/* VS Code Explorer-style tree */
-.lead-scroll{background:#FAFBFC}
-.lead{background:#fff;margin:0;border:0}
-.lead-head{padding:10px 12px 6px;background:#fff;text-transform:uppercase;font-size:10.5px;letter-spacing:.6px;color:var(--mute-2);font-weight:700;border-top:1px solid var(--line-2);position:sticky;top:0;z-index:2}
-.lead:first-child .lead-head{border-top:0}
-.lead-head-l{padding:0}
-.lead-num{display:none}
-.lead-name{font-size:10.5px;color:var(--ink-2);text-transform:uppercase;letter-spacing:.6px;font-weight:700}
-.lead-acts{margin-top:4px;gap:4px;opacity:0;transition:.1s}
-.lead-head:hover .lead-acts{opacity:1}
-.mini-btn{padding:2px 7px;font-size:10.5px;border-radius:4px}
-.mini-btn svg{width:10px;height:10px}
-
-.row{padding:3px 8px 3px 0;font-size:12.5px;cursor:pointer;display:flex;align-items:center;border-left:0;border-radius:0;min-height:22px;position:relative;color:var(--ink-2);transition:none}
-.row:hover{background:rgba(0,0,0,.04);color:var(--ink)}
-.row.active{background:rgba(37,99,235,.08);color:var(--ink);border-left:0;font-weight:500}
-.row.active::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--blue)}
-.row .lbl{display:flex;align-items:center;gap:4px;flex:1;min-width:0;font-weight:400}
-.row .lbl svg,.row .chev{width:13px!important;height:13px!important;flex-shrink:0}
-.row .chev{width:10px!important;height:10px!important;color:var(--mute-2);margin-right:1px}
-.row 
-.row .lbl > span:not([style]){overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:400}
-.row.dir .lbl > span:not([style]){font-weight:500;color:var(--ink-2)}
-.row .size{color:var(--mute-2);font-size:10.5px;font-weight:400;margin-left:4px;flex-shrink:0;opacity:0;transition:.1s}
-.row:hover .size{opacity:1}
-.section-label{display:none}
-.row[data-meta]{background:transparent}
-.row[data-meta]:hover{background:rgba(99,102,241,.06)}
-.row[data-meta].active{background:rgba(99,102,241,.12)}
-.row[data-meta] .lbl{font-weight:500;color:var(--ink-2);font-size:12px}
-.row[data-meta] .lbl svg{color:#6366F1}
-
-/* Dots menu button */
-.dots-btn{width:22px;height:22px;border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--mute-2);background:transparent;padding:0;margin-left:auto;opacity:.4;transition:.12s}.row:hover .dots-btn{opacity:1}
-
-.dots-btn:hover{background:rgba(0,0,0,.08);color:var(--ink)}
-.dots-btn svg{width:14px;height:14px}
-.row-acts{display:none}
-
-/* Indent guides */
-.row.dir, .row.file{position:relative}
-.indent-guide{position:absolute;top:0;bottom:0;width:1px;background:var(--line);left:0}
-
-
-
-
-
-
-.dots-btn{font-size:16px;line-height:1;color:var(--mute-2)}
-.row .lbl{gap:6px}
-
-
-/* Clean monochrome tree icons */
-.row .lbl svg{display:inline-block;vertical-align:middle;flex-shrink:0}
-.chev-ic{display:inline-flex;align-items:center;justify-content:center;width:14px;color:var(--mute-2);transition:transform .15s;flex-shrink:0}
-.chev-ic.open{transform:rotate(90deg)}
-.folder-ic{display:inline-flex;align-items:center;color:#8B92A0;flex-shrink:0}
-.file-ic{display:inline-flex;align-items:center;color:#8B92A0;flex-shrink:0;margin-left:0}
-.info-ic{display:inline-flex;align-items:center;color:#6366F1;flex-shrink:0}
-.row.dir .folder-ic{color:#6B7280}
-.row.dir:hover .folder-ic{color:#3B82F6}
-.row.file .file-ic{color:#9CA3AF}
-.row.file:hover .file-ic{color:var(--ink-2)}
-.ic-html{color:#EA580C!important}
-.ic-img{color:#10B981!important}
-.ic-css{color:#8B5CF6!important}
-.ic-js{color:#EAB308!important}
-.ic-json{color:#EC4899!important}
-.row .label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink-2)}
-.row.active .label{color:var(--ink);font-weight:500}
-.row.dir .label{color:var(--ink-2);font-weight:500}
-.row{padding-top:2px;padding-bottom:2px;min-height:24px}
-.row .lbl{gap:6px;align-items:center}
-.dots-btn{color:var(--mute-2);font-size:0}
-.dots-btn svg{display:block}
-
-/* indent guides like VS Code */
-.row{background-image:linear-gradient(to right,transparent calc(var(--depth,0)*14px - 1px),var(--line-2) calc(var(--depth,0)*14px),transparent calc(var(--depth,0)*14px + 1px));background-repeat:no-repeat}
-
-/* Context menu */
-.ctx{position:fixed;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 12px 30px rgba(0,0,0,.15);padding:5px;z-index:300;min-width:180px;display:none;font-size:13px}
-.ctx.on{display:block}
-.ctx button{display:flex;align-items:center;gap:10px;width:100%;padding:7px 10px;text-align:left;color:var(--ink-2);border-radius:5px;font-size:12.5px}
-.ctx button:hover{background:var(--surface-2);color:var(--ink)}
-.ctx button.danger:hover{background:#FEF2F2;color:var(--err)}
-.ctx button svg{width:13px;height:13px;color:var(--mute-2);flex-shrink:0}
-.ctx hr{margin:4px 0;border:0;border-top:1px solid var(--line-2)}
-.ctx-kbd{margin-left:auto;color:var(--mute-2);font-size:11px;font-family:"SF Mono",monospace}
-
-/* file/folder icons - force visible + color-coded */
-.row .lbl svg,.row .chev{width:14px!important;height:14px!important;flex-shrink:0}
-.row .chev{width:11px!important;height:11px!important;color:var(--mute-2)}
-.ic-folder{color:#3B82F6}
-.ic-html{color:#EA580C}
-.ic-img{color:#10B981}
-.ic-css{color:#8B5CF6}
-.ic-js{color:#EAB308}
-.ic-json{color:#EC4899}
-.ic-file{color:var(--mute-2)}
-.ic-info{color:#6366F1}
-
-.section-label{padding:8px 14px 4px 30px;font-size:10.5px;font-weight:700;color:var(--mute-2);text-transform:uppercase;letter-spacing:.6px;background:#fff}
-
-.kbd-hint{font-size:11px;color:var(--mute-2);margin-top:14px;text-align:center}
-</style></head><body>
-
-<!-- ICONS -->
-<svg style=display:none><defs>
-<symbol id=i-upload viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1=12 y1=3 x2=12 y2=15/></symbol>
-<symbol id=i-trash viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1.5 14a2 2 0 0 1-2 2H8.5a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/></symbol>
-<symbol id=i-file viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></symbol>
-<symbol id=i-info viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><circle cx=12 cy=12 r=10/><line x1=12 y1=16 x2=12 y2=12/><line x1=12 y1=8 x2=12.01 y2=8/></symbol>
-<symbol id=i-search viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><circle cx=11 cy=11 r=8/><line x1=21 y1=21 x2=16.65 y2=16.65/></symbol>
-<symbol id=i-plus viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><line x1=12 y1=5 x2=12 y2=19/><line x1=5 y1=12 x2=19 y2=12/></symbol>
-<symbol id=i-refresh viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></symbol>
-<symbol id=i-eye viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx=12 cy=12 r=3/></symbol>
-<symbol id=i-copy viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><rect x=9 y=9 width=13 height=13 rx=2/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
-<symbol id=i-external viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1=10 y1=14 x2=21 y2=3/></symbol>
-<symbol id=i-image viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><rect x=3 y=3 width=18 height=18 rx=2 ry=2/><circle cx=8.5 cy=8.5 r=1.5/><polyline points="21 15 16 10 5 21"/></symbol>
-<symbol id=i-code viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
-<symbol id=i-folder viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></symbol>
-<symbol id=i-chev viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><polyline points="9 18 15 12 9 6"/></symbol>
-<symbol id=i-html viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M8 13l2 4 2-4"/><path d="M14 13v4M16 15h-2"/></symbol>
-<symbol id=i-img2 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><rect x=3 y=3 width=18 height=18 rx=2/><circle cx=8.5 cy=8.5 r=1.5 fill=currentColor/><polyline points="21 15 16 10 5 21"/></symbol>
-<symbol id=i-css viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><circle cx=12 cy=15 r=2/></symbol>
-<symbol id=i-js viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 13v4a2 2 0 0 1-2 2H6"/><path d="M14 13h2a1 1 0 0 1 0 2h-1a1 1 0 0 0 0 2h2"/></symbol>
-<symbol id=i-json viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M5 3a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2 2 2 0 0 1 2 2v4a2 2 0 0 0 2 2"/><path d="M19 3a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2 2 2 0 0 0-2 2v4a2 2 0 0 1-2 2"/></symbol>
-<symbol id=i-dots viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><circle cx=12 cy=12 r=1.5 fill=currentColor stroke=none/><circle cx=12 cy=5 r=1.5 fill=currentColor stroke=none/><circle cx=12 cy=19 r=1.5 fill=currentColor stroke=none/></symbol>
-<symbol id=i-edit viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></symbol>
-<symbol id=i-copy2 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><rect x=9 y=9 width=13 height=13 rx=2/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
-<symbol id=i-link viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
-</defs></svg>
-
-<div class=login id=login>
-  <div class=login-card>
-    <div class=brand-block><div class=brand-mark>M</div><div class=brand-name>MeltWeb</div></div>
-    <h1>Sign in</h1>
-    <p>Enter password to manage lead samples</p>
-    <input id=pw type=password placeholder="Password" autofocus onkeydown="event.key==='Enter'&&doLogin()">
-    <button class="btn btn-primary" onclick=doLogin()>Continue</button>
-    <div id=loginErr style="color:var(--err);font-size:12px;margin-top:10px"></div>
+<!-- Login -->
+<div id=login class="min-h-screen grid place-items-center p-5 bg-surface-2">
+  <div class="w-full max-w-sm bg-white border border-line rounded-2xl p-9">
+    <div class="flex items-center gap-2.5 mb-6 pb-5 border-b border-line">
+      <div class="w-8 h-8 bg-ink text-white rounded-lg grid place-items-center font-bold text-sm">M</div>
+      <div class="font-semibold text-[15px]">MeltWeb</div>
+    </div>
+    <h1 class="text-xl font-semibold mb-1 tracking-tight">Sign in</h1>
+    <p class="text-gray-500 text-[13px] mb-6">Enter password to manage lead samples</p>
+    <input id=pw type=password placeholder="Password" autofocus class="w-full px-3.5 py-3 border border-line rounded-lg focus:border-ink focus:ring-2 focus:ring-ink/10 focus:outline-none mb-3 text-[14px]" onkeydown="event.key==='Enter'&&doLogin()">
+    <button onclick=doLogin() class="w-full bg-ink hover:bg-black text-white py-3 rounded-lg font-medium text-[14px] transition">Continue</button>
+    <div id=loginErr class="text-red-600 text-xs mt-2.5"></div>
   </div>
 </div>
 
-<div class=app id=app>
-  <header class=top>
-    <div class=top-l>
-      <div class=brand-row><div class=brand-mark>M</div> MeltWeb</div>
-      <div class=crumbs id=crumbs>Lead Portal</div>
+<!-- App -->
+<div id=app class="hidden flex-col h-screen">
+  <!-- Top bar -->
+  <header class="flex items-center justify-between px-5 h-13 bg-white border-b border-line shrink-0" style="height:52px">
+    <div class="flex items-center gap-6">
+      <div class="flex items-center gap-2 font-semibold text-[13px]">
+        <div class="w-6 h-6 bg-ink text-white rounded-md grid place-items-center text-[11px] font-bold">M</div>
+        MeltWeb
+      </div>
+      <div id=crumbs class="text-xs text-gray-500">Lead Portal</div>
     </div>
-    <div class=top-r>
-      <button class="btn btn-outline btn-sm" onclick=openNew() title="Create new lead"><svg width=12 height=12><use href=#i-plus/></svg> New lead</button>
-      <button class="btn btn-outline btn-sm" onclick=loadList() title="Refresh list"><svg width=12 height=12><use href=#i-refresh/></svg></button>
-      <button class="btn btn-outline btn-sm" onclick=logout()>Logout</button>
+    <div class="flex gap-1.5">
+      <button onclick=openNew() class="px-3 py-1.5 text-[12.5px] font-medium text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md flex items-center gap-1.5 transition">
+        <svg width=12 height=12 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round><path d="M8 3v10M3 8h10"/></svg>
+        New lead
+      </button>
+      <button onclick=loadList() class="p-1.5 text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md transition" title=Refresh>
+        <svg width=14 height=14 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.8 stroke-linecap=round><path d="M14 3v4h-4M2 13v-4h4"/><path d="M2.5 8a5.5 5.5 0 0 1 10-3.5L14 7M13.5 8a5.5 5.5 0 0 1-10 3.5L2 9"/></svg>
+      </button>
+      <button onclick=logout() class="px-3 py-1.5 text-[12.5px] font-medium text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md transition">Logout</button>
     </div>
   </header>
 
-  <div class=split>
-    <aside class=side>
-      <div class=side-top>
-        <div class=search-row><svg class=ico><use href=#i-search/></svg><input class=search id=search placeholder="Search…" oninput=renderList()></div>
+  <!-- Split layout -->
+  <div class="grid grid-cols-[300px_1fr_1fr] flex-1 min-h-0">
+    <!-- Sidebar -->
+    <aside class="bg-white border-r border-line flex flex-col overflow-hidden">
+      <div class="p-2.5 border-b border-line">
+        <div class="relative">
+          <svg class="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400" width=14 height=14 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5><circle cx=7 cy=7 r=4.5/><path d="M13 13l-2.5-2.5"/></svg>
+          <input id=search placeholder="Search leads…" oninput=renderList() class="w-full pl-8 pr-3 py-1.5 text-[12.5px] border border-line rounded-md focus:border-ink focus:ring-2 focus:ring-ink/10 focus:outline-none">
+        </div>
       </div>
-      <div class=lead-scroll id=list><div class=empty>Loading…</div></div>
+      <div id=list class="flex-1 overflow-y-auto scrollbar"><div class="py-12 text-center text-gray-400 text-[12.5px]">Loading…</div></div>
     </aside>
 
-    <section class=mid id=midPane>
-      <div class=head>
-        <div class=tabs id=tabs style=display:none>
-          <div class=tab data-m=html onclick=switchTab('html')>HTML</div>
-          <div class=tab data-m=meta onclick=switchTab('meta')>Lead info</div>
+    <!-- Editor -->
+    <section class="flex flex-col bg-white border-r border-line overflow-hidden min-w-0">
+      <div class="flex items-center gap-2 px-3.5 border-b border-line bg-white" style="height:52px">
+        <div id=tabs class="hidden bg-surface-2 rounded-md p-0.5 gap-0.5">
+          <button data-m=html onclick=switchTab('html') class="tab px-2.5 py-1 text-[12px] font-medium rounded">HTML</button>
+          <button data-m=meta onclick=switchTab('meta') class="tab px-2.5 py-1 text-[12px] font-medium rounded">Lead info</button>
         </div>
-        <span class=path id=curPath>Select a file from the left</span>
-        <button class="btn btn-outline btn-sm" onclick=copyShareLink() id=copyBtn disabled><svg width=12 height=12><use href=#i-copy/></svg> Copy link</button>
-        <button class="btn btn-primary btn-sm" onclick=save() id=saveBtn disabled>Save</button>
+        <span id=curPath class="flex-1 text-[12px] text-gray-500 font-mono truncate">Select a file from sidebar</span>
+        <button id=copyBtn onclick=copyShareLink() disabled class="px-2.5 py-1 text-[12px] font-medium text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 transition">
+          <svg width=11 height=11 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5><rect x=5 y=5 width=9 height=9 rx=1.5/><path d="M3 11h-.5a1.5 1.5 0 0 1-1.5-1.5v-7A1.5 1.5 0 0 1 2.5 1h7A1.5 1.5 0 0 1 11 2.5V3"/></svg>
+          Copy link
+        </button>
+        <button id=saveBtn onclick=save() disabled class="px-3 py-1 text-[12px] font-medium text-white bg-brand hover:bg-brand-hover rounded-md disabled:opacity-40 disabled:cursor-not-allowed transition">Save</button>
       </div>
-      <div class=editor id=editor></div>
-      <div class=meta id=metaForm style=display:none></div>
-      <div id=midHint>
-        <div class=hint>
-          <h3>How to use this portal</h3>
-          <ul>
-            <li>Pick a lead from the left sidebar</li>
-            <li>Click <b>any .html file</b> to edit it in code editor</li>
-            <li>Click <b>Lead info</b> row to edit contact/website metadata</li>
-            <li>Hit <b>Save</b> → commits to GitHub → Vercel auto-deploys (~30s)</li>
-            <li>Use <b>upload icon</b> per lead to add images/assets</li>
+      <div id=editor class="flex-1 overflow-hidden hidden"></div>
+      <div id=metaForm class="hidden flex-1 overflow-y-auto scrollbar p-6 max-w-2xl mx-auto w-full"></div>
+      <div id=midHint class="flex-1 overflow-y-auto scrollbar p-6">
+        <div class="max-w-md mx-auto bg-surface-2 border border-line rounded-xl p-5">
+          <h3 class="text-[13px] font-semibold mb-2">How to use this portal</h3>
+          <ul class="space-y-1.5 text-[12.5px] text-gray-600 list-disc pl-4">
+            <li>Pick a lead from the sidebar</li>
+            <li>Click any file to edit (HTML/CSS/JS in editor, images preview)</li>
+            <li>Click <b>Lead info</b> to edit website/email/notes</li>
+            <li>Hit <b>Save</b> → commits to GitHub → Vercel deploys in ~30s</li>
+            <li>Right-click rows or use ⋯ for more actions</li>
             <li>Use <b>+ New lead</b> top-right to scaffold a new client</li>
           </ul>
-          <div class=kbd-hint>Tip: hit <kbd>⌘</kbd>+<kbd>S</kbd> in editor to save</div>
+          <div class="text-center text-[11px] text-gray-400 mt-4">Tip: hit <kbd>⌘</kbd>+<kbd>S</kbd> to save</div>
         </div>
       </div>
     </section>
 
-    <section class=right>
-      <div class=head>
-        <div class=url-bar id=previewUrl>Live preview will appear here</div>
-        <button class="btn btn-outline btn-sm" onclick=reloadPreview() title=Refresh><svg width=12 height=12><use href=#i-refresh/></svg></button>
-        <a class="btn btn-outline btn-sm" id=openExternal target=_blank href=#><svg width=12 height=12><use href=#i-external/></svg></a>
+    <!-- Preview -->
+    <section class="bg-white flex flex-col overflow-hidden min-w-0">
+      <div class="flex items-center gap-2 px-3.5 border-b border-line" style="height:52px">
+        <div id=previewUrl class="flex-1 bg-surface-2 border border-line px-2.5 py-1 rounded text-[11px] text-gray-500 font-mono truncate">Live preview here</div>
+        <button onclick=reloadPreview() class="p-1.5 text-ink-2 border border-line bg-white hover:bg-surface-2 rounded-md transition" title=Refresh>
+          <svg width=12 height=12 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round><path d="M14 3v4h-4M2 13v-4h4"/><path d="M2.5 8a5.5 5.5 0 0 1 10-3.5L14 7M13.5 8a5.5 5.5 0 0 1-10 3.5L2 9"/></svg>
+        </button>
+        <a id=openExternal target=_blank href=# class="p-1.5 text-ink-2 border border-line bg-white hover:bg-surface-2 rounded-md transition" title="Open in new tab">
+          <svg width=12 height=12 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round><path d="M11 1h4v4M15 1L7 9M11 9v5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg>
+        </a>
       </div>
-      <div class=right-empty id=previewEmpty><div><div class=ico><svg width=22 height=22><use href=#i-eye/></svg></div>No file selected<div style="margin-top:6px;font-size:12px">Choose a page to see live preview</div></div></div>
-      <iframe class=frame id=preview src=about:blank style=display:none></iframe>
+      <div id=previewEmpty class="flex-1 grid place-items-center text-gray-400 text-[13px] text-center p-10">
+        <div>
+          <div class="w-12 h-12 mx-auto mb-3 bg-surface-2 rounded-xl grid place-items-center">
+            <svg width=22 height=22 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx=12 cy=12 r=3/></svg>
+          </div>
+          No file selected
+          <div class="text-[11.5px] text-gray-400 mt-1">Choose a page to see live preview</div>
+        </div>
+      </div>
+      <iframe id=preview src=about:blank class="flex-1 border-0 w-full bg-white hidden"></iframe>
     </section>
   </div>
 </div>
 
-<!-- New Lead -->
-<div class=scrim id=newScrim onclick=event.target===this&&closeNew()>
-  <div class=mdl>
-    <h2>New lead</h2>
-    <div class=sub>Creates <code>sample/{slug}/v1/index.html</code>, <code>v2/index.html</code>, <code>meta.json</code></div>
-    <div class=fld><label>Company name</label><input id=nl_name placeholder="Acme Plumbing" autofocus oninput=updateSlug()></div>
-    <div class=fld><label>Slug (auto)</label><input id=nl_slug readonly style="background:var(--surface-2);color:var(--muted)"></div>
-    <div class=grid2>
-      <div class=fld><label>Website</label><input id=nl_site placeholder="acme.com"></div>
-      <div class=fld><label>Email</label><input id=nl_email type=email placeholder="owner@…"></div>
+<!-- New Lead modal -->
+<div id=newScrim onclick="event.target===this&&closeNew()" class="hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-50 items-center justify-center p-5">
+  <div class="bg-white rounded-xl p-6 max-w-md w-full border border-line shadow-xl">
+    <h2 class="text-[16px] font-semibold mb-1">New lead</h2>
+    <p class="text-gray-500 text-[12.5px] mb-5">Creates <code class="bg-surface-2 px-1.5 py-0.5 rounded text-[11px]">sample/{slug}/v1/index.html</code> + <code class="bg-surface-2 px-1.5 py-0.5 rounded text-[11px]">v2</code> + <code class="bg-surface-2 px-1.5 py-0.5 rounded text-[11px]">meta.json</code></p>
+    <div class="space-y-3">
+      <div><label class="block text-[11px] font-semibold text-ink-2 mb-1 uppercase tracking-wide">Company name</label><input id=nl_name autofocus oninput=updateSlug() placeholder="Acme Plumbing" class="w-full px-3 py-2 border border-line rounded-md text-[13px] focus:border-ink focus:ring-2 focus:ring-ink/10 focus:outline-none"></div>
+      <div><label class="block text-[11px] font-semibold text-ink-2 mb-1 uppercase tracking-wide">Slug</label><input id=nl_slug readonly class="w-full px-3 py-2 border border-line rounded-md text-[13px] bg-surface-2 text-gray-500"></div>
+      <div class="grid grid-cols-2 gap-3">
+        <div><label class="block text-[11px] font-semibold text-ink-2 mb-1 uppercase tracking-wide">Website</label><input id=nl_site placeholder="acme.com" class="w-full px-3 py-2 border border-line rounded-md text-[13px] focus:border-ink focus:ring-2 focus:ring-ink/10 focus:outline-none"></div>
+        <div><label class="block text-[11px] font-semibold text-ink-2 mb-1 uppercase tracking-wide">Email</label><input id=nl_email type=email placeholder="owner@…" class="w-full px-3 py-2 border border-line rounded-md text-[13px] focus:border-ink focus:ring-2 focus:ring-ink/10 focus:outline-none"></div>
+      </div>
     </div>
-    <div class=mdl-act>
-      <button class="btn btn-outline" onclick=closeNew()>Cancel</button>
-      <button class="btn btn-primary" onclick=createLead() id=createBtn>Create</button>
+    <div class="flex gap-2 justify-end mt-5">
+      <button onclick=closeNew() class="px-3.5 py-2 text-[13px] font-medium text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md transition">Cancel</button>
+      <button id=createBtn onclick=createLead() class="px-3.5 py-2 text-[13px] font-medium text-white bg-ink hover:bg-black rounded-md transition">Create lead</button>
     </div>
   </div>
 </div>
 
-<!-- Upload -->
-<div class=scrim id=upScrim onclick=event.target===this&&closeUp()>
-  <div class=mdl>
-    <h2>Upload to <code id=upTarget></code></h2>
-    <div class=sub>Drag files or click. Any type: html, png, jpg, font, etc.</div>
-    <div class=drop id=dropzone ondrop=handleDrop(event) ondragover="event.preventDefault();this.classList.add('drag')" ondragleave="this.classList.remove('drag')" onclick=document.getElementById('fileInput').click()>
-      Drop files or <b>click to browse</b>
+<!-- Upload modal -->
+<div id=upScrim onclick="event.target===this&&closeUp()" class="hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-50 items-center justify-center p-5">
+  <div class="bg-white rounded-xl p-6 max-w-md w-full border border-line shadow-xl">
+    <h2 class="text-[16px] font-semibold mb-1">Upload to <code id=upTarget class="bg-surface-2 px-1.5 py-0.5 rounded text-[11px]"></code></h2>
+    <p class="text-gray-500 text-[12.5px] mb-4">Drop files or click. Any type: HTML, PNG, JPG, font, etc.</p>
+    <div id=dropzone ondrop=handleDrop(event) ondragover="event.preventDefault();this.classList.add('drag')" ondragleave="this.classList.remove('drag')" onclick=document.getElementById('fileInput').click() class="dz border-2 border-dashed border-line rounded-xl py-9 px-5 text-center text-gray-500 cursor-pointer hover:border-ink hover:bg-surface-2 transition text-[13px]">
+      Drop files or <b class="text-ink">click to browse</b>
     </div>
-    <input type=file id=fileInput multiple style=display:none onchange=handleFiles(this.files)>
-    <div id=upList style="margin-top:12px;max-height:240px;overflow-y:auto"></div>
-    <div class=mdl-act><button class="btn btn-outline" onclick=closeUp()>Done</button></div>
+    <input type=file id=fileInput multiple class=hidden onchange=handleFiles(this.files)>
+    <div id=upList class="mt-3 max-h-60 overflow-y-auto scrollbar text-[12px]"></div>
+    <div class="flex gap-2 justify-end mt-4">
+      <button onclick=closeUp() class="px-3.5 py-2 text-[13px] font-medium text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md transition">Done</button>
+    </div>
   </div>
 </div>
 
+<!-- Context menu -->
+<div id=ctxMenu class="hidden fixed bg-white border border-line rounded-lg shadow-2xl p-1 z-[300] min-w-[200px] text-[13px]"></div>
 
-<div class=ctx id=ctxMenu></div>
-
-<div class=toast id=toast></div>
+<!-- Toast -->
+<div id=toast class="hidden fixed bottom-5 right-5 bg-ink text-white px-4 py-2.5 rounded-lg text-[13px] shadow-2xl z-[200] max-w-sm toast"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
 <script>
-
-const ICONS={
-  chev:`<svg viewBox="0 0 16 16" width=10 height=10 fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><polyline points="6 4 10 8 6 12"/></svg>`,
-  folder:`<svg viewBox="0 0 16 16" width=14 height=14 fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><path d="M1.75 4.25a1 1 0 0 1 1-1h3l1.5 1.5h6a1 1 0 0 1 1 1v6.5a1 1 0 0 1-1 1H2.75a1 1 0 0 1-1-1v-8z"/></svg>`,
-  folderOpen:`<svg viewBox="0 0 16 16" width=14 height=14 fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><path d="M1.75 5.25h12.5a.5.5 0 0 1 .49.6l-1 5.5a.5.5 0 0 1-.49.4H2.75a1 1 0 0 1-1-1v-5.5zM1.75 5.25v-1.5a1 1 0 0 1 1-1h3l1.5 1.5h6a1 1 0 0 1 1 1v1.5"/></svg>`,
-  file:`<svg viewBox="0 0 16 16" width=14 height=14 fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><path d="M3 1.75a1 1 0 0 1 1-1h5.5l3.5 3.5v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-11.5z"/><path d="M9.5 .75v3.5h3.5"/></svg>`,
-  html:`<svg viewBox="0 0 16 16" width=14 height=14 fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><path d="M3 1.75a1 1 0 0 1 1-1h5.5l3.5 3.5v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-11.5z"/><path d="M9.5 .75v3.5h3.5"/><path d="M6.5 9l-1.5 1.5L6.5 12M9.5 9l1.5 1.5L9.5 12"/></svg>`,
-  img:`<svg viewBox="0 0 16 16" width=14 height=14 fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><rect x=2 y=2.5 width=12 height=11 rx=1/><circle cx=6 cy=6.5 r=1 fill=currentColor stroke=none/><path d="M14 11l-3-3-6 5.5"/></svg>`,
-  css:`<svg viewBox="0 0 16 16" width=14 height=14 fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><path d="M3 1.75a1 1 0 0 1 1-1h5.5l3.5 3.5v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-11.5z"/><circle cx=8 cy=10 r=2/></svg>`,
-  js:`<svg viewBox="0 0 16 16" width=14 height=14 fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><path d="M3 1.75a1 1 0 0 1 1-1h5.5l3.5 3.5v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-11.5z"/><path d="M7 9v3a1 1 0 0 1-1 1M9.5 10c0 .5.5 1 1.5 1s1.5-.5 1.5-1-.5-.8-1.5-1-1.5-.5-1.5-1 .5-1 1.5-1"/></svg>`,
-  json:`<svg viewBox="0 0 16 16" width=14 height=14 fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><path d="M3 1.75a1 1 0 0 1 1-1h5.5l3.5 3.5v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-11.5z"/><path d="M6 8.5c-.5 0-1 .2-1 1v1c0 .8-.5 1-1 1 .5 0 1 .2 1 1v1c0 .8.5 1 1 1M10 8.5c.5 0 1 .2 1 1v1c0 .8.5 1 1 1-.5 0-1 .2-1 1v1c0 .8-.5 1-1 1"/></svg>`,
-  info:`<svg viewBox="0 0 16 16" width=14 height=14 fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><circle cx=8 cy=8 r=6.5/><line x1=8 y1=7 x2=8 y2=11.5/><circle cx=8 cy=4.7 r=.7 fill=currentColor stroke=none/></svg>`,
-  dots:`<svg viewBox="0 0 16 16" width=14 height=14 fill=currentColor><circle cx=8 cy=3 r=1.3/><circle cx=8 cy=8 r=1.3/><circle cx=8 cy=13 r=1.3/></svg>`,
-  upload:`<svg viewBox="0 0 16 16" width=11 height=11 fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><path d="M8 11V2M4 6l4-4 4 4M2 13.5h12"/></svg>`,
-  trash:`<svg viewBox="0 0 16 16" width=11 height=11 fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><path d="M3 4h10M6 4V2.5h4V4M5 4l.5 9.5a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1L11 4"/></svg>`
-};
-
 const KEY="mw_admin_pw",$=id=>document.getElementById(id),pw=()=>localStorage.getItem(KEY);
 let editor,files=[],leads={},current={path:null,sha:null,lead:null,mode:"html"};
+const openDirs=new Set();
 
-const toast=(m,k="")=>{const t=$("toast");t.textContent=m;t.className=`toast on ${k}`;clearTimeout(toast._);toast._=setTimeout(()=>t.className="toast",2800)}
+const ICONS={
+  chev:`<svg width=10 height=10 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><polyline points="6 4 10 8 6 12"/></svg>`,
+  folder:`<svg width=14 height=14 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><path d="M1.75 4.5a1 1 0 0 1 1-1h3l1.5 1.5h6a1 1 0 0 1 1 1v6.25a1 1 0 0 1-1 1H2.75a1 1 0 0 1-1-1V4.5z"/></svg>`,
+  folderOpen:`<svg width=14 height=14 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><path d="M1.75 6.25h12.5a.5.5 0 0 1 .49.6l-.8 5a.5.5 0 0 1-.49.4H2.75a1 1 0 0 1-1-1V6.25zM1.75 6.25v-1.75a1 1 0 0 1 1-1h3l1.5 1.5h6a1 1 0 0 1 1 1v1.5"/></svg>`,
+  file:`<svg width=14 height=14 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><path d="M3.5 1.75a1 1 0 0 1 1-1h5L13 4.25v9a1 1 0 0 1-1 1H4.5a1 1 0 0 1-1-1V1.75z"/><path d="M9.5 .75v3.5h3.5"/></svg>`,
+  info:`<svg width=14 height=14 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round><circle cx=8 cy=8 r=6.5/><line x1=8 y1=7 x2=8 y2=11.5 stroke-linecap=round/><circle cx=8 cy=4.7 r=.7 fill=currentColor stroke=none/></svg>`,
+  dots:`<svg width=14 height=14 viewBox="0 0 16 16" fill=currentColor><circle cx=8 cy=3 r=1.3/><circle cx=8 cy=8 r=1.3/><circle cx=8 cy=13 r=1.3/></svg>`,
+  upload:`<svg width=11 height=11 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><path d="M8 11V2M4 6l4-4 4 4M2 13.5h12"/></svg>`,
+  trash:`<svg width=11 height=11 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=1.5 stroke-linecap=round stroke-linejoin=round><path d="M3 4h10M6 4V2.5h4V4M5 4l.5 9.5a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1L11 4"/></svg>`,
+  spin:`<svg class=spin width=12 height=12 viewBox="0 0 16 16" fill=none stroke=currentColor stroke-width=2><path d="M8 1.5a6.5 6.5 0 1 1-6.5 6.5" stroke-linecap=round/></svg>`
+};
+
+const fileColorClass=ext=>{
+  if(["html","htm"].includes(ext))return "text-orange-600";
+  if(["png","jpg","jpeg","webp","svg","gif","avif"].includes(ext))return "text-emerald-600";
+  if(ext==="css")return "text-violet-600";
+  if(["js","mjs"].includes(ext))return "text-amber-600";
+  if(ext==="json")return "text-pink-600";
+  return "text-gray-400";
+};
+
+const toast=(m,k="")=>{const t=$("toast");t.textContent=m;t.className=`fixed bottom-5 right-5 px-4 py-2.5 rounded-lg text-[13px] shadow-2xl z-[200] max-w-sm toast ${k==="err"?"bg-red-600 text-white":k==="ok"?"bg-emerald-600 text-white":"bg-ink text-white"}`;clearTimeout(toast._);toast._=setTimeout(()=>t.classList.add("hidden"),2800);t.classList.remove("hidden")}
 
 async function api(p,opts={}){
   const r=await fetch("/api/"+p,{...opts,headers:{"x-admin-pw":pw(),"Content-Type":"application/json",...(opts.headers||{})}});
@@ -443,14 +224,24 @@ async function doLogin(){
   catch(e){$("loginErr").textContent="Wrong password";localStorage.removeItem(KEY)}
 }
 function logout(){localStorage.removeItem(KEY);location.reload()}
-function showApp(){$("login").style.display="none";$("app").style.display="flex";initEditor()}
+function showApp(){$("login").classList.add("hidden");$("app").classList.remove("hidden");$("app").classList.add("flex");initEditor()}
 
 async function loadList(){
   try{
     const d=await api("list");files=d.files;leads={};
     files.forEach(f=>{const p=f.path.split("/");if(p[0]==="sample"&&p.length>=2){leads[p[1]]=leads[p[1]]||[];leads[p[1]].push(f)}});
-    autoExpand();renderList();if(!current.path)showHint();
+    autoExpand();renderList();
   }catch(e){toast("Load failed: "+e.message,"err")}
+}
+
+function autoExpand(){
+  files.forEach(f=>{
+    const parts=f.path.split("/");
+    if(parts[0]==="sample"&&parts.length>=3){
+      const dir=`${parts[0]}/${parts[1]}/${parts[2]}`;
+      if(["v1","v2","assets","version-1","version-2"].includes(parts[2])||parts[2].toLowerCase().startsWith("v"))openDirs.add(dir);
+    }
+  });
 }
 
 const prettyName=s=>s.replace(/-redesign$/,"").replace(/-/g," ").trim();
@@ -462,77 +253,70 @@ function renderList(){
   sorted.forEach((lead,i)=>{
     if(q&&!lead.toLowerCase().includes(q))return;
     const allFiles=leads[lead].filter(f=>!f.path.endsWith("/meta.json"));
-    html+=`<div class=lead>
-      <div class=lead-head>
-        <div class=lead-head-l>
-          <span class=lead-num>${i+1}</span>
-          <span class=lead-name>${prettyName(lead)}</span>
-          <span style="color:var(--mute-2);font-size:11px;font-weight:400;margin-left:auto">${allFiles.length}</span>
+    html+=`<div class="border-t border-line-2 first:border-t-0">
+      <div class="px-3 pt-3 pb-2 sticky top-0 bg-white z-10">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-1.5 min-w-0">
+            <span class="text-[10px] text-gray-400 font-mono">${i+1}</span>
+            <span class="text-[11px] font-bold text-ink-2 uppercase tracking-wider truncate">${prettyName(lead)}</span>
+          </div>
+          <span class="text-[10px] text-gray-400">${allFiles.length}</span>
         </div>
-        <div class=lead-acts>
-          <button class=mini-btn onclick="event.stopPropagation();openUp('sample/${lead}')" title="Upload to root"><svg><use href=#i-upload/></svg> Add files</button>
-          <button class="mini-btn mini-danger" onclick="event.stopPropagation();delLead('${lead}')" title="Delete entire lead"><svg><use href=#i-trash/></svg> Delete</button>
+        <div class="flex gap-1 mt-1.5">
+          <button onclick="event.stopPropagation();openUp('sample/${lead}')" class="flex-1 px-2 py-1 text-[10.5px] font-medium text-ink-2 bg-surface-2 border border-line hover:bg-white hover:border-gray-400 rounded flex items-center justify-center gap-1 transition">${ICONS.upload} Upload</button>
+          <button onclick="event.stopPropagation();delLead('${lead}')" class="px-2 py-1 text-[10.5px] font-medium text-gray-500 bg-surface-2 border border-line hover:text-red-600 hover:bg-red-50 hover:border-red-300 rounded flex items-center gap-1 transition">${ICONS.trash}</button>
         </div>
       </div>
-      <div class=row data-meta="${lead}" onclick="openMeta('${lead}')"><div class=lbl><span class=fi>ℹ️</span> Edit lead info (website, email, notes)</div></div>`;
+      <div onclick="openMeta('${lead}')" data-meta="${lead}" class="row-line cursor-pointer flex items-center py-1.5 px-3 hover:bg-surface-2 text-[12.5px] text-ink-2">
+        <div class="flex items-center gap-2 flex-1 min-w-0 pl-5">
+          <span class="text-indigo-500 shrink-0">${ICONS.info}</span>
+          <span class="font-medium">Lead info</span>
+        </div>
+      </div>`;
     html+=renderTree(lead,allFiles);
     html+=`</div>`;
   });
-  $("list").innerHTML=html||`<div class=empty>${q?"No matches":"No leads yet. Click + New lead"}</div>`;
+  $("list").innerHTML=html||`<div class="py-12 text-center text-gray-400 text-[12.5px]">${q?"No matches":"No leads yet. Click + New lead"}</div>`;
 }
 
-function renderTree(lead,files){
-  // build nested tree from flat paths
+function renderTree(lead,filesArr){
   const root={dirs:{},files:[]};
-  files.forEach(f=>{
+  filesArr.forEach(f=>{
     const rel=f.path.replace(`sample/${lead}/`,"");
     const parts=rel.split("/");
     let node=root;
-    for(let i=0;i<parts.length-1;i++){
-      node.dirs[parts[i]]=node.dirs[parts[i]]||{dirs:{},files:[]};
-      node=node.dirs[parts[i]];
-    }
+    for(let i=0;i<parts.length-1;i++){node.dirs[parts[i]]=node.dirs[parts[i]]||{dirs:{},files:[]};node=node.dirs[parts[i]]}
     node.files.push({name:parts[parts.length-1],path:f.path,sha:f.sha,size:f.size});
   });
   function walk(node,prefix,depth){
     let s="";
-    // dirs first
     Object.keys(node.dirs).sort().forEach(d=>{
       const dirPath=prefix?`${prefix}/${d}`:d;
       const fullPath=`sample/${lead}/${dirPath}`;
       const open=openDirs.has(fullPath);
-      s+=`<div class="row dir" data-dir="${fullPath}" style="--depth:${depth};padding-left:${8+depth*14}px" onclick="toggleDir('${fullPath}')" oncontextmenu="event.preventDefault();showCtx(event,'dir','${fullPath}','',true)">
-        <div class=lbl>
-          <span class="chev-ic ${open?'open':''}">${ICONS.chev}</span>
-          <span class="folder-ic">${open?ICONS.folderOpen:ICONS.folder}</span>
-          <span class=label>${d}</span>
+      s+=`<div class="row-line group flex items-center justify-between py-1 hover:bg-surface-2 cursor-pointer text-[12.5px]" data-dir="${fullPath}" style="padding-left:${8+depth*14}px;padding-right:6px" onclick="toggleDir('${fullPath}')" oncontextmenu="event.preventDefault();showCtx(event,'dir','${fullPath}','',true)">
+        <div class="flex items-center gap-1.5 min-w-0 flex-1">
+          <span class="chev text-gray-400 shrink-0 ${open?'open':''}">${ICONS.chev}</span>
+          <span class="text-blue-500 shrink-0">${open?ICONS.folderOpen:ICONS.folder}</span>
+          <span class="truncate font-medium text-ink-2">${d}</span>
         </div>
-        <button class=dots-btn onclick="event.stopPropagation();showCtx(event,'dir','${fullPath}','',true)" title=More>${ICONS.dots}</button>
+        <button onclick="event.stopPropagation();showCtx(event,'dir','${fullPath}','',true)" class="opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-ink hover:bg-line-2 rounded transition" title=More>${ICONS.dots}</button>
       </div>`;
       if(open) s+=walk(node.dirs[d],dirPath,depth+1);
     });
-    // then files
     node.files.sort((a,b)=>a.name.localeCompare(b.name)).forEach(f=>{
       const ext=f.name.split(".").pop().toLowerCase();
       const isImg=["png","jpg","jpeg","webp","svg","gif","avif"].includes(ext);
       const isText=["html","htm","css","js","json","txt","md","xml","mjs"].includes(ext);
-      let icon="#i-file",cls="ic-file";
-let emoji="📄";
-      if(ext==="html"||ext==="htm"){emoji="🌐";cls="ic-html"}
-      else if(isImg){emoji="🖼️";cls="ic-img"}
-      else if(ext==="css"){emoji="🎨";cls="ic-css"}
-      else if(ext==="js"||ext==="mjs"){emoji="⚡";cls="ic-js"}
-      else if(ext==="json"){emoji="{}";cls="ic-json"}
       const fn=isImg?`openAsset('${f.path}','${f.sha}','${lead}',true)`:(isText?`openFile('${f.path}','${f.sha}','${lead}')`:`openAsset('${f.path}','${f.sha}','${lead}',false)`);
-      let ficon=ICONS.file;
-      if(ext==="html"||ext==="htm")ficon=ICONS.html;
-      else if(isImg)ficon=ICONS.img;
-      else if(ext==="css")ficon=ICONS.css;
-      else if(ext==="js"||ext==="mjs")ficon=ICONS.js;
-      else if(ext==="json")ficon=ICONS.json;
-      s+=`<div class="row file" data-path="${f.path}" style="--depth:${depth};padding-left:${8+depth*14+18}px" onclick="${fn}" oncontextmenu="event.preventDefault();showCtx(event,'file','${f.path}','${f.sha}',false)">
-        <div class=lbl><span class="file-ic ${cls}">${ficon}</span> <span class=label>${f.name}</span> <span class=size>${f.size?(f.size/1024).toFixed(0)+"KB":""}</span></div>
-        <button class=dots-btn onclick="event.stopPropagation();showCtx(event,'file','${f.path}','${f.sha}',false)" title=More>${ICONS.dots}</button>
+      const colorCls=fileColorClass(ext);
+      s+=`<div class="row-line group flex items-center justify-between py-1 hover:bg-surface-2 cursor-pointer text-[12.5px]" data-path="${f.path}" style="padding-left:${8+depth*14+18}px;padding-right:6px" onclick="${fn}" oncontextmenu="event.preventDefault();showCtx(event,'file','${f.path}','${f.sha}',false)">
+        <div class="flex items-center gap-1.5 min-w-0 flex-1">
+          <span class="${colorCls} shrink-0">${ICONS.file}</span>
+          <span class="truncate text-ink-2">${f.name}</span>
+          ${f.size?`<span class="text-[10px] text-gray-400 ml-1 shrink-0 opacity-0 group-hover:opacity-100">${(f.size/1024).toFixed(0)}KB</span>`:''}
+        </div>
+        <button onclick="event.stopPropagation();showCtx(event,'file','${f.path}','${f.sha}',false)" class="opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-ink hover:bg-line-2 rounded transition" title=More>${ICONS.dots}</button>
       </div>`;
     });
     return s;
@@ -540,107 +324,86 @@ let emoji="📄";
   return walk(root,"",0);
 }
 
-
-// auto-expand v1/v2/assets folders for usability
-function autoExpand(){
-  files.forEach(f=>{
-    const parts=f.path.split("/");
-    if(parts[0]==="sample"&&parts.length>=3){
-      const dir=`${parts[0]}/${parts[1]}/${parts[2]}`;
-      if(["v1","v2","assets","version-1","version-2"].includes(parts[2])||parts[2].toLowerCase().startsWith("v"))openDirs.add(dir);
-    }
-  });
-}
-
-const openDirs=new Set();
 function toggleDir(p){if(openDirs.has(p))openDirs.delete(p);else openDirs.add(p);renderList()}
 
-function setActive(sel){document.querySelectorAll(".row").forEach(el=>el.classList.toggle("active",el.matches(sel)))}
-function setCrumbs(lead,sub){$("crumbs").innerHTML=lead?`Lead Portal / <span>${prettyName(lead)}</span>${sub?` / ${sub}`:""}`:"Lead Portal"}
+function setActive(sel){document.querySelectorAll(".row-line").forEach(el=>el.classList.toggle("active",el.matches(sel)))}
+function setCrumbs(lead,sub){$("crumbs").innerHTML=lead?`Lead Portal / <span class="text-ink-2 font-medium capitalize">${prettyName(lead)}</span>${sub?` / <span class="text-ink-2">${sub}</span>`:""}`:"Lead Portal"}
 
-function showHint(){
-  $("editor").style.display="none";$("metaForm").style.display="none";$("midHint").style.display="block";
-  $("tabs").style.display="none";$("curPath").textContent="Select a file to begin";
-  $("saveBtn").disabled=true;$("copyBtn").disabled=true;
-}
+function showMidHint(){$("editor").classList.add("hidden");$("metaForm").classList.add("hidden");$("midHint").classList.remove("hidden");$("tabs").classList.add("hidden");$("tabs").classList.remove("flex");$("curPath").textContent="Select a file from sidebar";$("saveBtn").disabled=true;$("copyBtn").disabled=true}
 
 async function openFile(path,sha,lead){
-  setActive(`.row[data-path="${path}"]`);
+  setActive(`[data-path="${path}"]`);
   current={path,sha,lead,mode:"html"};
   setCrumbs(lead,path.split("/").pop());
-  $("midHint").style.display="none";
+  $("midHint").classList.add("hidden");
   $("curPath").textContent=path;
   $("saveBtn").disabled=true;$("copyBtn").disabled=false;
-  $("tabs").style.display="flex";
-  document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.m==="html"));
-  $("editor").style.display="block";$("metaForm").style.display="none";
+  $("tabs").classList.remove("hidden");$("tabs").classList.add("flex");
+  document.querySelectorAll(".tab").forEach(t=>{t.classList.remove("bg-white","text-ink","shadow-sm");t.classList.add("text-gray-500");if(t.dataset.m==="html"){t.classList.add("bg-white","text-ink","shadow-sm");t.classList.remove("text-gray-500")}});
+  $("editor").classList.remove("hidden");$("metaForm").classList.add("hidden");
   const url="/"+path;
   $("previewUrl").textContent=url;$("openExternal").href=url;
-  $("previewEmpty").style.display="none";$("preview").style.display="block";
+  $("previewEmpty").classList.add("hidden");$("preview").classList.remove("hidden");
   $("preview").src=url+"?t="+Date.now();
-  try{
-    const d=await api("read?path="+encodeURIComponent(path));
-    editor.setValue(d.content);
-    $("saveBtn").disabled=false;
-  }catch(e){toast("Read failed: "+e.message,"err")}
+  try{const d=await api("read?path="+encodeURIComponent(path));editor.setValue(d.content);$("saveBtn").disabled=false}
+  catch(e){toast("Read failed: "+e.message,"err")}
 }
 
 async function openMeta(lead){
-  setActive(`.row[data-meta="${lead}"]`);
+  setActive(`[data-meta="${lead}"]`);
   current={path:`sample/${lead}/meta.json`,sha:null,lead,mode:"meta"};
   setCrumbs(lead,"Info");
-  $("midHint").style.display="none";
+  $("midHint").classList.add("hidden");
   $("curPath").textContent=current.path;
-  $("tabs").style.display="none";
-  $("editor").style.display="none";$("metaForm").style.display="block";
+  $("tabs").classList.add("hidden");$("tabs").classList.remove("flex");
+  $("editor").classList.add("hidden");$("metaForm").classList.remove("hidden");
   $("copyBtn").disabled=true;$("saveBtn").disabled=false;
   let meta={name:prettyName(lead),website:"",contact:"",email:"",phone:"",description:"",industry:"",location:""};
-  try{const d=await api("read?path="+encodeURIComponent(current.path));meta={...meta,...JSON.parse(d.content||"{}")};current.sha=d.sha;}catch(e){}
+  try{const d=await api("read?path="+encodeURIComponent(current.path));meta={...meta,...JSON.parse(d.content||"{}")};current.sha=d.sha}catch(e){}
   renderMetaForm(meta,lead);
-  $("previewEmpty").style.display="grid";$("preview").style.display="none";
+  $("previewEmpty").classList.remove("hidden");$("preview").classList.add("hidden");
+}
+
+async function openAsset(path,sha,lead,isImg){
+  setActive(`[data-path="${path}"]`);
+  current={path,sha,lead,mode:"asset"};
+  setCrumbs(lead,path.split("/").pop());
+  $("midHint").classList.add("hidden");
+  $("curPath").textContent=path;
+  $("tabs").classList.add("hidden");$("tabs").classList.remove("flex");
+  $("editor").classList.add("hidden");$("metaForm").classList.remove("hidden");
+  $("copyBtn").disabled=false;$("saveBtn").disabled=true;
+  const url="/"+path;
+  $("previewUrl").textContent=url;$("openExternal").href=url;
+  $("previewEmpty").classList.add("hidden");$("preview").classList.remove("hidden");
+  $("preview").src=url+"?t="+Date.now();
+  const ext=path.split(".").pop().toLowerCase();
+  const fileName=path.split("/").pop();
+  const dirPath=path.split("/").slice(0,-1).join("/");
+  $("metaForm").innerHTML=`
+    <h2 class="text-[15px] font-semibold mb-1 truncate">${fileName}</h2>
+    <div class="text-[12.5px] text-gray-500 font-mono mb-5">${path}</div>
+    ${isImg?`<div class="border border-line rounded-lg p-3 bg-surface-2 text-center mb-5"><img src="${url}?t=${Date.now()}" class="max-w-full max-h-96 mx-auto rounded"></div>`:`<div class="bg-surface-2 border border-line rounded-xl p-5 mb-5"><h3 class="text-[13px] font-semibold mb-2">Binary asset</h3><ul class="space-y-1 text-[12.5px] text-gray-600 list-disc pl-4"><li>Type: <code class="bg-white px-1.5 py-0.5 rounded text-[11px]">.${ext}</code></li><li>Open ↗ to view, or replace by uploading same name</li></ul></div>`}
+    <div class="flex gap-2">
+      <button onclick='openUp("${dirPath}")' class="px-3.5 py-2 text-[13px] font-medium text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md transition">Replace / upload here</button>
+      <button onclick='delFile("${path}","${sha}")' class="px-3.5 py-2 text-[13px] font-medium text-red-600 bg-white border border-line hover:bg-red-50 hover:border-red-300 rounded-md transition">Delete this file</button>
+    </div>`;
 }
 
 const esc=s=>String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 function renderMetaForm(meta,lead){
+  const inp=`w-full px-3 py-2 border border-line rounded-md text-[13px] focus:border-ink focus:ring-2 focus:ring-ink/10 focus:outline-none`;
+  const lbl=`block text-[11px] font-semibold text-ink-2 mb-1 uppercase tracking-wide`;
   $("metaForm").innerHTML=`
-    <h2>Lead info</h2>
-    <div class=sub>Saved to <code>sample/${lead}/meta.json</code>. Used internally + by sales team.</div>
-    <div class=fld><label>Company name</label><input id=m_name value="${esc(meta.name)}"></div>
-    <div class=grid2>
-      <div class=fld><label>Website</label><input id=m_website placeholder="https://…" value="${esc(meta.website)}"></div>
-      <div class=fld><label>Phone</label><input id=m_phone value="${esc(meta.phone)}"></div>
-    </div>
-    <div class=grid2>
-      <div class=fld><label>Contact name</label><input id=m_contact value="${esc(meta.contact)}"></div>
-      <div class=fld><label>Email</label><input id=m_email type=email value="${esc(meta.email)}"></div>
-    </div>
-    <div class=grid2>
-      <div class=fld><label>Industry</label><input id=m_industry value="${esc(meta.industry)}"></div>
-      <div class=fld><label>Location</label><input id=m_location value="${esc(meta.location)}"></div>
-    </div>
-    <div class=fld><label>Sales notes / description</label><textarea id=m_description rows=5>${esc(meta.description)}</textarea></div>
-  `;
-}
-
-
-async function openAsset(path,sha,lead,isImg){
-  setActive(`.row[data-path="${path}"]`);
-  current={path,sha,lead,mode:"asset"};
-  setCrumbs(lead,path.split("/").pop());
-  $("midHint").style.display="none";
-  $("curPath").textContent=path;
-  $("tabs").style.display="none";
-  $("editor").style.display="none";$("metaForm").style.display="block";
-  $("copyBtn").disabled=false;$("saveBtn").disabled=true;
-  const url="/"+path;
-  $("previewUrl").textContent=url;$("openExternal").href=url;
-  $("previewEmpty").style.display="none";$("preview").style.display="block";
-  $("preview").src=url+"?t="+Date.now();
-  // show file info in mid pane
-  const ext=path.split(".").pop().toLowerCase();
-  $("metaForm").innerHTML=`<h2>${path.split("/").pop()}</h2><div class=sub>${path}</div>
-    ${isImg?`<div style="margin:20px 0;border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--surface-2);text-align:center"><img src="${url}?t=${Date.now()}" style="max-width:100%;max-height:400px;border-radius:4px"></div>`:`<div class=hint><h3>Binary / non-editable asset</h3><ul><li>Type: <code>.${ext}</code></li><li>Open ↗ in new tab to view</li><li>Delete or re-upload via Add files button</li></ul></div>`}
-    <div style="margin-top:16px;display:flex;gap:8px"><button class="btn btn-outline" onclick='openUp("${path.split("/").slice(0,-1).join("/")}")'>Replace / upload here</button><button class="btn btn-danger" onclick='delFile("${path}","${sha}")'>Delete this file</button></div>`;
+    <h2 class="text-[15px] font-semibold mb-1">Lead info</h2>
+    <div class="text-[12.5px] text-gray-500 mb-5">Saved to <code class="bg-surface-2 px-1.5 py-0.5 rounded text-[11px]">sample/${lead}/meta.json</code></div>
+    <div class="space-y-4">
+      <div><label class="${lbl}">Company name</label><input id=m_name value="${esc(meta.name)}" class="${inp}"></div>
+      <div class="grid grid-cols-2 gap-3"><div><label class="${lbl}">Website</label><input id=m_website placeholder="https://…" value="${esc(meta.website)}" class="${inp}"></div><div><label class="${lbl}">Phone</label><input id=m_phone value="${esc(meta.phone)}" class="${inp}"></div></div>
+      <div class="grid grid-cols-2 gap-3"><div><label class="${lbl}">Contact name</label><input id=m_contact value="${esc(meta.contact)}" class="${inp}"></div><div><label class="${lbl}">Email</label><input id=m_email type=email value="${esc(meta.email)}" class="${inp}"></div></div>
+      <div class="grid grid-cols-2 gap-3"><div><label class="${lbl}">Industry</label><input id=m_industry value="${esc(meta.industry)}" class="${inp}"></div><div><label class="${lbl}">Location</label><input id=m_location value="${esc(meta.location)}" class="${inp}"></div></div>
+      <div><label class="${lbl}">Sales notes / description</label><textarea id=m_description rows=5 class="${inp} resize-y">${esc(meta.description)}</textarea></div>
+    </div>`;
 }
 
 function switchTab(m){
@@ -651,7 +414,7 @@ function switchTab(m){
 
 async function save(){
   if(!current.path)return;
-  const btn=$("saveBtn");btn.innerHTML='<span class=spin></span> Saving';btn.disabled=true;
+  const btn=$("saveBtn");btn.innerHTML=ICONS.spin+' Saving';btn.disabled=true;
   try{
     let content;
     if(current.mode==="meta"){
@@ -667,98 +430,83 @@ async function save(){
 }
 
 function copyShareLink(){if(!current.path)return;const url=location.origin+"/"+current.path.replace(/\/index\.html$/,"/");navigator.clipboard.writeText(url);toast("Link copied","ok")}
-function reloadPreview(){if(current.path&&current.mode==="html")$("preview").src="/"+current.path+"?t="+Date.now()}
+function reloadPreview(){if(current.path&&current.mode!=="meta")$("preview").src="/"+current.path+"?t="+Date.now()}
 
 async function delFile(path,sha){if(!confirm(`Delete ${path}?`))return;try{await api("delete",{method:"POST",body:JSON.stringify({path,sha})});toast("Deleted","ok");loadList()}catch(e){toast("Delete failed: "+e.message,"err")}}
 async function delLead(lead){if(!confirm(`Delete entire lead "${prettyName(lead)}" (${leads[lead]?.length||0} files)?`))return;try{const t=files.filter(f=>f.path.startsWith(`sample/${lead}/`));for(const f of t)await api("delete",{method:"POST",body:JSON.stringify({path:f.path,sha:f.sha})});toast("Lead deleted","ok");loadList()}catch(e){toast("Delete failed: "+e.message,"err")}}
+async function delDir(dirPath){if(!confirm(`Delete folder ${dirPath} and all its contents?`))return;const t=files.filter(f=>f.path.startsWith(dirPath+"/"));try{for(const f of t)await api("delete",{method:"POST",body:JSON.stringify({path:f.path,sha:f.sha})});toast("Folder deleted","ok");loadList()}catch(e){toast("Delete failed: "+e.message,"err")}}
 
-function openNew(){$("newScrim").classList.add("on");["nl_name","nl_slug","nl_site","nl_email"].forEach(id=>$(id).value="");setTimeout(()=>$("nl_name").focus(),50)}
-function closeNew(){$("newScrim").classList.remove("on")}
+function openNew(){$("newScrim").classList.remove("hidden");$("newScrim").classList.add("flex");["nl_name","nl_slug","nl_site","nl_email"].forEach(id=>$(id).value="");setTimeout(()=>$("nl_name").focus(),50)}
+function closeNew(){$("newScrim").classList.add("hidden");$("newScrim").classList.remove("flex")}
 function updateSlug(){$("nl_slug").value=$("nl_name").value.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
 async function createLead(){
   const name=$("nl_name").value.trim(),slug=$("nl_slug").value;
   if(!slug)return toast("Enter company name","err");
-  const btn=$("createBtn");btn.innerHTML='<span class=spin></span> Creating';btn.disabled=true;
+  const btn=$("createBtn");btn.innerHTML=ICONS.spin+' Creating';btn.disabled=true;
   try{
-    const t=v=>`<!doctype html><html lang=en><head><meta charset=utf-8><title>${name} - MeltWeb ${v}</title><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{--ink:#0F172A;--accent:#2563EB}*{box-sizing:border-box;margin:0}body{font:16px/1.6 system-ui;color:var(--ink);padding:80px 20px;max-width:760px;margin:auto}h1{font-size:40px;font-weight:800;margin-bottom:16px;letter-spacing:-.02em}p{color:#475569;margin-bottom:24px}.btn{display:inline-block;background:var(--accent);color:#fff;padding:14px 28px;border-radius:10px;font-weight:600;text-decoration:none}.tag{display:inline-block;background:#EFF6FF;color:var(--accent);padding:4px 10px;border-radius:20px;font-size:12px;font-weight:600;margin-bottom:16px}</style></head><body><div class=tag>${v.toUpperCase()} Sample</div><h1>${name}</h1><p>Starter MeltWeb sample for ${name}. Edit this file in the admin portal.</p><a class=btn href=#>Book a call</a></body></html>`;
+    const t=v=>`<!doctype html><html lang=en><head><meta charset=utf-8><title>${name} - ${v}</title><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{--ink:#0F172A;--accent:#2563EB}*{box-sizing:border-box;margin:0}body{font:16px/1.6 system-ui;color:var(--ink);padding:80px 20px;max-width:760px;margin:auto}h1{font-size:40px;font-weight:800;margin-bottom:16px;letter-spacing:-.02em}p{color:#475569;margin-bottom:24px}.btn{display:inline-block;background:var(--accent);color:#fff;padding:14px 28px;border-radius:10px;font-weight:600;text-decoration:none}.tag{display:inline-block;background:#EFF6FF;color:var(--accent);padding:4px 10px;border-radius:20px;font-size:12px;font-weight:600;margin-bottom:16px}</style></head><body><div class=tag>${v.toUpperCase()} Sample</div><h1>${name}</h1><p>Starter MeltWeb sample for ${name}.</p><a class=btn href=#>Book a call</a></body></html>`;
     const meta={name,website:$("nl_site").value,email:$("nl_email").value,contact:"",phone:"",industry:"",location:"",description:""};
     await api("save",{method:"POST",body:JSON.stringify({path:`sample/${slug}/v1/index.html`,content:t("v1")})});
     await api("save",{method:"POST",body:JSON.stringify({path:`sample/${slug}/v2/index.html`,content:t("v2")})});
     await api("save",{method:"POST",body:JSON.stringify({path:`sample/${slug}/meta.json`,content:JSON.stringify(meta,null,2)})});
     toast("Lead created","ok");closeNew();loadList();
   }catch(e){toast("Create failed: "+e.message,"err")}
-  btn.innerHTML="Create";btn.disabled=false;
+  btn.innerHTML="Create lead";btn.disabled=false;
 }
 
 let upTarget="";
-function openUp(t){upTarget=t;$("upTarget").textContent=t;$("upList").innerHTML="";$("upScrim").classList.add("on")}
-function closeUp(){$("upScrim").classList.remove("on");loadList()}
+function openUp(t){upTarget=t;$("upTarget").textContent=t;$("upList").innerHTML="";$("upScrim").classList.remove("hidden");$("upScrim").classList.add("flex")}
+function closeUp(){$("upScrim").classList.add("hidden");$("upScrim").classList.remove("flex");loadList()}
 function handleDrop(e){e.preventDefault();e.target.classList.remove("drag");handleFiles(e.dataTransfer.files)}
 async function handleFiles(fl){
   const list=$("upList");
   for(const f of fl){
-    const row=document.createElement("div");row.className="up-row";
-    row.innerHTML=`<span class=spin></span> <span style="flex:1">${f.name}</span> <span style=color:var(--muted)>${(f.size/1024).toFixed(0)}KB</span>`;
+    const row=document.createElement("div");row.className="flex items-center gap-2 py-1.5 border-b border-line-2 last:border-b-0";
+    row.innerHTML=`<span class="text-gray-400">${ICONS.spin}</span><span class="flex-1 truncate">${f.name}</span><span class="text-gray-400 text-[11px]">${(f.size/1024).toFixed(0)}KB</span>`;
     list.appendChild(row);
-    try{
-      const buf=await f.arrayBuffer();
-      const b64=btoa(new Uint8Array(buf).reduce((s,b)=>s+String.fromCharCode(b),""));
-      await api("upload",{method:"POST",body:JSON.stringify({path:`${upTarget}/${f.name}`,contentBase64:b64})});
-      row.firstElementChild.outerHTML=`<span style=color:var(--ok);font-weight:700>✓</span>`;
-    }catch(e){row.firstElementChild.outerHTML=`<span style=color:var(--err);font-weight:700>✗</span>`;row.insertAdjacentHTML("beforeend",`<span style=color:var(--err);font-size:11px>${e.message}</span>`)}
+    try{const buf=await f.arrayBuffer();const b64=btoa(new Uint8Array(buf).reduce((s,b)=>s+String.fromCharCode(b),""));await api("upload",{method:"POST",body:JSON.stringify({path:`${upTarget}/${f.name}`,contentBase64:b64})});row.firstElementChild.outerHTML=`<span class="text-emerald-600 font-bold">✓</span>`}
+    catch(e){row.firstElementChild.outerHTML=`<span class="text-red-600 font-bold">✗</span>`;row.insertAdjacentHTML("beforeend",`<span class="text-red-600 text-[11px]">${e.message}</span>`)}
   }
 }
 
-
-// Context menu (right-click + dots)
 let ctxTarget=null;
 function showCtx(e,type,path,sha,isDir){
-  e.stopPropagation();
-  ctxTarget={type,path,sha,isDir};
-  const m=$("ctxMenu");
-  const REPO="mxhiraz/meltweb";
+  e.stopPropagation();ctxTarget={type,path,sha,isDir};
+  const m=$("ctxMenu");const REPO="mxhiraz/meltweb";
   let items=[];
   if(isDir){
     items=[
-      {label:"Upload files here",emoji:"⬆️",fn:`openUp('${path}')`},
-      {label:"Copy path",emoji:"📋",fn:`copyToClip('${path}')`},
-      {label:"Open in GitHub",emoji:"🔗",fn:`window.open('https://github.com/${REPO}/tree/main/${path}','_blank')`},
+      {label:"Upload files here",icon:ICONS.upload,fn:`openUp('${path}')`},
+      {label:"Copy folder path",fn:`copyToClip('${path}')`},
+      {label:"Open in GitHub ↗",fn:`window.open('https://github.com/${REPO}/tree/main/${path}','_blank')`},
       {sep:true},
-      {label:"Delete folder",emoji:"🗑️",fn:`delDir('${path}')`,danger:true}
+      {label:"Delete folder",icon:ICONS.trash,fn:`delDir('${path}')`,danger:true}
     ];
   }else{
     const url=location.origin+"/"+path;
     items=[
-      {label:"Open preview",emoji:"👁",fn:`window.open('${url}','_blank')`},
-      {label:"Copy share link",emoji:"🔗",fn:`copyToClip('${url}')`},
-      {label:"Copy file path",emoji:"📋",fn:`copyToClip('${path}')`},
-      {label:"Open in GitHub",emoji:"💾",fn:`window.open('https://github.com/${REPO}/blob/main/${path}','_blank')`},
+      {label:"Open preview ↗",fn:`window.open('${url}','_blank')`},
+      {label:"Copy share link",fn:`copyToClip('${url}')`},
+      {label:"Copy file path",fn:`copyToClip('${path}')`},
+      {label:"Open in GitHub ↗",fn:`window.open('https://github.com/${REPO}/blob/main/${path}','_blank')`},
       {sep:true},
-      {label:"Delete file",emoji:"🗑️",fn:`delFile('${path}','${sha}')`,danger:true}
+      {label:"Delete file",icon:ICONS.trash,fn:`delFile('${path}','${sha}')`,danger:true}
     ];
   }
-  m.innerHTML=items.map(it=>it.sep?'<hr>':`<button class="${it.danger?'danger':''}" onclick="hideCtx();${it.fn}"><span style="width:16px;text-align:center;display:inline-block">${it.emoji||"•"}</span> ${it.label}</button>`).join("");
-  m.classList.add("on");
-  // position
-  const x=Math.min(e.clientX,window.innerWidth-220);
-  const y=Math.min(e.clientY,window.innerHeight-260);
+  m.innerHTML=items.map(it=>it.sep?'<hr class="my-1 border-line-2">':`<button class="w-full flex items-center gap-2.5 px-2.5 py-1.5 text-left rounded text-[12.5px] ${it.danger?"text-red-600 hover:bg-red-50":"text-ink-2 hover:bg-surface-2"} transition" onclick="hideCtx();${it.fn}">${it.icon||'<span class="w-3"></span>'} ${it.label}</button>`).join("");
+  m.classList.remove("hidden");m.classList.add("block");
+  const x=Math.min(e.clientX,window.innerWidth-220),y=Math.min(e.clientY,window.innerHeight-260);
   m.style.left=x+"px";m.style.top=y+"px";
 }
-function hideCtx(){$("ctxMenu").classList.remove("on")}
-document.addEventListener("click",e=>{if(!e.target.closest(".ctx"))hideCtx()});
+function hideCtx(){$("ctxMenu").classList.add("hidden");$("ctxMenu").classList.remove("block")}
+document.addEventListener("click",e=>{if(!e.target.closest("#ctxMenu"))hideCtx()});
 document.addEventListener("scroll",hideCtx,true);
-function copyToClip(s){navigator.clipboard.writeText(s);toast("Copied: "+s.slice(0,50),"ok")}
-async function delDir(dirPath){
-  if(!confirm("Delete folder "+dirPath+" and all its contents?"))return;
-  const t=files.filter(f=>f.path.startsWith(dirPath+"/"));
-  try{for(const f of t)await api("delete",{method:"POST",body:JSON.stringify({path:f.path,sha:f.sha})});toast("Folder deleted","ok");loadList()}
-  catch(e){toast("Delete failed: "+e.message,"err")}
-}
+function copyToClip(s){navigator.clipboard.writeText(s);toast("Copied","ok")}
 
 function initEditor(){
   require.config({paths:{vs:"https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs"}});
   require(["vs/editor/editor.main"],()=>{
-    editor=monaco.editor.create($("editor"),{value:"",language:"html",theme:"vs",automaticLayout:true,minimap:{enabled:false},fontSize:13,wordWrap:"on",scrollBeyondLastLine:false,padding:{top:14},lineNumbersMinChars:3,renderLineHighlight:"all"});
+    editor=monaco.editor.create($("editor"),{value:"",language:"html",theme:"vs",automaticLayout:true,minimap:{enabled:false},fontSize:13,wordWrap:"on",scrollBeyondLastLine:false,padding:{top:14},lineNumbersMinChars:3});
     editor.addCommand(monaco.KeyMod.CtrlCmd|monaco.KeyCode.KeyS,()=>save());
     loadList();
   });
