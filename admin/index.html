@@ -62,11 +62,11 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
     </div>
     <div class="flex gap-1.5">
       <button onclick=openNew() class="px-3 py-1.5 text-[12.5px] font-medium text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md flex items-center gap-1.5 transition">
-        <i data-lucide="plus" style="width:13px;height:13px"></i>
+        <span><svg xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
         New lead
       </button>
       <button onclick=loadList() class="p-1.5 text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md transition" title=Refresh>
-        <i data-lucide="refresh-cw" style="width:13px;height:13px"></i>
+        <span><svg xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></span>
       </button>
       <button onclick=logout() class="px-3 py-1.5 text-[12.5px] font-medium text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md transition">Logout</button>
     </div>
@@ -78,7 +78,7 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
     <aside class="bg-white border-r border-line flex flex-col overflow-hidden">
       <div class="p-2.5 border-b border-line">
         <div class="relative">
-          <i data-lucide="search" class="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400" style="width:14px;height:14px"></i>
+          <span class="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
           <input id=search placeholder="Search leads…" oninput=renderList() class="w-full pl-8 pr-3 py-2 text-[13.5px] border border-line rounded-md focus:border-ink focus:ring-2 focus:ring-ink/10 focus:outline-none">
         </div>
       </div>
@@ -94,7 +94,7 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
         </div>
         <span id=curPath class="flex-1 text-[13px] text-gray-500 font-mono truncate">Select a file from sidebar</span>
         <button id=copyBtn onclick=copyShareLink() disabled class="px-2.5 py-1 text-[12px] font-medium text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 transition">
-          <i data-lucide="copy" style="width:11px;height:11px"></i>
+          <span><svg xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
           Copy link
         </button>
         <button id=saveBtn onclick=save() disabled class="px-3 py-1 text-[12px] font-medium text-white bg-brand hover:bg-brand-hover rounded-md disabled:opacity-40 disabled:cursor-not-allowed transition">Save</button>
@@ -122,16 +122,16 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
       <div class="flex items-center gap-2 px-3.5 border-b border-line" style="height:56px">
         <div id=previewUrl class="flex-1 bg-surface-2 border border-line px-2.5 py-1 rounded text-[11px] text-gray-500 font-mono truncate">Live preview here</div>
         <button onclick=reloadPreview() class="p-1.5 text-ink-2 border border-line bg-white hover:bg-surface-2 rounded-md transition" title=Refresh>
-          <i data-lucide="refresh-cw" style="width:13px;height:13px"></i>
+          <span><svg xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></span>
         </button>
         <a id=openExternal target=_blank href=# class="p-1.5 text-ink-2 border border-line bg-white hover:bg-surface-2 rounded-md transition" title="Open in new tab">
-          <i data-lucide="external-link" style="width:13px;height:13px"></i>
+          <span><svg xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
         </a>
       </div>
       <div id=previewEmpty class="flex-1 grid place-items-center text-gray-400 text-[13px] text-center p-10">
         <div>
           <div class="w-12 h-12 mx-auto mb-3 bg-surface-2 rounded-xl grid place-items-center">
-            <i data-lucide="eye" style="width:22px;height:22px"></i>
+            <span><svg xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span>
           </div>
           No file selected
           <div class="text-[11.5px] text-gray-400 mt-1">Choose a page to see live preview</div>
@@ -196,7 +196,7 @@ function paintStaticIcons(){
   const map={"search":ICONS.search,"plus":ICONS.plus,"refresh-cw":ICONS.refresh,"copy":ICONS.copy,"external-link":ICONS.external,"eye":ICONS.eye,"upload":ICONS.upload,"trash-2":ICONS.trash,"folder":ICONS.folder,"folder-open":ICONS.folderOpen,"file":ICONS.file,"info":ICONS.info,"more-vertical":ICONS.dots,"chevron-right":ICONS.chev};
   document.querySelectorAll("[data-lucide]").forEach(el=>{const n=el.dataset.lucide;if(map[n]){const wrap=document.createElement("span");if(el.className)wrap.className=el.className;if(el.style.cssText)wrap.style.cssText=el.style.cssText;wrap.innerHTML=map[n];el.replaceWith(wrap)}});
 }
-const I=(name,size=14,cls="")=>`<i data-lucide="${name}" style="width:${size}px;height:${size}px" class="${cls} inline-block align-middle"></i>`;
+const I=(name,size=14,cls="")=>`<span class="${cls} inline-block align-middle"></span>`;
 const ICONS={
   chev:I("chevron-right",10),
   folder:I("folder",14),
