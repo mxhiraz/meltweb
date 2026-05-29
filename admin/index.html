@@ -246,7 +246,7 @@ async function loadList(){
   try{
     const d=await api("list");files=d.files;leads={};
     files.forEach(f=>{const p=f.path.split("/");if(p[0]==="sample"&&p.length>=3&&!p[1].includes(".")){leads[p[1]]=leads[p[1]]||[];leads[p[1]].push(f)}});
-    autoExpand();renderList();
+    renderList();
     // fetch all meta.json in parallel to populate status badges
     Object.keys(leads).forEach(lead=>{
       const mf=files.find(f=>f.path===`sample/${lead}/meta.json`);
