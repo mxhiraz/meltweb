@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HighFire Energy Services — Strategic Steam &amp; Process Solutions</title>
+<meta name="description" content="HighFire Energy Services delivers strategic steam and process solutions across Alberta — boiler rentals, fluid heating, hot oiling, industrial cleaning and fabrication. 24/7 support." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --red:#ed2024;
+    --red2:#ef3b20;
+    --orange:#f35c1c;
+    --amber:#f88a16;
+    --gold:#febf10;
+    --ink:#231f20;
+    --ink-2:#2e2a2b;
+    --paper:#fff7ee;
+    --paper-2:#fdeede;
+    --line:#eadccb;
+    --muted:#7a6f66;
+    --flame:linear-gradient(135deg,var(--red) 0%,var(--orange) 48%,var(--gold) 100%);
+    --radius:18px;
+    --shadow:0 30px 60px -28px rgba(35,31,32,.45);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,h4{font-family:'Archivo',sans-serif;line-height:1.04;letter-spacing:-.02em;overflow-wrap:break-word}
+  a{text-decoration:none;color:inherit}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+  .flame-text{background:var(--flame);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:.95rem;padding:15px 28px;border-radius:999px;cursor:pointer;border:none;transition:.25s ease;font-family:'Inter',sans-serif}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn-dark:hover{transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(35,31,32,.6)}
+  .btn-flame{background:var(--flame);color:#fff;box-shadow:0 14px 26px -12px rgba(237,32,36,.7)}
+  .btn-flame:hover{transform:translateY(-2px);filter:brightness(1.05)}
+  .btn-ghost{background:transparent;border:1.5px solid var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,247,238,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:84px}
+  .logo img{height:34px}
+  .nav-links{display:flex;gap:38px;align-items:center}
+  .nav-links a{font-weight:600;font-size:.95rem;color:var(--ink-2);position:relative}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--flame);transition:.25s}
+  .nav-links a:hover::after,.nav-links a.active::after{width:100%}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  .nav-phone{font-weight:700;color:var(--ink);font-size:.95rem;display:flex;align-items:center;gap:8px}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer}
+  .burger span{width:26px;height:2.5px;background:var(--ink);border-radius:2px}
+
+  /* Hero */
+  .hero{padding:56px 0 0}
+  .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:50px;align-items:center}
+  .hero-copy,.hero-media{min-width:0}
+  .eyebrow{display:inline-flex;align-items:center;flex-wrap:wrap;gap:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.74rem;color:var(--orange);margin-bottom:22px}
+  .eyebrow::before{content:"";width:30px;height:2px;background:var(--flame)}
+  .hero h1{font-size:clamp(2.6rem,6vw,5.1rem);font-weight:900;text-transform:uppercase;overflow-wrap:break-word}
+  .hero h1 span{display:block}
+  .hero p.lead{font-size:1.12rem;color:var(--muted);margin:24px 0 32px;max-width:440px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .stats{display:flex;gap:42px;margin-top:48px}
+  .stat .num{font-family:'Archivo';font-weight:800;font-size:2.3rem;display:flex;align-items:flex-start;gap:3px}
+  .stat .num .plus{color:var(--orange);font-size:1.4rem;line-height:1}
+  .stat .lbl{font-size:.86rem;color:var(--muted);font-weight:500}
+  .hero-media{position:relative}
+  .hero-media .frame{border-radius:26px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:3/3.4;background:var(--ink)}
+  .hero-media .frame img{width:100%;height:100%;object-fit:cover}
+  .hero-badge{position:absolute;left:18px;bottom:18px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:12px;max-width:calc(100% - 36px)}
+  .hero-badge .dot{width:42px;height:42px;border-radius:12px;background:var(--flame);display:grid;place-items:center;color:#fff;font-weight:800;font-family:'Archivo'}
+  .hero-badge .t{font-weight:800;font-family:'Archivo';font-size:1rem}
+  .hero-badge .s{font-size:.78rem;color:var(--muted)}
+
+  /* Quick request bar — sits clearly below the hero, floats into next section */
+  .qbar-wrap{margin:44px 0 -60px;position:relative;z-index:5}
+  .qbar{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:26px;border:1px solid var(--line)}
+  .qbar h3{font-size:1.05rem;margin-bottom:18px}
+  .qfields{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:14px}
+  .qfield{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:13px 16px;background:var(--paper)}
+  .qfield svg{flex-shrink:0;color:var(--orange)}
+  .qfield select,.qfield input{border:none;background:none;outline:none;width:100%;font-family:'Inter';font-size:.92rem;color:var(--ink);font-weight:500}
+
+  /* Section header */
+  section{padding:96px 0}
+  .sec-tag{display:inline-flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.74rem;color:var(--orange)}
+  .sec-tag::before{content:"";width:26px;height:2px;background:var(--ink)}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:48px}
+  .sec-head h2{font-size:clamp(2rem,3.6vw,2.9rem);font-weight:800;text-transform:uppercase;margin-top:12px}
+  .link-arrow{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--ink)}
+  .link-arrow svg{transition:.25s}
+  .link-arrow:hover svg{transform:translateX(5px)}
+
+  /* Services cards */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .card{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);transition:.3s ease;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+  .card .media{aspect-ratio:16/11;overflow:hidden;position:relative}
+  .card .media img{width:100%;height:100%;object-fit:cover;transition:.5s}
+  .card:hover .media img{transform:scale(1.07)}
+  .card .media .tag{position:absolute;top:14px;left:14px;background:rgba(35,31,32,.82);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:7px 13px;border-radius:999px}
+  .card .body{padding:24px;flex:1;display:flex;flex-direction:column}
+  .card h3{font-size:1.3rem;font-weight:800;margin-bottom:10px}
+  .card p{color:var(--muted);font-size:.94rem;flex:1}
+  .card .more{margin-top:18px;display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--orange)}
+  .card .more svg{transition:.25s}
+  .card:hover .more svg{transform:translateX(5px)}
+
+  /* About split */
+  .about{background:var(--paper-2)}
+  .about-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:center}
+  .about-media{position:relative}
+  .about-media img{border-radius:22px;box-shadow:var(--shadow);width:100%;aspect-ratio:4/3.6;object-fit:cover}
+  .about-media .stat-chip{position:absolute;right:-20px;top:40px;background:var(--ink);color:#fff;border-radius:16px;padding:20px 24px;box-shadow:var(--shadow)}
+  .about-media .stat-chip .n{font-family:'Archivo';font-weight:800;font-size:2rem}
+  .about-media .stat-chip .l{font-size:.8rem;color:#c9beb3}
+  .about h2{font-size:clamp(2rem,3.6vw,2.9rem);font-weight:800;text-transform:uppercase;margin:14px 0 20px}
+  .about p{color:var(--muted);font-size:1.05rem;margin-bottom:16px}
+  .values{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+  .value{display:flex;gap:13px;align-items:flex-start}
+  .value .ic{width:40px;height:40px;border-radius:11px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;flex-shrink:0;color:var(--orange)}
+  .value .vt{font-weight:700;font-family:'Archivo';font-size:1rem}
+  .value .vs{font-size:.84rem;color:var(--muted)}
+
+  /* Rentals strip */
+  .rentals .pills{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px}
+  .pill{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 26px;flex:1 1 200px;transition:.25s}
+  .pill:hover{border-color:var(--orange);transform:translateY(-4px)}
+  .pill .n{font-family:'Archivo';font-weight:800;font-size:1.15rem;display:flex;align-items:center;gap:10px}
+  .pill .n .b{width:9px;height:9px;border-radius:50%;background:var(--flame)}
+  .pill p{color:var(--muted);font-size:.86rem;margin-top:8px}
+
+  /* Testimonial / dark band */
+  .band{background:var(--ink);color:#fff;border-radius:30px;margin:0 28px;overflow:hidden}
+  .band-inner{max-width:1240px;margin:0 auto;padding:80px 56px;display:grid;grid-template-columns:.85fr 1.15fr;gap:50px;align-items:center}
+  .band .who .name{font-family:'Archivo';font-weight:800;font-size:1.4rem}
+  .band .who .role{color:var(--gold);font-size:.9rem;font-weight:600}
+  .band .quote{font-family:'Archivo';font-weight:600;font-size:clamp(1.5rem,2.6vw,2.15rem);line-height:1.25}
+  .band .quote .q{font-size:3rem;color:var(--orange);line-height:0;display:inline-block;vertical-align:-.35em;margin-right:6px;font-family:Georgia,serif}
+  .band-stats{display:flex;gap:40px;margin-top:30px;flex-wrap:wrap}
+  .band-stats .n{font-family:'Archivo';font-weight:800;font-size:1.9rem}
+  .band-stats .l{font-size:.82rem;color:#b7aca2}
+
+  /* Service areas */
+  .areas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .area{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-weight:600;font-size:.9rem}
+  .area svg{color:var(--orange)}
+
+  /* Certs strip */
+  .certs{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:46px 0}
+  .certs-inner{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+  .certs .label{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.78rem;color:var(--muted)}
+  .certs .badges{display:flex;align-items:center;gap:40px;flex-wrap:wrap}
+  .certs .badges img{height:74px;width:auto;filter:grayscale(.15)}
+
+  /* CTA */
+  .cta{text-align:center}
+  .cta-box{background:var(--flame);border-radius:30px;padding:74px 40px;color:#fff;position:relative;overflow:hidden}
+  .cta-box h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;text-transform:uppercase}
+  .cta-box p{font-size:1.1rem;margin:16px auto 30px;max-width:560px;opacity:.95}
+  .cta-box .btn-dark{background:var(--ink)}
+  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .cta-box .btn-white{background:#fff;color:var(--ink)}
+
+  /* Footer */
+  footer{background:var(--ink);color:#d8cfc6;padding:74px 0 32px;margin-top:96px}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px}
+  .foot-logo img{height:40px;margin-bottom:18px}
+  .foot-about{color:#a89e95;font-size:.92rem;max-width:300px}
+  .foot-social{display:flex;gap:12px;margin-top:20px}
+  .foot-social a{width:40px;height:40px;border-radius:11px;border:1px solid #3a3536;display:grid;place-items:center;color:#d8cfc6;transition:.25s}
+  .foot-social a:hover{background:var(--flame);border-color:transparent;color:#fff}
+  footer h4{color:#fff;font-family:'Archivo';font-size:1rem;margin-bottom:18px;text-transform:uppercase;letter-spacing:.04em}
+  footer ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+  footer ul a{color:#a89e95;font-size:.92rem}
+  footer ul a:hover{color:var(--gold)}
+  .foot-contact .row{display:flex;gap:11px;align-items:flex-start;margin-bottom:14px;font-size:.92rem}
+  .foot-contact .row svg{color:var(--orange);flex-shrink:0;margin-top:3px}
+  .foot-bot{border-top:1px solid #3a3536;margin-top:50px;padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.84rem;color:#8a8078}
+
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:36px}
+    .hero-media{order:-1}
+    .hero-media .frame{aspect-ratio:16/11}
+    .about-grid,.band-inner{grid-template-columns:1fr;gap:36px}
+    .cards{grid-template-columns:1fr 1fr}
+    .qfields{grid-template-columns:1fr 1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:680px){
+    .nav-links,.nav-phone{display:none}
+    .burger{display:flex}
+    .cards{grid-template-columns:1fr}
+    .qfields{grid-template-columns:1fr}
+    .stats{flex-wrap:wrap;gap:26px}
+    .band{margin:0 14px}.band-inner{padding:50px 28px}
+    .foot-grid{grid-template-columns:1fr}
+    .sec-head{flex-direction:column;align-items:flex-start}
+    .about-media .stat-chip{right:14px}
+    .wrap{padding:0 18px}
+    .hero p.lead{max-width:100%}
+    .hero h1,.about h2,.cta-box h2,.sec-head h2{max-width:100%}
+    .eyebrow,.sec-tag{font-size:.68rem;letter-spacing:.1em}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#"><img src="assets/highfire-black-logo.svg" alt="HighFire Energy Services" /></a>
+    <nav class="nav-links">
+      <a href="#services" class="active">Services</a>
+      <a href="#rentals">Rentals</a>
+      <a href="#about">About</a>
+      <a href="#areas">Coverage</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-phone" href="tel:7808090893">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        780-809-0893
+      </a>
+      <a class="btn btn-flame" href="#contact">Contact Us</a>
+    </div>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Strategic Steam &amp; Process Solutions</span>
+      <h1><span>Heat When</span><span>It Matters</span><span class="flame-text">Most</span></h1>
+      <p class="lead">HighFire Energy Services rapidly applies strategic solutions to remediate and resolve process disturbances throughout industry — across Alberta and beyond.</p>
+      <div class="hero-actions">
+        <a class="btn btn-dark" href="#services">Explore Services
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#contact">Get a Quote</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num">24/7<span class="plus"></span></div><div class="lbl">Support &amp; Dispatch</div></div>
+        <div class="stat"><div class="num">5–40<span class="plus">M</span></div><div class="lbl">BTU Heating Range</div></div>
+        <div class="stat"><div class="num">3<span class="plus">+</span></div><div class="lbl">Safety Certifications</div></div>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="frame"><img src="assets/service-image.jpg" alt="HighFire mobile boiler unit producing steam on a night job site in Alberta" /></div>
+      <div class="hero-badge">
+        <div class="dot">°F</div>
+        <div><div class="t">Dry Steam, On Demand</div><div class="s">Mobile &amp; skid boiler fleet</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick request bar -->
+  <div class="wrap qbar-wrap">
+    <div class="qbar">
+      <h3>Request equipment or a service call</h3>
+      <form class="qfields" onsubmit="return false">
+        <label class="qfield">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <select><option>Service area</option><option>Red Earth Creek</option><option>Fox Creek</option><option>Grande Prairie</option><option>Edmonton</option><option>Other — Alberta</option></select>
+        </label>
+        <label class="qfield">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>
+          <select><option>Service type</option><option>Boiler Rental</option><option>Fluid Heating</option><option>Hot Oiling</option><option>Industrial Cleaning</option><option>Fabrication</option></select>
+        </label>
+        <label class="qfield">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <select><option>Timeline</option><option>Emergency — now</option><option>This week</option><option>Planned project</option></select>
+        </label>
+        <button class="btn btn-flame" type="submit">Send Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="sec-tag">What We Do</span>
+        <h2>Core Services</h2>
+      </div>
+      <a class="link-arrow" href="#contact">Explore All
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <div class="media"><img src="assets/service-image.jpg" alt="Mobile and skid boilers producing dry steam"><span class="tag">Rentals</span></div>
+        <div class="body">
+          <h3>Boiler Rentals</h3>
+          <p>Steam and heating rental solutions for all industries. Our mobile and skid boilers produce dry steam, complete with hoses, heaters and tarps.</p>
+          <a class="more" href="#rentals">Read more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media"><img src="assets/ind-tanks.jpg" alt="Crude oil tanks and vessels cleaned across Alberta"><span class="tag">Cleaning</span></div>
+        <div class="body">
+          <h3>Industrial Cleaning</h3>
+          <p>Successfully cleaned tanks and vessels throughout Alberta — large-diameter crude oil tanks, condensate bullets, rail cars, dehydration towers and wastewater tanks.</p>
+          <a class="more" href="#contact">Read more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media"><img src="assets/ind-pipes.jpg" alt="High volume high efficiency fluid heating units"><span class="tag">Heating</span></div>
+        <div class="body">
+          <h3>Fluid Heating</h3>
+          <p>High volume, high efficiency heating solutions for industrial and commercial operations — units ranging from 5M to 40M BTU.</p>
+          <a class="more" href="#contact">Read more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media"><img src="assets/ind-plant-night.jpg" alt="Hot oiling services across Alberta"><span class="tag">Field</span></div>
+        <div class="body">
+          <h3>Hot Oiling</h3>
+          <p>Hot oiling services throughout Alberta including Red Earth Creek, Fox Creek, Grande Prairie and Edmonton.</p>
+          <a class="more" href="#areas">Read more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media"><img src="assets/ind-welding.jpg" alt="Custom fabrication for steam and process equipment"><span class="tag">Build</span></div>
+        <div class="body">
+          <h3>Fabrication</h3>
+          <p>In-house fabrication backing our fleet and field work — custom builds and modifications engineered for demanding process environments.</p>
+          <a class="more" href="#contact">Read more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media"><img src="assets/ind-refinery.jpg" alt="Equipment sales division"><span class="tag">Sales</span></div>
+        <div class="body">
+          <h3>Sales</h3>
+          <p>Looking to own rather than rent? Our sales division supplies boilers and process heating equipment matched to your operation.</p>
+          <a class="more" href="#contact">Read more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="wrap about-grid">
+    <div class="about-media">
+      <img src="assets/ind-worker.jpg" alt="HighFire field technician on site" />
+      <div class="stat-chip"><div class="n">100%</div><div class="l">Honesty &amp; transparency</div></div>
+    </div>
+    <div class="about-copy">
+      <span class="sec-tag">Who We Are</span>
+      <h2>Clear Solutions,<br>Tactical Execution</h2>
+      <p>At HighFire Energy Services, it's been our mission to rapidly apply strategic solutions to remediate and resolve process disturbances throughout industry.</p>
+      <p>At HighFire we promote honesty, integrity and transparency in all we do. Our solutions are clear and our project execution is tactical.</p>
+      <div class="values">
+        <div class="value">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <div><div class="vt">Honesty</div><div class="vs">Transparent from quote to completion.</div></div>
+        </div>
+        <div class="value">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><div class="vt">Integrity</div><div class="vs">We do what we say we will do.</div></div>
+        </div>
+        <div class="value">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div><div class="vt">Rapid Response</div><div class="vs">24/7 support and dispatch.</div></div>
+        </div>
+        <div class="value">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+          <div><div class="vt">Safety First</div><div class="vs">COR · ISN · Comply certified.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RENTALS -->
+<section id="rentals" class="rentals">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="sec-tag">Rental Fleet</span>
+        <h2>Boilers For Every Job</h2>
+      </div>
+      <a class="link-arrow" href="#contact">Check availability
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="pills">
+      <div class="pill"><div class="n"><span class="b"></span>Portable Boilers</div><p>Compact, mobile units that move with your job site.</p></div>
+      <div class="pill"><div class="n"><span class="b"></span>Package Boilers</div><p>Skid-mounted packages ready to deploy and connect.</p></div>
+      <div class="pill"><div class="n"><span class="b"></span>Hot Water Boilers</div><p>Reliable hot water output for process and facility needs.</p></div>
+      <div class="pill"><div class="n"><span class="b"></span>Glycol Boilers</div><p>Closed-loop glycol heating for freeze-protected systems.</p></div>
+      <div class="pill"><div class="n"><span class="b"></span>Specialty Boilers</div><p>Purpose-built solutions for unique process challenges.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL / VALUES BAND -->
+<div class="band">
+  <div class="band-inner">
+    <div class="who">
+      <div class="name">HighFire Energy Services</div>
+      <div class="role">Strategic Steam &amp; Process Solutions</div>
+      <div class="band-stats">
+        <div><div class="n">40M</div><div class="l">BTU peak output</div></div>
+        <div><div class="n">24/7</div><div class="l">Emergency response</div></div>
+      </div>
+    </div>
+    <div class="quote-wrap">
+      <p class="quote"><span class="q">“</span>We promote honesty, integrity and transparency in all we do. Our solutions are clear and our project execution is tactical.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE AREAS -->
+<section id="areas">
+  <div class="wrap">
+    <span class="sec-tag">Where We Work</span>
+    <h2 style="font-size:clamp(2rem,3.6vw,2.9rem);font-weight:800;text-transform:uppercase;margin:12px 0 8px">Serving Alberta &amp; Beyond</h2>
+    <p style="color:var(--muted);max-width:560px">From mobile dispatch hubs we reach job sites across the province — and we're built to travel for the projects that need us.</p>
+    <div class="areas">
+      <span class="area"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Red Earth Creek</span>
+      <span class="area"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Fox Creek</span>
+      <span class="area"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Grande Prairie</span>
+      <span class="area"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Edmonton</span>
+      <span class="area"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Across Alberta</span>
+    </div>
+  </div>
+</section>
+
+<!-- CERTS -->
+<div class="certs">
+  <div class="wrap certs-inner">
+    <span class="label">Safety &amp; Compliance — committed to staff, equipment, environment &amp; public</span>
+    <div class="badges">
+      <img src="assets/cor.png" alt="COR Certified" />
+      <img src="assets/isn.png" alt="ISN Networld Member" />
+      <img src="assets/comply.jpg" alt="Comply Works Certified" />
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-box">
+      <h2>Got a Process Disturbance?</h2>
+      <p>Talk to a HighFire specialist about boiler rentals, fluid heating, hot oiling, industrial cleaning or fabrication. We respond fast, around the clock.</p>
+      <div class="cta-actions">
+        <a class="btn btn-dark" href="tel:7808090893">Call 780-809-0893</a>
+        <a class="btn btn-white" href="mailto:General@HighFire.ca">General@HighFire.ca</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo"><img src="assets/highfire-white-logo.svg" alt="HighFire Energy Services" /></div>
+        <p class="foot-about">Strategic steam and process solutions — rapidly applied to remediate and resolve process disturbances throughout industry.</p>
+        <div class="foot-social">
+          <a href="https://www.facebook.com/" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.linkedin.com/" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Boiler Rentals</a></li>
+          <li><a href="#services">Fluid Heating</a></li>
+          <li><a href="#services">Hot Oiling</a></li>
+          <li><a href="#services">Industrial Cleaning</a></li>
+          <li><a href="#services">Fabrication</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#rentals">Rentals</a></li>
+          <li><a href="#services">Sales</a></li>
+          <li><a href="#areas">Coverage</a></li>
+        </ul>
+      </div>
+      <div class="foot-contact">
+        <h4>Contact</h4>
+        <div class="row"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><div><strong style="color:#fff">780-809-0893</strong><br>24/7 Support</div></div>
+        <div class="row"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg><div>General@HighFire.ca</div></div>
+        <div class="row"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div>Serving Alberta — Red Earth Creek, Fox Creek, Grande Prairie &amp; Edmonton</div></div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 HighFire Energy Services. All rights reserved.</span>
+      <span>Strategic Steam &amp; Process Solutions</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('.burger').addEventListener('click',function(){
+    var n=document.querySelector('.nav-links');
+    var open=n.style.display==='flex';
+    n.style.display=open?'none':'flex';
+    if(!open){n.style.position='absolute';n.style.flexDirection='column';n.style.top='84px';n.style.left='0';n.style.right='0';n.style.background='var(--paper)';n.style.padding='22px 28px';n.style.borderBottom='1px solid var(--line)';n.style.gap='18px';}
+  });
+</script>
+</body>
+</html>

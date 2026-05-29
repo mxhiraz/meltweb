@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Oregon's Premier Duct Cleaning | Clean Air for You & Your Family</title>
+<meta name="description" content="Oregon's Premier Duct Cleaning LLC — professional air duct & dryer vent cleaning serving Beaverton, Portland and the greater Oregon area. A+ BBB accredited, Angi top-rated, family owned." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --red:#d62828;
+    --red-dark:#b81f1f;
+    --navy:#1d2a52;
+    --navy-2:#26356a;
+    --navy-deep:#10193a;
+    --ink:#202a44;
+    --slate:#64708c;
+    --bg:#f6f8fc;
+    --soft:#eef2fa;
+    --line:#e3e8f3;
+    --white:#fff;
+    --shadow:0 30px 70px -34px rgba(16,25,58,.5);
+    --shadow-sm:0 16px 36px -22px rgba(16,25,58,.4);
+    --rad:18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,h4{font-family:'Sora',sans-serif;color:var(--navy);line-height:1.15;letter-spacing:-.015em}
+  a{text-decoration:none;color:inherit}
+  img{max-width:100%;display:block}
+  .wrap{width:min(1180px,92%);margin-inline:auto}
+  .eyebrow{font-family:'Sora';font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.76rem;color:var(--red)}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:'Sora';font-weight:700;font-size:.92rem;padding:.85rem 1.6rem;border-radius:8px;border:0;cursor:pointer;transition:.25s}
+  .btn-red{background:var(--red);color:#fff;box-shadow:0 12px 26px -12px rgba(214,40,40,.6)}
+  .btn-red:hover{background:var(--red-dark);transform:translateY(-2px)}
+  .btn-out{background:transparent;color:var(--navy);border:1.6px solid var(--line)}
+  .btn-out:hover{border-color:var(--red);color:var(--red)}
+  .btn-wht{background:#fff;color:var(--navy)}
+  .btn-wht:hover{transform:translateY(-2px)}
+  .btn-gh{background:transparent;color:#fff;border:1.6px solid rgba(255,255,255,.5)}
+  .btn-gh:hover{background:#fff;color:var(--navy)}
+
+  /* Topbar */
+  .topbar{background:var(--navy-deep);color:rgba(255,255,255,.85);font-size:.86rem}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:.55rem 0;flex-wrap:wrap;gap:.5rem}
+  .top-left{display:flex;gap:1.6rem;flex-wrap:wrap}
+  .top-left a,.top-left span{display:flex;align-items:center;gap:.5rem;color:rgba(255,255,255,.85)}
+  .top-left a:hover{color:#fff}
+  .top-right{display:flex;align-items:center;gap:.9rem}
+  .top-right span{color:rgba(255,255,255,.7)}
+  .soc{display:flex;gap:.5rem}
+  .soc a{width:28px;height:28px;border-radius:6px;background:rgba(255,255,255,.1);display:grid;place-items:center;transition:.2s}
+  .soc a:hover{background:var(--red)}
+
+  /* Header */
+  header{background:#fff;position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);transition:.3s}
+  header.scrolled{box-shadow:0 8px 26px -18px rgba(16,25,58,.5)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:.7rem 0}
+  .brand{display:flex;align-items:center;gap:.7rem}
+  .brand img{height:54px}
+  .brand b{font-family:'Sora';font-weight:800;color:var(--navy);font-size:1.02rem;line-height:1.1}
+  .nav-links{display:flex;gap:2rem;list-style:none}
+  .nav-links a{font-family:'Manrope';font-weight:700;font-size:.94rem;color:var(--ink);transition:.2s}
+  .nav-links a:hover{color:var(--red)}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
+  .burger span{width:26px;height:2.5px;background:var(--navy);border-radius:3px}
+
+  /* Hero */
+  .hero{background:linear-gradient(180deg,var(--soft),#fff);overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:3rem;align-items:center;padding:4.5rem 0 5rem}
+  .hero h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:800;margin:1.1rem 0 1.2rem}
+  .hero h1 span{color:var(--red)}
+  .hero p.lead{font-size:1.1rem;color:var(--slate);max-width:34rem;margin-bottom:2rem}
+  .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem}
+  .hero-mini{display:flex;gap:1.8rem;flex-wrap:wrap}
+  .hero-mini div{display:flex;flex-direction:column}
+  .hero-mini b{font-family:'Sora';font-weight:800;color:var(--navy);font-size:1.5rem}
+  .hero-mini small{color:var(--slate);font-size:.84rem}
+  .hero-media{position:relative}
+  .hero-media .main{border-radius:24px;box-shadow:var(--shadow);width:100%;aspect-ratio:5/6;object-fit:cover}
+  .hero-media .chip{position:absolute;background:#fff;border-radius:14px;box-shadow:var(--shadow-sm);padding:.9rem 1.1rem;display:flex;align-items:center;gap:.7rem}
+  .hero-media .chip .ic{width:42px;height:42px;border-radius:10px;background:var(--soft);display:grid;place-items:center;flex:none}
+  .hero-media .chip b{font-family:'Sora';font-size:.95rem;color:var(--navy);display:block;line-height:1.1}
+  .hero-media .chip small{font-size:.76rem;color:var(--slate)}
+  .hero-media .chip-tl{top:22px;left:-26px}
+  .hero-media .chip-br{bottom:24px;right:-26px}
+
+  /* Why choose */
+  .why{padding:5.5rem 0;background:#fff}
+  .sec-head{text-align:center;max-width:42rem;margin:0 auto 3rem}
+  .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:800;margin-top:.5rem}
+  .sec-head p{color:var(--slate);margin-top:.7rem}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+  .why-card{background:#fff;border:1px solid var(--line);border-radius:var(--rad);padding:2.2rem;text-align:center;transition:.3s}
+  .why-card.feat,.why-card:hover{box-shadow:var(--shadow);border-color:transparent;transform:translateY(-4px)}
+  .why-card .ic{width:72px;height:72px;border-radius:50%;background:var(--soft);display:grid;place-items:center;margin:0 auto 1.2rem;transition:.3s}
+  .why-card.feat .ic,.why-card:hover .ic{background:var(--red)}
+  .why-card.feat .ic svg path,.why-card.feat .ic svg circle,.why-card:hover .ic svg path,.why-card:hover .ic svg circle{stroke:#fff}
+  .why-card.feat .ic svg [fill="#d62828"],.why-card:hover .ic svg [fill="#d62828"]{fill:#fff}
+  .why-card h3{font-size:1.25rem;margin-bottom:.6rem}
+  .why-card p{color:var(--slate);font-size:.93rem}
+
+  /* Story / family */
+  .story{padding:5.5rem 0;background:var(--bg)}
+  .story-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:4rem;align-items:center}
+  .story-media{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .story-media img{border-radius:16px;box-shadow:var(--shadow-sm);width:100%;object-fit:cover}
+  .story-media .tall{grid-row:span 2;aspect-ratio:3/5}
+  .story-media .sq{aspect-ratio:1}
+  .story h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:800;margin:.6rem 0 1.1rem}
+  .story p{color:var(--slate);margin-bottom:1.1rem;max-width:36rem}
+  .story-list{list-style:none;display:grid;gap:.7rem;margin:1.4rem 0 1.8rem}
+  .story-list li{display:flex;gap:.7rem;align-items:flex-start;font-weight:600;color:var(--ink);font-size:.96rem}
+  .story-list .ck{width:24px;height:24px;border-radius:7px;background:var(--red);display:grid;place-items:center;flex:none;margin-top:2px}
+
+  /* Credentials band */
+  .creds{padding:3rem 0;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .creds-title{text-align:center;font-family:'Sora';font-weight:700;text-transform:uppercase;letter-spacing:.2em;font-size:.74rem;color:var(--slate);margin-bottom:1.8rem}
+  .creds-row{display:flex;align-items:center;justify-content:space-around;flex-wrap:wrap;gap:1.5rem}
+  .cred{display:flex;align-items:center;gap:.7rem;font-family:'Sora';font-weight:800;color:var(--navy);font-size:1.05rem;opacity:.85}
+  .cred .ic{width:46px;height:46px;border-radius:12px;background:var(--soft);display:grid;place-items:center}
+  .cred small{display:block;font-family:'Manrope';font-weight:600;color:var(--slate);font-size:.74rem;letter-spacing:0}
+
+  /* Services */
+  .services{padding:5.5rem 0;background:var(--bg)}
+  .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem}
+  .svc{background:#fff;border-radius:var(--rad);overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
+  .svc-img{height:230px;overflow:hidden}
+  .svc-img img{width:100%;height:100%;object-fit:cover;transition:.5s}
+  .svc:hover .svc-img img{transform:scale(1.06)}
+  .svc-c{padding:2rem;flex:1;display:flex;flex-direction:column}
+  .svc-c h3{font-size:1.4rem;margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem}
+  .svc-c h3 .sic{width:40px;height:40px;border-radius:10px;background:var(--soft);display:grid;place-items:center;flex:none}
+  .svc-c p{color:var(--slate);font-size:.95rem;margin-bottom:1.1rem}
+  .svc-c ul{list-style:none;display:grid;gap:.5rem;margin-bottom:1.4rem;flex:1}
+  .svc-c ul li{display:flex;gap:.55rem;align-items:flex-start;font-size:.92rem;color:var(--ink)}
+  .svc-c ul svg{flex:none;margin-top:3px}
+  .svc-c .btn{align-self:flex-start}
+
+  /* Results */
+  .results{padding:5.5rem 0;background:#fff}
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+  .ba figure{position:relative;border-radius:var(--rad);overflow:hidden;box-shadow:var(--shadow-sm)}
+  .ba img{width:100%;height:330px;object-fit:cover}
+  .ba .lab{position:absolute;top:14px;left:14px;color:#fff;font-family:'Sora';font-weight:800;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;padding:.4rem 1rem;border-radius:6px}
+  .ba .b1 .lab{background:var(--navy)}
+  .ba .b2 .lab{background:var(--red)}
+
+  /* CTA */
+  .cta{padding:5rem 0;color:#fff;position:relative;overflow:hidden}
+  .cta::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,var(--navy-deep) 0%,var(--navy) 55%,var(--red-dark) 140%);z-index:-1}
+  .cta-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:2.5rem;align-items:center}
+  .cta h2{color:#fff;font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:800;margin-bottom:.7rem}
+  .cta p{color:rgba(255,255,255,.85);max-width:34rem}
+  .cta-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:flex-end}
+
+  /* Reviews */
+  .reviews{padding:5.5rem 0;background:var(--bg)}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .rev{background:#fff;border-radius:var(--rad);padding:1.9rem;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:1rem}
+  .rev .stars{color:#f5a623;letter-spacing:2px}
+  .rev p{font-size:.97rem;color:var(--ink);flex:1}
+  .rev .who{display:flex;align-items:center;gap:.8rem;border-top:1px solid var(--line);padding-top:1rem}
+  .rev .av{width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-family:'Sora';font-weight:800;flex:none}
+  .rev .who b{font-family:'Sora';font-size:.95rem;color:var(--navy);display:block}
+  .rev .who small{color:var(--slate);font-size:.82rem}
+
+  /* Contact */
+  .contact{padding:5.5rem 0;background:#fff}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+  .contact-info .eyebrow{margin-bottom:.5rem;display:block}
+  .contact-info h2{font-size:clamp(1.9rem,3.6vw,2.6rem);font-weight:800;margin-bottom:1rem}
+  .contact-info>p{color:var(--slate);margin-bottom:2rem;max-width:30rem}
+  .ci-list{list-style:none;display:grid;gap:1.1rem}
+  .ci-list li{display:flex;align-items:center;gap:1rem;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:1rem 1.2rem}
+  .ci-list .ic{width:48px;height:48px;border-radius:12px;background:var(--red);display:grid;place-items:center;flex:none}
+  .ci-list small{display:block;color:var(--slate);font-size:.8rem}
+  .ci-list a,.ci-list b{font-family:'Sora';font-weight:700;color:var(--navy);font-size:1.05rem}
+  .form{background:var(--bg);border:1px solid var(--line);border-radius:var(--rad);padding:2.2rem}
+  .form h3{font-size:1.4rem;margin-bottom:.3rem}
+  .form>p{color:var(--slate);font-size:.9rem;margin-bottom:1.4rem}
+  .field{margin-bottom:1rem}
+  .field label{display:block;font-weight:700;font-size:.84rem;margin-bottom:.35rem;color:var(--navy)}
+  .field input,.field select,.field textarea{width:100%;padding:.85rem 1rem;border:1.6px solid var(--line);border-radius:10px;font-family:inherit;font-size:.95rem;background:#fff;transition:.2s}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--red)}
+  .form .btn{width:100%;justify-content:center}
+
+  /* Footer */
+  footer{background:var(--navy-deep);color:rgba(255,255,255,.72);padding:3.5rem 0 1.8rem}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2.5rem}
+  .foot-brand{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
+  .foot-brand img{height:58px}
+  .foot-brand b{font-family:'Sora';color:#fff;font-size:1.05rem}
+  footer h4{color:#fff;font-size:1rem;margin-bottom:1rem}
+  footer ul{list-style:none;display:grid;gap:.55rem}
+  footer ul a,footer ul li{color:rgba(255,255,255,.72);font-size:.92rem}
+  footer ul a:hover{color:#ff8585}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:1.4rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:.83rem}
+
+  .float-call{position:fixed;bottom:22px;right:22px;z-index:60;background:var(--red);color:#fff;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(214,40,40,.7);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(214,40,40,.5)}70%{box-shadow:0 0 0 16px rgba(214,40,40,0)}100%{box-shadow:0 0 0 0 rgba(214,40,40,0)}}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:980px){
+    .hero-grid,.story-grid,.cta-grid,.contact-grid{grid-template-columns:1fr;gap:2.5rem}
+    .hero-media{max-width:460px;margin:0 auto}
+    .why-grid,.rev-grid{grid-template-columns:1fr 1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .cta-actions{justify-content:flex-start}
+  }
+  @media(max-width:720px){
+    .nav-links{display:none}
+    .burger{display:flex}
+    .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:4%;right:4%;background:#fff;padding:1.4rem;border-radius:14px;box-shadow:var(--shadow);gap:1rem}
+    .why-grid,.rev-grid,.svc-grid,.ba,.foot-grid{grid-template-columns:1fr}
+    .top-left{display:none}
+    .topbar .wrap{justify-content:center}
+    .hero-media .chip-tl{left:8px}.hero-media .chip-br{right:8px}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="top-left">
+      <a href="tel:15037015001"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1l-2.2 2.3z"/></svg> 1-503-701-5001</a>
+      <a href="mailto:Ophidc@gmail.com"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#fff" stroke-width="1.8"/><path d="M3 7l9 6 9-6" stroke="#fff" stroke-width="1.8"/></svg> Ophidc@gmail.com</a>
+    </div>
+    <div class="top-right">
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg> Family Owned · Beaverton, OR</span>
+      <div class="soc">
+        <a href="#" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M14 9h3V6h-3c-2 0-3 1.3-3 3v2H8v3h3v6h3v-6h2.5l.5-3H14V9.5c0-.3.2-.5.5-.5z"/></svg></a>
+        <a href="#" aria-label="Angi"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M12 3l2.5 6H21l-5 4 2 7-6-4-6 4 2-7-5-4h6.5z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#home" class="brand"><img src="assets/logo.png" alt="Oregon's Premier Duct Cleaning logo"><b>Oregon's Premier<br>Duct Cleaning</b></a>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:.8rem">
+      <a href="#contact" class="btn btn-red">Get a Quote</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="reveal in">
+      <span class="eyebrow">Air Duct &amp; Dryer Vent Specialists</span>
+      <h1>Clean Air for <span>You</span> and Your Family</h1>
+      <p class="lead">Professional, family-owned duct cleaning serving Beaverton, Portland and the greater Oregon area. Our remote-controlled HEPA vacuums remove years of dust, debris and bacteria — so your home breathes easier.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-red">Get a Quote →</a>
+        <a href="#services" class="btn btn-out">Our Services</a>
+      </div>
+      <div class="hero-mini">
+        <div><b>A+</b><small>BBB Accredited</small></div>
+        <div><b>5.0★</b><small>Angi Rated</small></div>
+        <div><b>20ft</b><small>Vacuum Reach</small></div>
+      </div>
+    </div>
+    <div class="hero-media reveal in">
+      <img class="main" src="assets/hero-tech.jpg" alt="Professional duct cleaning technician">
+      <div class="chip chip-tl"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V7l8-4z" stroke="#d62828" stroke-width="1.8"/><path d="M9 12l2 2 4-4" stroke="#d62828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Trusted &amp; Insured</b><small>Honest estimates, no upselling</small></div></div>
+      <div class="chip chip-br"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 12c4 0 4-4 8-4s4 4 8 4M3 17c4 0 4-3 8-3s4 3 8 3" stroke="#d62828" stroke-width="2" stroke-linecap="round"/></svg></span><div><b>Cleaner Air</b><small>Healthier home for your family</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Why Choose Us</span>
+      <h2>A trusted name in Oregon duct cleaning</h2>
+      <p>Family-owned and locally rooted — we deliver thorough, honest service that protects your air, your energy bills and your home.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#1d2a52" stroke-width="1.8"/><path d="M3 9h18M8 4v16M16 4v16" stroke="#d62828" stroke-width="1.8"/></svg></div>
+        <h3>Air Duct Cleaning</h3>
+        <p>Remote-controlled HEPA vacuums and motorized brushes break up and remove years of accumulated dust and debris from every register to your furnace.</p>
+      </div>
+      <div class="why-card feat reveal">
+        <div class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="13" r="6" stroke="#1d2a52" stroke-width="1.8"/><circle cx="12" cy="13" r="2.4" fill="#d62828"/><path d="M6 4h12" stroke="#d62828" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h3>Dryer Vent Cleaning</h3>
+        <p>Reduce your dry time and prevent danger — dryer fires are the #1 cause of fires in homes. We recommend a professional cleaning every 1–2 years.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#1d2a52" stroke-width="1.8"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7" stroke="#d62828" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h3>Family-Owned Care</h3>
+        <p>Steve and his son Hunter handle every job personally — mindful of your pets and kids, tidy in your home, and always fair on price.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <div class="wrap story-grid">
+    <div class="story-media reveal">
+      <img class="tall" src="assets/tech.jpg" alt="Technician cleaning ducts">
+      <img class="sq" src="assets/vent2.jpg" alt="Clean air vent">
+      <img class="sq" src="assets/dryer2.jpg" alt="Dryer vent cleaning">
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">Premium Service</span>
+      <h2>Family owned, with a commitment to clean air</h2>
+      <p>Our powerful HEPA vacuums are remote controlled. We clean from each register toward your furnace, brushing and vacuuming your ducts at the same contact point — breaking up and removing years of accumulated dust and debris from your system.</p>
+      <p>We pre-vacuum each floor vent with a 20-foot hose to clear out large debris, then go from the furnace back out toward each vent wherever possible for a truly thorough clean.</p>
+      <ul class="story-list">
+        <li><span class="ck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Improve air quality &amp; lower energy costs</li>
+        <li><span class="ck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Reduces dust &amp; removes bacteria</li>
+        <li><span class="ck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Extends the life span of your HVAC system</li>
+      </ul>
+      <a href="#contact" class="btn btn-red">Get a Quote →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="creds">
+  <div class="wrap">
+    <p class="creds-title">Accredited &amp; Trusted</p>
+    <div class="creds-row">
+      <div class="cred"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2l9 4v6c0 5.5-3.8 10.7-9 12-5.2-1.3-9-6.5-9-12V6l9-4z" stroke="#d62828" stroke-width="1.8"/><path d="M9 12l2 2 4-4" stroke="#d62828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>BBB<small>A+ Accredited</small></div>
+      <div class="cred"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 6H21l-5 4 2 7-6-4-6 4 2-7-5-4h6.5z" fill="#d62828"/></svg></span>Angi<small>Top-Rated Pro</small></div>
+      <div class="cred"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" stroke="#d62828" stroke-width="1.8"/><circle cx="12" cy="9" r="2.2" fill="#d62828"/></svg></span>Local<small>Beaverton &amp; Portland Metro</small></div>
+      <div class="cred"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 13h2l2 5 4-12 3 8h4" stroke="#d62828" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>HEPA<small>Pro Equipment</small></div>
+      <div class="cred"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#d62828" stroke-width="1.8"/><path d="M5 21c0-4 3-7 7-7s7 3 7 7" stroke="#d62828" stroke-width="1.8" stroke-linecap="round"/></svg></span>Family<small>Owned &amp; Operated</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Our Services</span>
+      <h2>Thorough cleaning, done right</h2>
+      <p>Two specialized services that keep your air clean and your home safe.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc reveal">
+        <div class="svc-img"><img src="assets/ac-unit.jpg" alt="Air duct cleaning"></div>
+        <div class="svc-c">
+          <h3><span class="sic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#1d2a52" stroke-width="1.8"/><path d="M3 9h18M8 4v16M16 4v16" stroke="#d62828" stroke-width="1.8"/></svg></span>Air Duct Cleaning</h3>
+          <p>We pre-vacuum each floor vent with a 20-foot hose, then run motorized spinning brushes on remote-controlled hoses through your ductwork, vacuuming at every contact point.</p>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#d62828"/><path d="M7 12l3.5 3.5L17 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Cleaned register-to-furnace &amp; back</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#d62828"/><path d="M7 12l3.5 3.5L17 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Improves air quality &amp; airflow</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#d62828"/><path d="M7 12l3.5 3.5L17 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Extends the life of your HVAC system</li>
+          </ul>
+          <a href="#contact" class="btn btn-red">Book Now →</a>
+        </div>
+      </article>
+      <article class="svc reveal">
+        <div class="svc-img"><img src="assets/dryer1.jpg" alt="Dryer vent cleaning"></div>
+        <div class="svc-c">
+          <h3><span class="sic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="13" r="6" stroke="#1d2a52" stroke-width="1.8"/><circle cx="12" cy="13" r="2.4" fill="#d62828"/><path d="M6 4h12" stroke="#d62828" stroke-width="1.8" stroke-linecap="round"/></svg></span>Dryer Vent Cleaning</h3>
+          <p>Why get your dryer duct cleaned? First, it'll reduce your dry time. More importantly: dryer fires are the #1 cause of fires in homes. We recommend cleaning every 1–2 years.</p>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#d62828"/><path d="M7 12l3.5 3.5L17 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Faster, more efficient drying</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#d62828"/><path d="M7 12l3.5 3.5L17 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Removes flammable lint buildup</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#d62828"/><path d="M7 12l3.5 3.5L17 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Reduces the risk of a home fire</li>
+          </ul>
+          <a href="#contact" class="btn btn-red">Book Now →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">See The Difference</span>
+      <h2>How dirty are your filters?</h2>
+      <p>Actual before-and-after photos from a customer's HVAC system.</p>
+    </div>
+    <div class="ba">
+      <figure class="b1 reveal"><span class="lab">Before</span><img src="assets/before-filter.png" alt="Dirty filter before cleaning"></figure>
+      <figure class="b2 reveal"><span class="lab">After</span><img src="assets/after-filter.png" alt="Clean filter after cleaning"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap cta-grid reveal">
+    <div>
+      <h2>Ready for cleaner, healthier air?</h2>
+      <p>Let's get your home on the schedule. Honest estimates, no upselling, and a spotless cleanup every time.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="#contact" class="btn btn-wht">Get a Quote →</a>
+      <a href="tel:15037015001" class="btn btn-gh">Call 1-503-701-5001</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Customer Reviews</span>
+      <h2>Loved by Oregon homeowners</h2>
+      <p>Real reviews from neighbors across the Portland metro and Washington County.</p>
+    </div>
+    <div class="rev-grid">
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"This is the third time I have used Steve for duct cleaning and ventilation maintenance. He's always on time, very humble."</p><div class="who"><span class="av">D</span><div><b>Dima A.</b><small>Repeat customer</small></div></div></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"Helpful guys. Made sure my two cats were not frightened too much and did not escape!"</p><div class="who"><span class="av">R</span><div><b>Rae</b><small>Hillsboro, OR</small></div></div></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"Great service, fair pricing! Steve was professional from the first time I called through the service."</p><div class="who"><span class="av">A</span><div><b>Alicia M.</b><small>Portland, OR</small></div></div></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"They came on time and worked so hard. They were mindful of pets and kids and they cleaned up everywhere they worked."</p><div class="who"><span class="av">J</span><div><b>Julie</b><small>Tualatin, OR</small></div></div></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"Extremely satisfied customer of one year. Very professional, top quality service."</p><div class="who"><span class="av">L</span><div><b>Lewey S.</b><small>Washington County, OR</small></div></div></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"I just had Steve and his son, Hunter, come over to my place to do a full home duct cleaning. It was fantastic!"</p><div class="who"><span class="av">J</span><div><b>Jj H.</b><small>Lake Oswego, OR</small></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info reveal">
+      <span class="eyebrow">Get In Touch</span>
+      <h2>Request your free quote</h2>
+      <p>Family-owned and locally trusted. Call, text, or send a message — we'll confirm your appointment and provide an honest estimate.</p>
+      <ul class="ci-list">
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1l-2.2 2.3z"/></svg></span><div><small>Call or text</small><a href="tel:15037015001">1-503-701-5001</a></div></li>
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#fff" stroke-width="1.8"/><path d="M3 7l9 6 9-6" stroke="#fff" stroke-width="1.8"/></svg></span><div><small>Email</small><a href="mailto:Ophidc@gmail.com">Ophidc@gmail.com</a></div></li>
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" stroke="#fff" stroke-width="1.8"/><circle cx="12" cy="9" r="2.2" fill="#fff"/></svg></span><div><small>Service area</small><b>Beaverton, Portland &amp; Greater Oregon</b></div></li>
+      </ul>
+    </div>
+    <form class="form reveal" onsubmit="return submitForm(event)">
+      <h3>Request a Cleaning</h3>
+      <p>We'll reach out to confirm your appointment.</p>
+      <div class="field"><label>Full name</label><input type="text" required placeholder="Jane Doe"></div>
+      <div class="field"><label>Phone</label><input type="tel" required placeholder="(503) 000-0000"></div>
+      <div class="field"><label>Service needed</label><select><option>Air Duct Cleaning</option><option>Dryer Vent Cleaning</option><option>Both</option><option>Not sure — please advise</option></select></div>
+      <div class="field"><label>Message</label><textarea rows="3" placeholder="Tell us about your home..."></textarea></div>
+      <button type="submit" class="btn btn-red">Get a Quote →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><img src="assets/logo.png" alt="Oregon's Premier Duct Cleaning"><b>Oregon's Premier<br>Duct Cleaning LLC</b></div>
+        <p style="font-size:.92rem">Clean air for you and your family. Professional air duct and dryer vent cleaning across the greater Oregon area.</p>
+      </div>
+      <div><h4>Services</h4><ul><li><a href="#services">Air Duct Cleaning</a></li><li><a href="#services">Dryer Vent Cleaning</a></li><li><a href="#results">Before &amp; After</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#why">Why Choose Us</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:15037015001">1-503-701-5001</a></li><li><a href="mailto:Ophidc@gmail.com">Ophidc@gmail.com</a></li><li>Beaverton, Oregon</li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Oregon's Premier Duct Cleaning LLC. All rights reserved.</span>
+      <span>Angi &amp; BBB Accredited · Clean Air for You and Your Family</span>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:15037015001" class="float-call" aria-label="Call now"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1l-2.2 2.3z"/></svg></a>
+
+<script>
+  const header=document.getElementById('header');
+  addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>20));
+  const burger=document.getElementById('burger'),nav=document.getElementById('navlinks');
+  burger.addEventListener('click',()=>nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  function submitForm(e){e.preventDefault();alert('Thank you! We\'ll call you shortly at 1-503-701-5001 to confirm your cleaning.');e.target.reset();return false;}
+</script>
+</body>
+</html>
