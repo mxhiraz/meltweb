@@ -157,6 +157,12 @@ hr{border:0;border-top:1px solid var(--line)}
 .row[data-meta].active{background:rgba(37,99,235,.1);border-left-color:var(--blue);color:var(--blue)}
 
 
+
+.row .chev{width:11px;height:11px;color:var(--mute-2);transition:transform .15s}
+.row .chev.open{transform:rotate(90deg)}
+.row.dir .lbl svg:nth-child(2){color:#60A5FA}
+.row.dir{font-weight:500}
+
 .section-label{padding:8px 14px 4px 30px;font-size:10.5px;font-weight:700;color:var(--mute-2);text-transform:uppercase;letter-spacing:.6px;background:#fff}
 
 .kbd-hint{font-size:11px;color:var(--mute-2);margin-top:14px;text-align:center}
@@ -176,6 +182,8 @@ hr{border:0;border-top:1px solid var(--line)}
 <symbol id=i-external viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1=10 y1=14 x2=21 y2=3/></symbol>
 <symbol id=i-image viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><rect x=3 y=3 width=18 height=18 rx=2 ry=2/><circle cx=8.5 cy=8.5 r=1.5/><polyline points="21 15 16 10 5 21"/></symbol>
 <symbol id=i-code viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+<symbol id=i-folder viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></symbol>
+<symbol id=i-chev viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><polyline points="9 18 15 12 9 6"/></symbol>
 </defs></svg>
 
 <div class=login id=login>
@@ -309,8 +317,7 @@ async function loadList(){
   try{
     const d=await api("list");files=d.files;leads={};
     files.forEach(f=>{const p=f.path.split("/");if(p[0]==="sample"&&p.length>=2){leads[p[1]]=leads[p[1]]||[];leads[p[1]].push(f)}});
-    renderList();
-    if(!current.path)showHint();
+    autoExpand();renderList();if(!current.path)showHint();
   }catch(e){toast("Load failed: "+e.message,"err")}
 }
 
@@ -323,48 +330,88 @@ function renderList(){
   sorted.forEach((lead,i)=>{
     if(q&&!lead.toLowerCase().includes(q))return;
     const allFiles=leads[lead].filter(f=>!f.path.endsWith("/meta.json"));
-    const htmlFiles=allFiles.filter(f=>f.path.endsWith(".html"));
-    const assetFiles=allFiles.filter(f=>!f.path.endsWith(".html"));
     html+=`<div class=lead>
       <div class=lead-head>
         <div class=lead-head-l>
           <span class=lead-num>${i+1}</span>
           <span class=lead-name>${prettyName(lead)}</span>
-          <span style="color:var(--mute-2);font-size:11px;font-weight:400;margin-left:auto">${allFiles.length} files</span>
+          <span style="color:var(--mute-2);font-size:11px;font-weight:400;margin-left:auto">${allFiles.length}</span>
         </div>
         <div class=lead-acts>
-          <button class=mini-btn onclick="event.stopPropagation();openUp('sample/${lead}')" title="Upload files"><svg><use href=#i-upload/></svg> Add files</button>
+          <button class=mini-btn onclick="event.stopPropagation();openUp('sample/${lead}')" title="Upload to root"><svg><use href=#i-upload/></svg> Add files</button>
           <button class="mini-btn mini-danger" onclick="event.stopPropagation();delLead('${lead}')" title="Delete entire lead"><svg><use href=#i-trash/></svg> Delete</button>
         </div>
       </div>
       <div class=row data-meta="${lead}" onclick="openMeta('${lead}')"><div class=lbl><svg><use href=#i-info/></svg> Edit lead info (website, email, notes)</div></div>`;
-    if(htmlFiles.length){
-      html+=`<div class=section-label>Pages (${htmlFiles.length})</div>`;
-      htmlFiles.forEach(p=>{
-        const label=p.path.replace(`sample/${lead}/`,"");
-        html+=`<div class=row data-path="${p.path}" onclick="openFile('${p.path}','${p.sha}','${lead}')">
-          <div class=lbl><svg><use href=#i-file/></svg> ${label}</div>
-          <div class=row-acts><button class="act act-danger" onclick="event.stopPropagation();delFile('${p.path}','${p.sha}')" title=Delete><svg><use href=#i-trash/></svg></button></div>
-        </div>`;
-      });
-    }
-    if(assetFiles.length){
-      html+=`<div class=section-label>Assets (${assetFiles.length})</div>`;
-      assetFiles.forEach(p=>{
-        const label=p.path.replace(`sample/${lead}/`,"");
-        const ext=label.split(".").pop().toLowerCase();
-        const isImg=["png","jpg","jpeg","webp","svg","gif"].includes(ext);
-        const icon=isImg?"#i-image":(ext==="json"?"#i-code":(ext==="css"?"#i-code":"#i-file"));
-        html+=`<div class=row data-path="${p.path}" data-ext="${ext}" onclick="openAsset('${p.path}','${p.sha}','${lead}',${isImg})">
-          <div class=lbl><svg><use href=${icon}/></svg> ${label} <span style="color:var(--mute-2);font-size:11px;font-weight:400;margin-left:6px">${(p.size/1024).toFixed(0)}KB</span></div>
-          <div class=row-acts><button class="act act-danger" onclick="event.stopPropagation();delFile('${p.path}','${p.sha}')" title=Delete><svg><use href=#i-trash/></svg></button></div>
-        </div>`;
-      });
-    }
+    html+=renderTree(lead,allFiles);
     html+=`</div>`;
   });
   $("list").innerHTML=html||`<div class=empty>${q?"No matches":"No leads yet. Click + New lead"}</div>`;
 }
+
+function renderTree(lead,files){
+  // build nested tree from flat paths
+  const root={dirs:{},files:[]};
+  files.forEach(f=>{
+    const rel=f.path.replace(`sample/${lead}/`,"");
+    const parts=rel.split("/");
+    let node=root;
+    for(let i=0;i<parts.length-1;i++){
+      node.dirs[parts[i]]=node.dirs[parts[i]]||{dirs:{},files:[]};
+      node=node.dirs[parts[i]];
+    }
+    node.files.push({name:parts[parts.length-1],path:f.path,sha:f.sha,size:f.size});
+  });
+  function walk(node,prefix,depth){
+    let s="";
+    // dirs first
+    Object.keys(node.dirs).sort().forEach(d=>{
+      const dirPath=prefix?`${prefix}/${d}`:d;
+      const fullPath=`sample/${lead}/${dirPath}`;
+      const open=openDirs.has(fullPath);
+      s+=`<div class="row dir" data-dir="${fullPath}" style="padding-left:${14+depth*16}px" onclick="toggleDir('${fullPath}')">
+        <div class=lbl>
+          <svg class="chev ${open?'open':''}"><use href=#i-chev/></svg>
+          <svg><use href=#i-folder/></svg>
+          <span style="font-weight:500">${d}</span>
+        </div>
+        <div class=row-acts>
+          <button class=act onclick="event.stopPropagation();openUp('${fullPath}')" title="Upload here"><svg><use href=#i-upload/></svg></button>
+        </div>
+      </div>`;
+      if(open) s+=walk(node.dirs[d],dirPath,depth+1);
+    });
+    // then files
+    node.files.sort((a,b)=>a.name.localeCompare(b.name)).forEach(f=>{
+      const ext=f.name.split(".").pop().toLowerCase();
+      const isImg=["png","jpg","jpeg","webp","svg","gif"].includes(ext);
+      const isText=["html","htm","css","js","json","txt","md","xml"].includes(ext);
+      const icon=isImg?"#i-image":(isText?"#i-file":"#i-file");
+      const fn=isImg?`openAsset('${f.path}','${f.sha}','${lead}',true)`:(isText?`openFile('${f.path}','${f.sha}','${lead}')`:`openAsset('${f.path}','${f.sha}','${lead}',false)`);
+      s+=`<div class=row data-path="${f.path}" style="padding-left:${14+depth*16+14}px" onclick="${fn}">
+        <div class=lbl><svg><use href=${icon}/></svg> ${f.name} <span style="color:var(--mute-2);font-size:11px;font-weight:400;margin-left:6px">${f.size?(f.size/1024).toFixed(0)+"KB":""}</span></div>
+        <div class=row-acts><button class="act act-danger" onclick="event.stopPropagation();delFile('${f.path}','${f.sha}')" title=Delete><svg><use href=#i-trash/></svg></button></div>
+      </div>`;
+    });
+    return s;
+  }
+  return walk(root,"",0);
+}
+
+
+// auto-expand v1/v2/assets folders for usability
+function autoExpand(){
+  files.forEach(f=>{
+    const parts=f.path.split("/");
+    if(parts[0]==="sample"&&parts.length>=3){
+      const dir=`${parts[0]}/${parts[1]}/${parts[2]}`;
+      if(["v1","v2","assets","version-1","version-2"].includes(parts[2])||parts[2].toLowerCase().startsWith("v"))openDirs.add(dir);
+    }
+  });
+}
+
+const openDirs=new Set();
+function toggleDir(p){if(openDirs.has(p))openDirs.delete(p);else openDirs.add(p);renderList()}
 
 function setActive(sel){document.querySelectorAll(".row").forEach(el=>el.classList.toggle("active",el.matches(sel)))}
 function setCrumbs(lead,sub){$("crumbs").innerHTML=lead?`Lead Portal / <span>${prettyName(lead)}</span>${sub?` / ${sub}`:""}`:"Lead Portal"}
