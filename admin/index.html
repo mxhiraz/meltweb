@@ -234,11 +234,19 @@ async function doLogin(){
 function logout(){localStorage.removeItem(KEY);location.reload()}
 function showApp(){$("login").classList.add("hidden");$("app").classList.remove("hidden");$("app").classList.add("flex");initEditor()}
 
+const STATUS_STYLE={'draft':'bg-gray-100 text-gray-600','needs-changes':'bg-red-100 text-red-700','review':'bg-amber-100 text-amber-700','sent':'bg-blue-100 text-blue-700','done':'bg-emerald-100 text-emerald-700'};
+const STATUS_LABEL={'draft':'Draft','needs-changes':'Needs changes','review':'In review','sent':'Sent','done':'Done'};
+const leadMeta={};
 async function loadList(){
   try{
     const d=await api("list");files=d.files;leads={};
     files.forEach(f=>{const p=f.path.split("/");if(p[0]==="sample"&&p.length>=3&&!p[1].includes(".")){leads[p[1]]=leads[p[1]]||[];leads[p[1]].push(f)}});
     autoExpand();renderList();
+    // fetch all meta.json in parallel to populate status badges
+    Object.keys(leads).forEach(lead=>{
+      const mf=files.find(f=>f.path===`sample/${lead}/meta.json`);
+      if(mf&&!leadMeta[lead])api("read?path="+encodeURIComponent(mf.path)).then(r=>{try{leadMeta[lead]=JSON.parse(r.content||"{}");renderList()}catch(e){}}).catch(()=>{});
+    });
   }catch(e){toast("Load failed: "+e.message,"err")}
 }
 
@@ -269,6 +277,7 @@ function renderList(){
             <span class="lead-chev text-gray-400 transition-transform ${expanded?'rotate-90':''} shrink-0">${ICONS.chev}</span>
             <span class="text-[11.5px] text-gray-400 font-mono font-medium">${i+1}</span>
             <span class="text-[13px] font-bold text-ink uppercase tracking-wider truncate">${prettyName(lead)}</span>
+            ${leadMeta[lead]&&leadMeta[lead].status?`<span class="text-[10px] font-bold px-1.5 py-0.5 rounded ${STATUS_STYLE[leadMeta[lead].status]||'bg-gray-100 text-gray-600'} uppercase tracking-wide whitespace-nowrap">${STATUS_LABEL[leadMeta[lead].status]||leadMeta[lead].status}</span>`:''}
           </div>
           <span class="text-[11.5px] text-gray-400 font-medium">${allFiles.length}</span>
         </div>
@@ -367,7 +376,7 @@ async function openMeta(lead){
   $("tabs").classList.add("hidden");$("tabs").classList.remove("flex");
   $("editor").classList.add("hidden");$("metaForm").classList.remove("hidden");
   $("copyBtn").disabled=true;$("saveBtn").disabled=false;
-  let meta={name:prettyName(lead),website:"",contact:"",email:"",phone:"",description:"",industry:"",location:""};
+  let meta={name:prettyName(lead),website:"",contact:"",email:"",phone:"",description:"",industry:"",location:"",status:""};
   try{const d=await api("read?path="+encodeURIComponent(current.path));meta={...meta,...JSON.parse(d.content||"{}")};current.sha=d.sha}catch(e){}
   renderMetaForm(meta,lead);paintStaticIcons();
   $("previewEmpty").classList.remove("hidden");$("preview").classList.add("hidden");
@@ -411,6 +420,7 @@ function renderMetaForm(meta,lead){
       <div class="grid grid-cols-2 gap-3"><div><label class="${lbl}">Website</label><input id=m_website placeholder="https://…" value="${esc(meta.website)}" class="${inp}"></div><div><label class="${lbl}">Phone</label><input id=m_phone value="${esc(meta.phone)}" class="${inp}"></div></div>
       <div class="grid grid-cols-2 gap-3"><div><label class="${lbl}">Contact name</label><input id=m_contact value="${esc(meta.contact)}" class="${inp}"></div><div><label class="${lbl}">Email</label><input id=m_email type=email value="${esc(meta.email)}" class="${inp}"></div></div>
       <div class="grid grid-cols-2 gap-3"><div><label class="${lbl}">Industry</label><input id=m_industry value="${esc(meta.industry)}" class="${inp}"></div><div><label class="${lbl}">Location</label><input id=m_location value="${esc(meta.location)}" class="${inp}"></div></div>
+      <div><label class="${lbl}">Status</label><select id=m_status class="${inp}"><option value="" ${meta.status===""?"selected":""}>— No tag —</option><option value="draft" ${meta.status==="draft"?"selected":""}>Draft</option><option value="needs-changes" ${meta.status==="needs-changes"?"selected":""}>Needs changes</option><option value="review" ${meta.status==="review"?"selected":""}>In review</option><option value="sent" ${meta.status==="sent"?"selected":""}>Sent to client</option><option value="done" ${meta.status==="done"?"selected":""}>Done</option></select></div>
       <div><label class="${lbl}">Sales notes / description</label><textarea id=m_description rows=5 class="${inp} resize-y">${esc(meta.description)}</textarea></div>
     </div>`;
 }
@@ -427,12 +437,12 @@ async function save(){
   try{
     let content;
     if(current.mode==="meta"){
-      const meta={name:$("m_name").value,website:$("m_website").value,contact:$("m_contact").value,email:$("m_email").value,phone:$("m_phone").value,industry:$("m_industry").value,location:$("m_location").value,description:$("m_description").value};
+      const meta={name:$("m_name").value,website:$("m_website").value,contact:$("m_contact").value,email:$("m_email").value,phone:$("m_phone").value,industry:$("m_industry").value,location:$("m_location").value,status:$("m_status").value,description:$("m_description").value};
       content=JSON.stringify(meta,null,2);
     }else content=editor.getValue();
     const d=await api("save",{method:"POST",body:JSON.stringify({path:current.path,sha:current.sha,content})});
     current.sha=d.sha;
-    toast("Saved → deploying","ok");
+    if(current.mode==="meta"&&current.lead)leadMeta[current.lead]=JSON.parse(content);renderList();toast("Saved → deploying","ok");
     if(current.mode==="html")setTimeout(reloadPreview,2500);
   }catch(e){toast("Save failed: "+e.message,"err")}
   btn.innerHTML="Save";btn.disabled=false;
