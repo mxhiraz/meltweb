@@ -40,7 +40,7 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
 <div id=login class="min-h-screen grid place-items-center p-5 bg-surface-2">
   <div class="w-full max-w-sm bg-white border border-line rounded-2xl p-9">
     <div class="flex items-center gap-2.5 mb-6 pb-5 border-b border-line">
-      <img src="/assets/meltweb-logo.png" alt=MeltWeb class="h-7 w-auto">
+      <div class="w-9 h-9 bg-ink text-white rounded-lg grid place-items-center font-bold text-base">M</div><div class="text-lg font-bold tracking-tight">MeltWeb</div>
     </div>
     <h1 class="text-xl font-semibold mb-1 tracking-tight">Sign in</h1>
     <p class="text-gray-500 text-[13px] mb-6">Enter password to manage lead samples</p>
@@ -56,7 +56,7 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
   <header class="flex items-center justify-between px-5 h-13 bg-white border-b border-line shrink-0" style="height:56px">
     <div class="flex items-center gap-6">
       <div class="flex items-center gap-2 font-semibold text-[13px]">
-        <img src="/assets/meltweb-logo.png" alt=MeltWeb class="h-5 w-auto">
+        <div class="w-7 h-7 bg-ink text-white rounded-md grid place-items-center text-[12px] font-bold">M</div><div class="text-[14px] font-bold tracking-tight">MeltWeb</div>
       </div>
       <div id=crumbs class="text-[13px] text-gray-500">Lead Portal</div>
     </div>
@@ -514,6 +514,9 @@ function initEditor(){
   });setTimeout(lucide,50);
 }
 
-paintStaticIcons();if(pw())showApp();
+paintStaticIcons();
+// also re-run on DOM ready in case images loaded later
+document.addEventListener("DOMContentLoaded",paintStaticIcons);
+if(pw())showApp();
 </script>
 </body></html>
