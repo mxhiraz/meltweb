@@ -76,7 +76,7 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
   </header>
 
   <!-- Split layout -->
-  <div id=tabStrip class="hidden border-b border-line bg-white overflow-x-auto" style="height:42px"><div id=tabBar class="flex h-full"></div></div>
+  <div id=tabStrip class="hidden bg-surface-2 overflow-x-auto border-b border-line" style="padding:6px 8px 0"><div id=tabBar class="flex h-full gap-1 items-end"></div></div>
   <div class="split grid grid-cols-[300px_1fr_1fr] flex-1 min-h-0">
     <!-- Sidebar -->
     <aside class="bg-white border-r border-line flex flex-col overflow-hidden">
@@ -274,8 +274,11 @@ function renderTabBar(){
   bar.innerHTML=sorted.map((lead,i)=>{
     const st=leadMeta[lead]?.status;
     const stEl=st?`<span class="ml-1 text-[9px] px-1 py-0.5 rounded ${STATUS_STYLE[st]||''}">${STATUS_LABEL[st]||st}</span>`:'';
-    return `<button onclick="setActiveLead('${lead}')" class="px-3 py-2 text-[12px] font-medium whitespace-nowrap border-b-2 ${activeLead===lead?'border-blue-500 text-ink bg-blue-50':'border-transparent text-gray-600 hover:text-ink hover:bg-surface-2'} transition flex items-center gap-1.5">
-      <span class="text-gray-400 text-[10px]">${i+1}</span><span class="uppercase tracking-wide font-bold text-[11px]">${prettyName(lead)}</span>${stEl}
+    const isActive=activeLead===lead;
+    return `<button onclick="setActiveLead('${lead}')" class="group relative px-4 py-2 text-[12.5px] font-medium whitespace-nowrap rounded-t-lg border ${isActive?'bg-white text-ink border-line border-b-white -mb-px z-10 shadow-[0_-1px_3px_rgba(0,0,0,0.04)]':'bg-surface-2 text-gray-600 border-transparent hover:bg-white/60 hover:text-ink'} transition flex items-center gap-2 min-w-[140px] max-w-[220px]">
+      <span class="w-4 h-4 rounded-full ${st?STATUS_STYLE[st].split(' ')[0]:'bg-gray-300'} shrink-0 grid place-items-center text-[9px] font-bold text-white">${i+1}</span>
+      <span class="truncate flex-1 text-left">${prettyName(lead)}</span>
+      ${stEl}
     </button>`;
   }).join("");
 }
