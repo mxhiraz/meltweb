@@ -1,144 +1,315 @@
-<!doctype html><html><head>
-<meta charset="utf-8"><title>MeltWeb Admin</title>
+<!doctype html><html lang=en><head>
+<meta charset=utf-8><title>MeltWeb Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font:14px/1.5 system-ui,sans-serif;color:#0E1729;background:#F5F7FA}
-.login{max-width:360px;margin:120px auto;padding:32px;background:#fff;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,.06)}
-.login h1{font-size:20px;margin-bottom:16px}
-input,button{font:14px system-ui;padding:10px 14px;border-radius:8px;border:1px solid #E6EAF0;width:100%}
-button{background:#2F7BE6;color:#fff;border:0;cursor:pointer;font-weight:600;margin-top:12px}
-button:hover{background:#1F5BB8}
-.err{color:#d44;margin-top:8px;font-size:13px}
-.app{display:none}
-.topbar{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;background:#fff;border-bottom:1px solid #E6EAF0}
-.topbar h1{font-size:16px}
-.topbar button{width:auto;background:#fff;color:#0E1729;border:1px solid #E6EAF0;padding:6px 12px}
-.split{display:grid;grid-template-columns:280px 1fr 1fr;height:calc(100vh - 49px)}
-.list{overflow-y:auto;border-right:1px solid #E6EAF0;background:#fff}
-.list-item{padding:10px 16px;cursor:pointer;border-bottom:1px solid #F0F2F5}
-.list-item:hover{background:#EAF2FD}
-.list-item.active{background:#EAF2FD;border-left:3px solid #2F7BE6}
-.list-item .name{font-weight:600}
-.list-item .sub{font-size:12px;color:#5A6577}
-.editor-wrap{display:flex;flex-direction:column;border-right:1px solid #E6EAF0}
-.editor-bar{padding:8px 12px;background:#fff;border-bottom:1px solid #E6EAF0;display:flex;gap:8px;align-items:center;font-size:12px}
-.editor-bar button{width:auto;padding:5px 12px;font-size:12px}
-.save-btn{background:#10b981!important}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0F172A;--ink-2:#334155;--muted:#64748B;--line:#E2E8F0;--bg:#F8FAFC;--bg-2:#F1F5F9;--accent:#3B82F6;--accent-dark:#2563EB;--green:#10B981;--red:#EF4444;--radius:10px;--shadow:0 1px 3px rgba(15,23,42,.06),0 1px 2px rgba(15,23,42,.04)}
+html,body{height:100%;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:14px;line-height:1.5}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+a{color:var(--accent);text-decoration:none}
+
+/* Login */
+.login{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+.login-card{width:100%;max-width:380px;background:#fff;border-radius:16px;padding:36px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.login-card h1{font-size:22px;font-weight:700;margin-bottom:6px}
+.login-card p{color:var(--muted);margin-bottom:20px;font-size:13px}
+.login-card input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:14px;margin-bottom:12px}
+.login-card input:focus{outline:0;border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,130,246,.1)}
+.login-card .btn{width:100%;padding:12px;background:var(--accent);color:#fff;border-radius:10px;font-weight:600;transition:.15s}
+.login-card .btn:hover{background:var(--accent-dark)}
+.err{color:var(--red);font-size:13px;margin-top:8px}
+
+/* App */
+.app{display:none;height:100vh;flex-direction:column}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:#fff;border-bottom:1px solid var(--line)}
+.topbar .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
+.brand .dot{width:8px;height:8px;background:var(--accent);border-radius:50%}
+.topbar .actions{display:flex;gap:8px}
+.btn{padding:7px 14px;border-radius:8px;font-weight:600;font-size:13px;transition:.15s;display:inline-flex;align-items:center;gap:6px}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-dark)}
+.btn-ghost{color:var(--ink-2);border:1px solid var(--line);background:#fff}
+.btn-ghost:hover{background:var(--bg-2)}
+.btn-danger{color:var(--red);border:1px solid var(--line);background:#fff}
+.btn-danger:hover{background:#FEF2F2;border-color:#FECACA}
+
+.split{display:grid;grid-template-columns:300px 1fr 1fr;flex:1;overflow:hidden}
+
+/* Sidebar */
+.sidebar{background:#fff;border-right:1px solid var(--line);overflow-y:auto;display:flex;flex-direction:column}
+.sidebar-head{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;gap:8px;flex-direction:column}
+.search{width:100%;padding:8px 12px;border:1px solid var(--line);border-radius:8px;font-size:13px}
+.search:focus{outline:0;border-color:var(--accent)}
+.lead-group{border-bottom:1px solid var(--bg-2)}
+.lead-head{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--bg-2);font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;position:sticky;top:0;z-index:2}
+.lead-head .lead-name{display:flex;align-items:center;gap:8px;flex:1;cursor:pointer}
+.lead-head .num{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:#fff;border:1px solid var(--line);border-radius:5px;font-size:10px;color:var(--ink-2)}
+.lead-actions{display:flex;gap:4px;opacity:0;transition:.15s}
+.lead-group:hover .lead-actions{opacity:1}
+.lead-actions button{width:22px;height:22px;border-radius:5px;display:inline-flex;align-items:center;justify-content:center;color:var(--muted);font-size:14px;background:transparent}
+.lead-actions button:hover{background:#fff;color:var(--ink)}
+.lead-actions button.danger:hover{color:var(--red);background:#FEF2F2}
+.file-item{padding:8px 16px 8px 28px;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:space-between;border-left:3px solid transparent;transition:.1s}
+.file-item:hover{background:var(--bg-2)}
+.file-item.active{background:#EFF6FF;border-left-color:var(--accent);color:var(--accent-dark);font-weight:500}
+.file-actions{opacity:0;display:flex;gap:2px}
+.file-item:hover .file-actions{opacity:1}
+.file-actions button{width:20px;height:20px;border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted)}
+.file-actions button:hover{background:#fff;color:var(--red)}
+
+/* Editor */
+.editor-pane{display:flex;flex-direction:column;border-right:1px solid var(--line);background:#fff;overflow:hidden}
+.editor-bar{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);background:#fff}
+.editor-bar .path{flex:1;font-size:12px;color:var(--muted);font-family:ui-monospace,monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .editor{flex:1;overflow:hidden}
-.preview{position:relative;background:#fff}
-.preview iframe{width:100%;height:100%;border:0}
-.preview-bar{position:absolute;top:8px;right:8px;background:#fff;padding:4px 10px;border-radius:6px;border:1px solid #E6EAF0;font-size:11px;color:#5A6577;z-index:9}
-.spinner{display:inline-block;width:12px;height:12px;border:2px solid #E6EAF0;border-top-color:#2F7BE6;border-radius:50%;animation:spin 1s linear infinite;vertical-align:middle}
+
+/* Preview */
+.preview-pane{background:#fff;display:flex;flex-direction:column;overflow:hidden}
+.preview-bar{padding:10px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;font-size:12px;color:var(--muted)}
+.preview-bar .url{flex:1;background:var(--bg-2);padding:5px 10px;border-radius:6px;font-family:ui-monospace,monospace;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.preview-iframe{flex:1;border:0;width:100%;background:#fff}
+
+/* Modal */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(15,23,42,.4);z-index:99;align-items:center;justify-content:center;padding:20px}
+.modal-bg.show{display:flex}
+.modal{background:#fff;border-radius:14px;padding:24px;max-width:480px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.modal h2{font-size:18px;font-weight:700;margin-bottom:6px}
+.modal p{color:var(--muted);font-size:13px;margin-bottom:18px}
+.modal label{display:block;font-weight:600;font-size:12px;margin-bottom:6px;color:var(--ink-2)}
+.modal input,.modal textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font-size:13px;margin-bottom:14px}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
+.dropzone{border:2px dashed var(--line);border-radius:10px;padding:30px;text-align:center;color:var(--muted);cursor:pointer;transition:.15s}
+.dropzone:hover,.dropzone.drag{border-color:var(--accent);background:#EFF6FF;color:var(--accent-dark)}
+
+/* Toast */
+.toast{position:fixed;bottom:20px;right:20px;background:var(--ink);color:#fff;padding:12px 18px;border-radius:10px;font-size:13px;display:none;box-shadow:0 8px 24px rgba(0,0,0,.2);z-index:200;max-width:360px}
+.toast.show{display:block;animation:slide .25s ease}
+.toast.err{background:var(--red)}
+.toast.ok{background:var(--green)}
+@keyframes slide{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+.empty{padding:40px 20px;text-align:center;color:var(--muted);font-size:13px}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.toast{position:fixed;bottom:20px;right:20px;background:#10b981;color:#fff;padding:10px 16px;border-radius:8px;font-size:13px;display:none}
-.toast.show{display:block}
-.toast.err{background:#d44}
+.spinner.dark{border-color:var(--line);border-top-color:var(--accent)}
 </style></head><body>
 
 <div class="login" id="login">
-  <h1>MeltWeb Admin</h1>
-  <input id="pw" type="password" placeholder="Password" autofocus>
-  <button onclick="doLogin()">Login</button>
-  <div class="err" id="loginErr"></div>
+  <div class="login-card">
+    <h1>MeltWeb Portal</h1>
+    <p>Enter password to access lead samples</p>
+    <input id=pw type=password placeholder="Password" autofocus onkeydown="if(event.key==='Enter')doLogin()">
+    <button class=btn onclick="doLogin()">Sign in</button>
+    <div class=err id=loginErr></div>
+  </div>
 </div>
 
-<div class="app" id="app">
-  <div class="topbar">
-    <h1>MeltWeb Lead Portal</h1>
-    <div>
-      <button onclick="reload()">Reload</button>
-      <button onclick="logout()">Logout</button>
+<div class=app id=app>
+  <div class=topbar>
+    <div class=brand><span class=dot></span> MeltWeb Lead Portal</div>
+    <div class=actions>
+      <button class="btn btn-ghost" onclick="openNewLead()">+ New Lead</button>
+      <button class="btn btn-ghost" onclick="reload()">Reload</button>
+      <button class="btn btn-ghost" onclick="logout()">Logout</button>
     </div>
   </div>
-  <div class="split">
-    <div class="list" id="list"><div style="padding:20px;color:#5A6577">Loading…</div></div>
-    <div class="editor-wrap">
-      <div class="editor-bar">
-        <span id="curPath">no file selected</span>
-        <div style="flex:1"></div>
-        <button onclick="copyShareLink()">Copy share link</button>
-        <button class="save-btn" onclick="save()" id="saveBtn" disabled>Save</button>
+  <div class=split>
+    <div class=sidebar>
+      <div class=sidebar-head>
+        <input class=search id=search placeholder="Search leads..." oninput="filterList()">
       </div>
-      <div class="editor" id="editor"></div>
+      <div id=list><div class=empty>Loading...</div></div>
     </div>
-    <div class="preview">
-      <div class="preview-bar" id="previewPath">preview</div>
-      <iframe id="preview" src="about:blank"></iframe>
+    <div class=editor-pane>
+      <div class=editor-bar>
+        <span class=path id=curPath>Select a file to edit</span>
+        <button class="btn btn-ghost" onclick="copyShareLink()">Copy share link</button>
+        <button class="btn btn-primary" onclick="save()" id=saveBtn disabled>Save</button>
+      </div>
+      <div class=editor id=editor></div>
+    </div>
+    <div class=preview-pane>
+      <div class=preview-bar>
+        <span>Preview</span>
+        <div class=url id=previewUrl>—</div>
+        <button class="btn btn-ghost" onclick="reloadPreview()" style="padding:4px 10px">↻</button>
+      </div>
+      <iframe class=preview-iframe id=preview src=about:blank></iframe>
     </div>
   </div>
 </div>
 
-<div class="toast" id="toast"></div>
+<!-- New Lead Modal -->
+<div class=modal-bg id=newLeadModal onclick="if(event.target===this)closeNewLead()">
+  <div class=modal>
+    <h2>New Lead</h2>
+    <p>Creates <code>sample/{slug}/v1/index.html</code> + <code>v2/index.html</code> with starter template</p>
+    <label>Company name</label>
+    <input id=newLeadName placeholder="e.g. Acme Plumbing" autofocus>
+    <label>Slug (auto)</label>
+    <input id=newLeadSlug placeholder="acme-plumbing" readonly style="background:var(--bg-2)">
+    <div class=modal-actions>
+      <button class="btn btn-ghost" onclick="closeNewLead()">Cancel</button>
+      <button class="btn btn-primary" onclick="createLead()" id=createBtn>Create</button>
+    </div>
+  </div>
+</div>
+
+<!-- Upload Modal -->
+<div class=modal-bg id=uploadModal onclick="if(event.target===this)closeUpload()">
+  <div class=modal>
+    <h2>Upload to <span id=uploadTarget></span></h2>
+    <p>Drop files or click to select. Supports HTML, images, assets.</p>
+    <div class=dropzone id=dropzone ondrop="handleDrop(event)" ondragover="event.preventDefault();this.classList.add('drag')" ondragleave="this.classList.remove('drag')" onclick="document.getElementById('fileInput').click()">
+      <div>Drop files here or <b>click to browse</b></div>
+      <input type=file id=fileInput multiple style=display:none onchange="handleFiles(this.files)">
+    </div>
+    <div id=uploadList style="margin-top:14px;font-size:12px;color:var(--muted)"></div>
+    <div class=modal-actions>
+      <button class="btn btn-ghost" onclick="closeUpload()">Close</button>
+    </div>
+  </div>
+</div>
+
+<div class=toast id=toast></div>
 
 <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
 <script>
-const STORAGE_KEY="mw_admin_pw";
-let editor=null, curPath=null, curSha=null, treeCache=null;
+const PW_KEY="mw_admin_pw";
+let editor=null,curPath=null,curSha=null,files=[],leads={},uploadTargetPath="";
 
-function toast(msg,err){const t=document.getElementById("toast");t.textContent=msg;t.className="toast show"+(err?" err":"");setTimeout(()=>t.className="toast",2500);}
-function getPw(){return localStorage.getItem(STORAGE_KEY);}
-async function api(p,opts={}){const pw=getPw();if(!pw)throw new Error("no pw");const r=await fetch("/api/"+p,{...opts,headers:{"x-admin-pw":pw,"Content-Type":"application/json",...(opts.headers||{})}});if(r.status===401){logout();throw new Error("auth");}const d=await r.json();if(!r.ok)throw new Error(d.error||"err");return d;}
-async function doLogin(){const pw=document.getElementById("pw").value;localStorage.setItem(STORAGE_KEY,pw);try{await api("list");document.getElementById("login").style.display="none";document.getElementById("app").style.display="block";init();}catch(e){document.getElementById("loginErr").textContent="Wrong password or API down";localStorage.removeItem(STORAGE_KEY);}}
-function logout(){localStorage.removeItem(STORAGE_KEY);location.reload();}
-function reload(){loadList();}
+function toast(m,kind){const t=document.getElementById("toast");t.textContent=m;t.className="toast show "+(kind||"");setTimeout(()=>t.className="toast",2800)}
+const pw=()=>localStorage.getItem(PW_KEY);
+async function api(p,opts={}){const r=await fetch("/api/"+p,{...opts,headers:{"x-admin-pw":pw(),"Content-Type":"application/json",...(opts.headers||{})}});if(r.status===401){logout();throw new Error("auth")}const d=await r.json();if(!r.ok)throw new Error(d.error||"err");return d}
+
+async function doLogin(){const p=document.getElementById("pw").value;localStorage.setItem(PW_KEY,p);try{await api("list");show()}catch(e){document.getElementById("loginErr").textContent="Wrong password";localStorage.removeItem(PW_KEY)}}
+function logout(){localStorage.removeItem(PW_KEY);location.reload()}
+function show(){document.getElementById("login").style.display="none";document.getElementById("app").style.display="flex";initEditor()}
+function reload(){loadList()}
 
 async function loadList(){
   try{
     const d=await api("list");
-    treeCache=d.files;
-    const leads={};
-    d.files.forEach(f=>{const parts=f.path.split("/");if(parts[0]==="sample"&&parts.length>=2){const lead=parts[1];leads[lead]=leads[lead]||[];leads[lead].push(f);}});
-    let html="";
-    Object.keys(leads).sort().forEach((lead,i)=>{
-      const pages=leads[lead].filter(f=>f.path.endsWith(".html"));
-      html+=`<div style="padding:14px 16px 4px;font-weight:700;color:#5A6577;font-size:11px;letter-spacing:.5px;text-transform:uppercase">${i+1}. ${lead.replace(/-/g," ")}</div>`;
-      pages.forEach(p=>{
-        const label=p.path.replace(`sample/${lead}/`,"");
-        html+=`<div class="list-item" onclick="openFile('${p.path}','${p.sha}')" data-path="${p.path}"><div class="name">${label}</div></div>`;
-      });
-    });
-    document.getElementById("list").innerHTML=html||"<div style='padding:20px;color:#5A6577'>No files. Push samples first.</div>";
-  }catch(e){toast("List failed: "+e.message,1);}
+    files=d.files;
+    leads={};
+    files.forEach(f=>{const p=f.path.split("/");if(p[0]==="sample"&&p.length>=2){leads[p[1]]=leads[p[1]]||[];leads[p[1]].push(f)}});
+    renderList();
+  }catch(e){toast("Load failed: "+e.message,"err")}
 }
 
+function renderList(){
+  const q=document.getElementById("search").value.toLowerCase();
+  let html="";
+  const sortedLeads=Object.keys(leads).sort();
+  sortedLeads.filter(L=>!q||L.includes(q)).forEach((lead,i)=>{
+    const idx=sortedLeads.indexOf(lead)+1;
+    const pages=leads[lead].filter(f=>f.path.endsWith(".html"));
+    if(!pages.length) return;
+    html+=`<div class=lead-group>
+      <div class=lead-head>
+        <div class=lead-name><span class=num>${idx}</span>${lead.replace(/-/g," ")}</div>
+        <div class=lead-actions>
+          <button onclick="openUpload('sample/${lead}')" title="Upload assets">⬆</button>
+          <button class=danger onclick="deleteLead('${lead}')" title="Delete lead">✕</button>
+        </div>
+      </div>`;
+    pages.forEach(p=>{
+      const label=p.path.replace(`sample/${lead}/`,"");
+      html+=`<div class=file-item data-path="${p.path}" onclick="openFile('${p.path}','${p.sha}')">
+        <span>${label}</span>
+        <div class=file-actions>
+          <button onclick="event.stopPropagation();deleteFile('${p.path}','${p.sha}')" title=Delete>🗑</button>
+        </div>
+      </div>`;
+    });
+    html+=`</div>`;
+  });
+  document.getElementById("list").innerHTML=html||`<div class=empty>No leads found. Click + New Lead.</div>`;
+}
+
+function filterList(){renderList()}
+
 async function openFile(path,sha){
-  document.querySelectorAll(".list-item").forEach(el=>el.classList.toggle("active",el.dataset.path===path));
+  document.querySelectorAll(".file-item").forEach(el=>el.classList.toggle("active",el.dataset.path===path));
   curPath=path;curSha=sha;
   document.getElementById("curPath").textContent=path;
   document.getElementById("saveBtn").disabled=true;
-  document.getElementById("previewPath").textContent="/"+path;
-  document.getElementById("preview").src="/"+path+"?t="+Date.now();
+  const url="/"+path;
+  document.getElementById("previewUrl").textContent=url;
+  document.getElementById("preview").src=url+"?t="+Date.now();
   try{
     const d=await api("read?path="+encodeURIComponent(path));
     editor.setValue(d.content);
     document.getElementById("saveBtn").disabled=false;
-  }catch(e){toast("Read failed: "+e.message,1);}
+  }catch(e){toast("Read failed: "+e.message,"err")}
 }
+
+function reloadPreview(){if(curPath)document.getElementById("preview").src="/"+curPath+"?t="+Date.now()}
 
 async function save(){
   if(!curPath)return;
   const btn=document.getElementById("saveBtn");
-  btn.innerHTML='<span class="spinner"></span> Saving...';btn.disabled=true;
+  btn.innerHTML='<span class=spinner></span> Saving';btn.disabled=true;
   try{
-    const content=editor.getValue();
-    const d=await api("save",{method:"POST",body:JSON.stringify({path:curPath,sha:curSha,content})});
+    const d=await api("save",{method:"POST",body:JSON.stringify({path:curPath,sha:curSha,content:editor.getValue()})});
     curSha=d.sha;
-    toast("Saved! Vercel deploying...");
-    setTimeout(()=>{document.getElementById("preview").src="/"+curPath+"?t="+Date.now();},3000);
-  }catch(e){toast("Save failed: "+e.message,1);}
+    toast("Saved → Vercel deploying","ok");
+    setTimeout(reloadPreview,2500);
+  }catch(e){toast("Save failed: "+e.message,"err")}
   btn.innerHTML="Save";btn.disabled=false;
 }
 
-function copyShareLink(){if(!curPath)return;const url=location.origin+"/"+curPath.replace(/index\.html$/,"");navigator.clipboard.writeText(url);toast("Copied: "+url);}
+function copyShareLink(){if(!curPath)return;const url=location.origin+"/"+curPath.replace(/index\.html$/,"");navigator.clipboard.writeText(url);toast("Copied: "+url,"ok")}
 
-function init(){
+async function deleteFile(path,sha){if(!confirm("Delete "+path+"?"))return;try{await api("delete",{method:"POST",body:JSON.stringify({path,sha})});toast("Deleted","ok");loadList()}catch(e){toast("Delete failed: "+e.message,"err")}}
+async function deleteLead(lead){if(!confirm("Delete ENTIRE lead folder sample/"+lead+"? This removes all files."))return;try{const toDelete=files.filter(f=>f.path.startsWith(`sample/${lead}/`));for(const f of toDelete){await api("delete",{method:"POST",body:JSON.stringify({path:f.path,sha:f.sha})})}toast("Lead deleted","ok");loadList()}catch(e){toast("Delete failed: "+e.message,"err")}}
+
+function openNewLead(){document.getElementById("newLeadModal").classList.add("show");document.getElementById("newLeadName").value="";document.getElementById("newLeadSlug").value="";setTimeout(()=>document.getElementById("newLeadName").focus(),50)}
+function closeNewLead(){document.getElementById("newLeadModal").classList.remove("show")}
+document.addEventListener("input",e=>{if(e.target.id==="newLeadName"){document.getElementById("newLeadSlug").value=e.target.value.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}})
+async function createLead(){
+  const slug=document.getElementById("newLeadSlug").value;
+  const name=document.getElementById("newLeadName").value;
+  if(!slug)return toast("Enter company name","err");
+  const btn=document.getElementById("createBtn");
+  btn.innerHTML='<span class=spinner></span> Creating';btn.disabled=true;
+  try{
+    const starter=`<!doctype html><html lang=en><head><meta charset=utf-8><title>${name} - MeltWeb Sample</title><meta name=viewport content="width=device-width,initial-scale=1"><style>body{font:16px system-ui;padding:60px 20px;max-width:720px;margin:auto;color:#0F172A;line-height:1.6}h1{font-size:32px;margin-bottom:12px}p{color:#475569}</style></head><body><h1>${name}</h1><p>Sample landing built by MeltWeb. Edit this file in the admin portal.</p></body></html>`;
+    await api("save",{method:"POST",body:JSON.stringify({path:`sample/${slug}/v1/index.html`,content:starter})});
+    await api("save",{method:"POST",body:JSON.stringify({path:`sample/${slug}/v2/index.html`,content:starter.replace("v1","v2")})});
+    toast("Lead created","ok");closeNewLead();loadList();
+  }catch(e){toast("Create failed: "+e.message,"err")}
+  btn.innerHTML="Create";btn.disabled=false;
+}
+
+function openUpload(targetPath){uploadTargetPath=targetPath;document.getElementById("uploadTarget").textContent=targetPath;document.getElementById("uploadList").innerHTML="";document.getElementById("uploadModal").classList.add("show")}
+function closeUpload(){document.getElementById("uploadModal").classList.remove("show")}
+function handleDrop(e){e.preventDefault();e.target.classList.remove("drag");handleFiles(e.dataTransfer.files)}
+async function handleFiles(fileList){
+  const list=document.getElementById("uploadList");
+  for(const f of fileList){
+    const row=document.createElement("div");row.style.padding="4px 0";row.innerHTML=`<span class=spinner></span> ${f.name}`;list.appendChild(row);
+    try{
+      const buf=await f.arrayBuffer();
+      const b64=btoa(new Uint8Array(buf).reduce((s,b)=>s+String.fromCharCode(b),""));
+      await api("upload",{method:"POST",body:JSON.stringify({path:`${uploadTargetPath}/${f.name}`,contentBase64:b64})});
+      row.innerHTML=`✓ ${f.name}`;
+    }catch(e){row.innerHTML=`✗ ${f.name} - ${e.message}`}
+  }
+  loadList();
+}
+
+function initEditor(){
   require.config({paths:{vs:"https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs"}});
   require(["vs/editor/editor.main"],()=>{
-    editor=monaco.editor.create(document.getElementById("editor"),{value:"// select file",language:"html",theme:"vs-light",automaticLayout:true,minimap:{enabled:false},fontSize:13,wordWrap:"on"});
+    editor=monaco.editor.create(document.getElementById("editor"),{value:"<!-- Select a file from sidebar to edit -->",language:"html",theme:"vs-light",automaticLayout:true,minimap:{enabled:false},fontSize:13,wordWrap:"on",scrollBeyondLastLine:false,padding:{top:12}});
     loadList();
   });
 }
 
-if(getPw()){document.getElementById("login").style.display="none";document.getElementById("app").style.display="block";init();}
+if(pw())show();
 </script>
 </body></html>
