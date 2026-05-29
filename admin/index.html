@@ -237,7 +237,7 @@ function showApp(){$("login").classList.add("hidden");$("app").classList.remove(
 async function loadList(){
   try{
     const d=await api("list");files=d.files;leads={};
-    files.forEach(f=>{const p=f.path.split("/");if(p[0]==="sample"&&p.length>=2){leads[p[1]]=leads[p[1]]||[];leads[p[1]].push(f)}});
+    files.forEach(f=>{const p=f.path.split("/");if(p[0]==="sample"&&p.length>=3&&!p[1].includes(".")){leads[p[1]]=leads[p[1]]||[];leads[p[1]].push(f)}});
     autoExpand();renderList();
   }catch(e){toast("Load failed: "+e.message,"err")}
 }
