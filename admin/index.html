@@ -19,7 +19,9 @@ html,body{font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased
 .chev.open{transform:rotate(90deg)}
 .row-line{box-shadow:inset 2px 0 0 transparent;transition:background-color .08s}
 .row-line.active{box-shadow:inset 2px 0 0 #2563EB;background-color:rgba(37,99,235,.08)}
-[data-meta].row-line.active{background-color:rgb(199 210 254);box-shadow:inset 2px 0 0 #4F46E5}
+.row-line.active{background-color:#EFF6FF!important;box-shadow:inset 3px 0 0 #2563EB}
+.row-line.active .meta-ic,.row-line.active .file-ic,.row-line.active .folder-ic{color:#2563EB!important}
+.row-line.active span{color:#1E3A8A!important;font-weight:600}
 .scrollbar{scrollbar-width:thin;scrollbar-color:#D1D5DB transparent}
 .scrollbar::-webkit-scrollbar{width:8px;height:8px}
 .scrollbar::-webkit-scrollbar-thumb{background:#D1D5DB;border-radius:4px}
@@ -51,12 +53,12 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
 <!-- App -->
 <div id=app class="hidden flex-col h-screen">
   <!-- Top bar -->
-  <header class="flex items-center justify-between px-5 h-13 bg-white border-b border-line shrink-0" style="height:52px">
+  <header class="flex items-center justify-between px-5 h-13 bg-white border-b border-line shrink-0" style="height:56px">
     <div class="flex items-center gap-6">
       <div class="flex items-center gap-2 font-semibold text-[13px]">
         <img src="/assets/meltweb-logo.png" alt=MeltWeb class="h-5 w-auto">
       </div>
-      <div id=crumbs class="text-xs text-gray-500">Lead Portal</div>
+      <div id=crumbs class="text-[13px] text-gray-500">Lead Portal</div>
     </div>
     <div class="flex gap-1.5">
       <button onclick=openNew() class="px-3 py-1.5 text-[12.5px] font-medium text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md flex items-center gap-1.5 transition">
@@ -77,7 +79,7 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
       <div class="p-2.5 border-b border-line">
         <div class="relative">
           <i data-lucide="search" class="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400" style="width:14px;height:14px"></i>
-          <input id=search placeholder="Search leads…" oninput=renderList() class="w-full pl-8 pr-3 py-1.5 text-[12.5px] border border-line rounded-md focus:border-ink focus:ring-2 focus:ring-ink/10 focus:outline-none">
+          <input id=search placeholder="Search leads…" oninput=renderList() class="w-full pl-8 pr-3 py-2 text-[13.5px] border border-line rounded-md focus:border-ink focus:ring-2 focus:ring-ink/10 focus:outline-none">
         </div>
       </div>
       <div id=list class="flex-1 overflow-y-auto scrollbar"><div class="py-12 text-center text-gray-400 text-[12.5px]">Loading…</div></div>
@@ -85,12 +87,12 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
 
     <!-- Editor -->
     <section class="flex flex-col bg-white border-r border-line overflow-hidden min-w-0">
-      <div class="flex items-center gap-2 px-3.5 border-b border-line bg-white" style="height:52px">
+      <div class="flex items-center gap-2 px-3.5 border-b border-line bg-white" style="height:56px">
         <div id=tabs class="hidden bg-surface-2 rounded-md p-0.5 gap-0.5">
           <button data-m=html onclick=switchTab('html') class="tab px-2.5 py-1 text-[12px] font-medium rounded">HTML</button>
           <button data-m=meta onclick=switchTab('meta') class="tab px-2.5 py-1 text-[12px] font-medium rounded">Lead info</button>
         </div>
-        <span id=curPath class="flex-1 text-[12px] text-gray-500 font-mono truncate">Select a file from sidebar</span>
+        <span id=curPath class="flex-1 text-[13px] text-gray-500 font-mono truncate">Select a file from sidebar</span>
         <button id=copyBtn onclick=copyShareLink() disabled class="px-2.5 py-1 text-[12px] font-medium text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 transition">
           <i data-lucide="copy" style="width:11px;height:11px"></i>
           Copy link
@@ -117,7 +119,7 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
 
     <!-- Preview -->
     <section class="bg-white flex flex-col overflow-hidden min-w-0">
-      <div class="flex items-center gap-2 px-3.5 border-b border-line" style="height:52px">
+      <div class="flex items-center gap-2 px-3.5 border-b border-line" style="height:56px">
         <div id=previewUrl class="flex-1 bg-surface-2 border border-line px-2.5 py-1 rounded text-[11px] text-gray-500 font-mono truncate">Live preview here</div>
         <button onclick=reloadPreview() class="p-1.5 text-ink-2 border border-line bg-white hover:bg-surface-2 rounded-md transition" title=Refresh>
           <i data-lucide="refresh-cw" style="width:13px;height:13px"></i>
@@ -258,20 +260,19 @@ function renderList(){
       <div class="px-3 pt-3 pb-2 sticky top-0 bg-white z-10">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-1.5 min-w-0">
-            <span class="text-[10px] text-gray-400 font-mono">${i+1}</span>
-            <span class="text-[11px] font-bold text-ink-2 uppercase tracking-wider truncate">${prettyName(lead)}</span>
+            <span class="text-[11.5px] text-gray-400 font-mono font-medium">${i+1}</span>
+            <span class="text-[13px] font-bold text-ink uppercase tracking-wider truncate">${prettyName(lead)}</span>
           </div>
-          <span class="text-[10px] text-gray-400">${allFiles.length}</span>
+          <span class="text-[11.5px] text-gray-400 font-medium">${allFiles.length}</span>
         </div>
         <div class="flex gap-1 mt-1.5">
-          <button onclick="event.stopPropagation();openUp('sample/${lead}')" class="flex-1 px-2 py-1 text-[10.5px] font-medium text-ink-2 bg-surface-2 border border-line hover:bg-white hover:border-gray-400 rounded flex items-center justify-center gap-1 transition">${ICONS.upload} Upload</button>
-          <button onclick="event.stopPropagation();delLead('${lead}')" class="px-2 py-1 text-[10.5px] font-medium text-gray-500 bg-surface-2 border border-line hover:text-red-600 hover:bg-red-50 hover:border-red-300 rounded flex items-center gap-1 transition">${ICONS.trash}</button>
+          <button onclick="event.stopPropagation();openUp('sample/${lead}')" class="flex-1 px-2.5 py-1.5 text-[12px] font-medium text-ink-2 bg-surface-2 border border-line hover:bg-white hover:border-gray-400 rounded flex items-center justify-center gap-1 transition">${ICONS.upload} Upload</button>
+          <button onclick="event.stopPropagation();delLead('${lead}')" class="px-2.5 py-1.5 text-[12px] font-medium text-gray-500 bg-surface-2 border border-line hover:text-red-600 hover:bg-red-50 hover:border-red-300 rounded flex items-center gap-1 transition">${ICONS.trash}</button>
         </div>
       </div>
-      <div onclick="openMeta('${lead}')" data-meta="${lead}" class="row-line cursor-pointer flex items-center gap-2 py-2 px-3 mx-2 my-1 bg-indigo-50 hover:bg-indigo-100 rounded-md text-[12.5px] text-indigo-900 border border-indigo-200/60 transition">
-        <span class="w-5 h-5 rounded bg-indigo-500 text-white grid place-items-center text-[11px] font-bold shrink-0">i</span>
-        <span class="font-semibold flex-1">Lead info</span>
-        <span class="text-[10px] text-indigo-500 opacity-0 group-hover:opacity-100">EDIT →</span>
+      <div onclick="openMeta('${lead}')" data-meta="${lead}" class="meta-row row-line cursor-pointer flex items-center gap-2.5 py-2 px-3 hover:bg-surface-2 text-[13.5px] text-ink-2 font-semibold transition">
+        <span class="meta-ic shrink-0 text-gray-400">${ICONS.info}</span>
+        <span class="flex-1">Lead info</span>
       </div>`;
     html+=renderTree(lead,allFiles);
     html+=`</div>`;
@@ -295,7 +296,7 @@ function renderTree(lead,filesArr){
       const dirPath=prefix?`${prefix}/${d}`:d;
       const fullPath=`sample/${lead}/${dirPath}`;
       const open=openDirs.has(fullPath);
-      s+=`<div class="row-line group flex items-center justify-between py-1 hover:bg-surface-2 cursor-pointer text-[12.5px]" data-dir="${fullPath}" style="padding-left:${8+depth*14}px;padding-right:6px" onclick="toggleDir('${fullPath}')" oncontextmenu="event.preventDefault();showCtx(event,'dir','${fullPath}','',true)">
+      s+=`<div class="row-line group flex items-center justify-between py-1.5 hover:bg-surface-2 cursor-pointer text-[13.5px]" data-dir="${fullPath}" style="padding-left:${8+depth*14}px;padding-right:8px;min-height:32px" onclick="toggleDir('${fullPath}')" oncontextmenu="event.preventDefault();showCtx(event,'dir','${fullPath}','',true)">
         <div class="flex items-center gap-1.5 min-w-0 flex-1">
           <span class="chev text-gray-400 shrink-0 ${open?'open':''}">${ICONS.chev}</span>
           <span class="text-blue-500 shrink-0">${open?ICONS.folderOpen:ICONS.folder}</span>
@@ -311,7 +312,7 @@ function renderTree(lead,filesArr){
       const isText=["html","htm","css","js","json","txt","md","xml","mjs"].includes(ext);
       const fn=isImg?`openAsset('${f.path}','${f.sha}','${lead}',true)`:(isText?`openFile('${f.path}','${f.sha}','${lead}')`:`openAsset('${f.path}','${f.sha}','${lead}',false)`);
       const colorCls=fileColorClass(ext);
-      s+=`<div class="row-line group flex items-center justify-between py-1 hover:bg-surface-2 cursor-pointer text-[12.5px]" data-path="${f.path}" style="padding-left:${8+depth*14+18}px;padding-right:6px" onclick="${fn}" oncontextmenu="event.preventDefault();showCtx(event,'file','${f.path}','${f.sha}',false)">
+      s+=`<div class="row-line group flex items-center justify-between py-1.5 hover:bg-surface-2 cursor-pointer text-[13.5px]" data-path="${f.path}" style="padding-left:${8+depth*14+18}px;padding-right:8px;min-height:30px" onclick="${fn}" oncontextmenu="event.preventDefault();showCtx(event,'file','${f.path}','${f.sha}',false)">
         <div class="flex items-center gap-1.5 min-w-0 flex-1">
           <span class="${colorCls} shrink-0">${ICONS.file}</span>
           <span class="truncate text-ink-2">${f.name}</span>
