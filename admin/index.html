@@ -275,12 +275,12 @@ function renderList(){
         ${expanded?`<div class="flex gap-1 mt-1.5" onclick="event.stopPropagation()">
           <button onclick="event.stopPropagation();openUp('sample/${lead}')" class="flex-1 px-2.5 py-1.5 text-[12px] font-medium text-ink-2 bg-surface-2 border border-line hover:bg-white hover:border-gray-400 rounded flex items-center justify-center gap-1 transition">${ICONS.upload} Upload</button>
           <button onclick="event.stopPropagation();delLead('${lead}')" class="px-2.5 py-1.5 text-[12px] font-medium text-gray-500 bg-surface-2 border border-line hover:text-red-600 hover:bg-red-50 hover:border-red-300 rounded flex items-center gap-1 transition">${ICONS.trash}</button>
-        </div>`:''}
+        </div>`:''}`;
       </div>
       ${expanded?`<div onclick="openMeta('${lead}')" data-meta="${lead}" class="meta-row row-line cursor-pointer flex items-center gap-2.5 py-2 px-3 hover:bg-surface-2 text-[13.5px] text-ink-2 font-semibold transition">
         <span class="meta-ic shrink-0 text-gray-400">${ICONS.info}</span>
         <span class="flex-1">Lead info</span>
-      </div>`:''}
+      </div>`:''}`;
     if(expanded)html+=renderTree(lead,allFiles);
     html+=`</div>`;
   });
