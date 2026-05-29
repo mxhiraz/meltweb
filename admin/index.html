@@ -499,6 +499,7 @@ function showCtx(e,type,path,sha,isDir){
       {label:"Copy file path",fn:`copyToClip('${path}')`},
       {label:"Open in GitHub ↗",fn:`window.open('https://github.com/${REPO}/blob/main/${path}','_blank')`},
       {sep:true},
+      {label:"Replace file (upload new)",icon:ICONS.upload,fn:`replaceFile('${path}','${sha}')`},
       {label:"Delete file",icon:ICONS.trash,fn:`delFile('${path}','${sha}')`,danger:true}
     ];
   }
@@ -510,6 +511,25 @@ function showCtx(e,type,path,sha,isDir){
 function hideCtx(){$("ctxMenu").classList.add("hidden");$("ctxMenu").classList.remove("block")}
 document.addEventListener("click",e=>{if(!e.target.closest("#ctxMenu"))hideCtx()});
 document.addEventListener("scroll",hideCtx,true);
+
+function replaceFile(path,sha){
+  const inp=document.createElement("input");
+  inp.type="file";
+  inp.onchange=async()=>{
+    const f=inp.files[0];if(!f)return;
+    toast("Uploading "+f.name+"...");
+    try{
+      const buf=await f.arrayBuffer();
+      const b64=btoa(new Uint8Array(buf).reduce((s,b)=>s+String.fromCharCode(b),""));
+      await api("upload",{method:"POST",body:JSON.stringify({path,contentBase64:b64})});
+      toast("Replaced "+path.split("/").pop(),"ok");
+      loadList();
+      if(current.path===path)setTimeout(reloadPreview,2500);
+    }catch(e){toast("Replace failed: "+e.message,"err")}
+  };
+  inp.click();
+}
+
 function copyToClip(s){navigator.clipboard.writeText(s);toast("Copied","ok")}
 
 function initEditor(){
