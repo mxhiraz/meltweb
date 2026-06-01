@@ -197,14 +197,14 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
 <div id=ctxMenu class="hidden fixed bg-white border border-line rounded-lg shadow-2xl p-1 z-[300] min-w-[200px] text-[13px]"></div>
 
 <!-- Toast -->
-<div id=toast class="hidden fixed bottom-5 right-5 bg-ink text-white px-4 py-2.5 rounded-lg text-[13px] shadow-2xl z-[200] max-w-sm toast"></div>
+<div id=toast class="hidden fixed bottom-6 right-6 bg-ink text-white px-5 py-3.5 rounded-xl text-[14px] font-medium shadow-2xl z-[200] max-w-md toast border border-white/10"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
 <script>
 const KEY="mw_admin_pw",$=id=>document.getElementById(id),pw=()=>localStorage.getItem(KEY);
 let editor,files=[],leads={},current={path:null,sha:null,lead:null,mode:"html"};
 const openLeads=new Set();
-function toggleLead(L){if(openLeads.has(L))openLeads.delete(L);else openLeads.add(L);renderList()}
+function toggleLead(L){const opening=!openLeads.has(L);if(opening){openLeads.add(L);toast("Opened "+prettyName(L))}else openLeads.delete(L);renderList()}
 const openDirs=new Set();
 
 function paintStaticIcons(){
@@ -296,6 +296,7 @@ function renderTabBar(){
 const leadMeta={};
 async function loadList(){
   try{
+    toast("Loading leads…");
     const d=await api("list");files=d.files;leads={};
     files.forEach(f=>{const p=f.path.split("/");if(p[0]==="sample"&&p.length>=3&&!p[1].includes(".")){leads[p[1]]=leads[p[1]]||[];leads[p[1]].push(f)}});
     renderList();
@@ -400,7 +401,7 @@ function renderTree(lead,filesArr){
   return walk(root,"",0);
 }
 
-function toggleDir(p){if(openDirs.has(p))openDirs.delete(p);else openDirs.add(p);renderList()}
+function toggleDir(p){const opening=!openDirs.has(p);if(opening)openDirs.add(p);else openDirs.delete(p);renderList()}
 
 function setActive(sel){document.querySelectorAll(".row-line").forEach(el=>el.classList.toggle("active",el.matches(sel)))}
 function setCrumbs(lead,sub){$("crumbs").innerHTML=lead?`Lead Portal / <span class="text-ink-2 font-medium capitalize">${prettyName(lead)}</span>${sub?` / <span class="text-ink-2">${sub}</span>`:""}`:"Lead Portal"}
@@ -421,7 +422,8 @@ async function openFile(path,sha,lead){
   $("previewUrl").textContent=url;$("openExternal").href=url;
   $("previewEmpty").classList.add("hidden");$("preview").classList.remove("hidden");
   $("preview").src=url+"?t="+Date.now();
-  try{const d=await api("read?path="+encodeURIComponent(path));editor.setValue(d.content);$("saveBtn").disabled=false}
+  toast("Loading "+path.split("/").pop()+"…");
+  try{const d=await api("read?path="+encodeURIComponent(path));editor.setValue(d.content);$("saveBtn").disabled=false;toast("Loaded "+path.split("/").pop(),"ok")}
   catch(e){toast("Read failed: "+e.message,"err")}
 }
 
@@ -435,7 +437,7 @@ async function openMeta(lead){
   $("editor").classList.add("hidden");$("metaForm").classList.remove("hidden");
   $("copyBtn").disabled=true;$("saveBtn").disabled=false;
   let meta={name:prettyName(lead),website:"",contact:"",email:"",phone:"",description:"",industry:"",location:"",status:""};
-  try{const d=await api("read?path="+encodeURIComponent(current.path));meta={...meta,...JSON.parse(d.content||"{}")};current.sha=d.sha}catch(e){}
+  try{toast("Loading lead info…");const d=await api("read?path="+encodeURIComponent(current.path));meta={...meta,...JSON.parse(d.content||"{}")};current.sha=d.sha;toast("Lead info loaded","ok")}catch(e){}
   renderMetaForm(meta,lead);paintStaticIcons();
   $("previewEmpty").classList.remove("hidden");$("preview").classList.add("hidden");
 }
@@ -491,6 +493,7 @@ function switchTab(m){
 
 async function save(){
   if(!current.path)return;
+  toast("Saving to GitHub…");
   const btn=$("saveBtn");btn.innerHTML=ICONS.spin+' Saving';btn.disabled=true;
   try{
     let content;
@@ -509,9 +512,9 @@ async function save(){
 function copyShareLink(){if(!current.path)return;const url=location.origin+"/"+current.path.replace(/\/index\.html$/,"/");navigator.clipboard.writeText(url);toast("Link copied","ok")}
 function reloadPreview(){if(current.path&&current.mode!=="meta")$("preview").src="/"+current.path+"?t="+Date.now()}
 
-async function delFile(path,sha){if(!confirm(`Delete ${path}?`))return;try{await api("delete",{method:"POST",body:JSON.stringify({path,sha})});toast("Deleted","ok");loadList()}catch(e){toast("Delete failed: "+e.message,"err")}}
-async function delLead(lead){if(!confirm(`Delete entire lead "${prettyName(lead)}" (${leads[lead]?.length||0} files)?`))return;try{const r=await api("deleteDir",{method:"POST",body:JSON.stringify({prefix:`sample/${lead}/`})});toast(`Deleted ${r.removed} files`,"ok");loadList()}catch(e){toast("Delete failed: "+e.message,"err")}}
-async function delDir(dirPath){if(!confirm(`Delete folder ${dirPath} and all its contents?`))return;try{const r=await api("deleteDir",{method:"POST",body:JSON.stringify({prefix:dirPath+"/"})});toast(`Deleted ${r.removed} files`,"ok");loadList()}catch(e){toast("Delete failed: "+e.message,"err")}}
+async function delFile(path,sha){if(!confirm(`Delete ${path}?`))return;toast("Deleting "+path.split("/").pop()+"…");try{await api("delete",{method:"POST",body:JSON.stringify({path,sha})});toast("Deleted "+path.split("/").pop(),"ok");loadList()}catch(e){toast("Delete failed: "+e.message,"err")}}
+async function delLead(lead){if(!confirm(`Delete entire lead "${prettyName(lead)}" (${leads[lead]?.length||0} files)?`))return;toast(`Deleting lead "${prettyName(lead)}"…`);try{const r=await api("deleteDir",{method:"POST",body:JSON.stringify({prefix:`sample/${lead}/`})});toast(`Deleted ${r.removed} files from "${prettyName(lead)}"`,"ok");loadList()}catch(e){toast("Delete failed: "+e.message,"err")}}
+async function delDir(dirPath){if(!confirm(`Delete folder ${dirPath} and all its contents?`))return;toast(`Deleting folder ${dirPath}…`);try{const r=await api("deleteDir",{method:"POST",body:JSON.stringify({prefix:dirPath+"/"})});toast(`Deleted ${r.removed} files from ${dirPath}`,"ok");loadList()}catch(e){toast("Delete failed: "+e.message,"err")}}
 
 function openNew(){$("newScrim").classList.remove("hidden");$("newScrim").classList.add("flex");["nl_name","nl_slug","nl_site","nl_email"].forEach(id=>$(id).value="");setTimeout(()=>$("nl_name").focus(),50)}
 function closeNew(){$("newScrim").classList.add("hidden");$("newScrim").classList.remove("flex")}
@@ -520,6 +523,7 @@ async function createLead(){
   const name=$("nl_name").value.trim(),slug=$("nl_slug").value;
   if(!slug)return toast("Enter company name","err");
   const btn=$("createBtn");btn.innerHTML=ICONS.spin+' Creating';btn.disabled=true;
+  toast(`Creating lead "${name}"…`);
   try{
     const meta={name,website:$("nl_site").value,email:$("nl_email").value,contact:"",phone:"",industry:"",location:"",description:"",status:"new"};
     await api("save",{method:"POST",body:JSON.stringify({path:`sample/${slug}/meta.json`,content:JSON.stringify(meta,null,2)})});
@@ -621,7 +625,7 @@ function replaceFile(path,sha){
   inp.type="file";
   inp.onchange=async()=>{
     const f=inp.files[0];if(!f)return;
-    toast("Uploading "+f.name+"...");
+    toast("Uploading "+f.name+" to GitHub…");
     try{
       const buf=await f.arrayBuffer();
       const b64=btoa(new Uint8Array(buf).reduce((s,b)=>s+String.fromCharCode(b),""));
