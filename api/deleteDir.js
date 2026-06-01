@@ -14,7 +14,8 @@ export default async function handler(req,res){
     const treeSha=commit.tree.sha;
     const tree=await(await fetch(`https://api.github.com/repos/${REPO}/git/trees/${treeSha}?recursive=1`,{headers:H})).json();
     // build new tree omitting blobs under prefix
-    const keep=tree.tree.filter(t=>t.type==="blob"&&!t.path.startsWith(prefix));
+    const keepFile=req.body.keep||null;
+    const keep=tree.tree.filter(t=>{if(t.type!=="blob")return false;if(!t.path.startsWith(prefix))return true;if(keepFile&&t.path===prefix+keepFile)return true;return false});
     const newTree=keep.map(t=>({path:t.path,mode:t.mode,type:t.type,sha:t.sha}));
     const removed=tree.tree.filter(t=>t.type==="blob"&&t.path.startsWith(prefix)).length;
     if(removed===0)return res.json({ok:true,removed:0,message:"nothing to delete"});

@@ -171,10 +171,17 @@ kbd{font-family:'SF Mono',ui-monospace,monospace;background:#F3F4F6;border:1px s
   <div class="bg-white rounded-xl p-6 max-w-md w-full border border-line shadow-xl">
     <h2 class="text-[16px] font-semibold mb-1">Upload to <code id=upTarget class="bg-surface-2 px-1.5 py-0.5 rounded text-[11px]"></code></h2>
     <p class="text-gray-500 text-[12.5px] mb-4">Drop files or click. Any type: HTML, PNG, JPG, font, etc.</p>
-    <div id=dropzone ondrop=handleDrop(event) ondragover="event.preventDefault();this.classList.add('drag')" ondragleave="this.classList.remove('drag')" onclick=document.getElementById('fileInput').click() class="dz border-2 border-dashed border-line rounded-xl py-9 px-5 text-center text-gray-500 cursor-pointer hover:border-ink hover:bg-surface-2 transition text-[13px]">
-      Drop files or <b class="text-ink">click to browse</b>
+    <div id=dropzone ondrop=handleDrop(event) ondragover="event.preventDefault();this.classList.add('drag')" ondragleave="this.classList.remove('drag')" class="dz border-2 border-dashed border-line rounded-xl py-9 px-5 text-center text-gray-500 transition text-[13px]">
+      Drop files / folder here, or pick:
+      <div class="flex gap-2 justify-center mt-3">
+        <button onclick="document.getElementById('fileInput').click()" class="px-3 py-1.5 text-[12px] font-medium text-ink bg-white border border-line hover:bg-surface-2 rounded">📄 Files</button>
+        <button onclick="document.getElementById('folderInput').click()" class="px-3 py-1.5 text-[12px] font-medium text-ink bg-white border border-line hover:bg-surface-2 rounded">📁 Folder</button>
+        <button onclick="if(confirm('Replace folder? Deletes existing contents except meta.json, then uploads new folder.'))document.getElementById('replaceInput').click()" class="px-3 py-1.5 text-[12px] font-medium text-red-700 bg-white border border-line hover:bg-red-50 rounded">⇄ Replace</button>
+      </div>
     </div>
     <input type=file id=fileInput multiple class=hidden onchange=handleFiles(this.files)>
+    <input type=file id=folderInput webkitdirectory multiple class=hidden onchange=handleFolder(this.files,false)>
+    <input type=file id=replaceInput webkitdirectory multiple class=hidden onchange=handleFolder(this.files,true)>
     <div id=upList class="mt-3 max-h-60 overflow-y-auto scrollbar text-[12px]"></div>
     <div class="flex gap-2 justify-end mt-4">
       <button onclick=closeUp() class="px-3.5 py-2 text-[13px] font-medium text-ink-2 bg-white border border-line hover:bg-surface-2 rounded-md transition">Done</button>
@@ -510,12 +517,13 @@ async function createLead(){
   if(!slug)return toast("Enter company name","err");
   const btn=$("createBtn");btn.innerHTML=ICONS.spin+' Creating';btn.disabled=true;
   try{
-    const t=v=>`<!doctype html><html lang=en><head><meta charset=utf-8><title>${name} - ${v}</title><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{--ink:#0F172A;--accent:#2563EB}*{box-sizing:border-box;margin:0}body{font:16px/1.6 system-ui;color:var(--ink);padding:80px 20px;max-width:760px;margin:auto}h1{font-size:40px;font-weight:800;margin-bottom:16px;letter-spacing:-.02em}p{color:#475569;margin-bottom:24px}.btn{display:inline-block;background:var(--accent);color:#fff;padding:14px 28px;border-radius:10px;font-weight:600;text-decoration:none}.tag{display:inline-block;background:#EFF6FF;color:var(--accent);padding:4px 10px;border-radius:20px;font-size:12px;font-weight:600;margin-bottom:16px}</style></head><body><div class=tag>${v.toUpperCase()} Sample</div><h1>${name}</h1><p>Starter MeltWeb sample for ${name}.</p><a class=btn href=#>Book a call</a></body></html>`;
-    const meta={name,website:$("nl_site").value,email:$("nl_email").value,contact:"",phone:"",industry:"",location:"",description:""};
-    await api("save",{method:"POST",body:JSON.stringify({path:`sample/${slug}/v1/index.html`,content:t("v1")})});
-    await api("save",{method:"POST",body:JSON.stringify({path:`sample/${slug}/v2/index.html`,content:t("v2")})});
+    const meta={name,website:$("nl_site").value,email:$("nl_email").value,contact:"",phone:"",industry:"",location:"",description:"",status:"new"};
     await api("save",{method:"POST",body:JSON.stringify({path:`sample/${slug}/meta.json`,content:JSON.stringify(meta,null,2)})});
-    toast("Lead created","ok");closeNew();loadList();
+    toast("Lead created - now upload files","ok");
+    closeNew();
+    await loadList();
+    // immediately open upload modal for new lead
+    setTimeout(()=>openUp(`sample/${slug}`),200);
   }catch(e){toast("Create failed: "+e.message,"err")}
   btn.innerHTML="Create lead";btn.disabled=false;
 }
@@ -524,6 +532,34 @@ let upTarget="";
 function openUp(t){upTarget=t;$("upTarget").textContent=t;$("upList").innerHTML="";$("upScrim").classList.remove("hidden");$("upScrim").classList.add("flex")}
 function closeUp(){$("upScrim").classList.add("hidden");$("upScrim").classList.remove("flex");loadList()}
 function handleDrop(e){e.preventDefault();e.target.classList.remove("drag");handleFiles(e.dataTransfer.files)}
+async function handleFolder(fl,replaceMode){
+  if(!fl||!fl.length)return;
+  if(replaceMode){
+    // delete existing under upTarget except meta.json
+    try{
+      const r=await api("deleteDir",{method:"POST",body:JSON.stringify({prefix:upTarget+"/",keep:"meta.json"})});
+      toast(`Deleted ${r.removed} old files`,"ok");
+    }catch(e){toast("Replace cleanup failed: "+e.message,"err");return}
+  }
+  // upload all with relative path
+  const list=$("upList");
+  for(const f of fl){
+    const relPath=f.webkitRelativePath||f.name;
+    // strip first folder name from relative path (since we already in upTarget)
+    const parts=relPath.split("/");parts.shift();
+    const finalPath=parts.length?parts.join("/"):f.name;
+    const row=document.createElement("div");row.className="flex items-center gap-2 py-1.5 border-b border-line-2 last:border-b-0";
+    row.innerHTML=`<span class="text-gray-400">${ICONS.spin}</span><span class="flex-1 truncate text-[11px]">${finalPath}</span><span class="text-gray-400 text-[11px]">${(f.size/1024).toFixed(0)}KB</span>`;
+    list.appendChild(row);
+    try{
+      const buf=await f.arrayBuffer();
+      const b64=btoa(new Uint8Array(buf).reduce((s,b)=>s+String.fromCharCode(b),""));
+      await api("upload",{method:"POST",body:JSON.stringify({path:`${upTarget}/${finalPath}`,contentBase64:b64})});
+      row.firstElementChild.outerHTML=`<span class="text-emerald-600 font-bold">✓</span>`;
+    }catch(e){row.firstElementChild.outerHTML=`<span class="text-red-600 font-bold">✗</span>`}
+  }
+  loadList();
+}
 async function handleFiles(fl){
   const list=$("upList");
   for(const f of fl){
