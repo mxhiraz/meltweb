@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CT Electrical Services — Electricians you can call any hour</title>
+<meta name="description" content="CT Electrical Services — City & Guilds qualified electricians for the north-east. 24-hour callout, all work guaranteed. Rewiring, fuse boards, testing, energy and security." />
+<style>
+  :root{
+    --bg:#e8eff8;            /* pale blue canvas */
+    --bg-soft:#f4f7fc;
+    --ink:#0a1736;           /* deep navy primary */
+    --ink-2:#152a5c;
+    --blue:#2b6cff;          /* bright accent blue */
+    --blue-d:#1d54d6;
+    --blue-soft:#cfe0ff;
+    --line:#d4dded;
+    --muted:#5a6685;
+    --paper:#ffffff;
+    --radius:14px;
+    --shadow:0 30px 60px -28px rgba(10,23,54,.25);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .container{width:min(1200px,92%);margin-inline:auto}
+  ::selection{background:var(--ink);color:#fff}
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(232,239,248,.85);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid rgba(10,23,54,.05)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.01em}
+  .brand img{height:38px}
+  .nav-links{display:flex;gap:32px;font-weight:500;font-size:15px;color:var(--ink-2)}
+  .nav-links a{position:relative;padding:6px 2px;transition:color .2s}
+  .nav-links a:hover{color:var(--blue)}
+  .nav-links a.active{color:var(--ink);font-weight:700}
+  .nav-cta{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--ink);padding:11px 22px;border-radius:8px;font-weight:700;font-size:14px;border:1.5px solid var(--ink);transition:all .2s}
+  .nav-cta:hover{background:var(--ink);color:#fff}
+  .menu-btn{display:none;background:none;border:0;font-size:22px;color:var(--ink)}
+
+  /* HERO */
+  .hero{padding:24px 0 0;position:relative}
+  .hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center;padding:30px 0 80px}
+  h1.htitle{
+    font-size:clamp(48px,7.2vw,86px);
+    font-weight:800;
+    letter-spacing:-.035em;
+    line-height:.95;
+  }
+  .htitle span{color:var(--blue)}
+  .hero-sub{margin:28px 0;color:var(--muted);font-size:17px;max-width:460px;line-height:1.55}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:8px;font-weight:700;font-size:14.5px;transition:all .2s;cursor:pointer;border:0;font-family:inherit}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn-dark:hover{background:var(--blue);transform:translateY(-2px)}
+  .btn-out{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+  .btn-out:hover{background:var(--ink);color:#fff}
+  .hero-stats{display:flex;gap:48px;margin-top:48px}
+  .hstat b{display:block;font-size:38px;font-weight:800;letter-spacing:-.03em;line-height:1}
+  .hstat b sup{color:var(--blue);font-size:24px;font-weight:800;margin-left:2px}
+  .hstat span{font-size:13px;color:var(--muted);margin-top:6px;display:block}
+
+  .hero-img{
+    position:relative;border-radius:18px;overflow:hidden;
+    aspect-ratio:5/6;
+    background:
+      url('img/17018103.jpg') center/cover no-repeat,
+      #c9d6e8;
+    box-shadow:var(--shadow);
+  }
+  .hero-img .tag{
+    position:absolute;top:18px;left:18px;
+    background:rgba(255,255,255,.95);backdrop-filter:blur(10px);
+    color:var(--ink);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    padding:8px 14px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;
+  }
+  .hero-img .tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(43,108,255,.2)}
+  .hero-img .badge-cert{
+    position:absolute;right:18px;bottom:18px;
+    background:#fff;border-radius:14px;padding:14px 18px;
+    box-shadow:var(--shadow);max-width:230px;
+  }
+  .hero-img .badge-cert b{display:block;font-size:13px;font-weight:800}
+  .hero-img .badge-cert span{font-size:12px;color:var(--muted)}
+
+  /* QUOTE BAR */
+  .quote-bar{
+    background:#fff;border-radius:14px;padding:22px;box-shadow:var(--shadow);
+    margin-top:-40px;position:relative;z-index:5;
+  }
+  .quote-bar h4{font-size:14px;font-weight:700;margin-bottom:14px;color:var(--ink)}
+  .qb-grid{display:grid;grid-template-columns:1.2fr 1.2fr 1fr auto;gap:10px}
+  .qb-field{position:relative}
+  .qb-field svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--muted);pointer-events:none}
+  .qb-field input,.qb-field select{
+    width:100%;border:1px solid var(--line);background:#fff;border-radius:8px;
+    padding:14px 14px 14px 38px;font-size:14px;color:var(--ink);font-family:inherit;
+    appearance:none;-webkit-appearance:none;
+  }
+  .qb-field input:focus,.qb-field select:focus{outline:0;border-color:var(--ink)}
+  .qb-submit{background:var(--ink);color:#fff;border:0;border-radius:8px;padding:0 26px;font-weight:700;font-size:14px;cursor:pointer;transition:background .2s}
+  .qb-submit:hover{background:var(--blue)}
+
+  /* SECTIONS */
+  section{padding:90px 0;position:relative}
+  .pre{display:inline-flex;align-items:center;gap:12px;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--ink);margin-bottom:14px}
+  .pre::before{content:"";width:36px;height:1px;background:var(--ink)}
+  h2{font-size:clamp(32px,4.2vw,52px);font-weight:800;letter-spacing:-.03em;line-height:1.05}
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;gap:30px;flex-wrap:wrap}
+  .section-head .explore{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:14px;color:var(--ink);border-bottom:1.5px solid var(--ink);padding-bottom:2px}
+  .section-head .explore:hover{color:var(--blue);border-color:var(--blue)}
+
+  /* POPULAR */
+  .pop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .svc-card{
+    background:#fff;border-radius:14px;overflow:hidden;
+    box-shadow:0 14px 30px -16px rgba(10,23,54,.18);
+    transition:transform .3s ease, box-shadow .3s ease;
+    display:flex;flex-direction:column;
+  }
+  .svc-card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -20px rgba(10,23,54,.25)}
+  .svc-img{aspect-ratio:16/11;background:#c9d6e8;background-size:cover;background-position:center;position:relative}
+  .svc-meta{padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px}
+  .svc-meta h4{font-size:17px;font-weight:800;display:flex;align-items:center;gap:8px}
+  .svc-meta h4::before{content:"⚡";font-size:14px;color:var(--blue)}
+  .svc-row{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:12.5px;align-items:center}
+  .svc-row span{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;background:#eef3fb;border-radius:6px;font-weight:600;color:var(--ink-2)}
+  .svc-foot{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+  .svc-foot .book{background:var(--ink);color:#fff;border-radius:8px;padding:10px 16px;font-weight:700;font-size:13px;transition:background .2s}
+  .svc-foot .book:hover{background:var(--blue)}
+  .svc-foot .price{font-weight:800;font-size:14.5px}
+  .svc-foot .price small{font-weight:500;color:var(--muted)}
+
+  /* TESTIMONIAL BAND */
+  .band{
+    background:var(--ink);color:#fff;
+    margin:0 calc(50% - 50vw);padding:80px 0;
+  }
+  .band-inner{display:grid;grid-template-columns:1fr 2fr;gap:60px;align-items:center}
+  .quote{font-family:"Playfair Display", Georgia, serif;font-size:clamp(22px,2.4vw,32px);font-weight:500;font-style:italic;letter-spacing:-.01em;line-height:1.3;color:#fff;position:relative;padding-left:60px}
+  .quote::before{content:"\201C";position:absolute;left:0;top:-20px;font-size:88px;color:var(--blue);line-height:1;font-style:normal;font-family:"Playfair Display",serif}
+  .author{font-weight:700;font-size:16px}
+  .author small{display:block;font-weight:500;color:#9aa6c6;margin-top:4px;font-size:13px}
+
+  /* CATALOG */
+  .cats{display:flex;gap:8px;margin-bottom:30px;flex-wrap:wrap}
+  .cat{padding:9px 16px;border-radius:8px;background:transparent;border:1.5px solid var(--line);color:var(--ink);font-size:13.5px;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit}
+  .cat:hover{border-color:var(--ink)}
+  .cat.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .cat-item{
+    background:#fff;border-radius:12px;padding:22px 20px;
+    border:1px solid transparent;transition:all .25s;
+    display:flex;flex-direction:column;gap:8px;
+  }
+  .cat-item:hover{border-color:var(--ink);transform:translateY(-3px);box-shadow:var(--shadow)}
+  .cat-item .n{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.08em}
+  .cat-item h5{font-size:15.5px;font-weight:800;letter-spacing:-.01em}
+  .cat-item p{font-size:13px;color:var(--muted);line-height:1.5}
+  .cat-item .arr{margin-top:8px;display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:700;color:var(--ink)}
+
+  /* ABOUT SPLIT */
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .about-img{aspect-ratio:4/5;border-radius:18px;background:url('img/33118659.jpg') center/cover no-repeat #c9d6e8;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .about-img .float{
+    position:absolute;left:18px;bottom:18px;background:#fff;border-radius:12px;padding:14px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:14px;max-width:280px;
+  }
+  .float .dot{width:42px;height:42px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:800;flex:none}
+  .float b{font-size:14px;font-weight:800;display:block}
+  .float span{font-size:12px;color:var(--muted)}
+  .about-text h2{margin-bottom:18px}
+  .about-text p{color:var(--muted);font-size:15.5px;margin-bottom:14px}
+  .about-list{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;list-style:none;padding:0}
+  .about-list li{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600}
+  .about-list li::before{content:"";width:22px;height:22px;border-radius:50%;background:var(--ink);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'><polyline points='20 6 9 17 4 12'/></svg>");background-size:14px;background-repeat:no-repeat;background-position:center;flex:none}
+
+  /* CONTACT */
+  .contact{
+    background:#fff;border-radius:18px;padding:60px;
+    box-shadow:var(--shadow);display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:start;
+  }
+  .contact h2 span{color:var(--blue)}
+  .contact p{color:var(--muted);font-size:15.5px;margin-top:14px;max-width:440px}
+  .ccards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
+  .ccard{background:var(--bg);border-radius:12px;padding:20px}
+  .ccard .ico{width:38px;height:38px;border-radius:10px;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:15px;margin-bottom:12px}
+  .ccard b{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block}
+  .ccard a,.ccard span{font-weight:800;font-size:15.5px;color:var(--ink);margin-top:4px;display:block;word-break:break-word}
+
+  .form{display:flex;flex-direction:column;gap:12px}
+  .form label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .form input,.form textarea,.form select{width:100%;border:1.5px solid var(--line);border-radius:8px;padding:14px;font-size:14px;font-family:inherit;background:#fff}
+  .form input:focus,.form textarea:focus,.form select:focus{outline:0;border-color:var(--ink)}
+  .form textarea{min-height:110px;resize:vertical}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .form button{margin-top:6px}
+
+  /* FOOTER */
+  footer.foot{background:var(--ink);color:#cfd7ed;padding:70px 0 30px;margin-top:80px}
+  .foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px}
+  .foot-brand img{height:42px;filter:brightness(1.05);margin-bottom:14px}
+  .foot-brand p{font-size:14px;color:#9aa6c6;max-width:300px}
+  .foot h6{color:#fff;font-size:14px;font-weight:800;margin-bottom:16px;letter-spacing:-.005em}
+  .foot ul{list-style:none}
+  .foot li{margin-bottom:10px;font-size:13.5px}
+  .foot a:hover{color:var(--blue)}
+  .foot-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;font-size:12.5px;color:#7c87a6;flex-wrap:wrap;gap:10px}
+
+  /* Reveal */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* Responsive */
+  @media (max-width:980px){
+    .nav-links{display:none}
+    .menu-btn{display:block}
+    .hero-grid{grid-template-columns:1fr;gap:30px;padding-bottom:40px}
+    .hero-img{aspect-ratio:4/3}
+    .qb-grid{grid-template-columns:1fr 1fr;gap:10px}
+    .qb-submit{grid-column:1/-1;padding:14px}
+    .pop-grid{grid-template-columns:1fr 1fr}
+    .cat-grid{grid-template-columns:1fr 1fr}
+    .about{grid-template-columns:1fr;gap:30px}
+    .contact{grid-template-columns:1fr;padding:36px 28px;gap:40px}
+    .ccards{grid-template-columns:1fr 1fr}
+    .band-inner{grid-template-columns:1fr;gap:30px}
+    .quote{padding-left:40px}
+    .foot-top{grid-template-columns:1fr 1fr}
+    .hero-stats{gap:24px;flex-wrap:wrap;margin-top:32px}
+  }
+  @media (max-width:560px){
+    .pop-grid{grid-template-columns:1fr}
+    .cat-grid{grid-template-columns:1fr}
+    .ccards{grid-template-columns:1fr}
+    .foot-top{grid-template-columns:1fr}
+    .about-list{grid-template-columns:1fr}
+    .form-row{grid-template-columns:1fr}
+    section{padding:60px 0}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="brand">
+      <img src="https://ctelectrics.com/wp-content/uploads/2023/02/logo_fin1.png" alt="CT Electrical Services" />
+    </a>
+    <nav class="nav-links">
+      <a href="#" class="active">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="tel:07961450674">Get A Free Quote</a>
+    <button class="menu-btn" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <h1 class="htitle">An Electrician<br/>You Can <span>Trust.</span></h1>
+        <p class="hero-sub">Need a sparkie any hour? We're a City &amp; Guilds qualified electrician serving the north-east — 24-hour callout and every job guaranteed.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="tel:07961450674" class="btn btn-dark">Get Started</a>
+          <a href="#services" class="btn btn-out">View Services</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hstat"><b>24<sup>h</sup></b><span>Emergency callout</span></div>
+          <div class="hstat"><b>15<sup>+</sup></b><span>Services offered</span></div>
+          <div class="hstat"><b>100<sup>%</sup></b><span>Work guaranteed</span></div>
+        </div>
+      </div>
+      <div class="hero-img">
+        <span class="tag">Available now</span>
+        <div class="badge-cert">
+          <b>City &amp; Guilds Qualified</b>
+          <span>Fully insured · 18th Edition</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUOTE BAR -->
+    <div class="quote-bar reveal">
+      <h4>Request a no-obligation quote</h4>
+      <div class="qb-grid">
+        <div class="qb-field">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <input type="text" placeholder="Your location (e.g. Newcastle)" />
+        </div>
+        <div class="qb-field">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <select>
+            <option>Service type</option>
+            <option>Rewiring</option>
+            <option>Fuse board</option>
+            <option>EICR / testing</option>
+            <option>Sockets &amp; lighting</option>
+            <option>Commercial maintenance</option>
+            <option>Access control</option>
+          </select>
+        </div>
+        <div class="qb-field">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <select>
+            <option>When?</option>
+            <option>ASAP (24h callout)</option>
+            <option>This week</option>
+            <option>This month</option>
+            <option>Just planning</option>
+          </select>
+        </div>
+        <button class="qb-submit" onclick="window.location.href='tel:07961450674'">Get Quote</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POPULAR -->
+<section id="popular">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="pre">Popular</span>
+        <h2>Our Popular Services</h2>
+      </div>
+      <a href="#services" class="explore">Explore All →</a>
+    </div>
+
+    <div class="pop-grid reveal">
+      <div class="svc-card">
+        <div class="svc-img" style="background-image:url('img/7285965.jpg')"></div>
+        <div class="svc-meta">
+          <h4>Full &amp; partial rewiring</h4>
+          <div class="svc-row"><span>🏠 Domestic</span><span>⚡ Most booked</span></div>
+          <div class="svc-foot">
+            <div class="price"><small>From</small> Quote</div>
+            <a class="book" href="tel:07961450674">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-img" style="background-image:url('img/257736.jpg')"></div>
+        <div class="svc-meta">
+          <h4>Replacement fuse boards</h4>
+          <div class="svc-row"><span>🛡️ Safety</span><span>⏱ 1-day fit</span></div>
+          <div class="svc-foot">
+            <div class="price"><small>From</small> Quote</div>
+            <a class="book" href="tel:07961450674">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-img" style="background-image:url('img/34054464.jpg')"></div>
+        <div class="svc-meta">
+          <h4>EICR &amp; electrical testing</h4>
+          <div class="svc-row"><span>📋 Compliance</span><span>🏢 Dom / Comm</span></div>
+          <div class="svc-foot">
+            <div class="price"><small>From</small> Quote</div>
+            <a class="book" href="tel:07961450674">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL BAND -->
+<section style="padding:0">
+  <div class="band">
+    <div class="container band-inner reveal">
+      <div>
+        <div class="author">
+          Craig Tait
+          <small>Founder &middot; CT Electrical Services</small>
+        </div>
+      </div>
+      <p class="quote">Our business is built on word-of-mouth and repeat customers. We turn up when we say we will, give you a fair price, and guarantee every job — because in this trade, your reputation is the only thing that matters.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FULL SERVICES CATALOG -->
+<section id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="pre">Catalogue</span>
+        <h2>Every service we offer.</h2>
+      </div>
+      <a href="#contact" class="explore">Book A Visit →</a>
+    </div>
+
+    <div class="cats reveal">
+      <button class="cat active">All</button>
+      <button class="cat">Domestic</button>
+      <button class="cat">Commercial</button>
+      <button class="cat">Maintenance</button>
+      <button class="cat">Energy</button>
+      <button class="cat">Security</button>
+      <button class="cat">Data</button>
+    </div>
+
+    <div class="cat-grid reveal">
+      <div class="cat-item"><span class="n">01</span><h5>Electrical condition reports</h5><p>Certified EICR inspections for landlords, homeowners and businesses.</p><span class="arr">Book →</span></div>
+      <div class="cat-item"><span class="n">02</span><h5>Rewiring</h5><p>Full and partial property rewires, including older homes.</p><span class="arr">Quote →</span></div>
+      <div class="cat-item"><span class="n">03</span><h5>Electrical testing</h5><p>Periodic testing, PAT, fault finding and certification.</p><span class="arr">Test →</span></div>
+      <div class="cat-item"><span class="n">04</span><h5>Replacement fuse boards</h5><p>Modern consumer units with RCBOs and surge protection.</p><span class="arr">Upgrade →</span></div>
+      <div class="cat-item"><span class="n">05</span><h5>Earthing upgrade</h5><p>Bring older properties up to 18th Edition standards.</p><span class="arr">Learn →</span></div>
+      <div class="cat-item"><span class="n">06</span><h5>Additional sockets &amp; lighting</h5><p>From single sockets to full indoor &amp; outdoor lighting fits.</p><span class="arr">Add →</span></div>
+      <div class="cat-item"><span class="n">07</span><h5>Project management</h5><p>End-to-end electrical delivery for builders and developers.</p><span class="arr">Discuss →</span></div>
+      <div class="cat-item"><span class="n">08</span><h5>Preventative maintenance</h5><p>Planned servicing visits for commercial premises.</p><span class="arr">Plan →</span></div>
+      <div class="cat-item"><span class="n">09</span><h5>Reactive maintenance</h5><p>Fast-response repairs, 24 hours a day, 7 days a week.</p><span class="arr">Call →</span></div>
+      <div class="cat-item"><span class="n">10</span><h5>Energy efficiency</h5><p>LED retrofits, controls and load surveys to cut bills.</p><span class="arr">Audit →</span></div>
+      <div class="cat-item"><span class="n">11</span><h5>Energy management</h5><p>Sub-metering, dashboards and reporting on consumption.</p><span class="arr">Measure →</span></div>
+      <div class="cat-item"><span class="n">12</span><h5>Carbon footprint</h5><p>Practical guidance on measuring &amp; reducing operational carbon.</p><span class="arr">Reduce →</span></div>
+      <div class="cat-item"><span class="n">13</span><h5>Tag entry systems</h5><p>Fob and tag access control — installed, programmed, supported.</p><span class="arr">Specify →</span></div>
+      <div class="cat-item"><span class="n">14</span><h5>Electronic door security</h5><p>Mag-locks, keypads, intercoms and CCTV tie-ins.</p><span class="arr">Secure →</span></div>
+      <div class="cat-item"><span class="n">15</span><h5>Data management</h5><p>Structured data cabling, comms cabinets and networked AV.</p><span class="arr">Plan →</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about reveal">
+      <div class="about-img">
+        <div class="float">
+          <div class="dot">⚡</div>
+          <div><b>City &amp; Guilds Qualified</b><span>Fully insured &amp; certified</span></div>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="pre">About</span>
+        <h2>Local electrician.<br/>Honest pricing.</h2>
+        <p>If you're looking for a reliable and professional electrician in the north-east area — look no further. We handle everything from a single outlet to complete property rewiring, with rates that are highly competitive to save you money.</p>
+        <p>Every quote is no-obligation, every job is guaranteed, and the engineer who quotes is the engineer who carries out the work. No subcontracted middle-men, no surprises on the invoice.</p>
+        <ul class="about-list">
+          <li>24-hour callout</li>
+          <li>City &amp; Guilds qualified</li>
+          <li>Free written quotes</li>
+          <li>Domestic &amp; commercial</li>
+          <li>Fully insured</li>
+          <li>All work guaranteed</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" style="padding-top:0">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="pre">How It Works</span>
+        <h2>From call to certificate.</h2>
+      </div>
+    </div>
+    <div class="cat-grid reveal" style="grid-template-columns:repeat(4,1fr)">
+      <div class="cat-item"><span class="n">STEP 01</span><h5>Call us</h5><p>Speak to Craig directly — most jobs are scoped in one short conversation.</p></div>
+      <div class="cat-item"><span class="n">STEP 02</span><h5>Free quote</h5><p>We visit, assess the work and give you a clear written quotation.</p></div>
+      <div class="cat-item"><span class="n">STEP 03</span><h5>The work</h5><p>Tidy, on-time install. Floors protected, area cleaned up, tested as we go.</p></div>
+      <div class="cat-item"><span class="n">STEP 04</span><h5>Certified</h5><p>Get your certificate, your guarantee, and a friendly engineer on call.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact reveal">
+      <div>
+        <span class="pre">Contact</span>
+        <h2>Need a sparkie? <span>Call now.</span></h2>
+        <p>24-hour callout across the north-east. Free no-obligation quotes on every job. Phone is fastest — Craig answers the call himself.</p>
+        <div class="ccards">
+          <div class="ccard">
+            <div class="ico">📞</div>
+            <b>Phone</b>
+            <a href="tel:07961450674">07961 450 674</a>
+          </div>
+          <div class="ccard">
+            <div class="ico">✉️</div>
+            <b>Email</b>
+            <a href="mailto:ctelectrical@mail.com">ctelectrical@mail.com</a>
+          </div>
+          <div class="ccard">
+            <div class="ico">📍</div>
+            <b>Coverage</b>
+            <span>North-east UK</span>
+          </div>
+          <div class="ccard">
+            <div class="ico">🐦</div>
+            <b>Social</b>
+            <a href="https://twitter.com/craigalantait" target="_blank">@craigalantait</a>
+          </div>
+        </div>
+      </div>
+      <form class="form" onsubmit="event.preventDefault();alert('Thanks — we\'ll be in touch shortly.');this.reset();">
+        <div>
+          <label for="n">Your name</label>
+          <input id="n" type="text" required placeholder="e.g. Jane Smith" />
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="p">Phone</label>
+            <input id="p" type="tel" required placeholder="07…" />
+          </div>
+          <div>
+            <label for="e">Email</label>
+            <input id="e" type="email" placeholder="optional" />
+          </div>
+        </div>
+        <div>
+          <label for="s">Service required</label>
+          <select id="s">
+            <option>Choose a service…</option>
+            <option>Rewiring</option>
+            <option>Fuse board replacement</option>
+            <option>EICR / electrical testing</option>
+            <option>Sockets &amp; lighting</option>
+            <option>Earthing upgrade</option>
+            <option>Commercial maintenance</option>
+            <option>Energy efficiency / audit</option>
+            <option>Access control / security</option>
+            <option>Data cabling</option>
+            <option>Emergency callout</option>
+          </select>
+        </div>
+        <div>
+          <label for="m">Tell us about the job</label>
+          <textarea id="m" placeholder="Property type, scope, any urgency…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark">Request quote</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="https://ctelectrics.com/wp-content/uploads/2023/02/logo_fin1.png" alt="CT Electrical Services" />
+        <p>24-hour callout. All work guaranteed. City &amp; Guilds qualified electrician serving the north-east.</p>
+      </div>
+      <div>
+        <h6>Services</h6>
+        <ul>
+          <li><a href="#services">Rewiring</a></li>
+          <li><a href="#services">Fuse boards</a></li>
+          <li><a href="#services">EICR testing</a></li>
+          <li><a href="#services">Sockets &amp; lighting</a></li>
+          <li><a href="#services">Maintenance</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6>Commercial</h6>
+        <ul>
+          <li><a href="#services">Project management</a></li>
+          <li><a href="#services">Energy audits</a></li>
+          <li><a href="#services">Access control</a></li>
+          <li><a href="#services">Data cabling</a></li>
+          <li><a href="#services">Carbon footprint</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6>Contact</h6>
+        <ul>
+          <li><a href="tel:07961450674">07961 450 674</a></li>
+          <li><a href="mailto:ctelectrical@mail.com">ctelectrical@mail.com</a></li>
+          <li><a href="https://twitter.com/craigalantait" target="_blank">@craigalantait</a></li>
+          <li>North-east UK</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© CT Electrical Services · All work guaranteed.</span>
+      <span>Call now for a no-obligation quotation.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  document.querySelectorAll('.cat').forEach(t=>{
+    t.addEventListener('click',()=>{
+      document.querySelectorAll('.cat').forEach(x=>x.classList.remove('active'));
+      t.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,777 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>CityScapes Roofing — Stylish, Reliable Roofing in San Diego</title>
-<meta name="description" content="Premium residential & commercial roofing. 38+ years of San Diego experience. Owens Corning certified. Google Guaranteed. Free estimates." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CityScapes Roofing — Roofing & Repairs Done Right | San Diego</title>
+<meta name="description" content="CityScapes Roofing — premium residential & commercial roofing across San Diego. 38 years experience, Owens Corning & Tropical Coatings certified, Google Guaranteed.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #0f1419;
-    --ink-2: #2a3340;
-    --ink-3: #4a5462;
-    --muted: #6b7684;
-    --bg: #ffffff;
-    --bg-soft: #f5f7f9;
-    --bg-warm: #f8f5ef;
-    --line: #e6eaee;
-    --gold: #f59e0b;
-    --gold-deep: #d97706;
-    --gold-soft: #fef3c7;
-    --navy: #14202b;
-    --shadow-sm: 0 1px 3px rgba(15,20,25,0.06);
-    --shadow-md: 0 18px 38px -16px rgba(15,20,25,0.18);
-    --shadow-lg: 0 40px 80px -30px rgba(15,20,25,0.28);
-    --radius-sm: 8px;
-    --radius-md: 14px;
-    --radius-lg: 24px;
-    --container: 1240px;
-    --display: 'Fraunces', 'Georgia', serif;
-    --body: 'DM Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  :root{
+    --navy:#0e2a33;        /* deep brand navy/teal */
+    --navy-2:#143842;
+    --teal:#1f7184;        /* original brand teal family */
+    --teal-2:#2a8da3;
+    --gold:#e6a128;        /* warm amber/gold accent */
+    --gold-2:#f4b740;
+    --ink:#14242a;
+    --paper:#ffffff;
+    --cream:#f7f4ee;       /* warm off-white */
+    --cream-2:#efe9df;
+    --mist:#f3f6f7;
+    --line:#e6e2d9;
+    --muted:#5d6b70;
+    --muted-l:#9aa7ab;
+    --radius:18px;
+    --shadow:0 30px 70px -30px rgba(14,42,51,.30);
+    --maxw:1240px;
   }
-  *,*::before,*::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    font-family: var(--body);
-    color: var(--ink);
-    background: var(--bg);
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.6;
-  }
-  img { max-width: 100%; display: block; }
-  a { color: inherit; text-decoration: none; }
-  button { font: inherit; cursor: pointer; }
-  .container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Sora',sans-serif;font-weight:700;line-height:1.1;letter-spacing:-.025em}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:'Plus Jakarta Sans';font-weight:700;text-transform:uppercase;letter-spacing:.2em;font-size:.74rem;color:var(--teal)}
+  .it{font-style:normal;font-weight:700;color:var(--gold)}
+  .btn{display:inline-flex;align-items:center;gap:.55rem;font-family:'Plus Jakarta Sans';font-weight:600;font-size:.95rem;padding:.95rem 1.7rem;border-radius:999px;cursor:pointer;border:none;transition:transform .25s,box-shadow .25s,background .25s}
+  .btn-gold{background:var(--gold);color:#3a2a05;box-shadow:0 14px 30px -12px rgba(230,161,40,.7)}
+  .btn-gold:hover{background:var(--gold-2);transform:translateY(-2px)}
+  .btn-teal{background:var(--teal);color:#fff}
+  .btn-teal:hover{background:var(--teal-2);transform:translateY(-2px)}
+  .btn-line{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.45)}
+  .btn-line:hover{background:rgba(255,255,255,.2)}
+  .btn-ghost-d{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
+  .btn-ghost-d:hover{border-color:var(--teal);color:var(--teal)}
 
-  /* ===== Header ===== */
-  .header {
-    background: var(--bg);
-    position: sticky; top: 0; z-index: 50;
-    border-bottom: 1px solid var(--line);
-  }
-  .header-inner {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 0; gap: 24px;
-  }
-  .brand { display: flex; align-items: center; gap: 12px; }
-  .brand img { height: 52px; width: auto; }
-  .brand-text { display: flex; flex-direction: column; line-height: 1; }
-  .brand-text strong { font-family: var(--display); font-weight: 700; font-size: 19px; letter-spacing: -0.01em; color: var(--ink); }
-  .brand-text small { color: var(--muted); font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; margin-top: 5px; font-weight: 500; }
+  /* HEADER */
+  header{position:fixed;top:0;left:0;right:0;z-index:60;transition:.3s}
+  header.scrolled{background:rgba(255,255,255,.95);backdrop-filter:blur(14px);box-shadow:0 6px 30px -18px rgba(14,42,51,.4)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 0}
+  .brand{display:flex;align-items:center;gap:.7rem}
+  .brand img{height:44px;width:auto}
+  .brand .bt{font-family:'Sora';font-weight:600;font-size:1.25rem;color:var(--navy);line-height:1}
+  .brand .bt span{color:var(--teal)}
+  .brand .bs{display:block;font-family:'Plus Jakarta Sans';font-weight:600;font-size:.6rem;letter-spacing:.26em;color:var(--muted-l);text-transform:uppercase;margin-top:3px}
+  header:not(.scrolled) .brand .bt,header:not(.scrolled) .brand .bt span{color:#fff}
+  header:not(.scrolled) .brand img{filter:brightness(0) invert(1)}
+  .menu{display:flex;align-items:center;gap:2rem}
+  .menu a{font-weight:500;font-size:.95rem;color:#fff;transition:color .25s;position:relative}
+  header.scrolled .menu a{color:var(--ink)}
+  .menu a:hover{color:var(--gold)}
+  .nav-right{display:flex;align-items:center;gap:1.2rem}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+  .burger span{width:26px;height:2.5px;background:#fff;border-radius:2px;transition:.3s}
+  header.scrolled .burger span{background:var(--navy)}
 
-  .nav { display: flex; align-items: center; gap: 4px; }
-  .nav a {
-    padding: 10px 16px; font-weight: 500; font-size: 14.5px;
-    color: var(--ink-2); border-radius: 999px; transition: all .2s;
-    letter-spacing: 0.01em;
-  }
-  .nav a:hover { color: var(--gold-deep); }
-  .nav a.active { color: var(--gold-deep); }
-  .header-cta {
-    background: var(--gold); color: #fff;
-    padding: 13px 26px; border-radius: 999px;
-    font-weight: 600; font-size: 14px; letter-spacing: 0.02em;
-    border: none; transition: background .2s, transform .15s, box-shadow .2s;
-    box-shadow: 0 10px 24px -10px rgba(245,158,11,0.55);
-  }
-  .header-cta:hover { background: var(--gold-deep); transform: translateY(-1px); }
-  .menu-toggle { display: none; background: transparent; border: 1px solid var(--line); padding: 10px 12px; border-radius: 8px; }
+  /* HERO */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;color:#fff;overflow:hidden;background:linear-gradient(120deg,#0e2a33,#1f7184)}
+  .hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop') center/cover}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(14,42,51,.92) 0%,rgba(14,42,51,.72) 45%,rgba(14,42,51,.25) 75%,transparent 100%)}
+  .hero-wrap{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .hero-inner{max-width:720px;padding:9rem 0 6rem;text-align:left;margin:0}
+  .hero h1{font-size:clamp(2.6rem,5.6vw,4.6rem);font-weight:600;margin:1.3rem 0 1.3rem}
+  .hero p.sub{font-size:1.18rem;color:#dfe6e7;max-width:560px;margin-bottom:2.2rem;font-weight:400}
+  .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.8rem}
+  .hero-meta{display:flex;gap:2.4rem;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.18);padding-top:1.8rem}
+  .hero-meta .m b{font-family:'Sora';font-size:1.7rem;display:block;line-height:1}
+  .hero-meta .m b .it{font-size:1.7rem}
+  .hero-meta .m small{color:#b9c4c6;font-size:.82rem}
 
-  /* ===== Hero ===== */
-  .hero {
-    background: var(--bg-soft);
-    padding: clamp(40px, 5vw, 64px) 0 0;
-    position: relative;
-  }
-  .hero-grid {
-    display: grid; grid-template-columns: 1.05fr 1.1fr; gap: 56px;
-    align-items: center; min-height: 560px;
-    padding-bottom: clamp(64px, 8vw, 100px);
-  }
-  .hero-text { padding: 24px 0; }
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 12px;
-    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--gold-deep); font-weight: 600;
-    margin-bottom: 22px;
-  }
-  .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--gold); border-radius: 2px; }
-  .hero h1 {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: clamp(38px, 5vw, 60px);
-    line-height: 1.06;
-    letter-spacing: -0.015em;
-    margin: 0 0 22px;
-    color: var(--ink);
-  }
-  .hero h1 em { font-style: italic; color: var(--gold-deep); font-weight: 600; }
-  .hero p.lede {
-    font-size: 17px; color: var(--ink-3); margin: 0 0 32px; max-width: 520px;
-  }
-  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-  .btn-outline {
-    background: transparent; color: var(--ink);
-    padding: 14px 28px; border-radius: 999px;
-    border: 1.5px solid var(--ink); font-weight: 600;
-    font-size: 14px; letter-spacing: 0.02em;
-    display: inline-flex; align-items: center; gap: 10px;
-    transition: all .2s;
-  }
-  .btn-outline:hover { background: var(--ink); color: #fff; }
-  .btn-solid {
-    background: var(--gold); color: #fff;
-    padding: 14px 28px; border-radius: 999px;
-    font-weight: 600; font-size: 14px; letter-spacing: 0.02em;
-    border: none; display: inline-flex; align-items: center; gap: 10px;
-    transition: background .2s, transform .15s;
-    box-shadow: 0 10px 24px -10px rgba(245,158,11,0.55);
-  }
-  .btn-solid:hover { background: var(--gold-deep); transform: translateY(-1px); }
+  /* SERVICES — "The ___ Your" centered cards */
+  .section{padding:6.5rem 0}
+  .sec-head{text-align:center;max-width:680px;margin:0 auto 3.6rem}
+  .sec-head h2{font-size:clamp(2.1rem,4vw,3.1rem);margin:.6rem 0 .8rem}
+  .sec-head p{color:var(--muted);font-size:1.08rem}
+  .scards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+  .scard{text-align:left;transition:transform .3s}
+  .scard:hover{transform:translateY(-6px)}
+  .scard .ph{border-radius:14px;overflow:hidden;aspect-ratio:4/3;margin-bottom:1.1rem;position:relative}
+  .scard .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .scard:hover .ph img{transform:scale(1.07)}
+  .scard .ph .tag{position:absolute;left:12px;top:12px;background:var(--gold);color:#3a2a05;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:.3rem .7rem;border-radius:999px}
+  .scard h3{font-size:1.25rem;margin-bottom:.4rem}
+  .scard p{color:var(--muted);font-size:.94rem}
 
-  .hero-trust {
-    margin-top: 40px; display: flex; gap: 28px; align-items: center; flex-wrap: wrap;
-    padding-top: 28px; border-top: 1px solid var(--line);
-  }
-  .hero-trust .item {
-    display: flex; align-items: center; gap: 12px;
-  }
-  .hero-trust .item .ic {
-    width: 36px; height: 36px; border-radius: 999px;
-    background: var(--gold-soft); color: var(--gold-deep);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .hero-trust .item .ic svg { width: 16px; height: 16px; }
-  .hero-trust .item .txt strong { display: block; font-weight: 600; font-size: 13.5px; color: var(--ink); }
-  .hero-trust .item .txt span { font-size: 11.5px; color: var(--muted); letter-spacing: 0.04em; }
+  /* HOW / ABOUT split (image left, text right) */
+  .howsec{background:var(--cream)}
+  .how-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+  .how-img{position:relative}
+  .how-img img{border-radius:var(--radius);width:100%;aspect-ratio:5/4;object-fit:cover;box-shadow:var(--shadow)}
+  .how-img .float{position:absolute;left:-26px;bottom:-26px;background:#fff;border-radius:16px;padding:1.3rem 1.6rem;box-shadow:var(--shadow);display:flex;align-items:center;gap:.9rem}
+  .how-img .float .dot{width:46px;height:46px;border-radius:12px;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:600;font-size:1.3rem}
+  .how-img .float b{font-family:'Sora';font-size:1.5rem;display:block;line-height:1}
+  .how-img .float small{color:var(--muted);font-size:.8rem}
+  .how-text h2{font-size:clamp(2rem,3.8vw,2.9rem);margin:.7rem 0 1.2rem}
+  .how-text p{color:var(--muted);font-size:1.05rem;margin-bottom:1.1rem}
+  .checks{list-style:none;margin:1.4rem 0 2rem;display:flex;flex-direction:column;gap:.85rem}
+  .checks li{display:flex;gap:.8rem;align-items:flex-start;font-weight:500;color:var(--ink)}
+  .checks li svg{color:var(--teal);flex-shrink:0;margin-top:3px}
+  .how-cta{display:flex;gap:.9rem;flex-wrap:wrap}
 
-  .hero-image {
-    position: relative;
-    height: 100%; min-height: 480px;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    background: url('https://images.unsplash.com/photo-1605276373954-0c4a0dac5b12?w=1400&q=80&auto=format&fit=crop') center/cover no-repeat,
-                url('https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?w=1400&q=80&auto=format&fit=crop') center/cover no-repeat,
-                linear-gradient(135deg, #2a3340, #14202b);
-    box-shadow: var(--shadow-lg);
-  }
-  .hero-image::after {
-    content: ""; position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 60%, rgba(15,20,25,0.35));
-  }
-  .hero-rating {
-    position: absolute; bottom: 24px; left: 24px;
-    background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
-    border-radius: 14px; padding: 14px 18px;
-    display: flex; align-items: center; gap: 14px; z-index: 2;
-  }
-  .hero-rating .stars { color: var(--gold); letter-spacing: 2px; font-size: 14px; }
-  .hero-rating .meta strong { display: block; font-family: var(--display); font-weight: 700; font-size: 18px; color: var(--ink); line-height: 1; }
-  .hero-rating .meta span { font-size: 11.5px; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; margin-top: 4px; display: block; }
+  /* CREDS strip */
+  .creds-band{background:var(--navy);color:#fff;padding:3.4rem 0}
+  .creds-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center}
+  .creds-row .c b{font-family:'Sora';font-size:2.6rem;display:block;color:var(--gold-2);line-height:1}
+  .creds-row .c b .it{font-size:2.6rem}
+  .creds-row .c small{color:#aebabd;font-size:.9rem;display:block;margin-top:.5rem}
+  .creds-row .c+.c{border-left:1px solid rgba(255,255,255,.12)}
 
-  .hero-float {
-    position: absolute; top: 28px; right: 28px;
-    background: var(--ink); color: #fff;
-    padding: 14px 18px; border-radius: 14px;
-    display: flex; align-items: center; gap: 12px;
-    font-size: 13px; box-shadow: var(--shadow-md);
-  }
-  .hero-float .pulse {
-    width: 8px; height: 8px; background: #34d399; border-radius: 50%;
-    box-shadow: 0 0 0 4px rgba(52,211,153,0.25);
-  }
+  /* TESTIMONIALS — photo cards */
+  .testi-head{display:flex;align-items:center;justify-content:center;gap:1.2rem;margin-bottom:3.4rem}
+  .testi-head .ln{flex:1;max-width:120px;height:1px;background:var(--line)}
+  .testi-head h2{font-size:clamp(2rem,3.8vw,2.8rem);text-align:center}
+  .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+  .tcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .3s,box-shadow .3s}
+  .tcard:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .tcard .top{height:7px;background:linear-gradient(90deg,var(--teal),var(--gold))}
+  .tcard .body{padding:2rem}
+  .tcard .stars{color:var(--gold);margin-bottom:.9rem;letter-spacing:2px}
+  .tcard p{color:var(--ink);font-size:1.02rem;font-family:'Plus Jakarta Sans';font-weight:500;line-height:1.6}
+  .tcard .who{display:flex;align-items:center;gap:.85rem;margin-top:1.6rem;padding-top:1.3rem;border-top:1px solid var(--line)}
+  .tcard .av{width:48px;height:48px;border-radius:50%;background:var(--cream-2);color:var(--navy);display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:600}
+  .tcard .nm{font-weight:600}
+  .tcard .loc{color:var(--muted-l);font-size:.83rem}
 
-  /* ===== About ===== */
-  .about {
-    background: var(--bg);
-    padding: clamp(80px, 10vw, 130px) 0;
-  }
-  .about-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-    align-items: center;
-  }
-  .about-text { max-width: 520px; }
-  .section-eyebrow {
-    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--gold-deep); font-weight: 600;
-    display: inline-flex; align-items: center; gap: 12px;
-    margin-bottom: 18px;
-  }
-  .section-eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--gold); border-radius: 2px; }
-  .about-text h2 {
-    font-family: var(--display); font-weight: 700;
-    font-size: clamp(30px, 3.8vw, 46px); line-height: 1.08; letter-spacing: -0.015em;
-    margin: 0 0 22px; color: var(--ink);
-  }
-  .about-text h2 em { font-style: italic; color: var(--gold-deep); }
-  .about-text p {
-    color: var(--ink-3); font-size: 16px; margin: 0 0 16px;
-  }
-  .about-facts {
-    margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
-    padding: 24px 0 4px; border-top: 1px solid var(--line);
-  }
-  .about-facts .f .n {
-    font-family: var(--display); font-weight: 700; font-size: 34px;
-    color: var(--ink); line-height: 1;
-  }
-  .about-facts .f .n em { color: var(--gold-deep); font-style: normal; }
-  .about-facts .f .l { font-size: 13px; color: var(--muted); margin-top: 6px; }
+  /* CTA */
+  .cta{position:relative;color:#fff;text-align:center;padding:6rem 0;overflow:hidden}
+  .cta-bg{position:absolute;inset:0;background:#0e2a33 url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=1800&auto=format&fit=crop') center/cover}
+  .cta-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(14,42,51,.9),rgba(14,42,51,.9))}
+  .cta-in{position:relative;z-index:2;max-width:680px;margin:0 auto}
+  .cta h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem}
+  .cta p{color:#cfd9da;font-size:1.1rem;margin-bottom:2rem}
 
-  /* Image cluster */
-  .about-cluster {
-    position: relative; height: 540px;
-  }
-  .ac-main, .ac-sec, .ac-tert, .ac-frame {
-    position: absolute; border-radius: 14px; overflow: hidden;
-    background-size: cover; background-position: center;
-    box-shadow: var(--shadow-md);
-  }
-  .ac-main {
-    width: 70%; height: 60%;
-    top: 0; right: 0;
-    background-image: url('https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=1000&q=80&auto=format&fit=crop');
-  }
-  .ac-sec {
-    width: 55%; height: 45%;
-    bottom: 0; left: 0;
-    background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=900&q=80&auto=format&fit=crop');
-  }
-  .ac-tert {
-    width: 38%; height: 32%;
-    bottom: 8%; right: 4%;
-    background-image: url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=700&q=80&auto=format&fit=crop');
-    border: 6px solid #fff;
-  }
-  .ac-frame {
-    width: 70%; height: 60%;
-    top: 18px; right: -18px;
-    background: transparent; border: 2px solid var(--gold);
-    box-shadow: none; z-index: -1;
-  }
+  /* FOOTER w/ contact form, teal bottom bar (like ref) */
+  footer{background:var(--navy);color:#c1cdcf;padding:5rem 0 0}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.4fr;gap:3rem;padding-bottom:3.4rem}
+  .foot h4{font-family:'Sora';color:#fff;font-size:1.2rem;margin-bottom:1.2rem}
+  .foot .brand{margin-bottom:1.1rem}
+  .foot .brand .bt,.foot .brand .bt span{color:#fff}
+  .foot .brand img{filter:brightness(0) invert(1)}
+  .foot p{font-size:.95rem;color:#a9b6b8;max-width:300px}
+  .foot ul{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+  .foot ul a,.foot li{color:#a9b6b8;font-size:.95rem;transition:color .2s}
+  .foot ul a:hover{color:var(--gold-2)}
+  .ffield{display:flex;flex-direction:column;gap:.7rem}
+  .ffield input,.ffield select{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:.8rem 1rem;color:#fff;font-family:inherit;font-size:.92rem}
+  .ffield input::placeholder{color:#8a999c}
+  .ffield input:focus,.ffield select:focus{outline:none;border-color:var(--gold)}
+  .ffield button{margin-top:.3rem;justify-content:center}
+  .teal-bar{background:var(--teal);color:#eafaff;text-align:center;padding:1.1rem 0;font-size:.85rem}
+  .teal-bar .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 
-  /* ===== Services (dark) ===== */
-  .services {
-    position: relative;
-    color: #fff;
-    padding: clamp(80px, 10vw, 130px) 0 clamp(140px, 16vw, 220px);
-    background: linear-gradient(180deg, rgba(20,32,43,0.86), rgba(20,32,43,0.92)),
-                url('https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?w=1800&q=80&auto=format&fit=crop') center/cover no-repeat,
-                var(--navy);
-  }
-  .services-head { text-align: center; max-width: 720px; margin: 0 auto 56px; }
-  .services-head .section-eyebrow { color: var(--gold); justify-content: center; }
-  .services-head .section-eyebrow::before { background: var(--gold); }
-  .services-head h2 {
-    font-family: var(--display); font-weight: 700;
-    font-size: clamp(30px, 4vw, 48px); line-height: 1.1; letter-spacing: -0.015em;
-    margin: 0 0 18px; color: #fff;
-  }
-  .services-head h2 em { font-style: italic; color: var(--gold); }
-  .services-head p { color: rgba(255,255,255,0.78); margin: 0; font-size: 16px; }
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
 
-  .service-cards-wrap {
-    position: absolute; left: 0; right: 0; bottom: -120px;
-    padding: 0 24px;
+  @media(max-width:1024px){
+    .scards,.creds-row{grid-template-columns:repeat(2,1fr)}
+    .creds-row .c+.c{border-left:none}
+    .how-grid,.tgrid{grid-template-columns:1fr}
+    .tgrid{max-width:560px;margin:0 auto}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .menu,.nav-right .btn{display:none}
+    .burger{display:flex}
   }
-  .service-cards {
-    max-width: var(--container); margin: 0 auto;
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px;
+  @media(max-width:720px){
+    .wrap{padding:0 20px}
+    .section{padding:4.5rem 0}
+    .scards,.tgrid{grid-template-columns:1fr}
+    .hero-inner{padding:7.5rem 0 4.5rem}
+    .hero-meta{gap:1.6rem}
+    .how-img .float{left:14px;bottom:-20px}
+    .foot-grid{grid-template-columns:1fr}
+    .testi-head .ln{display:none}
   }
-  .s-card {
-    background: var(--bg);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    transition: transform .3s, box-shadow .3s;
-    display: flex; flex-direction: column;
-  }
-  .s-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
-  .s-card .img { height: 180px; background-size: cover; background-position: center; }
-  .s-card .body { padding: 22px 22px 26px; flex: 1; display: flex; flex-direction: column; align-items: flex-start; }
-  .s-card .label {
-    display: inline-block; font-family: var(--display); font-weight: 700;
-    font-size: 18px; color: var(--gold-deep); margin-bottom: 8px;
-    padding-bottom: 8px; border-bottom: 2px solid var(--gold);
-  }
-  .s-card .desc { font-size: 14px; color: var(--ink-3); margin: 0 0 16px; line-height: 1.6; }
-  .s-card .arrow {
-    margin-top: auto; display: inline-flex; align-items: center; gap: 8px;
-    font-weight: 600; font-size: 13px; color: var(--ink);
-    text-transform: uppercase; letter-spacing: 0.06em;
-  }
-  .s-card .arrow svg { width: 14px; height: 14px; transition: transform .2s; }
-  .s-card:hover .arrow svg { transform: translateX(4px); }
-
-  /* ===== Why Choose ===== */
-  .why {
-    background: var(--bg);
-    padding: clamp(170px, 18vw, 220px) 0 clamp(80px, 10vw, 130px);
-  }
-  .why-head { text-align: center; max-width: 700px; margin: 0 auto 56px; }
-  .why-head h2 {
-    font-family: var(--display); font-weight: 700;
-    font-size: clamp(30px, 4vw, 46px); line-height: 1.08; letter-spacing: -0.015em;
-    margin: 0 0 14px; color: var(--ink);
-  }
-  .why-head h2 em { font-style: italic; color: var(--gold-deep); }
-  .why-head p { color: var(--ink-3); margin: 0; font-size: 16px; }
-  .why-head .section-eyebrow { justify-content: center; }
-  .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-  .why-item {
-    background: var(--bg-warm); border-radius: var(--radius-md);
-    padding: 32px 26px; transition: all .25s; border: 1px solid transparent;
-  }
-  .why-item:hover { transform: translateY(-4px); border-color: var(--gold); background: var(--bg); box-shadow: var(--shadow-md); }
-  .why-item .ico {
-    width: 52px; height: 52px; border-radius: 14px;
-    background: var(--gold); color: #fff;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 18px;
-  }
-  .why-item .ico svg { width: 22px; height: 22px; }
-  .why-item h4 {
-    font-family: var(--display); font-weight: 700; font-size: 19px;
-    margin: 0 0 10px; color: var(--ink);
-  }
-  .why-item p { font-size: 14px; color: var(--ink-3); margin: 0; }
-
-  /* ===== Testimonials ===== */
-  .testimonials {
-    background: var(--bg-soft);
-    padding: clamp(80px, 10vw, 130px) 0;
-  }
-  .test-head { text-align: center; max-width: 720px; margin: 0 auto 56px; }
-  .test-head .section-eyebrow { justify-content: center; }
-  .test-head h2 {
-    font-family: var(--display); font-weight: 700;
-    font-size: clamp(30px, 4vw, 46px); line-height: 1.08; letter-spacing: -0.015em;
-    margin: 0 0 14px; color: var(--ink);
-  }
-  .test-head h2 em { font-style: italic; color: var(--gold-deep); }
-  .reviews {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
-  }
-  .review {
-    background: var(--bg); border-radius: var(--radius-lg);
-    padding: 36px 32px; box-shadow: var(--shadow-sm);
-    border: 1px solid var(--line);
-    display: flex; flex-direction: column;
-    transition: transform .25s, box-shadow .25s;
-  }
-  .review:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-  .review .stars { color: var(--gold); letter-spacing: 4px; font-size: 15px; margin-bottom: 18px; }
-  .review p { font-size: 15.5px; color: var(--ink-2); line-height: 1.7; margin: 0 0 24px; font-family: var(--display); font-weight: 500; font-style: italic; }
-  .review .who { display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 22px; border-top: 1px solid var(--line); }
-  .review .who .avatar {
-    width: 44px; height: 44px; border-radius: 50%;
-    background: var(--gold); color: #fff;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 15px;
-  }
-  .review .who .nm { font-weight: 600; color: var(--ink); font-size: 14.5px; }
-  .review .who .wr { color: var(--muted); font-size: 12.5px; }
-
-  /* ===== Final CTA ===== */
-  .final-cta {
-    padding: clamp(64px, 8vw, 110px) 0;
-    background: var(--bg);
-  }
-  .final-cta .inner {
-    background: var(--navy); color: #fff;
-    border-radius: var(--radius-lg);
-    padding: clamp(48px, 7vw, 88px) clamp(28px, 6vw, 80px);
-    display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center;
-    position: relative; overflow: hidden;
-  }
-  .final-cta .inner::before {
-    content: ""; position: absolute; right: -120px; top: -120px;
-    width: 420px; height: 420px;
-    background: radial-gradient(circle at center, rgba(245,158,11,0.25), transparent 65%);
-  }
-  .final-cta h2 {
-    font-family: var(--display); font-weight: 700;
-    font-size: clamp(32px, 4vw, 50px); line-height: 1.06; letter-spacing: -0.015em;
-    margin: 0;
-  }
-  .final-cta h2 em { font-style: italic; color: var(--gold); }
-  .final-cta p { color: rgba(255,255,255,0.78); margin: 18px 0 0; font-size: 16px; }
-  .final-cta .actions { display: flex; flex-direction: column; gap: 16px; align-items: flex-end; z-index: 2; position: relative; }
-  .final-cta .phone {
-    font-family: var(--display); font-weight: 700; font-size: clamp(28px, 3vw, 36px);
-    color: #fff;
-  }
-  .final-cta .phone span { display: block; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.55); font-family: var(--body); font-weight: 500; margin-bottom: 4px; }
-
-  /* ===== Footer ===== */
-  .footer {
-    background: var(--bg);
-    color: var(--ink-3);
-    padding: 64px 0 28px;
-    border-top: 1px solid var(--line);
-  }
-  .footer-grid {
-    display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 40px;
-    padding-bottom: 40px; border-bottom: 1px solid var(--line);
-  }
-  .footer-brand img { height: 52px; margin-bottom: 18px; }
-  .footer-brand p { font-size: 14px; line-height: 1.6; margin: 0 0 18px; max-width: 320px; }
-  .footer-brand .lic { color: var(--muted); font-size: 12.5px; }
-  .footer h5 {
-    font-family: var(--display); font-weight: 700; font-size: 16px;
-    color: var(--ink); margin: 0 0 18px;
-  }
-  .footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-  .footer ul a { font-size: 14px; color: var(--ink-3); transition: color .15s; }
-  .footer ul a:hover { color: var(--gold-deep); }
-  .footer .ct-row { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; margin-bottom: 12px; color: var(--ink-3); }
-  .footer .ct-row svg { width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; margin-top: 4px; }
-  .footer-bottom {
-    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;
-    padding-top: 22px; font-size: 13px; color: var(--muted);
-  }
-  .socials { display: flex; gap: 10px; }
-  .socials a {
-    width: 36px; height: 36px; border-radius: 999px;
-    background: var(--bg-soft); display: flex; align-items: center; justify-content: center;
-    color: var(--ink-2); transition: all .2s;
-  }
-  .socials a:hover { background: var(--gold); color: #fff; }
-  .socials a svg { width: 15px; height: 15px; }
-
-  /* ===== Responsive ===== */
-  @media (max-width: 1024px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-    .hero-image { min-height: 380px; }
-    .about-grid { grid-template-columns: 1fr; gap: 60px; }
-    .about-cluster { height: 460px; max-width: 540px; margin: 0 auto; }
-    .service-cards { grid-template-columns: repeat(2, 1fr); }
-    .why-grid { grid-template-columns: repeat(2, 1fr); }
-    .reviews { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; }
-    .final-cta .inner { grid-template-columns: 1fr; }
-    .final-cta .actions { align-items: flex-start; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .service-cards-wrap { position: static; padding: 0; margin-top: 56px; }
-    .services { padding-bottom: clamp(64px, 9vw, 100px); }
-    .why { padding-top: clamp(80px, 10vw, 130px); }
-  }
-  @media (max-width: 720px) {
-    .nav { display: none; position: absolute; top: 84px; right: 16px; left: 16px; background: var(--bg); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-md); padding: 12px; flex-direction: column; align-items: stretch; gap: 4px; }
-    .nav.open { display: flex; }
-    .header-cta { display: none; }
-    .menu-toggle { display: inline-flex; }
-    .hero-float { display: none; }
-    .service-cards { grid-template-columns: 1fr; }
-    .why-grid { grid-template-columns: 1fr; }
-    .about-cluster { height: 380px; }
-    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-    .about-facts { grid-template-columns: 1fr; gap: 18px; }
-    .brand-text small { display: none; }
-  }
+  .mobile{position:fixed;inset:0;background:rgba(14,42,51,.98);z-index:90;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.8rem;opacity:0;pointer-events:none;transition:opacity .3s}
+  .mobile.open{opacity:1;pointer-events:auto}
+  .mobile a{color:#fff;font-family:'Sora';font-size:1.7rem}
+  .mobile .close{position:absolute;top:24px;right:24px;background:none;border:none;color:#fff;font-size:2.4rem;cursor:pointer}
 </style>
 </head>
 <body>
 
-<!-- Header -->
-<header class="header">
-  <div class="container header-inner">
+<header id="header">
+  <div class="wrap nav">
     <a href="#" class="brand">
-      <img src="http://cityscapesroofing.com/wp-content/uploads/2021/03/main-logo.png" alt="CityScapes Roofing" onerror="this.style.display='none'" />
-      <div class="brand-text">
-        <strong>CityScapes Roofing</strong>
-        <small>Our Work Is Above the Rest</small>
-      </div>
+      <img src="http://cityscapesroofing.com/wp-content/uploads/2021/03/main-logo.png" alt="CityScapes Roofing" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span style="display:none"><span class="bt">City<span>Scapes</span></span><span class="bs">Roofing</span></span>
     </a>
-    <nav class="nav" id="nav">
-      <a href="#" class="active">Home</a>
-      <a href="#about">About Us</a>
+    <nav class="menu">
       <a href="#services">Services</a>
-      <a href="#testimonials">Testimonials</a>
+      <a href="#how">Our Approach</a>
+      <a href="#proof">Why CityScapes</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Contact</a>
     </nav>
-    <button class="header-cta" onclick="document.getElementById('final-cta').scrollIntoView({behavior:'smooth'})">Contact Us</button>
-    <button class="menu-toggle" aria-label="Open menu" onclick="document.getElementById('nav').classList.toggle('open')">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
+    <div class="nav-right">
+      <a href="#contact" class="btn btn-gold">Free Estimate</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </header>
 
-<!-- Hero -->
+<div class="mobile" id="mobile">
+  <button class="close" id="closeMenu">&times;</button>
+  <a href="#services">Services</a>
+  <a href="#how">Our Approach</a>
+  <a href="#proof">Why CityScapes</a>
+  <a href="#testimonials">Reviews</a>
+  <a href="#contact">Contact</a>
+  <a href="tel:6194347663" class="btn btn-gold">(619) 434-7663</a>
+</div>
+
+<!-- HERO -->
 <section class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-text">
-        <span class="eyebrow">CityScapes Roofing</span>
-        <h1>We Are Dedicated to Providing <em>Stylish</em> and Reliable Roofing Services.</h1>
-        <p class="lede">Family-led, San Diego-rooted. With 38 years of local expertise and installers who carry 10+ years each, we deliver craftsmanship that's built to last — and a customer experience that's just as solid.</p>
-        <div class="hero-actions">
-          <a class="btn-outline" href="#about">Learn More</a>
-          <a class="btn-solid" href="#final-cta">Contact Us
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-        <div class="hero-trust">
-          <div class="item">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
-            <div class="txt"><strong>Google Guaranteed</strong><span>Background verified</span></div>
-          </div>
-          <div class="item">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6z"/></svg></div>
-            <div class="txt"><strong>Owens Corning</strong><span>Certified installer</span></div>
-          </div>
-          <div class="item">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-            <div class="txt"><strong>38+ Years</strong><span>Local San Diego</span></div>
-          </div>
-        </div>
+  <div class="hero-bg"></div>
+  <div class="hero-wrap"><div class="hero-inner reveal">
+    <span class="eyebrow" style="color:var(--gold-2)">San Diego Roofing • Since 38 Years Of Experience</span>
+    <h1>Protect what's above you with work that's <span class="it">above the rest.</span></h1>
+    <p class="sub">CityScapes may be a newer roofing company — but we're not new to roofing. Residential and commercial roofing &amp; repairs, built on one promise: the customer comes first.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-gold">Get A Free Estimate</a>
+      <a href="tel:6194347663" class="btn btn-line">Call (619) 434-7663</a>
+    </div>
+    <div class="hero-meta">
+      <div class="m"><b>38<span class="it">yrs</span></b><small>Roofing Experience</small></div>
+      <div class="m"><b>10+</b><small>Years Per Installer</small></div>
+      <div class="m"><b>20<span class="it">yr</span></b><small>Coating Warranty</small></div>
+      <div class="m"><b>★</b><small>Google Guaranteed</small></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What We Do</span>
+      <h2>The roofing services <span class="it">your</span> property deserves</h2>
+      <p>Every job is led by installers with 10+ years of hands-on experience across all roofing materials — residential or commercial, big or small.</p>
+    </div>
+    <div class="scards">
+      <div class="scard reveal">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=800&auto=format&fit=crop" alt="Residential roofing" onerror="this.src='https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop'"><span class="tag">Homes</span></div>
+        <h3>Residential Roofing</h3>
+        <p>Re-roofs, replacements and repairs for San Diego homes, installed by certified crews.</p>
       </div>
-      <div class="hero-image">
-        <div class="hero-float">
-          <span class="pulse"></span>
-          Available today · Free estimates
-        </div>
-        <div class="hero-rating">
-          <span class="stars">★★★★★</span>
-          <div class="meta">
-            <strong>5.0</strong>
-            <span>Google Reviews</span>
-          </div>
-        </div>
+      <div class="scard reveal">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop" alt="Commercial roofing" onerror="this.src='https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop'"><span class="tag">Business</span></div>
+        <h3>Commercial Roofing</h3>
+        <p>Durable roofing systems and repairs scheduled to keep your business open.</p>
+      </div>
+      <div class="scard reveal">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop" alt="Commercial coatings" onerror="this.src='https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop'"><span class="tag">20yr Warranty</span></div>
+        <h3>Commercial Coatings</h3>
+        <p>Tropical Coatings certified systems with manufacturer warranties up to 20 years.</p>
+      </div>
+      <div class="scard reveal">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=800&auto=format&fit=crop" alt="Torch down roofing and repairs" onerror="this.src='https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop'"><span class="tag">Certified</span></div>
+        <h3>Torch-Down &amp; Repairs</h3>
+        <p>Certified torch-down provider, CA state instructor, plus fast leak detection &amp; repair.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- About -->
-<section class="about" id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-text">
-        <span class="section-eyebrow">About Us</span>
-        <h2>We don't sell roofs. We <em>build relationships.</em></h2>
-        <p>CityScapes Roofing was founded on a simple idea: refocus the industry on the customer. Keith Haugen brings 38 years of San Diego roofing experience, having previously served as superintendent at Witherow Roofing. Co-founder Mark Larson joined to make that vision a reality.</p>
-        <p>Every installer on our crew carries 10+ years of experience across all roofing material types — shingle, tile, metal, torch-down, and fluid-applied coatings. The result: workmanship that holds up against San Diego rain, sun, and salt air, and an experience that earns referrals.</p>
-        <div class="about-facts">
-          <div class="f"><div class="n"><em>38+</em></div><div class="l">Years San Diego experience</div></div>
-          <div class="f"><div class="n"><em>10+</em></div><div class="l">Years per installer</div></div>
-          <div class="f"><div class="n"><em>20-Yr</em></div><div class="l">Coating warranty (max)</div></div>
-          <div class="f"><div class="n"><em>5.0</em></div><div class="l">Google rating</div></div>
-        </div>
-      </div>
-      <div class="about-cluster">
-        <div class="ac-frame"></div>
-        <div class="ac-main"></div>
-        <div class="ac-sec"></div>
-        <div class="ac-tert"></div>
+<!-- HOW / ABOUT -->
+<section class="section howsec" id="how">
+  <div class="wrap how-grid">
+    <div class="how-img reveal">
+      <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=1200&auto=format&fit=crop" alt="CityScapes roofing crew at work" onerror="this.src='https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1200&auto=format&fit=crop'">
+      <div class="float"><div class="dot">38</div><div><b>Years</b><small>Of San Diego roofing</small></div></div>
+    </div>
+    <div class="how-text reveal">
+      <span class="eyebrow">Experience That Counts</span>
+      <h2>How a <span class="it">customer-first</span> roof gets done</h2>
+      <p>Keith Haugen has been roofing in San Diego for 38 years. He partnered with Mark Larson to change the roofing industry by doing the one thing too many contractors forget — putting the customer first.</p>
+      <p>That means certified crews, daily clean-up, honest assessments, and a company that actually answers the phone after the job is done.</p>
+      <ul class="checks">
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Owens Corning Certified Installer</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Certified Torch-Down Provider &amp; CA State Instructor</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Tropical Coatings Certified Installer</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Bonded, Insured &amp; Workers Comp — CSLB #1024227</li>
+      </ul>
+      <div class="how-cta">
+        <a href="#contact" class="btn btn-teal">Start Your Project</a>
+        <a href="#testimonials" class="btn btn-ghost-d">Read Reviews</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Services on dark with overlapping cards -->
-<section class="services" id="services">
-  <div class="container">
-    <div class="services-head">
-      <span class="section-eyebrow">What We Offer</span>
-      <h2>Roofing is an excellent way to <em>add value</em> to your property.</h2>
-      <p>From a quick leak repair to a full re-roof or a 20-year fluid-applied coating, our crew has done it across every neighborhood in San Diego County. Pick a service to start your estimate.</p>
-    </div>
+<!-- CREDS BAND -->
+<section class="creds-band" id="proof">
+  <div class="wrap creds-row reveal">
+    <div class="c"><b>38<span class="it">yrs</span></b><small>Roofing San Diego</small></div>
+    <div class="c"><b>10+</b><small>Years Per Installer</small></div>
+    <div class="c"><b>20<span class="it">yr</span></b><small>Coating Warranty</small></div>
+    <div class="c"><b>★</b><small>Google Guaranteed Contractor</small></div>
   </div>
-  <div class="service-cards-wrap">
-    <div class="service-cards">
-      <div class="s-card">
-        <div class="img" style="background-image:url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=900&q=80&auto=format&fit=crop');"></div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+  <div class="wrap">
+    <div class="testi-head reveal">
+      <span class="ln"></span>
+      <h2>Why San Diego calls CityScapes</h2>
+      <span class="ln"></span>
+    </div>
+    <div class="tgrid">
+      <div class="tcard reveal">
+        <div class="top"></div>
         <div class="body">
-          <span class="label">Residential Roofing</span>
-          <p class="desc">Full installs, re-roofs and repairs across shingle, tile and metal — for homes built for the long run.</p>
-          <a class="arrow" href="#final-cta">Get a quote
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
+          <div class="stars">★★★★★</div>
+          <p>"CityScapes Roofing saved me! We had just bought a house and shortly after there was some heavy rain. There were seven leaks on what looked like a solid roof!"</p>
+          <div class="who"><div class="av">SP</div><div><div class="nm">Scott P.</div><div class="loc">San Diego Homeowner</div></div></div>
         </div>
       </div>
-      <div class="s-card">
-        <div class="img" style="background-image:url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=900&q=80&auto=format&fit=crop');"></div>
+      <div class="tcard reveal">
+        <div class="top"></div>
         <div class="body">
-          <span class="label">Commercial Roofing</span>
-          <p class="desc">Installation and repair for flat, low-slope and built-up commercial systems across San Diego.</p>
-          <a class="arrow" href="#final-cta">Get a quote
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
+          <div class="stars">★★★★★</div>
+          <p>"CityScapes did a great job removing all the old roofing and installed plywood and roofing. The crew was on time and professional — everything was cleaned up each day."</p>
+          <div class="who"><div class="av">MR</div><div><div class="nm">Melelina R.</div><div class="loc">San Diego Homeowner</div></div></div>
         </div>
       </div>
-      <div class="s-card">
-        <div class="img" style="background-image:url('https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=900&q=80&auto=format&fit=crop');"></div>
+      <div class="tcard reveal">
+        <div class="top"></div>
         <div class="body">
-          <span class="label">Roof Coatings</span>
-          <p class="desc">Tropical Roofing fluid-applied restoration — a 20-year-warranty alternative to a full replacement.</p>
-          <a class="arrow" href="#final-cta">Get a quote
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="s-card">
-        <div class="img" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=900&q=80&auto=format&fit=crop');"></div>
-        <div class="body">
-          <span class="label">Torch-Down & Leak Repair</span>
-          <p class="desc">State-certified torch-down installs and fast, honest leak diagnosis when the rain finds a way in.</p>
-          <a class="arrow" href="#final-cta">Get a quote
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
+          <div class="stars">★★★★★</div>
+          <p>"CityScapes did a fantastic job in replacing the roof of our home. The entire crew was very professional and a pleasure to do business with."</p>
+          <div class="who"><div class="av">FJ</div><div><div class="nm">Fred J.</div><div class="loc">San Diego Homeowner</div></div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Why choose -->
-<section class="why">
-  <div class="container">
-    <div class="why-head">
-      <span class="section-eyebrow">Why Choose Us</span>
-      <h2>The reasons San Diego <em>keeps choosing</em> CityScapes.</h2>
-      <p>Certified installers, manufacturer-backed warranties, and a crew that cleans up every single day.</p>
-    </div>
-    <div class="why-grid">
-      <div class="why-item">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6z"/></svg></div>
-        <h4>Licensed & Insured</h4>
-        <p>CSLB C-39 #1024227 · Bonded · Insured · Workers comp on every job.</p>
-      </div>
-      <div class="why-item">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
-        <h4>Google Guaranteed</h4>
-        <p>Background-verified for license, insurance, employees and workmanship.</p>
-      </div>
-      <div class="why-item">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
-        <h4>Certified Crew</h4>
-        <p>Owens Corning, Tropical Coatings and State of California torch-down certified.</p>
-      </div>
-      <div class="why-item">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <h4>20-Year Warranty</h4>
-        <p>Manufacturer-backed coating warranty — based on roof condition and thickness.</p>
-      </div>
-    </div>
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-bg"></div>
+  <div class="wrap cta-in reveal">
+    <h2>Let's put a roof over your head that's <span class="it">above the rest</span></h2>
+    <p>Serving all of San Diego — free, no-pressure estimates from a team that's been on these rooftops for decades.</p>
+    <a href="#contact" class="btn btn-gold">Get Your Free Estimate</a>
   </div>
 </section>
 
-<!-- Testimonials -->
-<section class="testimonials" id="testimonials">
-  <div class="container">
-    <div class="test-head">
-      <span class="section-eyebrow">Testimonials</span>
-      <h2>Trusted by <em>neighbors</em> across San Diego.</h2>
-      <p style="color:var(--ink-3); margin:0; font-size:16px;">Real reviews from real homeowners — the kind that earn referrals.</p>
-    </div>
-    <div class="reviews">
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <p>"CityScapes Roofing saved me! We had just bought a house and shortly after there was heavy rain. There were seven leaks on what looked like a solid roof! CityScapes got to the job quickly, identified the problem, proposed a coating for the flat areas, and got it done before the next rain hit."</p>
-        <div class="who">
-          <div class="avatar">SP</div>
-          <div><div class="nm">Scott P.</div><div class="wr">Homeowner · San Diego</div></div>
-        </div>
-      </div>
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <p>"CityScapes Roofing did a great job of removing all the old roofing and installing plywood and roofing. The crew was on time and professional, everything was cleaned up each day. My new roof looks beautiful and I feel much safer in my home now."</p>
-        <div class="who">
-          <div class="avatar">MR</div>
-          <div><div class="nm">Melelina R.</div><div class="wr">Homeowner · San Diego</div></div>
-        </div>
-      </div>
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <p>"CityScapes Roofing did a fantastic job in replacing the roof of our home. The entire crew was very professional and a pleasure to do business with."</p>
-        <div class="who">
-          <div class="avatar">FJ</div>
-          <div><div class="nm">Fred J.</div><div class="wr">Homeowner · San Diego</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Final CTA -->
-<section class="final-cta" id="final-cta">
-  <div class="container">
-    <div class="inner">
-      <div>
-        <span class="section-eyebrow" style="color:var(--gold);">Get Started</span>
-        <h2>Ready for a roof that's <em>above the rest</em>?</h2>
-        <p>Free, no-pressure estimates from a family-led San Diego team with nearly four decades of local roofing experience. We'll tell you exactly what your roof needs — and what it doesn't.</p>
-      </div>
-      <div class="actions">
-        <div class="phone">
-          <span>Call us today</span>
-          (619) 434-7663
-        </div>
-        <a class="btn-solid" href="mailto:keith@cityscapesroofing.com">Email Keith
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+<!-- FOOTER + CONTACT -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot reveal">
+        <a href="#" class="brand">
+          <img src="http://cityscapesroofing.com/wp-content/uploads/2021/03/main-logo.png" alt="CityScapes Roofing" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <span style="display:none"><span class="bt">City<span>Scapes</span></span><span class="bs">Roofing</span></span>
         </a>
+        <p>Our work is above the rest. Residential &amp; commercial roofing and repairs across all of San Diego.</p>
+        <p style="margin-top:1rem;color:#8a999c;font-size:.85rem">CSLB C-39 #1024227 • Bonded • Insured • Workers Comp</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <img src="http://cityscapesroofing.com/wp-content/uploads/2021/03/main-logo.png" alt="CityScapes Roofing" onerror="this.style.display='none'" />
-        <p>Family-led San Diego roofing built on 38 years of expertise and an obsession with putting customers first.</p>
-        <div class="lic">CSLB C-39 #1024227 · Bonded · Insured · Workers Comp</div>
-      </div>
-      <div>
-        <h5>Services</h5>
+      <div class="foot reveal">
+        <h4>Services</h4>
         <ul>
           <li><a href="#services">Residential Roofing</a></li>
           <li><a href="#services">Commercial Roofing</a></li>
-          <li><a href="#services">Roof Coatings</a></li>
-          <li><a href="#services">Torch-Down Roofing</a></li>
-          <li><a href="#services">Leak Detection & Repair</a></li>
+          <li><a href="#services">Commercial Coatings</a></li>
+          <li><a href="#services">Torch-Down &amp; Repairs</a></li>
         </ul>
       </div>
-      <div>
-        <h5>Company</h5>
+      <div class="foot reveal">
+        <h4>Contact</h4>
         <ul>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#final-cta">Free Estimate</a></li>
-          <li><a href="#final-cta">Book Now</a></li>
+          <li><a href="tel:6194347663">(619) 434-7663</a></li>
+          <li><a href="mailto:keith@cityscapesroofing.com">keith@cityscapesroofing.com</a></li>
+          <li>5005 Texas St,<br>San Diego, CA 92108</li>
         </ul>
       </div>
-      <div>
-        <h5>Contact</h5>
-        <div class="ct-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.9.34 1.78.62 2.62a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l1.46-1.27a2 2 0 0 1 2.11-.45c.84.28 1.72.49 2.62.62A2 2 0 0 1 22 16.92z"/></svg>
-          <a href="tel:6194347663">(619) 434-7663</a>
-        </div>
-        <div class="ct-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <a href="mailto:keith@cityscapesroofing.com">keith@cityscapesroofing.com</a>
-        </div>
-        <div class="ct-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>5005 Texas St, San Diego, CA 92108</span>
-        </div>
+      <div class="foot reveal">
+        <h4>Request An Estimate</h4>
+        <form class="ffield" onsubmit="event.preventDefault();this.querySelector('button').textContent='Thank You — We\'ll Be In Touch';">
+          <input type="text" placeholder="Your name" required>
+          <input type="tel" placeholder="Phone number" required>
+          <select>
+            <option>Residential Roofing</option>
+            <option>Commercial Roofing</option>
+            <option>Commercial Coatings</option>
+            <option>Torch-Down / Repair</option>
+            <option>Leak Repair</option>
+          </select>
+          <button type="submit" class="btn btn-gold">Send Request</button>
+        </form>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div>© 2026 CityScapes Roofing — All rights reserved.</div>
-      <div class="socials">
-        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-        <a href="#" aria-label="Google"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.35 11.1H12v2.95h5.35c-.55 2.7-2.95 4.7-5.35 4.7a6.5 6.5 0 1 1 0-13 5.85 5.85 0 0 1 4.15 1.6l2.2-2.2A9.5 9.5 0 1 0 12 21.5c5.25 0 9.5-3.65 9.5-9.5 0-.55 0-.9-.15-.9z"/></svg></a>
-      </div>
+  </div>
+  <div class="teal-bar">
+    <div class="wrap">
+      <span>© 2026 CityScapes Roofing — Our Work Is Above The Rest</span>
+      <span>Owens Corning • Tropical Coatings • Google Guaranteed</span>
     </div>
   </div>
 </footer>
 
+<script>
+  const header=document.getElementById('header');
+  addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>40));
+  const burger=document.getElementById('burger'),mobile=document.getElementById('mobile'),closeMenu=document.getElementById('closeMenu');
+  burger.onclick=()=>mobile.classList.add('open');
+  closeMenu.onclick=()=>mobile.classList.remove('open');
+  mobile.querySelectorAll('a').forEach(a=>a.onclick=()=>mobile.classList.remove('open'));
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>

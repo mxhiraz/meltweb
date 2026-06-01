@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gradient Roofing — Specialist Zinc Roofing Studio | Southampton</title>
+<meta name="description" content="Gradient Roofing — specialist zinc roofing contractors. Bespoke design, fabrication, full-scale refurbishments and solar integration across the South Coast." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#101214;
+    --black:#0a0b0c;
+    --zinc:#6b7480;
+    --zinc-l:#a7afb8;
+    --line:#e6e4df;
+    --line-d:rgba(255,255,255,.14);
+    --paper:#fbfaf7;
+    --paper-2:#f1efea;
+    --accent:#3a4750;
+    --maxw:1280px;
+    --ease:cubic-bezier(.19,1,.22,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);line-height:1.7;font-weight:400;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .serif{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:-.01em}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 48px}
+  .eyebrow{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;font-weight:600;color:var(--zinc);display:flex;align-items:center;gap:12px}
+  .eyebrow::before{content:"";width:6px;height:6px;background:var(--accent);border-radius:50%}
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- Header ---------- */
+  header{position:fixed;top:0;left:0;width:100%;z-index:120;padding:22px 48px;display:flex;align-items:center;justify-content:space-between;transition:background .45s var(--ease),padding .45s var(--ease),box-shadow .45s var(--ease)}
+  header.scrolled{background:rgba(251,250,247,.95);backdrop-filter:blur(14px);padding:12px 48px;box-shadow:0 1px 0 var(--line)}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{height:44px;width:auto;border-radius:3px;transition:height .45s var(--ease)}
+  header.scrolled .brand img{height:36px}
+  .vnav{display:flex;align-items:center;gap:34px}
+  .vnav a{color:#fff;font-size:13px;text-transform:lowercase;letter-spacing:.05em;font-weight:500;position:relative;transition:color .45s var(--ease)}
+  header.scrolled .vnav a{color:var(--ink)}
+  .vnav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1.5px;background:currentColor;transition:width .35s var(--ease)}
+  .vnav a:hover::after{width:100%}
+  .vnav .navcta{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.5);padding:10px 18px;border-radius:40px;text-transform:none;letter-spacing:.02em;transition:all .4s var(--ease)}
+  header.scrolled .vnav .navcta{border-color:var(--ink)}
+  .vnav .navcta:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+  .vnav .navcta:hover::after{display:none}
+  header.scrolled .vnav .navcta:hover{color:#fff}
+  .menu-toggle{position:fixed;top:20px;right:48px;z-index:130;width:42px;height:42px;border:1px solid rgba(255,255,255,.45);border-radius:50%;display:none;align-items:center;justify-content:center;cursor:pointer}
+  header.scrolled ~ .menu-toggle,.menu-toggle.dark{border-color:var(--ink)}
+  .menu-toggle span{position:absolute;width:18px;height:1.6px;background:#fff;transition:.3s}
+  .menu-toggle.dark span{background:var(--ink)}
+  .menu-toggle span:first-child{transform:translateY(-4px)}
+  .menu-toggle span:last-child{transform:translateY(4px)}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;height:100vh;min-height:620px;overflow:hidden;color:#fff}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:kb 16s ease-out forwards}
+  @keyframes kb{to{transform:scale(1)}}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,10,12,.4),rgba(8,10,12,.05) 35%,rgba(8,10,12,.45))}
+  .hero-cap{position:absolute;right:48px;bottom:60px;text-align:right;z-index:2}
+  .hero-cap .t{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.4vw,46px);font-weight:500;line-height:1.05}
+  .hero-cap .s{font-size:11px;letter-spacing:.3em;text-transform:uppercase;margin-top:10px;color:rgba(255,255,255,.82)}
+  .hero-line{position:absolute;left:48px;bottom:66px;width:120px;height:1px;background:rgba(255,255,255,.5);z-index:2}
+  .hero-line::after{content:"";position:absolute;left:0;top:0;height:100%;width:40%;background:#fff}
+
+  /* ---------- Intro studio ---------- */
+  .intro{padding:120px 0 100px}
+  .intro-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:70px;align-items:start}
+  .intro h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4vw,56px);line-height:1.08;letter-spacing:-.01em;margin-top:26px}
+  .intro h2 em{font-style:italic;color:var(--zinc)}
+  .intro .imgwrap{overflow:hidden}
+  .intro .imgwrap img{width:100%;filter:grayscale(1);transition:filter .8s var(--ease),transform 1.2s var(--ease)}
+  .intro .imgwrap:hover img{filter:grayscale(0);transform:scale(1.04)}
+  .links-row{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:80px;padding-top:46px;border-top:1px solid var(--line)}
+  .lcol .ltitle{font-size:16px;font-weight:600;border-bottom:1px solid var(--ink);padding-bottom:14px;margin-bottom:16px;display:inline-block;transition:color .3s}
+  .lcol .ltitle:hover{color:var(--accent)}
+  .lcol p{font-size:13.5px;color:var(--zinc);line-height:1.65}
+
+  /* ---------- Our work (dark) ---------- */
+  .work{background:var(--black);color:#fff;padding:110px 0;overflow:hidden}
+  .work .wrap{position:relative}
+  .work .eyebrow{color:var(--zinc-l)}
+  .work .eyebrow::before{background:#fff}
+  .work-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:20px}
+  .work-head h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,3.6vw,48px)}
+  .track{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:24px;scrollbar-width:thin}
+  .track::-webkit-scrollbar{height:4px}
+  .track::-webkit-scrollbar-thumb{background:rgba(255,255,255,.3)}
+  .slide{position:relative;flex:0 0 auto;width:min(640px,80vw);aspect-ratio:16/10;scroll-snap-align:start;overflow:hidden}
+  .slide img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+  .slide:hover img{transform:scale(1.05)}
+  .slide .label{position:absolute;left:24px;bottom:22px}
+  .slide .label .n{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500}
+  .slide .label .c{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+  .work-nav{display:flex;gap:12px;margin-top:30px}
+  .work-nav button{width:48px;height:48px;border:1px solid var(--line-d);background:transparent;color:#fff;cursor:pointer;border-radius:50%;transition:.35s;display:flex;align-items:center;justify-content:center}
+  .work-nav button:hover{background:#fff;color:var(--black)}
+
+  /* ---------- Services accordion (expanding) ---------- */
+  .accord{padding:0}
+  .acc-row{display:flex;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .acc-item{position:relative;flex:1;min-height:520px;border-right:1px solid var(--line);overflow:hidden;cursor:pointer;transition:flex 0.7s var(--ease)}
+  .acc-item:last-child{border-right:none}
+  .acc-item.active{flex:3.4}
+  .acc-item .acc-bg{position:absolute;inset:0;z-index:0}
+  .acc-item .acc-bg img{width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .7s var(--ease),transform 1.4s var(--ease)}
+  .acc-item.active .acc-bg img{opacity:1;transform:scale(1)}
+  .acc-item .acc-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,11,12,.35),rgba(10,11,12,.82));opacity:0;transition:opacity .6s var(--ease)}
+  .acc-item.active .acc-bg::after{opacity:1}
+  .acc-item .num{position:absolute;top:28px;left:0;right:0;text-align:center;font-size:12px;color:var(--zinc);z-index:2;transition:all .5s var(--ease)}
+  .acc-item.active .num{left:44px;right:auto;text-align:left;color:rgba(255,255,255,.7)}
+  .acc-item .vlabel{position:absolute;bottom:44px;left:50%;transform:translateX(-50%) rotate(180deg);writing-mode:vertical-rl;font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2vw,30px);font-weight:500;white-space:nowrap;z-index:2;transition:opacity .35s var(--ease)}
+  .acc-item.active .vlabel{opacity:0}
+  .acc-panel{position:absolute;inset:0;z-index:2;padding:44px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;opacity:0;transform:translateY(14px);transition:opacity .5s .2s var(--ease),transform .5s .2s var(--ease);pointer-events:none}
+  .acc-item.active .acc-panel{opacity:1;transform:none}
+  .acc-panel h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,3vw,40px);line-height:1.05;margin-bottom:14px}
+  .acc-panel p{font-size:15px;line-height:1.7;color:rgba(255,255,255,.86);max-width:440px}
+
+  /* ---------- Stats band ---------- */
+  .band{padding:90px 0;border-top:1px solid var(--line)}
+  .band-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+  .band .n{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,68px);font-weight:500;line-height:1}
+  .band .l{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--zinc);margin-top:10px}
+
+  /* ---------- Testimonial ---------- */
+  .testi{background:var(--paper-2);padding:120px 0;text-align:center}
+  .testi .stars{color:#b89b62;font-size:18px;letter-spacing:4px;margin-bottom:30px}
+  .testi blockquote{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(26px,3.6vw,46px);line-height:1.28;max-width:1000px;margin:0 auto;letter-spacing:-.01em}
+  .testi .who{margin-top:34px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--zinc)}
+
+  /* ---------- Credentials ---------- */
+  .creds{padding:70px 0;text-align:center}
+  .creds .eyebrow{justify-content:center;margin-bottom:34px}
+  .creds-row{display:flex;justify-content:center;align-items:center;gap:60px;flex-wrap:wrap}
+  .creds-row img{height:44px;filter:grayscale(1);opacity:.6;transition:.4s}
+  .creds-row img:hover{filter:none;opacity:1}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--black);color:#fff;padding:120px 0}
+  .contact .eyebrow{color:var(--zinc-l)}
+  .contact .eyebrow::before{background:#fff}
+  .c-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:30px}
+  .contact h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,5vw,66px);line-height:1.02}
+  .contact .lead{color:var(--zinc-l);font-size:16px;margin:24px 0 44px;max-width:400px}
+  .c-info .item{padding:22px 0;border-top:1px solid var(--line-d);display:flex;justify-content:space-between;gap:20px;align-items:baseline}
+  .c-info .item:last-child{border-bottom:1px solid var(--line-d)}
+  .c-info .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--zinc-l)}
+  .c-info .v{font-size:17px;font-weight:500;text-align:right}
+  .c-info .v a:hover{color:var(--zinc-l)}
+  form .fld{margin-bottom:20px}
+  form label{display:block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--zinc-l);margin-bottom:10px}
+  form input,form textarea{width:100%;background:transparent;border:none;border-bottom:1px solid var(--line-d);color:#fff;padding:11px 0;font-family:inherit;font-size:15px;transition:border-color .3s}
+  form input:focus,form textarea:focus{outline:none;border-color:#fff}
+  form textarea{resize:vertical;min-height:80px}
+  .btn{margin-top:14px;display:inline-flex;align-items:center;gap:12px;background:#fff;color:var(--black);border:none;padding:16px 34px;border-radius:40px;font-weight:600;font-size:14px;cursor:pointer;transition:.4s var(--ease)}
+  .btn:hover{gap:20px;background:var(--zinc-l)}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--black);color:#fff;padding:0 0 40px;border-top:1px solid var(--line-d)}
+  .foot{display:grid;grid-template-columns:2fr 1fr 1fr;gap:50px;padding:70px 0;border-bottom:1px solid var(--line-d)}
+  .foot .bn{font-size:22px;font-weight:300}
+  .foot .bn b{font-weight:700}
+  .foot p{color:var(--zinc-l);font-size:14px;margin-top:14px;max-width:300px}
+  .foot h4{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--zinc-l);margin-bottom:18px}
+  .foot a{display:block;font-size:14px;color:rgba(255,255,255,.85);margin-bottom:12px;transition:.3s}
+  .foot a:hover{color:#fff}
+  .copy{display:flex;justify-content:space-between;padding-top:28px;font-size:12px;color:var(--zinc-l);flex-wrap:wrap;gap:14px}
+  .socials{display:flex;gap:12px}
+  .socials a{width:36px;height:36px;border:1px solid var(--line-d);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.35s}
+  .socials a:hover{background:#fff;color:var(--black)}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:1024px){
+    .intro-grid{grid-template-columns:1fr;gap:40px}
+    .acc-item{min-height:440px}
+    .acc-item.active{flex:2.6}
+    .c-grid{grid-template-columns:1fr;gap:50px}
+  }
+  @media(max-width:760px){
+    .wrap{padding:0 24px}
+    header{padding:18px 24px}
+    header.scrolled{padding:12px 24px}
+    .vnav{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:var(--black);flex-direction:column;justify-content:center;align-items:center;gap:26px;padding:0;z-index:115}
+    .vnav.open{display:flex}
+    .vnav a,header.scrolled .vnav a{color:#fff;font-size:24px}
+    .vnav a::after{display:none}
+    .vnav .navcta{border-color:rgba(255,255,255,.5);margin-top:10px;font-size:18px}
+    .menu-toggle{display:flex}
+    .hero-cap{right:24px;bottom:40px}
+    .hero-line{left:24px}
+    .links-row{grid-template-columns:1fr;gap:30px}
+    /* accordion stacks; every panel reads horizontally on mobile */
+    .acc-row{flex-direction:column}
+    .acc-item,.acc-item.active{flex:none}
+    .acc-item{min-height:auto;border-right:none;border-bottom:1px solid var(--line)}
+    .acc-item:last-child{border-bottom:none}
+    .acc-item .vlabel{display:none}
+    .acc-item .acc-bg img,.acc-item .acc-bg::after{opacity:1;transform:none}
+    .acc-item .acc-bg::after{opacity:1}
+    .acc-item .num{position:static;text-align:left;color:rgba(255,255,255,.7);padding:32px 24px 0}
+    .acc-panel{position:static;opacity:1;transform:none;padding:14px 24px 36px;pointer-events:auto;min-height:220px;justify-content:flex-end}
+    .band-grid{grid-template-columns:1fr 1fr;gap:40px 20px}
+    .foot{grid-template-columns:1fr}
+    .c-info .v{font-size:15px}
+  }
+</style>
+</head>
+<body id="top">
+
+<!-- HEADER -->
+<header id="hdr">
+  <a href="#top" class="brand">
+    <img src="https://static.wixstatic.com/media/1aaae3_1c8ffae0d4d84e058732d764f7d1c244~mv2.jpg/v1/fill/w_220,h_106,al_c,q_85,enc_auto/logo.jpg" alt="Gradient Roofing" />
+  </a>
+  <nav class="vnav" id="vnav">
+    <a href="#top">home</a>
+    <a href="#studio">studio</a>
+    <a href="#work">work</a>
+    <a href="#services">services</a>
+    <a href="#contact">contact</a>
+    <a href="tel:02381550074" class="navcta">02381 550074</a>
+  </nav>
+</header>
+<div class="menu-toggle" id="mt"><span></span><span></span></div>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="https://static.wixstatic.com/media/6628d6_f4d1ae34a8e644c38383d3f5fd3975c3~mv2.jpeg/v1/fill/w_1920,h_1200,al_c,q_90,enc_auto/hero.jpeg" alt="Zinc roof against landscape" />
+  <div class="hero-line"></div>
+  <div class="hero-cap">
+    <div class="t">Standing Seam Zinc<br/>Southampton</div>
+    <div class="s">Roofing · Refurbishment · Heritage</div>
+  </div>
+</section>
+
+<!-- STUDIO INTRO -->
+<section class="intro" id="studio">
+  <div class="wrap">
+    <div class="intro-grid">
+      <div>
+        <p class="eyebrow reveal">Specialist Zinc Studio</p>
+        <h2 class="reveal">Craftsmen devoted to beauty, durability and bespoke detail — for <em>every roof and every client.</em></h2>
+      </div>
+      <div class="imgwrap reveal">
+        <img src="https://static.wixstatic.com/media/6628d6_842065773d0b4dd7ad47b83c976a9078~mv2.jpg/v1/fill/w_760,h_540,al_c,q_90,enc_auto/studio.jpg" alt="Gradient Roofing craftsmanship"/>
+      </div>
+    </div>
+    <div class="links-row">
+      <div class="lcol reveal">
+        <a href="#services" class="ltitle">Design your zinc roof</a>
+        <p>Bespoke systems designed, fabricated and installed to order — never off-the-shelf, always built for your structure.</p>
+      </div>
+      <div class="lcol reveal">
+        <a href="#contact" class="ltitle">Request a survey</a>
+        <p>From new installations to full-scale refurbishments, we assess, advise and deliver with 20+ years of roofing expertise.</p>
+      </div>
+      <div class="lcol reveal">
+        <a href="#contact" class="ltitle">Ask our specialists</a>
+        <p>VM Zinc and NedZink registered contractors, with Green Coat partnership — talk to the team who work in zinc, and only zinc.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR WORK -->
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="work-head">
+      <div>
+        <p class="eyebrow reveal">Our Work</p>
+        <h2 class="reveal" style="margin-top:16px">Selected zinc projects</h2>
+      </div>
+    </div>
+    <div class="track" id="track">
+      <div class="slide reveal"><img src="https://static.wixstatic.com/media/6628d6_842065773d0b4dd7ad47b83c976a9078~mv2.jpg/v1/fill/w_1000,h_625,al_c,q_90,enc_auto/w.jpg" alt="Zinc project"/><div class="label"><div class="n">Standing Seam</div><div class="c">Residential · South Coast</div></div></div>
+      <div class="slide reveal"><img src="https://static.wixstatic.com/media/6628d6_1a9f9ca7310646eb8919467e4f29caa8~mv2.jpeg/v1/fill/w_1000,h_625,al_c,q_90,enc_auto/w.jpg" alt="Zinc project"/><div class="label"><div class="n">Full Refurbishment</div><div class="c">Heritage · Southampton</div></div></div>
+      <div class="slide reveal"><img src="https://static.wixstatic.com/media/6628d6_54af006bff3a4b179ae9b5135dba3aa5~mv2.jpeg/v1/fill/w_1000,h_625,al_c,q_90,enc_auto/w.jpg" alt="Zinc project"/><div class="label"><div class="n">Bespoke Detail</div><div class="c">Fabricated to order</div></div></div>
+      <div class="slide reveal"><img src="https://static.wixstatic.com/media/1aaae3_3d42aac49daa4e25ae943bd37d9023d8~mv2.jpg/v1/fill/w_1000,h_625,al_c,q_90,enc_auto/w.jpg" alt="Zinc project"/><div class="label"><div class="n">Solar Integrated</div><div class="c">BIP PV · 50yr guarantee</div></div></div>
+    </div>
+    <div class="work-nav">
+      <button id="prev" aria-label="Previous"><svg width="18" height="12" viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M26 6 H2 M7 1 L2 6 L7 11"/></svg></button>
+      <button id="next" aria-label="Next"><svg width="18" height="12" viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 6 H24 M19 1 L24 6 L19 11"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES ACCORDION -->
+<section class="accord" id="services">
+  <div class="acc-row" id="accRow">
+    <div class="acc-item active">
+      <div class="acc-bg"><img src="https://static.wixstatic.com/media/1aaae3_22f09cc9027b40aabb806494ca9349bf~mv2.jpg/v1/fill/w_900,h_1040,al_c,q_90,enc_auto/s1.jpg" alt="Zinc roofing"/></div>
+      <div class="num">01</div>
+      <div class="vlabel">Zinc Roofing</div>
+      <div class="acc-panel">
+        <h3>Specialist Zinc Roofing</h3>
+        <p>Unrivalled expertise in new zinc installations and refurbishments — the contractor dedicated exclusively to zinc, covering the South Coast and beyond.</p>
+      </div>
+    </div>
+    <div class="acc-item">
+      <div class="acc-bg"><img src="https://static.wixstatic.com/media/6628d6_aac7ed7a289b4f3cb0ddd48424e39897~mv2.jpg/v1/fill/w_900,h_1040,al_c,q_90,enc_auto/s2.jpg" alt="Bespoke fabrication"/></div>
+      <div class="num">02</div>
+      <div class="vlabel">Bespoke Fabrication</div>
+      <div class="acc-panel">
+        <h3>Bespoke Fabrication</h3>
+        <p>Custom-made roofing systems fabricated to order for optimal fit and performance — never off-the-shelf, always built for your structure.</p>
+      </div>
+    </div>
+    <div class="acc-item">
+      <div class="acc-bg"><img src="https://static.wixstatic.com/media/6628d6_680948f580ce4628b06225a14770cb5f~mv2.jpeg/v1/fill/w_900,h_1040,al_c,q_90,enc_auto/s3.jpg" alt="Full-scale refurbishment"/></div>
+      <div class="num">03</div>
+      <div class="vlabel">Refurbishment</div>
+      <div class="acc-panel">
+        <h3>Full-Scale Refurbishments</h3>
+        <p>The only zinc contractor specialising in full-scale refurbishments — structural soundness combined with lasting visual enhancement.</p>
+      </div>
+    </div>
+    <div class="acc-item">
+      <div class="acc-bg"><img src="https://static.wixstatic.com/media/1aaae3_3d42aac49daa4e25ae943bd37d9023d8~mv2.jpg/v1/fill/w_900,h_1040,al_c,q_90,enc_auto/s4.jpg" alt="Solar integration"/></div>
+      <div class="num">04</div>
+      <div class="vlabel">Solar</div>
+      <div class="acc-panel">
+        <h3>Solar Integration</h3>
+        <p>BIP PV solar systems designed to work seamlessly with zinc roofs — backed by a 50-year guarantee for complete peace of mind.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="band">
+  <div class="wrap band-grid">
+    <div class="reveal"><div class="n">20+</div><div class="l">Years in roofing</div></div>
+    <div class="reveal"><div class="n">2016</div><div class="l">Specialising in zinc</div></div>
+    <div class="reveal"><div class="n">50yr</div><div class="l">Solar guarantee</div></div>
+    <div class="reveal"><div class="n">5.0</div><div class="l">Star client rating</div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testi">
+  <div class="wrap">
+    <div class="stars reveal">★ ★ ★ ★ ★</div>
+    <blockquote class="reveal">"From start to end Gradient Roofing were fantastic. Aaron and his team were super professional, highly responsive and delivered the quality we wanted — top notch. Would highly recommend."</blockquote>
+    <div class="who reveal">Richard H. — Verified Client</div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="creds">
+  <div class="wrap">
+    <p class="eyebrow reveal">Registered &amp; Approved Contractor</p>
+    <div class="creds-row reveal">
+      <img src="https://static.wixstatic.com/media/1aaae3_25ab2b080a6a46e5946d015cab17169c~mv2.png/v1/fill/w_478,h_110,al_c,q_85,enc_auto/vmzinc.png" alt="VM Zinc"/>
+      <img src="https://static.wixstatic.com/media/1aaae3_fb2f3de2a2dc495d98b6ea723a02dc83~mv2.png/v1/fill/w_424,h_98,al_c,q_85,enc_auto/nedzink.png" alt="NedZink"/>
+      <img src="https://static.wixstatic.com/media/1aaae3_f8bc19c1ab9d4ddfb6aefb9998e9ca56~mv2.png/v1/fill/w_586,h_130,al_c,q_85,enc_auto/greencoat.png" alt="Green Coat"/>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow reveal">Get in touch</p>
+    <div class="c-grid">
+      <div>
+        <h2 class="reveal">Let's talk<br/>about your roof.</h2>
+        <p class="lead reveal">Specialist zinc roofing across Southampton, the South Coast, Jersey, Guernsey, Isle of Wight &amp; Oxford North.</p>
+        <div class="c-info">
+          <div class="item reveal"><span class="k">Phone</span><span class="v"><a href="tel:02381550074">02381 550074</a></span></div>
+          <div class="item reveal"><span class="k">Email</span><span class="v"><a href="mailto:zinc@gradientroofing.com">zinc@gradientroofing.com</a></span></div>
+          <div class="item reveal"><span class="k">Studio</span><span class="v">Horns Hill Cottage, Romsey Rd,<br/>Nursling, Southampton SO16 0XA</span></div>
+        </div>
+      </div>
+      <form class="reveal" onsubmit="return false">
+        <div class="fld"><label>Name</label><input type="text" placeholder="Your name"/></div>
+        <div class="fld"><label>Email</label><input type="email" placeholder="you@email.com"/></div>
+        <div class="fld"><label>Phone</label><input type="tel" placeholder="Phone number"/></div>
+        <div class="fld"><label>Message</label><textarea placeholder="Tell us about your project"></textarea></div>
+        <button class="btn">Send Enquiry
+          <svg width="22" height="10" viewBox="0 0 26 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 5 H24 M19 1 L24 5 L19 9"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="bn"><b>Gradient</b> Roofing</div>
+        <p>Specialist zinc roofing experts covering Southampton, the South Coast and surrounding areas.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <a href="#studio">Studio</a>
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="tel:02381550074">02381 550074</a>
+        <a href="mailto:zinc@gradientroofing.com">zinc@gradientroofing.com</a>
+        <a href="#">Nursling, Southampton SO16 0XA</a>
+      </div>
+    </div>
+    <div class="copy">
+      <div>© 2025 Gradient Roofing. All rights reserved.</div>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V8c0-1.1.3-2 2-2h2V2.1C18.7 2 17.4 2 16 2c-3 0-5 1.8-5 5.2V10H8v4h3v8h2z"/></svg></a>
+        <a href="#" aria-label="Google"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 11v3h5c-.2 1.3-1.6 3.8-5 3.8A6 6 0 1 1 16 7l2.3-2.3A9 9 0 1 0 21 13c0-.7-.1-1.3-.2-2H12z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hdr=document.getElementById('hdr'),vnav=document.getElementById('vnav'),mt=document.getElementById('mt');
+  // Header turns white while scrolling
+  addEventListener('scroll',()=>{
+    const s=scrollY>60;
+    hdr.classList.toggle('scrolled',s);
+    if(!vnav.classList.contains('open')) mt.classList.toggle('dark',s);
+  });
+  mt.addEventListener('click',()=>{
+    const open=vnav.classList.toggle('open');
+    mt.classList.toggle('dark',!open && scrollY>60); // burger stays white over dark overlay
+  });
+  vnav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    vnav.classList.remove('open');
+    mt.classList.toggle('dark',scrollY>60);
+  }));
+  // Services accordion — hover (desktop) / tap (touch) to expand
+  const accItems=Array.from(document.querySelectorAll('.acc-item'));
+  const setActive=el=>accItems.forEach(i=>i.classList.toggle('active',i===el));
+  accItems.forEach(i=>{
+    i.addEventListener('mouseenter',()=>{if(matchMedia('(min-width:761px)').matches)setActive(i);});
+    i.addEventListener('click',()=>setActive(i));
+  });
+  // Carousel controls
+  const track=document.getElementById('track');
+  const step=()=>Math.min(track.clientWidth*.8,660)+24;
+  document.getElementById('next').addEventListener('click',()=>track.scrollBy({left:step(),behavior:'smooth'}));
+  document.getElementById('prev').addEventListener('click',()=>track.scrollBy({left:-step(),behavior:'smooth'}));
+  // Reveal
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

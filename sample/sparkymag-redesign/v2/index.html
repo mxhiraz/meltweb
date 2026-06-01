@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SparkyMag — Electrical Solutions for Every Project | Manchester Electricians</title>
+<meta name="description" content="SparkyMag delivers domestic, commercial & industrial electrical solutions across Manchester. NAPIT/NICEIC certified electricians. EICR testing, EV chargers, solar PV, CCTV & more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --amber:#FBBC34;
+    --amber-dark:#D8A22D;
+    --orange:#FF7A18;
+    --ink:#1F2024;
+    --dark:#26282D;
+    --darker:#1A1B1F;
+    --grey:#6E7177;
+    --line:#E4E5E8;
+    --bg:#F3F4F6;
+    --white:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,h4{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.01em;line-height:1.05;font-weight:700}
+  a{text-decoration:none;color:inherit}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 26px}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--amber);color:var(--ink);padding:14px 30px;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;transition:.25s;border:none;cursor:pointer;font-family:'Inter'}
+  .btn:hover{background:var(--ink);color:#fff}
+  .btn-outline{background:transparent;border:2px solid var(--amber);color:var(--amber);padding:12px 28px}
+  .btn-outline:hover{background:var(--amber);color:var(--ink)}
+  .sec{padding:90px 0}
+  .eyebrow{color:var(--amber);font-weight:700;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;display:inline-block}
+  .h2{font-size:clamp(2rem,4vw,2.9rem)}
+  .lead{color:var(--grey);max-width:540px}
+
+  /* TOP BAR */
+  .topbar{background:var(--darker);color:#cfd1d6;font-size:.82rem}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding:10px 26px;flex-wrap:wrap;gap:8px}
+  .topbar a{color:#cfd1d6;transition:.2s}.topbar a:hover{color:var(--amber)}
+  .topbar .ti{display:inline-flex;align-items:center;gap:8px;margin-right:22px}
+  .topbar .ti b{color:var(--amber)}
+  .topbar .tsoc a{margin-left:14px;font-weight:600}
+
+  /* HEADER */
+  header{background:var(--dark);position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.15)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .nav .logo{display:flex;align-items:center;gap:12px;color:#fff;font-family:'Barlow Condensed';font-weight:700;font-size:1.7rem;text-transform:uppercase;letter-spacing:.02em}
+  .nav .logo img{height:50px;background:#fff;border-radius:8px;padding:4px}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{color:#d3d4d8;font-weight:600;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;transition:.2s}
+  .nav-links a:hover{color:var(--amber)}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer}
+  .burger span{width:26px;height:2.5px;background:#fff;border-radius:2px}
+
+  /* HERO */
+  .hero{position:relative;color:#fff;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:-2}
+  .hero-bg img{width:100%;height:100%;object-fit:cover}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(20,21,24,.92) 0%,rgba(20,21,24,.78) 45%,rgba(20,21,24,.5) 100%)}
+  .hero .wrap{padding-top:120px;padding-bottom:130px;position:relative}
+  .hero .bar{width:64px;height:5px;background:var(--amber);margin-bottom:24px}
+  .hero h1{font-size:clamp(2.6rem,6.5vw,5rem);color:#fff;max-width:780px;letter-spacing:.005em}
+  .hero h1 span{color:var(--amber)}
+  .hero p{max-width:560px;color:rgba(255,255,255,.82);margin:24px 0 34px;font-size:1.08rem}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-dots{display:flex;gap:8px;margin-top:42px}
+  .hero-dots span{width:30px;height:5px;background:rgba(255,255,255,.3)}
+  .hero-dots span.on{background:var(--amber)}
+
+  /* SOLUTIONS INTRO */
+  .sol-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:54px}
+  .sol-head h2{font-size:clamp(1.9rem,3.5vw,2.6rem)}
+  .sol-head .ln{padding-left:24px;border-left:3px solid var(--amber);color:var(--grey)}
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  .scard{background:#fff;border:1px solid var(--line);transition:.3s}
+  .scard:hover{box-shadow:0 30px 60px rgba(0,0,0,.1);transform:translateY(-6px);z-index:2;position:relative}
+  .scard .ph{aspect-ratio:5/3.4;overflow:hidden;position:relative}
+  .scard .ph img{width:100%;height:100%;object-fit:cover;transition:.6s}
+  .scard:hover .ph img{transform:scale(1.07)}
+  .scard .badge{position:absolute;left:20px;bottom:-22px;width:46px;height:46px;background:var(--ink);color:var(--amber);display:grid;place-items:center;font-size:1.3rem}
+  .scard .body{padding:38px 28px 30px}
+  .scard h3{font-size:1.5rem;margin-bottom:10px}
+  .scard p{color:var(--grey);font-size:.92rem;margin-bottom:18px}
+  .scard a.enter{color:var(--ink);font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;display:inline-flex;gap:8px;align-items:center}
+  .scard a.enter:hover{color:var(--amber-dark)}
+
+  /* WORLDWIDE / COVERAGE */
+  .coverage{background:var(--bg)}
+  .cov-grid{display:grid;grid-template-columns:1.1fr 1.3fr 1fr;gap:46px}
+  .cov-info h4{color:var(--amber-dark);font-size:1.05rem;letter-spacing:.06em;margin:22px 0 4px}
+  .cov-info h4:first-child{margin-top:0}
+  .cov-info p{color:var(--grey);font-size:.95rem}
+  .cov-info a{color:var(--ink);font-weight:600}
+  .cov-list{columns:2;column-gap:30px}
+  .cov-list li{list-style:none;padding:9px 0;border-bottom:1px solid var(--line);color:var(--ink);font-weight:500;font-size:.92rem;break-inside:avoid}
+  .cov-list li::before{content:"›";color:var(--amber);font-weight:700;margin-right:10px}
+  .cov-cta h3{font-size:1.9rem;margin-bottom:14px}
+  .cov-cta p{color:var(--grey);margin-bottom:22px;font-size:.95rem}
+
+  /* EXPERIENCE BANNER */
+  .exp{position:relative;color:#fff;overflow:hidden}
+  .exp-bg{position:absolute;inset:0;z-index:-2}
+  .exp-bg img{width:100%;height:100%;object-fit:cover}
+  .exp-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,21,24,.55),rgba(20,21,24,.35))}
+  .exp .wrap{padding:110px 26px;position:relative}
+  .exp-card{background:#fff;color:var(--ink);max-width:430px;padding:44px}
+  .exp-card .bar{width:54px;height:5px;background:var(--amber);margin-bottom:20px}
+  .exp-card h2{font-size:2rem;margin-bottom:16px}
+  .exp-card p{color:var(--grey);font-size:.95rem;margin-bottom:28px}
+  .exp-stats{display:flex;gap:40px}
+  .exp-stats .s b{font-family:'Barlow Condensed';font-size:2.8rem;color:var(--amber-dark);line-height:1;display:block}
+  .exp-stats .s span{font-size:.82rem;color:var(--grey);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+
+  /* CREDENTIALS STRIP */
+  .creds{border-bottom:1px solid var(--line)}
+  .creds .wrap{display:flex;justify-content:space-between;align-items:center;gap:30px;padding:38px 26px;flex-wrap:wrap}
+  .cred{display:flex;align-items:center;gap:12px;font-family:'Barlow Condensed';font-size:1.45rem;font-weight:700;text-transform:uppercase;color:var(--ink);opacity:.85;transition:.2s}
+  .cred:hover{opacity:1;color:var(--amber-dark)}
+  .cred .ic{font-size:1.7rem}
+
+  /* STANDARDS / BARS */
+  .std-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .bar-row{margin-bottom:26px}
+  .bar-row .top{display:flex;justify-content:space-between;font-weight:600;font-size:.86rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:9px}
+  .bar-track{height:7px;background:var(--line)}
+  .bar-fill{height:100%;background:var(--amber);width:0;transition:width 1.4s ease}
+  .std-text h2{font-size:clamp(1.9rem,3.5vw,2.6rem);margin-bottom:16px}
+  .std-text p{color:var(--grey);margin-bottom:24px}
+
+  /* RELATIONSHIPS BANNER */
+  .rel{position:relative;color:#fff;overflow:hidden}
+  .rel-bg{position:absolute;inset:0;z-index:-2}
+  .rel-bg img{width:100%;height:100%;object-fit:cover}
+  .rel-bg::after{content:"";position:absolute;inset:0;background:rgba(20,21,24,.4)}
+  .rel .wrap{display:flex;justify-content:flex-end;padding:90px 26px}
+  .rel-card{background:#fff;color:var(--ink);max-width:480px;padding:46px}
+  .rel-card h2{font-size:1.9rem;margin-bottom:16px}
+  .rel-card p{color:var(--grey);margin-bottom:26px;font-size:.95rem}
+
+  /* PROJECTS */
+  .proj-head{text-align:center;margin-bottom:30px}
+  .proj-filter{display:flex;justify-content:center;gap:8px;margin-bottom:40px;flex-wrap:wrap}
+  .proj-filter button{background:none;border:1px solid var(--line);padding:9px 22px;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;color:var(--grey);transition:.2s;font-family:'Inter'}
+  .proj-filter button.on,.proj-filter button:hover{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+  .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .pcard{display:flex;gap:16px;border:1px solid var(--line);padding:16px;transition:.3s;align-items:flex-start}
+  .pcard:hover{box-shadow:0 18px 40px rgba(0,0,0,.08);border-color:transparent}
+  .pcard .thumb{flex:0 0 92px;height:92px;overflow:hidden}
+  .pcard .thumb img{width:100%;height:100%;object-fit:cover}
+  .pcard h4{font-size:1.15rem;margin-bottom:6px}
+  .pcard p{font-size:.82rem;color:var(--grey);margin-bottom:8px;line-height:1.5}
+  .pcard a{font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--amber-dark)}
+
+  /* CONTACT STRIP */
+  .contact{border-top:1px solid var(--line)}
+  .c-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+  .c-item{padding-left:60px;position:relative}
+  .c-item .ic{position:absolute;left:0;top:2px;width:44px;height:44px;border:2px solid var(--amber);color:var(--amber-dark);display:grid;place-items:center;font-size:1.2rem}
+  .c-item h4{font-size:1.3rem;margin-bottom:8px}
+  .c-item p,.c-item a{color:var(--grey);font-size:.92rem;display:block;line-height:1.7}
+  .c-item a:hover{color:var(--amber-dark)}
+
+  /* FOOTER */
+  footer{background:var(--darker);color:#b9bbc0;padding:70px 0 0}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .foot-brand .logo{display:flex;align-items:center;gap:12px;color:#fff;font-family:'Barlow Condensed';font-size:1.8rem;font-weight:700;text-transform:uppercase;margin-bottom:18px}
+  .foot-brand .logo img{height:46px;background:#fff;border-radius:8px;padding:4px}
+  .foot-brand p{font-size:.9rem;max-width:330px;margin-bottom:20px}
+  .foot-soc a{display:inline-grid;place-items:center;width:38px;height:38px;border:1px solid rgba(255,255,255,.18);margin-right:8px;color:#cfd1d6;font-weight:600;font-size:.8rem;transition:.25s}
+  .foot-soc a:hover{background:var(--amber);color:var(--ink);border-color:var(--amber)}
+  footer h5{color:#fff;font-family:'Barlow Condensed';font-size:1.3rem;margin-bottom:20px;letter-spacing:.04em}
+  footer .fcol a,footer .fcol p{display:block;color:#b9bbc0;font-size:.9rem;margin-bottom:11px;transition:.2s}
+  footer .fcol a:hover{color:var(--amber);padding-left:5px}
+  .fcol p .ic{color:var(--amber);margin-right:8px}
+  .foot-bottom{text-align:center;padding:24px 0;font-size:.84rem;color:#85878d}
+
+  @media(max-width:980px){
+    .sol-head,.std-grid{grid-template-columns:1fr;gap:24px}
+    .cards3,.proj-grid{grid-template-columns:1fr 1fr}
+    .cov-grid{grid-template-columns:1fr;gap:36px}
+    .c-grid{grid-template-columns:1fr;gap:30px}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:680px){
+    .nav-links{position:fixed;inset:0;background:var(--darker);flex-direction:column;justify-content:center;gap:28px;transform:translateX(100%);transition:.35s;z-index:99}
+    .nav-links.open{transform:translateX(0)}
+    .nav-links a{font-size:1.2rem}
+    .burger{display:flex;z-index:100}
+    .cards3,.proj-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr}
+    .cov-list{columns:1}
+    .topbar .tsoc{display:none}
+    .exp-stats{gap:24px}
+    .rel .wrap{justify-content:center}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="wrap">
+    <div>
+      <span class="ti">📞 <b>07707 052147</b></span>
+      <span class="ti">✉️ info@sparkymag.uk</span>
+      <span class="ti">🕘 Mon–Fri 9:00 – 18:00</span>
+    </div>
+    <div class="tsoc">
+      <a href="https://facebook.com/profile.php?id=100083147351719">Facebook</a>
+      <a href="https://instagram.com/sparkymag.uk">Instagram</a>
+      <a href="https://x.com/Sparky_Mag">X</a>
+      <a href="https://linkedin.com/company/sparkymag">LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo"><img src="assets/logo.png" alt="SparkyMag"> SparkyMag</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#solutions">Services</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#standards">Standards</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><img src="assets/hero.jpg" alt="Electrical components and wiring plan"></div>
+  <div class="wrap">
+    <div class="bar"></div>
+    <h1>Electrical solutions for <span>homes, business &amp; industry</span></h1>
+    <p>SparkyMag is a family company created to make your project come true. We value the details and the final effect of every installation more than the time it takes.</p>
+    <div class="hero-cta">
+      <a href="#solutions" class="btn">View Services →</a>
+      <a href="#contact" class="btn btn-outline">Free Quote</a>
+    </div>
+    <div class="hero-dots"><span class="on"></span><span></span><span></span></div>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section class="sec" id="solutions">
+  <div class="wrap">
+    <div class="sol-head">
+      <div>
+        <span class="eyebrow">What we do</span>
+        <h2>Certified electrical solutions, done properly</h2>
+      </div>
+      <p class="ln">From a single socket to a full commercial fit-out, our gold-card electricians complete every job with precision, punctuality and the utmost safety for you and your family.</p>
+    </div>
+    <div class="cards3">
+      <article class="scard">
+        <div class="ph"><img src="assets/inspiration.jpg" alt="Domestic electrical"><span class="badge">🏠</span></div>
+        <div class="body">
+          <h3>Domestic</h3>
+          <p>Full &amp; partial rewires, consumer units, lighting, sockets, fault finding and home electrical upgrades.</p>
+          <a class="enter" href="#contact">Enter Now ⟶</a>
+        </div>
+      </article>
+      <article class="scard">
+        <div class="ph"><img src="assets/hero.jpg" alt="Commercial and industrial"><span class="badge">🏢</span></div>
+        <div class="body">
+          <h3>Commercial &amp; Industrial</h3>
+          <p>Fit-outs, three-phase power, data cabling and planned preventative maintenance contracts for business.</p>
+          <a class="enter" href="#contact">Enter Now ⟶</a>
+        </div>
+      </article>
+      <article class="scard">
+        <div class="ph"><img src="assets/inspection.jpg" alt="Testing and inspection"><span class="badge">🔌</span></div>
+        <div class="body">
+          <h3>Testing &amp; Renewables</h3>
+          <p>EICR inspections, EIC/MEIWC certificates, EV chargers, solar PV, energy storage, CCTV &amp; fire safety.</p>
+          <a class="enter" href="#contact">Enter Now ⟶</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section class="sec coverage" id="coverage">
+  <div class="wrap cov-grid">
+    <div class="cov-info">
+      <h4>Headquarters</h4>
+      <p>9 Princeton Close, Salford,<br>Manchester, M6 8QL</p>
+      <h4>Working Hours</h4>
+      <p>Monday to Friday · 9:00am – 6:00pm</p>
+      <h4>Email</h4>
+      <p><a href="mailto:info@sparkymag.uk">info@sparkymag.uk</a></p>
+      <h4>Contact Phone</h4>
+      <p><a href="tel:07707052147">07707 052147</a></p>
+    </div>
+    <div>
+      <ul class="cov-list">
+        <li>Domestic Electrical</li>
+        <li>Commercial &amp; Industrial</li>
+        <li>Electrical Testing (EICR)</li>
+        <li>EV Charger Install</li>
+        <li>Photovoltaics (PV)</li>
+        <li>Energy Storage (ESS)</li>
+        <li>Data Cabling</li>
+        <li>Fire &amp; Life Safety</li>
+        <li>Access &amp; Door Entry</li>
+        <li>CCTV Systems</li>
+        <li>PPM Contracts</li>
+        <li>Inspections</li>
+      </ul>
+    </div>
+    <div class="cov-cta">
+      <span class="eyebrow">Full service list</span>
+      <h3>Eleven services under one certified roof</h3>
+      <p>Whatever the project, SparkyMag covers it — registered with NAPIT/NICEIC and backed by renewable-energy certification.</p>
+      <a href="#contact" class="btn">More Information</a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE BANNER -->
+<section class="exp">
+  <div class="exp-bg"><img src="assets/inspection.jpg" alt="Experienced electrician at work"></div>
+  <div class="wrap">
+    <div class="exp-card">
+      <div class="bar"></div>
+      <h2>Trusted experience you can build on</h2>
+      <p>We operate legally, employing only registered, fully certified electricians with gold-card qualifications and years of proven experience — every project documented with a contract and a guarantee.</p>
+      <div class="exp-stats">
+        <div class="s"><b>74+</b><span>Projects completed</span></div>
+        <div class="s"><b>11</b><span>Specialist services</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="creds">
+  <div class="wrap">
+    <div class="cred"><span class="ic">🛡️</span> NAPIT</div>
+    <div class="cred"><span class="ic">⚡</span> NICEIC</div>
+    <div class="cred"><span class="ic">🥇</span> Gold Card</div>
+    <div class="cred"><span class="ic">🌱</span> Renewable Certified</div>
+    <div class="cred"><span class="ic">⭐</span> Best Rated</div>
+  </div>
+</section>
+
+<!-- STANDARDS / BARS -->
+<section class="sec" id="standards">
+  <div class="wrap std-grid">
+    <div>
+      <div class="bar-row"><div class="top"><span>Safety &amp; Certification</span><span>100%</span></div><div class="bar-track"><div class="bar-fill" data-w="100"></div></div></div>
+      <div class="bar-row"><div class="top"><span>Renewable Energy Systems</span><span>90%</span></div><div class="bar-track"><div class="bar-fill" data-w="90"></div></div></div>
+      <div class="bar-row"><div class="top"><span>Quality of Workmanship</span><span>98%</span></div><div class="bar-track"><div class="bar-fill" data-w="98"></div></div></div>
+      <div class="bar-row"><div class="top"><span>Punctuality &amp; Care</span><span>95%</span></div><div class="bar-track"><div class="bar-fill" data-w="95"></div></div></div>
+    </div>
+    <div class="std-text">
+      <span class="eyebrow">Our standards</span>
+      <h2>Quality &amp; safety in everything we wire</h2>
+      <p>We invest the time a job truly needs for a solid, attractive result rather than rushing for payment. Every installation is handled with meticulous detail, transparent pricing and full certification — so you can be proud of your home.</p>
+      <a href="#contact" class="btn">Read More About Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- RELATIONSHIPS -->
+<section class="rel">
+  <div class="rel-bg"><img src="assets/hero.jpg" alt="Strong client relationships"></div>
+  <div class="wrap">
+    <div class="rel-card">
+      <h2>We build strong relationships with our clients</h2>
+      <p>A close-knit, friendly team that treats every customer fairly — regardless of who you are — and stays open to your ideas, finding creative solutions to even the trickiest challenges.</p>
+      <a href="#contact" class="btn">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="sec" id="projects">
+  <div class="wrap">
+    <div class="proj-head">
+      <span class="eyebrow">Our work</span>
+      <h2 class="h2">Featured projects</h2>
+    </div>
+    <div class="proj-filter">
+      <button class="on">All</button>
+      <button>Domestic</button>
+      <button>Commercial</button>
+      <button>Renewables</button>
+    </div>
+    <div class="proj-grid">
+      <article class="pcard"><div class="thumb"><img src="assets/inspiration.jpg" alt=""></div><div><h4>Full Home Rewire</h4><p>Complete domestic rewire with new consumer unit and certification.</p><a href="#">Open Project →</a></div></article>
+      <article class="pcard"><div class="thumb"><img src="assets/hero.jpg" alt=""></div><div><h4>Commercial Fit-Out</h4><p>Power, data cabling and lighting for a busy commercial unit.</p><a href="#">Open Project →</a></div></article>
+      <article class="pcard"><div class="thumb"><img src="assets/inspection.jpg" alt=""></div><div><h4>EICR Inspection</h4><p>Periodic inspection and condition report with remedial works.</p><a href="#">Open Project →</a></div></article>
+      <article class="pcard"><div class="thumb"><img src="assets/hero.jpg" alt=""></div><div><h4>EV Charger Install</h4><p>Home EV charge point installation and commissioning.</p><a href="#">Open Project →</a></div></article>
+      <article class="pcard"><div class="thumb"><img src="assets/inspiration.jpg" alt=""></div><div><h4>Solar PV &amp; Storage</h4><p>Rooftop photovoltaics with battery energy storage system.</p><a href="#">Open Project →</a></div></article>
+      <article class="pcard"><div class="thumb"><img src="assets/inspection.jpg" alt=""></div><div><h4>CCTV &amp; Access</h4><p>CCTV system with door entry and access control setup.</p><a href="#">Open Project →</a></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<section class="sec contact" id="contact">
+  <div class="wrap c-grid">
+    <div class="c-item">
+      <span class="ic">📞</span>
+      <h4>Have a question? Call now</h4>
+      <a href="tel:07707052147">07707 052147</a>
+      <p>Mon–Fri · 9:00am – 6:00pm</p>
+      <a href="tel:07707052147">Request a callback</a>
+    </div>
+    <div class="c-item">
+      <span class="ic">✉️</span>
+      <h4>Need support? Drop us an email</h4>
+      <a href="mailto:info@sparkymag.uk">info@sparkymag.uk</a>
+      <a href="#contact">Use our online form</a>
+    </div>
+    <div class="c-item">
+      <span class="ic">📍</span>
+      <h4>Where we are</h4>
+      <p>9 Princeton Close, Salford,<br>Manchester, M6 8QL</p>
+      <a href="#">View on map</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo"><img src="assets/logo.png" alt="SparkyMag"> SparkyMag</div>
+        <p>Low prices, magical quality of service. A family electrical company in Manchester — be proud of your home.</p>
+        <div class="foot-soc">
+          <a href="https://facebook.com/profile.php?id=100083147351719">f</a>
+          <a href="https://x.com/Sparky_Mag">X</a>
+          <a href="https://instagram.com/sparkymag.uk">ig</a>
+          <a href="https://pinterest.co.uk/SparkyMag">P</a>
+          <a href="https://linkedin.com/company/sparkymag">in</a>
+          <a href="https://tiktok.com/@sparkymag">tk</a>
+        </div>
+      </div>
+      <div class="fcol">
+        <h5>Contact Info</h5>
+        <p><span class="ic">📍</span>9 Princeton Close, Salford, Manchester M6 8QL</p>
+        <p><span class="ic">📞</span>07707 052147</p>
+        <p><span class="ic">✉️</span>info@sparkymag.uk</p>
+      </div>
+      <div class="fcol">
+        <h5>Useful Resources</h5>
+        <a href="#">About Us</a>
+        <a href="#">Services</a>
+        <a href="#">Finished Projects</a>
+        <a href="#">Book Appointment</a>
+        <a href="#">Calculator</a>
+        <a href="#">FAQs &amp; Warranty</a>
+      </div>
+    </div>
+    <div class="foot-bottom">© SparkyMag 2022–2026 · Be Proud of Your Home · NAPIT / NICEIC Approved</div>
+  </div>
+</footer>
+
+<script>
+  const burger=document.getElementById('burger'),nav=document.getElementById('navLinks');
+  burger.addEventListener('click',()=>nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+  // animate bars on scroll
+  const fills=document.querySelectorAll('.bar-fill');
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.style.width=e.target.dataset.w+'%';io.unobserve(e.target)}}),{threshold:.4});
+  fills.forEach(f=>io.observe(f));
+  // project filter (visual)
+  document.querySelectorAll('.proj-filter button').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('.proj-filter button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  }));
+</script>
+</body>
+</html>

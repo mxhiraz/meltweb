@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LB Roofing &amp; Construction | Atlanta Roofing, Repair, Replacement &amp; Storm Damage</title>
+<meta name="description" content="LB Roofing & Construction — Atlanta's trusted roofer since 2008. Roof repair, replacement, gutters, siding, storm damage & insurance claims, commercial roofing. Free estimates. BBB A+. 5-year warranty." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#c8202e;
+  --red-2:#e23744;
+  --red-deep:#9c1722;
+  --ink:#16181d;
+  --ink-2:#3b3f47;
+  --muted:#6c727d;
+  --bg:#ffffff;
+  --bg-soft:#f5f6f8;
+  --bg-soft2:#eef0f4;
+  --line:#e4e7ec;
+  --radius:18px;
+  --sans:'Inter',system-ui,sans-serif;
+  --head:'Sora','Inter',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+h1,h2,h3,h4{font-family:var(--head);font-weight:600;line-height:1.1;letter-spacing:-.02em}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--red);letter-spacing:.02em}
+.kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red)}
+.sec-title{font-size:clamp(1.9rem,3.8vw,3rem);margin:14px 0}
+.muted{color:var(--muted)}
+p{color:var(--ink-2)}
+
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:14px;padding:14px 26px;border-radius:60px;cursor:pointer;border:none;transition:all .35s var(--ease)}
+.btn .ic{width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.22);transition:transform .35s var(--ease)}
+.btn-primary{background:var(--red);color:#fff;box-shadow:0 10px 26px -10px rgba(200,32,46,.7)}
+.btn-primary:hover{background:var(--red-deep)}
+.btn-primary:hover .ic{transform:rotate(45deg)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#000}
+.btn-light{background:#fff;color:var(--ink);box-shadow:0 8px 26px -12px rgba(0,0,0,.3)}
+.btn-light .ic{background:var(--red);color:#fff}
+.btn-light:hover{transform:translateY(-2px)}
+.btn-outline{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+.btn-outline:hover{border-color:var(--red);color:var(--red)}
+
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s}
+.nav{display:flex;align-items:center;justify-content:space-between;margin:14px auto 0;max-width:1200px;padding:10px 14px 10px 18px;background:rgba(255,255,255,.7);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:60px;transition:.4s}
+header.scrolled .nav{background:rgba(255,255,255,.95);box-shadow:0 10px 30px -16px rgba(0,0,0,.18)}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--head);font-weight:700;font-size:1.1rem}
+.brand img{height:38px}
+.brand small{display:block;font-size:9px;font-weight:600;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
+.nav-links{display:flex;gap:6px;align-items:center}
+.nav-links a{font-size:14px;font-weight:500;color:var(--ink-2);padding:8px 14px;border-radius:40px;transition:.3s}
+.nav-links a:hover{background:var(--bg-soft2);color:var(--ink)}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.nav-phone{font-weight:700;font-size:14px;color:var(--ink);white-space:nowrap}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+.mnav{position:fixed;inset:0;z-index:200;background:var(--ink);color:#fff;display:flex;flex-direction:column;padding:28px;transform:translateX(100%);transition:transform .5s var(--ease)}
+.mnav.open{transform:none}
+.mnav .top{display:flex;justify-content:space-between;align-items:center}
+.mnav .x{background:none;border:none;color:#fff;font-size:32px;cursor:pointer}
+.mnav nav{margin-top:40px;display:flex;flex-direction:column;gap:4px}
+.mnav nav a{font-family:var(--head);font-size:1.7rem;font-weight:600;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.mnav .btn{margin-top:28px;justify-content:center}
+
+/* HERO */
+.hero{position:relative;padding:150px 0 0;text-align:center;color:#fff;overflow:hidden;background:linear-gradient(170deg,var(--red-2) 0%,var(--red) 40%,var(--red-deep) 100%)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% -10%,rgba(255,255,255,.25),transparent 55%);pointer-events:none}
+.hero .wrap{position:relative;z-index:2}
+.hero .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);padding:7px 16px;border-radius:40px;font-size:13px;font-weight:500;margin-bottom:26px}
+.hero .pill b{font-weight:700}
+.hero h1{font-size:clamp(2.4rem,6vw,4.6rem);color:#fff;max-width:16ch;margin:0 auto 22px}
+.hero p{color:rgba(255,255,255,.92);max-width:54ch;margin:0 auto 32px;font-size:1.08rem}
+.hero .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:54px}
+.hero-photo{position:relative;z-index:2;max-width:1000px;margin:0 auto;border-radius:24px 24px 0 0;overflow:hidden;box-shadow:0 -10px 60px -10px rgba(0,0,0,.4)}
+.hero-photo img{width:100%;height:clamp(300px,42vw,520px);object-fit:cover}
+.hero-photo .float{position:absolute;background:#fff;color:var(--ink);border-radius:14px;padding:14px 18px;box-shadow:0 18px 40px -18px rgba(0,0,0,.4);display:flex;align-items:center;gap:12px}
+.hero-photo .float .n{font-family:var(--head);font-weight:700;font-size:1.5rem;color:var(--red)}
+.hero-photo .float .t{font-size:12px;line-height:1.3;color:var(--muted);font-weight:500;text-align:left}
+.float.f1{left:24px;top:24px}
+.float.f2{right:24px;bottom:24px}
+@media(max-width:680px){.hero-photo .float{display:none}}
+
+/* LOGO CLOUD */
+.cloud{padding:50px 0;background:var(--bg-soft)}
+.cloud .lbl{text-align:center;font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.04em;margin-bottom:26px}
+.cloud .logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:46px}
+.cloud .logos img{height:42px;width:auto;opacity:.6;filter:grayscale(1);transition:.4s}
+.cloud .logos img:hover{opacity:1;filter:none}
+
+/* SECTION */
+.sec{padding:96px 0}
+.sec-head{max-width:680px;margin-bottom:48px}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+
+/* SERVICE CARDS */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;transition:.45s var(--ease);position:relative;overflow:hidden}
+.card::after{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--red);transition:width .45s var(--ease)}
+.card:hover{transform:translateY(-6px);box-shadow:0 26px 50px -28px rgba(0,0,0,.22);border-color:transparent}
+.card:hover::after{width:100%}
+.card .ico{width:54px;height:54px;border-radius:14px;background:rgba(200,32,46,.1);color:var(--red);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.card .ico svg{width:26px;height:26px}
+.card h4{font-size:1.25rem;margin-bottom:10px}
+.card p{font-size:.92rem;margin-bottom:20px}
+.card .more{font-size:13px;font-weight:600;color:var(--red);display:inline-flex;align-items:center;gap:6px;transition:gap .3s}
+.card:hover .more{gap:12px}
+.svc-foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;margin-top:34px;padding:24px 30px;background:var(--ink);border-radius:var(--radius);color:#fff}
+.svc-foot p{color:rgba(255,255,255,.8);font-size:.95rem;max-width:48ch}
+
+/* PROJECTS carousel */
+.projects{background:var(--bg-soft);overflow:hidden}
+.proj-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:40px}
+.track-wrap{overflow:hidden}
+.track{display:flex;gap:22px;transition:transform .6s var(--ease)}
+.proj{flex:0 0 calc((100% - 44px)/3);min-width:280px;background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+.proj img{width:100%;height:240px;object-fit:cover;transition:transform .8s var(--ease)}
+.proj:hover img{transform:scale(1.06)}
+.proj .pb{padding:22px 24px}
+.proj .pb h4{font-size:1.15rem;margin-bottom:8px}
+.proj .pb p{font-size:.88rem}
+.proj .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--red);background:rgba(200,32,46,.09);padding:5px 11px;border-radius:20px;margin-bottom:12px}
+.car-nav{display:flex;gap:10px}
+.car-nav button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:18px;color:var(--ink);transition:.3s;display:flex;align-items:center;justify-content:center}
+.car-nav button:hover{background:var(--red);color:#fff;border-color:var(--red)}
+
+/* COMMITMENT split + stats */
+.commit{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.commit .imgw{border-radius:var(--radius);overflow:hidden;position:relative}
+.commit .imgw img{width:100%;height:480px;object-fit:cover}
+.stats{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.stat{flex:1;min-width:120px;background:var(--bg-soft);border-radius:14px;padding:22px}
+.stat .n{font-family:var(--head);font-weight:700;font-size:2.1rem;color:var(--red);line-height:1}
+.stat .l{font-size:12.5px;color:var(--muted);font-weight:500;margin-top:6px}
+
+/* TIPS / blog */
+.tips{background:var(--bg-soft)}
+.tip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tip{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);transition:.4s var(--ease)}
+.tip:hover{transform:translateY(-5px);box-shadow:0 24px 46px -28px rgba(0,0,0,.2)}
+.tip img{width:100%;height:200px;object-fit:cover}
+.tip .tb{padding:24px}
+.tip .date{font-size:12px;color:var(--muted);font-weight:600}
+.tip h4{font-size:1.12rem;margin:10px 0 0;line-height:1.3}
+
+/* CTA band */
+.ctaband{position:relative;border-radius:var(--radius);overflow:hidden;color:#fff;background:linear-gradient(120deg,var(--red) 0%,var(--red-deep) 100%)}
+.ctaband .ph{position:absolute;right:0;top:0;bottom:0;width:42%;opacity:.32}
+.ctaband .ph img{width:100%;height:100%;object-fit:cover}
+.ctaband .inner{position:relative;z-index:2;padding:70px 56px;max-width:60%}
+.ctaband h2{color:#fff;font-size:clamp(1.8rem,3.4vw,2.8rem);margin-bottom:16px}
+.ctaband p{color:rgba(255,255,255,.9);margin-bottom:28px}
+@media(max-width:760px){.ctaband .ph{display:none}.ctaband .inner{max-width:100%;padding:48px 28px}}
+
+/* FAQ */
+.faq{display:grid;grid-template-columns:.85fr 1.15fr;gap:54px;align-items:start}
+.acc-item{border-bottom:1px solid var(--line)}
+.acc-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:24px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:var(--head);font-size:1.1rem;font-weight:600;color:var(--ink)}
+.acc-q .pm{flex:0 0 30px;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:18px;transition:.35s;color:var(--red)}
+.acc-item.open .pm{background:var(--red);color:#fff;border-color:var(--red);transform:rotate(45deg)}
+.acc-a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
+.acc-a p{padding:0 0 24px;font-size:.96rem;max-width:60ch}
+
+/* FOOTER */
+footer{background:var(--ink);color:#9aa0ac;padding:80px 0 0;overflow:hidden}
+.foot-top{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:36px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-brand .b{display:flex;align-items:center;gap:10px;font-family:var(--head);font-weight:700;font-size:1.3rem;color:#fff}
+.foot-brand .b img{height:42px}
+.foot-brand p{margin-top:16px;font-size:.92rem;max-width:32ch}
+.foot-brand .socials{display:flex;gap:10px;margin-top:22px}
+.foot-brand .socials a{width:38px;height:38px;border:1px solid rgba(255,255,255,.18);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;transition:.3s}
+.foot-brand .socials a:hover{background:var(--red);border-color:var(--red)}
+.foot-brand .socials svg{width:16px;height:16px}
+.fcol h5{color:#fff;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+.fcol a{display:block;font-size:.92rem;padding:6px 0;transition:.3s}
+.fcol a:hover{color:#fff}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;padding:26px 0;font-size:12.5px}
+.wordmark{font-family:var(--head);font-weight:700;font-size:clamp(3rem,16vw,12rem);color:rgba(255,255,255,.04);text-align:center;line-height:.9;letter-spacing:-.03em;padding-bottom:10px;white-space:nowrap}
+
+.reveal{opacity:0;transform:translateY(30px);transition:.9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:980px){
+  .nav-links,.nav-phone{display:none}
+  .burger{display:flex}
+  .cards,.tip-grid{grid-template-columns:1fr 1fr}
+  .commit,.faq{grid-template-columns:1fr;gap:36px}
+  .commit .imgw img{height:340px}
+  .foot-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:620px){
+  .cards,.tip-grid{grid-template-columns:1fr}
+  .proj{flex:0 0 86%}
+  .foot-top{grid-template-columns:1fr}
+  .sec{padding:70px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="hdr">
+  <div class="nav">
+    <a href="#top" class="brand"><img src="assets/logo.png" alt="LB Roofing logo"><span>LB Roofing<small>&amp; Construction</small></span></a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Our Work</a>
+      <a href="#tips">Roofing Tips</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:4048756222" class="nav-phone">404.875.6222</a>
+      <a href="#contact" class="btn btn-primary">Get a free estimate <span class="ic">↗</span></a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mnav" id="mnav">
+  <div class="top">
+    <span class="brand" style="color:#fff"><img src="assets/logo.png" alt=""><span>LB Roofing</span></span>
+    <button class="x" id="mx" aria-label="Close">×</button>
+  </div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#work">Our Work</a>
+    <a href="#tips">Roofing Tips</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="#contact" class="btn btn-primary">Get a free estimate <span class="ic">↗</span></a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="pill">⭐ <b>BBB A+ Rated</b> · Atlanta's roofer since 2008</span>
+    <h1>Pound for pound, the best roof in town.</h1>
+    <p>Trusted metro Atlanta roofing &amp; construction — repairs, replacements, storm damage and insurance claims, delivered with superb workmanship and superior integrity.</p>
+    <div class="actions">
+      <a href="#contact" class="btn btn-light">Get a free estimate <span class="ic">↗</span></a>
+      <a href="#services" class="btn" style="background:rgba(255,255,255,.14);color:#fff">View our services</a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="assets/hero1.jpg" alt="LB Roofing installing a new roof on an Atlanta home" />
+    <div class="float f1"><div class="n">A+</div><div class="t">BBB<br>Accredited</div></div>
+    <div class="float f2"><div class="n">5-Yr</div><div class="t">Workmanship<br>Warranty</div></div>
+  </div>
+</section>
+
+<!-- LOGO CLOUD -->
+<div class="cloud">
+  <div class="wrap">
+    <p class="lbl">Certified, accredited &amp; recognized by the industry's best</p>
+    <div class="logos">
+      <img src="assets/certainteed.png" alt="CertainTeed">
+      <img src="assets/gaf.png" alt="GAF">
+      <img src="assets/owens.png" alt="Owens Corning Preferred Contractor">
+      <img src="assets/hgtv.png" alt="HGTV">
+      <img src="assets/expertise2026.png" alt="Expertise Best Roofers Atlanta 2026" style="height:62px">
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT / INTRO -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="kicker">About LB Roofing</span>
+      <h2 class="sec-title">Roofing that protects what matters most — your home and family.</h2>
+      <p>Since August 2008, our only mission has been to contribute to happy homes and satisfied homeowners. We don't take shortcuts, cut corners, or skimp on labor and materials — large project or small, LB Roofing has you covered.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec" id="services" style="background:var(--bg-soft);border-radius:36px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Our Services</span>
+      <h2 class="sec-title">Complete roofing &amp; exterior solutions for your property.</h2>
+      <p>Everything your home or business needs to stay protected — handled by one licensed, insured Atlanta team.</p>
+    </div>
+    <div class="cards reveal">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></div>
+        <h4>Roof Repair &amp; Replacement</h4>
+        <p>Leak repairs, full tear-offs and re-roofs with premium materials. Ask about $350 off your replacement.</p>
+        <a href="#contact" class="more">Learn more ↗</a>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></div>
+        <h4>Storm Damage &amp; Insurance</h4>
+        <p>Free inspections, full documentation, and we work directly with your insurance adjuster from claim to completion.</p>
+        <a href="#contact" class="more">Learn more ↗</a>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M3 7l2 12h14l2-12M8 7V5a4 4 0 018 0v2"/></svg></div>
+        <h4>Gutters &amp; Siding</h4>
+        <p>Seamless gutter and siding installation that defends your home from water and elevates its exterior.</p>
+        <a href="#contact" class="more">Learn more ↗</a>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h4>Commercial Roofing</h4>
+        <p>Durable, code-compliant roofing systems for storefronts and commercial properties — minimal disruption.</p>
+        <a href="#contact" class="more">Learn more ↗</a>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4>General Contracting</h4>
+        <p>Painting, drywall, decks &amp; fences, tree removal and full renovations — all handled under one roof.</p>
+        <a href="#contact" class="more">Learn more ↗</a>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7L9 18l-5-5"/></svg></div>
+        <h4>Free Written Estimates</h4>
+        <p>Professional, written estimates at no cost — and no payment until your job is complete. No surprises.</p>
+        <a href="#contact" class="more">Learn more ↗</a>
+      </div>
+    </div>
+    <div class="svc-foot reveal">
+      <p>Whether you need an urgent repair or a full replacement, our team is here to guide you every step of the way.</p>
+      <a href="#contact" class="btn btn-primary">Request a quote <span class="ic">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="sec projects" id="work">
+  <div class="wrap">
+    <div class="proj-head reveal">
+      <div class="sec-head" style="margin-bottom:0">
+        <span class="kicker">Our Work</span>
+        <h2 class="sec-title">Recent projects across metro Atlanta.</h2>
+      </div>
+      <div class="car-nav">
+        <button id="prev" aria-label="Previous">‹</button>
+        <button id="next" aria-label="Next">›</button>
+      </div>
+    </div>
+    <div class="track-wrap">
+      <div class="track" id="track">
+        <article class="proj"><img src="assets/marietta.jpg" alt="Roof replacement in Marietta"><div class="pb"><span class="tag">Roof Replacement</span><h4>Marietta Estate Re-Roof</h4><p>Full tear-off and replacement on a large brick home with reinforced leak barriers throughout.</p></div></article>
+        <article class="proj"><img src="assets/house1.jpg" alt="Architectural shingle roof"><div class="pb"><span class="tag">Residential</span><h4>Architectural Shingle Install</h4><p>New architectural shingles delivering durability and curb appeal for a classic family home.</p></div></article>
+        <article class="proj"><img src="assets/shingles.jpg" alt="Brick home new roof"><div class="pb"><span class="tag">Residential</span><h4>Brick Home Roof Upgrade</h4><p>A complete roofing upgrade built to handle Georgia's heat, wind and summer storms.</p></div></article>
+        <article class="proj"><img src="assets/hero2.jpg" alt="Suburban re-roof"><div class="pb"><span class="tag">Neighborhood</span><h4>Suburban Re-Roofing</h4><p>Multiple homes re-roofed with clean, same-day site cleanup on every job.</p></div></article>
+        <article class="proj"><img src="assets/gutter.jpg" alt="Premium home exterior"><div class="pb"><span class="tag">Exterior</span><h4>Roof, Gutters &amp; Exterior</h4><p>Coordinated roofing and gutter work that protects and elevates the entire exterior.</p></div></article>
+        <article class="proj"><img src="assets/commercial.jpg" alt="Commercial roofing"><div class="pb"><span class="tag">Commercial</span><h4>Commercial Property</h4><p>Durable commercial roofing delivered with minimal disruption to daily business.</p></div></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMITMENT + STATS -->
+<section class="sec" id="commit">
+  <div class="wrap commit">
+    <div class="reveal">
+      <span class="kicker">Our Commitment</span>
+      <h2 class="sec-title">Superb workmanship.<br>Superior integrity.</h2>
+      <p>It doesn't matter if your roofing project is large or small — LB Roofing has you covered. On every job we inspect and prep the deck, reinforce leak barriers at vulnerable areas, use five to six nails per shingle, and clean up debris the same day.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">2008</div><div class="l">Serving Atlanta Since</div></div>
+        <div class="stat"><div class="n">A+</div><div class="l">BBB Rating</div></div>
+        <div class="stat"><div class="n">$1M</div><div class="l">Liability Insured</div></div>
+        <div class="stat"><div class="n">5-Yr</div><div class="l">Workmanship Warranty</div></div>
+      </div>
+      <a href="#about" class="btn btn-dark" style="margin-top:30px">Why homeowners choose us <span class="ic">↗</span></a>
+    </div>
+    <div class="imgw reveal"><img src="assets/house1.jpg" alt="Beautifully roofed Atlanta-area home"></div>
+  </div>
+</section>
+
+<!-- TIPS / BLOG -->
+<section class="sec tips" id="tips">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="kicker" style="justify-content:center">Roofing Tips</span>
+      <h2 class="sec-title">Helpful advice for Atlanta homeowners.</h2>
+    </div>
+    <div class="tip-grid reveal">
+      <article class="tip"><img src="assets/storm.jpg" alt="Storm damage"><div class="tb"><span class="date">Storm Season</span><h4>5 signs of storm damage you shouldn't ignore on your roof</h4></div></article>
+      <article class="tip"><img src="assets/shingles.jpg" alt="Shingle inspection"><div class="tb"><span class="date">Maintenance</span><h4>Repair vs. replace: how to know when it's time for a new roof</h4></div></article>
+      <article class="tip"><img src="assets/gutter.jpg" alt="Gutters"><div class="tb"><span class="date">Home Care</span><h4>Why gutters and siding are your roof's best friends</h4></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="ctaband reveal">
+      <div class="ph"><img src="assets/hero2.jpg" alt=""></div>
+      <div class="inner">
+        <h2>Schedule your free estimate today.</h2>
+        <p>Free, no-obligation written estimates — and no payment until the job is complete. Let's protect your home the right way.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <a href="#contact" class="btn btn-light">Get started <span class="ic">↗</span></a>
+          <a href="tel:4048756222" class="btn" style="background:rgba(255,255,255,.16);color:#fff">☎ 404.875.6222</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq" style="background:var(--bg-soft);border-radius:36px">
+  <div class="wrap faq">
+    <div class="reveal">
+      <span class="kicker">FAQ</span>
+      <h2 class="sec-title">Frequently asked questions</h2>
+      <p>Answers to the questions Atlanta homeowners ask us most. Still curious? Give us a call at <b style="color:var(--ink)">404.875.6222</b>.</p>
+    </div>
+    <div class="reveal">
+      <div class="acc-item open">
+        <button class="acc-q">Do you offer free estimates? <span class="pm">+</span></button>
+        <div class="acc-a"><p>Yes — we provide professional, written estimates completely free of charge, with no obligation. And you won't pay anything until your job is complete.</p></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-q">Are you licensed and insured? <span class="pm">+</span></button>
+        <div class="acc-a"><p>Absolutely. LB Roofing is licensed to operate as a contractor in the State of Georgia and carries general liability insurance of $1M per occurrence and $1M aggregate.</p></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-q">Do you handle storm damage and insurance claims? <span class="pm">+</span></button>
+        <div class="acc-a"><p>We do. We provide free storm-damage inspections, fully document the damage for your claim, and work directly with your insurance adjuster from start to finished restoration.</p></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-q">What warranty do you provide? <span class="pm">+</span></button>
+        <div class="acc-a"><p>Every project is backed by our five-year workmanship warranty, and we install manufacturer-certified systems from partners like Owens Corning and CertainTeed.</p></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-q">What areas do you serve? <span class="pm">+</span></button>
+        <div class="acc-a"><p>We serve Atlanta and the surrounding metro, including Marietta, Kennesaw, Woodstock, Alpharetta, Cumming, Stone Mountain and beyond.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="kicker" style="justify-content:center">Get In Touch</span>
+      <h2 class="sec-title">Let's get your free estimate started.</h2>
+    </div>
+    <div class="reveal" style="max-width:760px;margin:0 auto;background:var(--bg-soft);border-radius:var(--radius);padding:clamp(28px,5vw,48px)">
+      <form onsubmit="return false">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div><label style="font-size:13px;font-weight:600;display:block;margin-bottom:8px">Full Name</label><input type="text" placeholder="Your name" style="width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:10px;font-family:inherit;font-size:.95rem"></div>
+          <div><label style="font-size:13px;font-weight:600;display:block;margin-bottom:8px">Phone</label><input type="tel" placeholder="(404) 000-0000" style="width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:10px;font-family:inherit;font-size:.95rem"></div>
+        </div>
+        <div style="margin-top:16px"><label style="font-size:13px;font-weight:600;display:block;margin-bottom:8px">Service Needed</label>
+          <select style="width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:10px;font-family:inherit;font-size:.95rem;background:#fff">
+            <option>Roof Repair</option><option>Roof Replacement</option><option>Storm Damage / Insurance</option><option>Gutters &amp; Siding</option><option>Commercial Roofing</option><option>General Contracting</option>
+          </select>
+        </div>
+        <div style="margin-top:16px"><label style="font-size:13px;font-weight:600;display:block;margin-bottom:8px">Project Details</label><textarea rows="4" placeholder="Tell us about your roof..." style="width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:10px;font-family:inherit;font-size:.95rem;resize:vertical"></textarea></div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:20px" type="submit">Request my free estimate <span class="ic">↗</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="b"><img src="assets/logo.png" alt="LB Roofing logo">LB Roofing &amp; Construction</div>
+        <p>Pound for pound, the best roof in town. Serving metro Atlanta homeowners and businesses since 2008.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9c0-.6.4-1 1-1z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 3h3l-7 8 8 10h-6l-5-6-5 6H2l8-9L2 3h6l4 5z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3-.4-4.4c-.2-.8-.9-1.4-1.7-1.6C18.3 5.5 12 5.5 12 5.5s-6.3 0-7.9.5c-.8.2-1.5.8-1.7 1.6C2 9 2 12 2 12s0 3 .4 4.4c.2.8.9 1.4 1.7 1.6 1.6.5 7.9.5 7.9.5s6.3 0 7.9-.5c.8-.2 1.5-.8 1.7-1.6C22 15 22 12 22 12zM10 15V9l5 3-5 3z"/></svg></a>
+        </div>
+      </div>
+      <div class="fcol"><h5>Services</h5><a href="#services">Roof Repair</a><a href="#services">Roof Replacement</a><a href="#services">Storm &amp; Insurance</a><a href="#services">Commercial</a><a href="#services">General Contracting</a></div>
+      <div class="fcol"><h5>Company</h5><a href="#about">About Us</a><a href="#work">Our Work</a><a href="#tips">Roofing Tips</a><a href="#faq">FAQ</a><a href="#contact">Free Estimate</a></div>
+      <div class="fcol"><h5>Contact</h5><a href="tel:4048756222">404.875.6222</a><a href="#">3101 Cobb Pkwy SE, Ste 124</a><a href="#">Atlanta, GA 30339</a><a href="#">Mon–Sat · 8AM–7PM</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 LB Roofing &amp; Construction. All rights reserved.</span>
+      <span>BBB A+ · Owens Corning Preferred · CertainTeed Master Shingle Applicator</span>
+    </div>
+  </div>
+  <div class="wordmark">LB ROOFING</div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>30));
+// mobile nav
+const mnav=document.getElementById('mnav');
+document.getElementById('burger').onclick=()=>mnav.classList.add('open');
+document.getElementById('mx').onclick=()=>mnav.classList.remove('open');
+mnav.querySelectorAll('a').forEach(a=>a.onclick=()=>mnav.classList.remove('open'));
+// FAQ accordion
+document.querySelectorAll('.acc-q').forEach(q=>{
+  const item=q.parentElement,a=item.querySelector('.acc-a');
+  const set=()=>a.style.maxHeight=item.classList.contains('open')?a.scrollHeight+'px':0;
+  if(item.classList.contains('open'))requestAnimationFrame(set);
+  q.onclick=()=>{
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.acc-item').forEach(i=>{i.classList.remove('open');i.querySelector('.acc-a').style.maxHeight=0});
+    if(!wasOpen){item.classList.add('open');set()}
+  };
+});
+// carousel
+const track=document.getElementById('track');let idx=0;
+const step=()=>{const card=track.querySelector('.proj');const gap=22;return card.offsetWidth+gap};
+const maxIdx=()=>{const vis=Math.round(track.parentElement.offsetWidth/step());return Math.max(0,track.children.length-vis)};
+const go=()=>track.style.transform=`translateX(${-idx*step()}px)`;
+document.getElementById('next').onclick=()=>{idx=Math.min(idx+1,maxIdx());go()};
+document.getElementById('prev').onclick=()=>{idx=Math.max(idx-1,0);go()};
+addEventListener('resize',()=>{idx=Math.min(idx,maxIdx());go()});
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

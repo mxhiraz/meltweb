@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SparkyMag — Family Electricians in Manchester | Be Proud of Your Home</title>
+<meta name="description" content="SparkyMag is a family-run electrical company in Manchester. NAPIT/NICEIC certified electricians for domestic, commercial & industrial work, EICR testing, EV chargers, solar PV and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --amber:#FBBC34;
+    --amber-dark:#D8A22D;
+    --orange:#FF7A18;
+    --ink:#1A1A1A;
+    --ink-2:#242424;
+    --grey:#767676;
+    --line:#E6E4DF;
+    --paper:#F4F2ED;
+    --white:#ffffff;
+    --radius:30px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Manrope',sans-serif;color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.05;letter-spacing:-.02em}
+  a{text-decoration:none;color:inherit}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;padding:16px 30px;border-radius:40px;font-weight:700;font-size:.95rem;transition:.25s;border:none;cursor:pointer}
+  .btn:hover{background:var(--amber);color:var(--ink);transform:translateY(-2px)}
+  .btn-amber{background:var(--amber);color:var(--ink)}
+  .btn-amber:hover{background:var(--ink);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid rgba(255,255,255,.4);color:#fff}
+  .btn-ghost:hover{background:#fff;color:var(--ink);border-color:#fff}
+  .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
+
+  /* NAV */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.3s}
+  header.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(14px);box-shadow:0 6px 30px rgba(0,0,0,.06)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  .nav .logo{display:flex;align-items:center;gap:12px;font-family:'Sora';font-weight:800;font-size:1.25rem;color:#fff;transition:.3s}
+  header.scrolled .nav .logo{color:var(--ink)}
+  .nav .logo img{height:46px;background:#fff;border-radius:10px;padding:4px}
+  .nav-links{display:flex;gap:38px;align-items:center}
+  .nav-links a{font-weight:600;font-size:.95rem;color:#fff;transition:.2s;position:relative}
+  header.scrolled .nav-links a{color:var(--ink)}
+  .nav-links a:hover{color:var(--amber)}
+  .nav-cta{display:flex;align-items:center;gap:16px}
+  .nav-phone{color:#fff;font-weight:700;font-size:.95rem}
+  header.scrolled .nav-phone{color:var(--ink)}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+  .burger span{width:26px;height:2.5px;background:#fff;border-radius:2px}
+  header.scrolled .burger span{background:var(--ink)}
+
+  /* HERO */
+  .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:46px;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:-2}
+  .hero-bg img{width:100%;height:100%;object-fit:cover}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,15,15,.55) 0%,rgba(15,15,15,.25) 40%,rgba(15,15,15,.85) 100%)}
+  .hero-title{font-size:clamp(3.4rem,15vw,15rem);font-weight:800;color:#fff;line-height:.82;letter-spacing:-.04em;text-shadow:0 10px 40px rgba(0,0,0,.3)}
+  .hero-sub{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:30px;margin-top:30px}
+  .hero-sub h2{color:#fff;font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:700;max-width:560px}
+  .hero-sub p{color:rgba(255,255,255,.8);max-width:340px;font-size:1.02rem}
+  /* search/quote bar */
+  .quotebar{margin-top:34px;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-radius:50px;padding:10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+  .qb-field{flex:1 1 150px;padding:12px 22px;position:relative;min-width:130px}
+  .qb-field + .qb-field{border-left:1px solid var(--line)}
+  .qb-field label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+  .qb-field select{border:none;background:none;font-family:'Manrope';font-weight:700;font-size:1rem;color:var(--ink);width:100%;cursor:pointer;outline:none;-webkit-appearance:none;margin-top:2px}
+  .quotebar .btn{flex:0 0 auto;padding:18px 34px}
+
+  /* INTRO statement */
+  .intro{padding:110px 0}
+  .intro-grid{display:grid;grid-template-columns:.8fr 2fr;gap:50px;align-items:start}
+  .intro-grid .eyebrow{max-width:160px;line-height:1.6}
+  .intro-statement{font-family:'Sora';font-size:clamp(1.7rem,3.4vw,2.9rem);font-weight:700;letter-spacing:-.02em;line-height:1.12}
+  .intro-statement b{color:var(--amber)}
+
+  /* SERVICE / PROJECT GALLERY */
+  .gallery{padding:0 0 110px}
+  .g-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .g-card{position:relative}
+  .g-card .ph{border-radius:24px;overflow:hidden;aspect-ratio:4/3.4;background:var(--paper)}
+  .g-card .ph img{width:100%;height:100%;object-fit:cover;transition:.6s}
+  .g-card:hover .ph img{transform:scale(1.06)}
+  .g-card h3{font-size:1.35rem;margin-top:20px;font-weight:700}
+  .g-card span{color:var(--grey);font-size:.92rem}
+  .g-card .line{height:2px;background:var(--line);margin-top:18px;position:relative;overflow:hidden}
+  .g-card .line::after{content:"";position:absolute;left:0;top:0;height:100%;width:0;background:var(--amber);transition:.5s}
+  .g-card:hover .line::after{width:60%}
+  .g-tag{position:absolute;top:16px;left:16px;background:var(--amber);color:var(--ink);font-weight:700;font-size:.78rem;padding:7px 16px;border-radius:30px}
+  .center-cta{text-align:center;margin-top:54px}
+
+  /* DARK BAND */
+  .band{background:var(--ink);color:#fff;border-radius:42px;margin:0 28px 110px;overflow:hidden}
+  .band-inner{max-width:1184px;margin:0 auto;padding:70px 56px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .band .eyebrow{color:var(--amber)}
+  .band h2{font-size:clamp(2rem,4vw,3rem);font-weight:800;color:#fff;margin:16px 0 22px}
+  .band p{color:rgba(255,255,255,.72);max-width:430px;margin-bottom:30px}
+  .band-visual{position:relative}
+  .band-visual>img{border-radius:26px;width:100%;aspect-ratio:1/1;object-fit:cover}
+  .pill{position:absolute;background:rgba(255,255,255,.96);color:var(--ink);border-radius:50px;padding:12px 20px;display:flex;align-items:center;gap:12px;font-weight:700;box-shadow:0 14px 40px rgba(0,0,0,.25);font-size:.95rem}
+  .pill .ic{width:34px;height:34px;border-radius:50%;background:var(--amber);display:grid;place-items:center;font-size:1rem}
+  .pill small{display:block;color:var(--grey);font-weight:600;font-size:.78rem}
+  .pill.p1{top:14%;left:-22px}
+  .pill.p2{top:46%;right:-18px}
+  .pill.p3{bottom:12%;left:6%}
+
+  /* TRUST / REVIEWS */
+  .trust{padding:0 0 110px}
+  .trust-head{display:grid;grid-template-columns:.8fr 2fr;gap:50px;align-items:end;margin-bottom:18px}
+  .trust-head h2{font-size:clamp(2rem,4vw,3rem);font-weight:800}
+  .stats-row{display:flex;gap:30px;flex-wrap:wrap;margin:30px 0 48px}
+  .stat{display:flex;align-items:center;gap:12px;font-weight:700}
+  .stat b{font-family:'Sora';font-size:1.5rem;color:var(--ink)}
+  .stat .dot{width:9px;height:9px;border-radius:50%;background:var(--amber)}
+  .t-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .t-card{border:1px solid var(--line);border-radius:24px;padding:32px;transition:.3s;background:#fff}
+  .t-card:hover{box-shadow:0 24px 50px rgba(0,0,0,.07);transform:translateY(-4px);border-color:transparent}
+  .t-card .ico{width:52px;height:52px;border-radius:14px;background:var(--paper);display:grid;place-items:center;font-size:1.4rem;margin-bottom:20px}
+  .t-card h4{font-size:1.18rem;margin-bottom:10px;font-weight:700}
+  .t-card p{color:var(--grey);font-size:.95rem}
+  .stars{color:var(--amber);margin-top:16px;letter-spacing:2px}
+
+  /* CTA BAND */
+  .cta-band{position:relative;border-radius:42px;overflow:hidden;margin:0 28px 0;min-height:420px;display:grid;place-items:center;text-align:center}
+  .cta-band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+  .cta-band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,.45),rgba(20,20,20,.7));z-index:-1}
+  .cta-band .inner{padding:60px 24px}
+  .cta-band h2{color:#fff;font-size:clamp(2rem,5vw,3.6rem);font-weight:800;max-width:760px;margin:0 auto 30px}
+
+  /* FOOTER */
+  footer{background:var(--paper);padding:90px 0 36px;margin-top:0;overflow:hidden}
+  .foot-type{font-family:'Sora';font-weight:800;font-size:clamp(3.5rem,16vw,15rem);line-height:.8;letter-spacing:-.04em;color:var(--ink);text-align:center;margin-bottom:50px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-top:50px;border-top:1px solid var(--line)}
+  .foot-grid h5{font-weight:700;font-family:'Sora';margin-bottom:18px;font-size:1.05rem}
+  .foot-grid a,.foot-grid p{display:block;color:var(--grey);font-size:.95rem;margin-bottom:10px;transition:.2s}
+  .foot-grid a:hover{color:var(--amber)}
+  .newsletter{display:flex;border-bottom:2px solid var(--ink);max-width:300px;margin-top:8px}
+  .newsletter input{flex:1;border:none;background:none;padding:10px 0;font-family:'Manrope';font-size:.95rem;outline:none}
+  .newsletter button{background:none;border:none;font-size:1.3rem;cursor:pointer}
+  .socials{display:flex;gap:10px;margin-top:18px}
+  .socials a{width:40px;height:40px;border-radius:50%;background:#fff;display:grid;place-items:center;font-weight:700;font-size:.85rem;transition:.25s;border:1px solid var(--line)}
+  .socials a:hover{background:var(--amber);transform:translateY(-3px)}
+  .copyright{text-align:center;padding-top:40px;margin-top:40px;border-top:1px solid var(--line);color:var(--grey);font-size:.88rem}
+
+  @media(max-width:980px){
+    .intro-grid,.trust-head{grid-template-columns:1fr;gap:18px}
+    .g-cards,.t-cards{grid-template-columns:1fr 1fr}
+    .band-inner{grid-template-columns:1fr;gap:40px}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:680px){
+    .nav-links{position:fixed;inset:0;background:var(--ink);flex-direction:column;justify-content:center;gap:30px;transform:translateX(100%);transition:.35s;z-index:99}
+    .nav-links.open{transform:translateX(0)}
+    .nav-links a{color:#fff!important;font-size:1.4rem}
+    .burger{display:flex;z-index:100}
+    .nav-phone{display:none}
+    .g-cards,.t-cards{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .band{margin:0 14px 80px}.band-inner{padding:48px 28px}
+    .cta-band,.band{border-radius:30px}
+    .band-inner .pill{position:static;display:inline-flex;margin:6px 6px 0 0}
+    .band-visual{display:flex;flex-direction:column;gap:14px}
+    .wrap{padding:0 18px}
+    .quotebar{border-radius:28px}
+    .qb-field+.qb-field{border-left:none}
+  }
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="logo"><img src="assets/logo.png" alt="SparkyMag logo"> SparkyMag</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#trust">Why Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <span class="nav-phone">07707 052147</span>
+      <a href="#contact" class="btn btn-amber" style="padding:12px 24px">Free Quote</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><img src="assets/hero.jpg" alt="Electrical installation tools and wiring"></div>
+  <div class="wrap">
+    <h1 class="hero-title">SparkyMag</h1>
+    <div class="hero-sub">
+      <h2>Powering Manchester homes &amp; businesses with magical quality.</h2>
+      <p>A family electrical company that values the details and the final result of every project — far more than the clock.</p>
+    </div>
+    <div class="quotebar">
+      <div class="qb-field">
+        <label>Service</label>
+        <select><option>Domestic</option><option>Commercial</option><option>EICR Testing</option><option>EV Charger</option><option>Solar PV</option></select>
+      </div>
+      <div class="qb-field">
+        <label>Property</label>
+        <select><option>Home</option><option>Business</option><option>Industrial</option></select>
+      </div>
+      <div class="qb-field">
+        <label>Area</label>
+        <select><option>Salford</option><option>Manchester</option><option>Greater Manchester</option></select>
+      </div>
+      <a href="#contact" class="btn">Get a Free Quote →</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro" id="about">
+  <div class="wrap intro-grid">
+    <p class="eyebrow">A family-run<br>electrical company</p>
+    <p class="intro-statement">Certified, registered electricians delivering <b>domestic, commercial and industrial</b> electrical work across Manchester — with precision, punctuality and the utmost safety for you and your family.</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="services">
+  <div class="wrap">
+    <div class="g-cards">
+      <article class="g-card">
+        <div class="ph"><span class="g-tag">Domestic</span><img src="assets/inspiration.jpg" alt="Domestic electrical installation"></div>
+        <h3>Home Electrical Services</h3>
+        <span>Rewires, lighting, sockets &amp; fault finding</span>
+        <div class="line"></div>
+      </article>
+      <article class="g-card">
+        <div class="ph"><span class="g-tag">Commercial</span><img src="assets/hero.jpg" alt="Commercial and industrial electrical work"></div>
+        <h3>Commercial &amp; Industrial</h3>
+        <span>Fit-outs, maintenance contracts &amp; power</span>
+        <div class="line"></div>
+      </article>
+      <article class="g-card">
+        <div class="ph"><span class="g-tag">EICR</span><img src="assets/inspection.jpg" alt="Electrical inspection and testing"></div>
+        <h3>Testing &amp; Inspection</h3>
+        <span>EICR reports, EIC &amp; MEIWC certificates</span>
+        <div class="line"></div>
+      </article>
+    </div>
+    <div class="center-cta"><a href="#contact" class="btn">Browse All Services</a></div>
+  </div>
+</section>
+
+<!-- DARK BAND -->
+<section class="band">
+  <div class="band-inner">
+    <div>
+      <p class="eyebrow">Any size · any project</p>
+      <h2>We power every project, large or small.</h2>
+      <p>No matter the scale — a single socket or a full commercial fit-out — our gold-card, NAPIT/NICEIC registered electricians deliver work that's certified, guaranteed and built to last.</p>
+      <a href="#contact" class="btn btn-amber">Book an Electrician</a>
+    </div>
+    <div class="band-visual">
+      <img src="assets/inspection.jpg" alt="Electrician at work">
+      <div class="pill p1"><span class="ic">🏠</span><div>Homes<small>Domestic installs</small></div></div>
+      <div class="pill p2"><span class="ic">🏢</span><div>Businesses<small>Commercial fit-outs</small></div></div>
+      <div class="pill p3"><span class="ic">⚡</span><div>Industrial<small>Power &amp; maintenance</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust" id="trust">
+  <div class="wrap">
+    <div class="trust-head">
+      <p class="eyebrow">Why homeowners<br>choose us</p>
+      <h2>Built on safety, certification &amp; family-run care.</h2>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><span class="dot"></span><b>74+</b>&nbsp;Projects completed</div>
+      <div class="stat"><span class="dot"></span><b>50,495</b>&nbsp;Instagram community</div>
+      <div class="stat"><span class="dot"></span><b>NAPIT/NICEIC</b>&nbsp;Registered</div>
+    </div>
+    <div class="t-cards">
+      <article class="t-card">
+        <div class="ico">🛡️</div>
+        <h4>Certified &amp; Registered</h4>
+        <p>We operate legally, employing only fully certified electricians with gold-card qualifications and years of proven experience. Every job is properly documented.</p>
+        <div class="stars">★★★★★</div>
+      </article>
+      <article class="t-card">
+        <div class="ico">⏱️</div>
+        <h4>Punctual &amp; Precise</h4>
+        <p>Work completed with precision, punctuality and the utmost safety for you and your family — because we value the final result over rushing the clock.</p>
+        <div class="stars">★★★★★</div>
+      </article>
+      <article class="t-card">
+        <div class="ico">🤝</div>
+        <h4>Family-Run Care</h4>
+        <p>A close-knit, friendly team that treats everyone fairly and stays open to your ideas. Each project gets individual attention, a contract and a guarantee.</p>
+        <div class="stars">★★★★★</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band" id="contact">
+  <img src="assets/inspiration.jpg" alt="Electrical work">
+  <div class="inner">
+    <h2>Be proud of your home — book your electrician today.</h2>
+    <a href="tel:07707052147" class="btn btn-amber">Call 07707 052147</a>
+    <a href="mailto:info@sparkymag.uk" class="btn btn-ghost" style="margin-left:10px">info@sparkymag.uk</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-type">SparkyMag</div>
+    <div class="foot-grid">
+      <div>
+        <h5>Subscribe to our newsletter</h5>
+        <p>Low prices, magical quality of service. Get tips &amp; offers straight to your inbox.</p>
+        <form class="newsletter" onsubmit="return false"><input type="email" placeholder="Your email"><button>→</button></form>
+        <div class="socials">
+          <a href="https://facebook.com/profile.php?id=100083147351719" title="Facebook">f</a>
+          <a href="https://x.com/Sparky_Mag" title="X">X</a>
+          <a href="https://instagram.com/sparkymag.uk" title="Instagram">ig</a>
+          <a href="https://pinterest.co.uk/SparkyMag" title="Pinterest">P</a>
+          <a href="https://linkedin.com/company/sparkymag" title="LinkedIn">in</a>
+          <a href="https://tiktok.com/@sparkymag" title="TikTok">tk</a>
+        </div>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <a href="#">Domestic Electrical</a>
+        <a href="#">Commercial &amp; Industrial</a>
+        <a href="#">EICR Testing</a>
+        <a href="#">EV Charger Install</a>
+        <a href="#">Solar PV &amp; Storage</a>
+        <a href="#">CCTV &amp; Access Control</a>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <a href="#about">About Us</a>
+        <a href="#projects">Finished Projects</a>
+        <a href="#">Inspirations</a>
+        <a href="#">Calculator</a>
+        <a href="#">Shop</a>
+        <a href="#">FAQs</a>
+      </div>
+      <div>
+        <h5>Get in touch</h5>
+        <p>9 Princeton Close<br>Salford, Manchester M6 8QL</p>
+        <a href="tel:07707052147">07707 052147</a>
+        <a href="mailto:info@sparkymag.uk">info@sparkymag.uk</a>
+      </div>
+    </div>
+    <div class="copyright">© SparkyMag 2022–2026 · Be Proud of Your Home · NAPIT / NICEIC Approved</div>
+  </div>
+</footer>
+
+<script>
+  const hdr=document.getElementById('hdr');
+  addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+  const burger=document.getElementById('burger'),nav=document.getElementById('navLinks');
+  burger.addEventListener('click',()=>nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+</script>
+</body>
+</html>

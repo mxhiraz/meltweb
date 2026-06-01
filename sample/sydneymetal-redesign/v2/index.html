@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sydney Metal Roofing Projects — Reliable Colorbond Roofing, Done Right</title>
+<meta name="description" content="Over 40 years of reliable Colorbond & Zincalume metal roofing across Sydney's Eastern Suburbs & Inner West. Fixed-price quotes, fast installs, 25-year warranties.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#003153;
+  --navy-deep:#022538;
+  --blue:#3c73c5;
+  --blue-deep:#2a5aa0;
+  --accent:#3c73c5;     /* brand blue used as the highlight word, in place of reference's red */
+  --cream:#f1ece4;
+  --cream-2:#e9e3d8;
+  --paper:#fbf9f5;
+  --ink:#1c2630;
+  --muted:#5f6b78;
+  --line:#e2ddd2;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacing:-.01em;color:var(--navy)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+.eyebrow{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--blue)}
+.accent{color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;padding:15px 32px;border-radius:2px;transition:.35s cubic-bezier(.2,.7,.3,1);cursor:pointer;border:1px solid transparent}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-deep);transform:translateY(-2px);box-shadow:0 14px 30px -14px rgba(0,49,83,.6)}
+.btn-line{background:transparent;border-color:var(--navy);color:var(--navy)}
+.btn-line:hover{background:var(--navy);color:#fff}
+.btn-ghost{background:transparent;border-color:rgba(255,255,255,.5);color:#fff}
+.btn-ghost:hover{background:#fff;color:var(--navy)}
+.link-cta{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:5px;transition:.3s}
+.link-cta:hover{letter-spacing:.26em}
+
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.3,1),transform .9s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:60;transition:.4s}
+.nav{display:flex;align-items:center;justify-content:space-between;height:84px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height:42px;transition:.4s}
+.brand .bt{font-family:var(--serif);font-size:21px;font-weight:600;color:#fff;line-height:1;transition:.4s}
+header.solid{background:#fff;box-shadow:0 1px 22px rgba(0,0,0,.06)}
+header.solid .brand .bt{color:var(--navy)}
+header.solid .brand img{filter:brightness(0)}
+header.solid .menu a{color:var(--ink)}
+.brand img{filter:brightness(0) invert(1)}
+.menu{display:flex;gap:32px;list-style:none}
+.menu a{color:rgba(255,255,255,.92);font-size:13px;font-weight:500;letter-spacing:.05em;position:relative;padding:5px 0;transition:color .3s}
+.menu a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--accent);transition:.35s}
+.menu a:hover::after,.menu a.active::after{width:100%}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{width:26px;height:2px;background:#fff;transition:.3s}
+header.solid .burger span{background:var(--navy)}
+@media(max-width:980px){.menu,.nav .btn{display:none}.burger{display:flex}}
+
+.drawer{position:fixed;inset:0;z-index:80;background:var(--navy);transform:translateX(100%);transition:.45s cubic-bezier(.2,.7,.3,1);display:flex;flex-direction:column;padding:30px}
+.drawer.open{transform:none}
+.drawer .x{align-self:flex-end;background:none;border:none;color:#fff;font-size:34px;cursor:pointer}
+.drawer a{color:#fff;font-family:var(--serif);font-size:28px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.drawer .dc{margin-top:auto;color:var(--blue);font-size:15px}
+
+/* HERO */
+.hero{position:relative;min-height:96vh;display:flex;align-items:center;color:#fff}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,21,31,.55) 0%,rgba(2,21,31,.25) 45%,rgba(2,31,51,.6) 100%)}
+.hero .wrap{text-align:center;width:100%}
+.hero .eyebrow{color:#dfe6ef}
+.hero h1{font-size:clamp(46px,7vw,92px);font-weight:500;margin:20px 0 22px;letter-spacing:-.02em;color:#fff}
+.hero p{font-size:18px;font-weight:300;color:#e6ebf1;max-width:600px;margin:0 auto 36px}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.hero .social{position:absolute;right:34px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:18px;font-size:12px;letter-spacing:.1em;writing-mode:vertical-rl}
+.hero .social a{color:rgba(255,255,255,.7)}
+.hero .social a:hover{color:#fff}
+@media(max-width:980px){.hero .social{display:none}}
+
+/* STATS BAND */
+.statband{background:var(--cream)}
+.statband .wrap{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center}
+.statband .s{text-align:center;padding:54px 20px;position:relative}
+.statband .s:not(:last-child)::after{content:"";position:absolute;right:0;top:50%;transform:translateY(-50%);width:1px;height:64px;background:#c9c1b2}
+.statband .n{font-family:var(--serif);font-size:clamp(40px,5.5vw,64px);font-weight:500;color:var(--navy);line-height:1}
+.statband .l{font-size:13px;color:var(--muted);margin-top:8px;letter-spacing:.04em}
+@media(max-width:680px){.statband .wrap{grid-template-columns:1fr}.statband .s{padding:34px 20px}.statband .s:not(:last-child)::after{width:64px;height:1px;right:50%;top:auto;bottom:0;transform:translateX(50%)}}
+
+/* INTRO (centered) */
+.intro{background:#fff;text-align:center;padding:118px 0}
+.intro .ico{width:54px;height:54px;margin:0 auto 22px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--blue);font-size:22px}
+.intro h2{font-size:clamp(36px,5vw,58px);margin-bottom:26px}
+.intro p{max-width:680px;margin:0 auto 38px;color:var(--muted);font-size:16.5px}
+.intro p .strong{color:var(--ink);font-weight:500}
+
+/* APPROACH (numbered + image) */
+.approach{background:var(--cream)}
+.appr-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:0;align-items:stretch}
+.appr-media{position:relative;min-height:620px}
+.appr-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.appr-body{padding:96px 70px}
+.appr-body .eyebrow{margin-bottom:14px;display:block}
+.appr-body>h2{font-size:clamp(34px,4.6vw,52px);margin-bottom:14px}
+.step{padding:26px 0;border-bottom:1px solid #d8d1c3}
+.step:last-child{border-bottom:none}
+.step .sn{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.18em;color:var(--accent);display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.step .sn em{font-style:normal;border-bottom:1.5px solid var(--accent);padding-bottom:3px}
+.step h3{font-family:var(--sans);font-size:16px;font-weight:600;color:var(--navy);margin-bottom:6px;letter-spacing:.02em}
+.step p{font-size:14.5px;color:var(--muted)}
+@media(max-width:900px){.appr-grid{grid-template-columns:1fr}.appr-media{min-height:340px}.appr-body{padding:64px 32px}}
+
+/* SECTION GENERIC */
+.sec{padding:110px 0}
+.shead{max-width:620px;margin:0 auto 64px;text-align:center}
+.shead h2{font-size:clamp(34px,4.6vw,54px)}
+.shead p{color:var(--muted);margin-top:14px;font-size:16px}
+.shead .eyebrow{display:block;margin-bottom:14px}
+
+/* SERVICES */
+.services{background:#fff}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.svc{position:relative;border-radius:5px;overflow:hidden;min-height:380px;display:flex;align-items:flex-end;color:#fff;transition:.5s cubic-bezier(.2,.7,.3,1);background:var(--navy);isolation:isolate}
+.svc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:.7s}
+.svc::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(transparent 18%,rgba(2,21,31,.45) 48%,rgba(1,18,28,.92) 100%);transition:.4s}
+.svc:hover::after{background:linear-gradient(transparent 8%,rgba(2,21,31,.6) 42%,rgba(0,38,62,.96) 100%)}
+.svc:hover img{transform:scale(1.08)}
+.svc:hover{box-shadow:0 30px 60px -28px rgba(0,49,83,.5)}
+.svc-body{position:relative;z-index:2;padding:30px 28px;width:100%}
+.svc-body h3{color:#fff;font-size:25px;margin-bottom:10px;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.svc-body p{font-size:14px;color:#e4eaf1;font-weight:300;margin-bottom:14px}
+.svc-body .more{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#fff;display:inline-flex;gap:8px;opacity:.9;transition:.3s}
+.svc:hover .svc-body .more{gap:14px;opacity:1}
+@media(max-width:900px){.svc-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.svc-grid{grid-template-columns:1fr}.svc-body p{max-height:120px;opacity:1;margin-bottom:14px}}
+
+/* PRICE BEAT BANNER */
+.beat{background:var(--navy);color:#fff;text-align:center;padding:70px 0}
+.beat .eyebrow{color:var(--blue)}
+.beat h2{color:#fff;font-size:clamp(30px,4.4vw,50px);margin:14px 0 10px}
+.beat h2 em{font-style:italic;color:#9dc0f0}
+.beat p{color:#b9c4ce;max-width:560px;margin:0 auto}
+
+/* GALLERY */
+.gallery{background:var(--paper)}
+.gal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:180px;gap:14px}
+.gal figure{overflow:hidden;border-radius:4px;position:relative}
+.gal img{width:100%;height:100%;object-fit:cover;transition:.7s}
+.gal figure:hover img{transform:scale(1.07)}
+.gal .w3{grid-column:span 3}.gal .w2{grid-column:span 2}
+.gal .h2{grid-row:span 2}
+@media(max-width:760px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.gal .w3,.gal .w2{grid-column:span 1}.gal .h2{grid-row:span 1}}
+
+/* TRUST split */
+.trust{background:#fff}
+.trust-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
+.trust-grid img{border-radius:5px;width:100%;height:540px;object-fit:cover}
+.tlist{list-style:none;display:grid;gap:22px;margin-top:30px}
+.tlist li{display:flex;gap:16px}
+.tlist .n{flex-shrink:0;font-family:var(--serif);font-size:26px;font-weight:600;color:var(--blue);width:42px;line-height:1.1}
+.tlist h4{font-family:var(--sans);font-size:16px;color:var(--navy);font-weight:600}
+.tlist p{font-size:14px;color:var(--muted);margin-top:2px}
+@media(max-width:880px){.trust-grid{grid-template-columns:1fr;gap:44px}.trust-grid img{height:360px}}
+
+/* AREAS */
+.areas{background:var(--cream);text-align:center}
+.area-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:11px;max-width:820px;margin:0 auto}
+.area-tags span{background:#fff;border:1px solid var(--line);padding:10px 20px;border-radius:40px;font-size:13.5px;color:var(--navy);font-weight:500;transition:.3s}
+.area-tags span:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* CTA + CONTACT */
+.contact{background:#fff}
+.contact-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:56px}
+.contact-info .eyebrow{display:block;margin-bottom:14px}
+.contact-info h2{font-size:clamp(32px,4.4vw,50px);margin-bottom:18px}
+.contact-info>p{color:var(--muted);margin-bottom:34px;max-width:430px}
+.cinfo{display:grid;gap:22px}
+.cinfo .row{display:flex;gap:16px;align-items:center}
+.cinfo .ic{width:48px;height:48px;border-radius:50%;background:var(--cream);color:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.cinfo .lab{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9aa4af;font-weight:600}
+.cinfo .val{font-size:17px;color:var(--navy);font-weight:600;font-family:var(--serif)}
+.cinfo .val a:hover{color:var(--blue)}
+.form{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:42px}
+.form h3{font-size:27px;margin-bottom:4px}
+.form .sub{font-size:14px;color:var(--muted);margin-bottom:24px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:11.5px;font-weight:600;letter-spacing:.07em;color:var(--navy);margin-bottom:7px;text-transform:uppercase}
+.field input,.field select,.field textarea{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:3px;font-family:var(--sans);font-size:15px;background:#fff;transition:.3s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(60,115,197,.12)}
+.field textarea{resize:vertical;min-height:104px}
+.form .btn{width:100%;justify-content:center}
+.form .note{font-size:12px;color:#9aa4af;text-align:center;margin-top:14px}
+@media(max-width:820px){.contact-grid{grid-template-columns:1fr;gap:42px}.frow{grid-template-columns:1fr}}
+
+/* FOOTER */
+footer{background:var(--navy-deep);color:#aab6c2;padding:78px 0 28px}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.1fr;gap:46px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-brand img{height:46px;margin-bottom:18px;filter:brightness(0) invert(1)}
+.foot-brand p{font-size:14px;line-height:1.8;max-width:300px}
+.foot-col h4{font-family:var(--sans);color:#fff;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:20px}
+.foot-col ul{list-style:none;display:grid;gap:11px}
+.foot-col a,.foot-col li{font-size:14px}
+.foot-col a:hover{color:var(--blue)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;font-size:13px;flex-wrap:wrap;gap:10px}
+.foot-bottom .pill{color:var(--blue);font-weight:600}
+@media(max-width:820px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.foot-grid{grid-template-columns:1fr}}
+
+.fab{position:fixed;right:22px;bottom:22px;z-index:70;background:var(--navy);color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px -8px rgba(0,49,83,.6);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(60,115,197,.5)}70%{box-shadow:0 0 0 18px rgba(60,115,197,0)}100%{box-shadow:0 0 0 0 rgba(60,115,197,0)}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#home" class="brand">
+      <img src="assets/logo.webp" alt="Sydney Metal Roofing Projects logo">
+    </a>
+    <nav>
+      <ul class="menu">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="btn btn-navy">Get a Quote</a>
+    <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <button class="x" id="closeDrawer" aria-label="Close">&times;</button>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#approach">Approach</a>
+  <a href="#services">Services</a>
+  <a href="#gallery">Projects</a>
+  <a href="#contact">Contact</a>
+  <div class="dc"><a href="tel:0426274216">📞 0426 274 216</a><br>sales@sydneymetalroofingprojects.com.au</div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"><img src="assets/hero-home.webp" alt="Modern Sydney home with a dark Colorbond metal roof"></div>
+  <div class="social">
+    <a href="tel:0426274216">Call</a>
+    <a href="mailto:sales@sydneymetalroofingprojects.com.au">Email</a>
+  </div>
+  <div class="wrap">
+    <h1>Roofing You Can<br>Rely On</h1>
+    <p>Over 40 years installing reliable Colorbond &amp; Zincalume roofs across Sydney's Eastern Suburbs and Inner West — fixed-price, beautifully finished, built to last.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-navy">Get a Free Quote</a>
+      <a href="#services" class="btn btn-ghost">Our Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="statband">
+  <div class="wrap">
+    <div class="s reveal"><div class="n">40+</div><div class="l">Years of Experience</div></div>
+    <div class="s reveal"><div class="n">1000s</div><div class="l">Roofs Installed</div></div>
+    <div class="s reveal"><div class="n">25yr</div><div class="l">Material Warranties</div></div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro" id="about">
+  <div class="wrap reveal">
+    <div class="ico">⌂</div>
+    <span class="eyebrow">Locally Owned · Sydney Based</span>
+    <h2>Built On Doing It <span class="accent">Properly</span></h2>
+    <p>Whether you're replacing a tired tiled roof or building from scratch, Sydney Metal Roofing Projects brings <span class="strong">four decades of hands-on experience</span> to every job. We specialise in Colorbond and Zincalume roofing for residential homes — handling every detail from inspection to handover with care, quality materials and clear communication. No sales pressure, no hidden costs.</p>
+    <a href="#contact" class="link-cta">Book a Free Inspection</a>
+  </div>
+</section>
+
+<!-- APPROACH (numbered) -->
+<section class="approach" id="approach">
+  <div class="appr-grid">
+    <div class="appr-media reveal"><img src="assets/roof-2.jpeg" alt="Finished Colorbond metal roof in Sydney"></div>
+    <div class="appr-body reveal">
+      <span class="eyebrow">Our Roofing Approach</span>
+      <h2>How We Help <span class="accent">Homeowners</span></h2>
+      <div class="step">
+        <div class="sn"><em>01</em> Inspect</div>
+        <h3>Free On-Site Roof Inspection</h3>
+        <p>We assess the condition of your roof, explain your options clearly and answer your questions — with no obligation.</p>
+      </div>
+      <div class="step">
+        <div class="sn"><em>02</em> Quote</div>
+        <h3>Clear, Fixed-Price Quote</h3>
+        <p>You get a written quote with no surprises. We'll also beat any legitimate like-for-like written quote by 10%.</p>
+      </div>
+      <div class="step">
+        <div class="sn"><em>03</em> Install</div>
+        <h3>Skilled, Punctual Installation</h3>
+        <p>Experienced installers fit your Colorbond or Zincalume roof to strict safety and building standards — most jobs within 7 days.</p>
+      </div>
+      <div class="step">
+        <div class="sn"><em>04</em> Protect</div>
+        <h3>Long-Term Peace of Mind</h3>
+        <p>Australian-made materials backed by manufacturer warranties of up to 25 years, finished to last.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec services" id="services">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="eyebrow">What We Offer</span>
+      <h2>Complete Metal Roofing Services</h2>
+      <p>Everything your Sydney home needs — from full re-roofs to repairs and guttering.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc reveal">
+        <img src="assets/svc-reroofing.webp" alt="Re-roofing and replacement">
+        <div class="svc-body"><h3>Re-Roofing &amp; Replacement</h3><p>Replace old, leaking or damaged roofs with durable Colorbond or Zincalume steel for long-term protection.</p><span class="more">Get a Quote →</span></div>
+      </article>
+      <article class="svc reveal">
+        <img src="assets/svc-tile-conversion.webp" alt="Tile to metal conversion">
+        <div class="svc-body"><h3>Tile-to-Metal Conversions</h3><p>Swap aging tiles for lightweight steel — improving durability, appearance and weather resistance.</p><span class="more">Get a Quote →</span></div>
+      </article>
+      <article class="svc reveal">
+        <img src="assets/svc-new-install.webp" alt="New metal roof installation">
+        <div class="svc-body"><h3>New Metal Roof Installs</h3><p>New Colorbond &amp; Zincalume roofs on builds and extensions, matched to your design.</p><span class="more">Get a Quote →</span></div>
+      </article>
+      <article class="svc reveal">
+        <img src="assets/svc-repairs.webp" alt="Roof repairs and leak fixes">
+        <div class="svc-body"><h3>Roof Repairs &amp; Leaks</h3><p>Fix leaks fast — we assess and repair roofs, replacing rusted sheets, flashings and more.</p><span class="more">Get a Quote →</span></div>
+      </article>
+      <article class="svc reveal">
+        <img src="assets/svc-guttering.webp" alt="Guttering and downpipes">
+        <div class="svc-body"><h3>Guttering &amp; Downpipes</h3><p>Upgrade gutters and downpipes to improve drainage and avoid costly overflow issues.</p><span class="more">Get a Quote →</span></div>
+      </article>
+      <article class="svc reveal">
+        <img src="assets/roof-1.jpeg" alt="Free roof consultation">
+        <div class="svc-body"><h3>Free Roof Consultation</h3><p>Not sure what you need? Book a free inspection and we'll guide you to the right solution.</p><span class="more">Book Now →</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE BEAT -->
+<section class="beat reveal">
+  <div class="wrap">
+    <span class="eyebrow">Our Promise</span>
+    <h2>We'll Beat Any Like-For-Like Quote by <em>10%</em></h2>
+    <p>Found a cheaper legitimate written quote? Bring it to us. Fixed pricing, quality Australian-made materials, no hidden costs.</p>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="sec trust">
+  <div class="wrap">
+    <div class="trust-grid">
+      <div class="reveal"><img src="assets/roof-4.jpeg" alt="Quality Sydney metal roofing workmanship"></div>
+      <div class="reveal">
+        <span class="eyebrow">Why Choose Us</span>
+        <h2 style="font-size:clamp(32px,4.4vw,48px);margin-top:14px">Reasons Sydney Trusts Our Team</h2>
+        <ul class="tlist">
+          <li><span class="n">01</span><div><h4>Transparent Pricing</h4><p>Fixed-price quotes after a thorough assessment — no hidden costs, ever.</p></div></li>
+          <li><span class="n">02</span><div><h4>Decades of Experience</h4><p>40+ years and thousands of roofs across Sydney's eastern region.</p></div></li>
+          <li><span class="n">03</span><div><h4>Quality Materials</h4><p>Registered installer of Australian-made Colorbond &amp; Zincalume.</p></div></li>
+          <li><span class="n">04</span><div><h4>24-Hour Response</h4><p>Request a free quote and roof analysis and hear back within a day.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec gallery" id="gallery">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="eyebrow">Recent Projects</span>
+      <h2>Roofs We've <span class="accent">Transformed</span></h2>
+      <p>Real work across the Eastern Suburbs and Inner West.</p>
+    </div>
+    <div class="gal reveal">
+      <figure class="w3 h2"><img src="assets/roof-1.jpeg" alt="Completed metal roof project"></figure>
+      <figure class="w3"><img src="assets/svc-tile-conversion.webp" alt="Before and after tile to metal"></figure>
+      <figure class="w2"><img src="assets/roof-3.webp" alt="Tile and gutter detail"></figure>
+      <figure class="w2"><img src="assets/roof-5.jpeg" alt="Roof repair"></figure>
+      <figure class="w2"><img src="assets/roof-6.webp" alt="New Colorbond roof"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="sec areas">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="eyebrow">Service Area</span>
+      <h2>Proudly Serving Sydney</h2>
+      <p>Eastern Suburbs &amp; Inner West.</p>
+    </div>
+    <div class="area-tags reveal">
+      <span>Rosebery</span><span>Randwick</span><span>Kingsford</span><span>Zetland</span><span>Eastlakes</span><span>Waterloo</span><span>Moore Park</span><span>Mascot</span><span>Botany</span><span>Pagewood</span><span>Kensington</span><span>Redfern</span><span>Bondi</span><span>Inner Sydney</span><span>Inner West</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <span class="eyebrow">Get In Touch</span>
+        <h2>Request Your <span class="accent">Free Quote</span></h2>
+        <p>Send a few details and we'll respond within 24 hours with a free, no-obligation quote and roof analysis.</p>
+        <div class="cinfo">
+          <div class="row"><span class="ic">📞</span><div><div class="lab">Call Us</div><div class="val"><a href="tel:0426274216">0426 274 216</a></div></div></div>
+          <div class="row"><span class="ic">✉️</span><div><div class="lab">Email</div><div class="val"><a href="mailto:sales@sydneymetalroofingprojects.com.au">sales@sydneymetalroofingprojects.com.au</a></div></div></div>
+          <div class="row"><span class="ic">📍</span><div><div class="lab">Area</div><div class="val">Eastern Suburbs &amp; Inner West</div></div></div>
+          <div class="row"><span class="ic">🕒</span><div><div class="lab">Hours</div><div class="val">Mon – Fri · 7AM – 5PM</div></div></div>
+        </div>
+      </div>
+      <form class="form reveal" onsubmit="return formSubmit(event)">
+        <h3>Tell Us About Your Roof</h3>
+        <p class="sub">We respond within 24 hours.</p>
+        <div class="frow">
+          <div class="field"><label>Full Name</label><input type="text" required placeholder="Your name"></div>
+          <div class="field"><label>Phone</label><input type="tel" required placeholder="0400 000 000"></div>
+        </div>
+        <div class="field"><label>Email</label><input type="email" required placeholder="you@email.com"></div>
+        <div class="field"><label>Service Needed</label>
+          <select required>
+            <option value="">Select a service…</option>
+            <option>Re-Roofing &amp; Replacement</option>
+            <option>Tile-to-Metal Conversion</option>
+            <option>New Metal Roof Installation</option>
+            <option>Roof Repairs &amp; Leak Fixes</option>
+            <option>Guttering &amp; Downpipes</option>
+            <option>Not sure — need advice</option>
+          </select>
+        </div>
+        <div class="field"><label>Suburb &amp; Details</label><textarea placeholder="Tell us about your roof and suburb…"></textarea></div>
+        <button type="submit" class="btn btn-navy">Send My Request</button>
+        <p class="note">Or call us directly on 0426 274 216</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/logo.webp" alt="Sydney Metal Roofing Projects">
+        <p>Trusted metal roofing &amp; re-roofing solutions across Sydney. Over 40 years of reliable Colorbond &amp; Zincalume craftsmanship — done properly, the first time.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Re-Roofing &amp; Replacement</a></li>
+          <li><a href="#services">Tile-to-Metal Conversion</a></li>
+          <li><a href="#services">New Roof Installs</a></li>
+          <li><a href="#services">Roof Repairs &amp; Leaks</a></li>
+          <li><a href="#services">Guttering &amp; Downpipes</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#approach">Our Approach</a></li>
+          <li><a href="#gallery">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:0426274216">📞 0426 274 216</a></li>
+          <li><a href="mailto:sales@sydneymetalroofingprojects.com.au">✉️ Email Us</a></li>
+          <li>🕒 Mon – Fri · 7AM – 5PM</li>
+          <li>📍 Eastern Suburbs &amp; Inner West</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Sydney Metal Roofing Projects. All rights reserved.</span>
+      <span class="pill">Registered Colorbond® &amp; Zincalume® Installer</span>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:0426274216" class="fab" aria-label="Call now">📞</a>
+
+<script>
+const header=document.getElementById('header');
+addEventListener('scroll',()=>{header.classList.toggle('solid',scrollY>60)});
+const drawer=document.getElementById('drawer');
+document.getElementById('burger').onclick=()=>drawer.classList.add('open');
+document.getElementById('closeDrawer').onclick=()=>drawer.classList.remove('open');
+drawer.querySelectorAll('a').forEach(a=>a.onclick=()=>drawer.classList.remove('open'));
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// active nav
+const links=[...document.querySelectorAll('.menu a')];
+const secs=links.map(l=>document.querySelector(l.getAttribute('href'))).filter(Boolean);
+addEventListener('scroll',()=>{let cur='';secs.forEach(s=>{if(scrollY>=s.offsetTop-140)cur='#'+s.id});links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')===cur))});
+function formSubmit(e){e.preventDefault();const b=e.target.querySelector('button');b.textContent='Thank you — we\'ll be in touch!';e.target.reset();setTimeout(()=>b.textContent='Send My Request',3500);return false}
+</script>
+</body>
+</html>

@@ -1,706 +1,414 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Northern Electrical — Exceptional Electrical Craftsmanship in Edinburgh</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Northern Electrical — Edinburgh Electricians | 24hr Emergency Call-Out</title>
+<meta name="description" content="Northern Electrical — fully qualified Edinburgh electricians with over 30 years' experience. Rewiring, fuse boards, lighting, PAT testing, landlord certification & 24 hour emergency call-out.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0E1A1F;
-    --ink-2:#1C2A30;
-    --bone:#F1EEE6;
-    --cream:#E5EFEC;
-    --cream-2:#D5E4DD;
-    --muted:#5F6E72;
-    --line:#D9D2C4;
-    --accent:#103E36;
-    --accent-2:#1F5A4E;
-    --gold:#C9A35C;
-    --radius:18px;
+    --ink:#15201f;
+    --slate:#2f4541;          /* dark teal/slate hero */
+    --slate-2:#263935;
+    --paper:#ffffff;
+    --soft:#6b7672;
+    --line:#e7eae8;
+    --cream:#f5f3ee;
+    --blue:#33aee9;
+    --green:#7dc855;
+    --amber:#fbb040;
+    --blue-ink:#1488c4;
+    --maxw:1280px;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
+  *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{
-    font-family:'Inter',system-ui,-apple-system,sans-serif;
-    color:var(--ink);
-    background:var(--bone);
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-  }
-  img{max-width:100%;display:block}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,h4{font-family:'Bricolage Grotesque',sans-serif;line-height:1.02;letter-spacing:-.02em;font-weight:700}
   a{color:inherit;text-decoration:none}
-  .container{max-width:1240px;margin:0 auto;padding:0 24px}
-  h1,h2,h3,h4{font-family:'Bricolage Grotesque',serif;font-weight:600;letter-spacing:-0.01em}
+  img{display:block;max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  .eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:500;color:var(--soft)}
+  .dots{display:inline-flex;gap:6px;vertical-align:middle}
+  .dots span{width:9px;height:9px;border-radius:50%;display:block}
+  .d-b{background:var(--blue)}.d-g{background:var(--green)}.d-a{background:var(--amber)}
+  .arr{display:inline-block;transition:transform .25s}
+  .lnk{display:inline-flex;align-items:center;gap:12px;font-size:13px;letter-spacing:.04em;font-weight:600}
+  .lnk:hover .arr{transform:translateX(5px)}
 
-  /* ===== HERO with NAV inside ===== */
-  .hero{
-    position:relative;border-radius:0 0 32px 32px;overflow:hidden;
-    background:
-      linear-gradient(180deg, rgba(10,25,30,.65) 0%, rgba(10,25,30,.55) 40%, rgba(10,25,30,.75) 100%),
-      url('https://www.electricianedinburgh.com/wp-content/uploads/2019/05/electrician-edinburgh-home.jpg') center/cover no-repeat;
-    color:#fff;
-    min-height:720px;
-    padding-bottom:60px;
-  }
-  .nav{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:24px 0;border-bottom:1px solid rgba(255,255,255,.18);
-  }
-  .nav-left{display:flex;align-items:center;gap:38px}
-  .nav-links{display:flex;gap:28px;font-size:14px;font-weight:500}
-  .nav-links a{opacity:.85;position:relative;padding:6px 0}
-  .nav-links a.active{opacity:1}
-  .nav-links a.active::after{
-    content:"";position:absolute;left:0;right:0;bottom:-2px;height:1.5px;background:#fff;
-  }
-  .brand-center{
-    position:absolute;left:50%;transform:translateX(-50%);
-    display:flex;align-items:center;gap:8px;font-family:'Bricolage Grotesque',serif;font-weight:700;font-size:20px;
-  }
-  .brand-center img{height:32px;width:auto;filter:brightness(0) invert(1)}
-  .pill-btn{
-    display:inline-flex;align-items:center;gap:10px;
-    padding:11px 22px;border:1px solid rgba(255,255,255,.5);border-radius:999px;
-    font-size:13.5px;font-weight:500;color:#fff;transition:background .2s;
-  }
-  .pill-btn:hover{background:rgba(255,255,255,.1)}
-  .pill-btn .arr{
-    width:26px;height:26px;border-radius:50%;background:#fff;color:var(--ink);
-    display:flex;align-items:center;justify-content:center;margin-left:6px;
-  }
-  .menu-toggle{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:8px}
-  .menu-toggle span{display:block;width:22px;height:2px;background:#fff;margin:4px 0;border-radius:2px}
+  /* Header */
+  header{position:absolute;top:0;left:0;right:0;z-index:60}
+  header.fixed{position:fixed;background:rgba(20,28,27,.9);backdrop-filter:blur(12px);animation:drop .4s ease}
+  @keyframes drop{from{transform:translateY(-100%)}to{transform:none}}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:92px}
+  header.fixed .nav{height:70px}
+  /* HTML brand wordmark (logo.png has no alpha → renders as a white box on dark, so we rebuild it) */
+  .brand{display:inline-flex;flex-direction:column;gap:7px;line-height:1}
+  .brand .bd{display:flex;gap:5px}
+  .brand .bd i{width:8px;height:8px;border-radius:50%;display:block}
+  .brand .bd .db{background:var(--blue)}
+  .brand .bd .dg{background:var(--green)}
+  .brand .bd .da{background:var(--amber)}
+  .brand .bw{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:.26em;font-size:16px;color:#fff}
+  .brand .bw small{display:block;letter-spacing:.4em;font-size:9px;font-weight:600;color:rgba(255,255,255,.7);margin-top:4px}
+  .nav-links{display:flex;gap:38px}
+  .nav-links a{font-size:14.5px;font-weight:500;color:rgba(255,255,255,.82);transition:.2s}
+  .nav-links a:hover{color:#fff}
+  .nav-right{display:flex;align-items:center;gap:22px;color:#fff}
+  .lang{font-size:13px;color:rgba(255,255,255,.6);font-weight:500}
+  .lang b{color:#fff}
+  .grid-ic{width:34px;height:34px;display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:8px;cursor:pointer;background:none;border:0}
+  .grid-ic span{background:#fff;border-radius:1px}
+  .burger{display:none}
 
-  .hero-content{
-    padding:80px 0 0;position:relative;
-  }
-  .hero h1{
-    font-size:clamp(48px,8vw,108px);
-    font-weight:600;line-height:.96;letter-spacing:-0.02em;
-    text-transform:uppercase;
-  }
-  .hero h1 .italic{font-style:italic;font-weight:500;color:#E5EFEC}
-  .hero p.intro{
-    max-width:380px;margin-top:34px;font-size:14.5px;opacity:.86;line-height:1.65;
-  }
-  .hero-actions-row{
-    margin-top:60px;display:flex;justify-content:space-between;align-items:flex-end;
-    gap:30px;flex-wrap:wrap;
-  }
-  .call-pill{
-    display:inline-flex;align-items:center;gap:14px;
-    background:rgba(255,255,255,.12);backdrop-filter:blur(8px);
-    border:1px solid rgba(255,255,255,.18);border-radius:999px;
-    padding:12px 22px 12px 14px;color:#fff;font-weight:500;font-size:14px;
-  }
-  .call-pill .ico{
-    width:36px;height:36px;border-radius:50%;background:#fff;color:var(--ink);
-    display:flex;align-items:center;justify-content:center;
-  }
-  .stat-bubble{
-    display:inline-flex;align-items:center;gap:12px;
-    background:rgba(255,255,255,.95);color:var(--ink);
-    border-radius:999px;padding:12px 22px 12px 16px;font-weight:600;font-size:14px;
-  }
-  .stat-bubble .ico{
-    width:32px;height:32px;border-radius:50%;background:var(--accent);color:#fff;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .reviews-strip{
-    display:flex;align-items:center;gap:14px;margin-top:36px;
-  }
-  .ava-stack{display:flex}
-  .ava-stack span{
-    width:34px;height:34px;border-radius:50%;border:2px solid #fff;
-    background:linear-gradient(135deg,#C9A35C,#103E36);margin-left:-10px;display:inline-block;
-  }
-  .ava-stack span:first-child{margin-left:0}
-  .ava-stack span:nth-child(2){background:linear-gradient(135deg,#1F5A4E,#E5EFEC)}
-  .ava-stack span:nth-child(3){background:linear-gradient(135deg,#103E36,#C9A35C)}
-  .ava-stack span:nth-child(4){background:linear-gradient(135deg,#E5EFEC,#103E36)}
-  .reviews-strip .num{font-size:22px;font-weight:700;font-family:'Bricolage Grotesque',serif}
-  .reviews-strip .lab{font-size:12px;opacity:.8}
+  /* Hero */
+  .hero{position:relative;min-height:100vh;background:var(--slate);color:#fff;display:flex;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.05);animation:sz 20s ease-in-out infinite alternate}
+  @keyframes sz{to{transform:scale(1.14)}}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(21,32,31,.93) 0%,rgba(21,32,31,.66) 40%,rgba(21,32,31,.3) 72%,rgba(21,32,31,.5) 100%),linear-gradient(180deg,transparent 52%,rgba(14,22,20,.72) 100%)}
+  .hero-ring{position:absolute;right:-160px;top:50%;transform:translateY(-50%);width:min(640px,70vw);height:min(640px,70vw);border:1px solid rgba(255,255,255,.16);border-radius:50%;z-index:1;pointer-events:none}
+  .hero-ring::after{content:"";position:absolute;inset:60px;border:1px solid rgba(255,255,255,.08);border-radius:50%}
+  .hero-inner{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;padding:150px 32px 58px;display:flex;flex-direction:column;justify-content:center}
+  .hero-eyebrow{margin-bottom:26px;color:rgba(255,255,255,.72)}
+  .hero h1{font-size:clamp(2.7rem,7vw,5.8rem);font-weight:700;max-width:15ch}
+  .hero h1 em{font-style:italic;font-weight:600;color:#cfe9f7}
+  .hero-sub{margin-top:26px;font-size:18px;color:rgba(255,255,255,.82);max-width:48ch;line-height:1.6}
+  .hero-cta{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+  .hero-stats{margin-top:auto;padding-top:56px;display:flex;gap:64px;flex-wrap:wrap}
+  .hero-stats .hs{display:flex;flex-direction:column;gap:4px}
+  .hero-stats .hs b{font-family:'Bricolage Grotesque';font-weight:700;font-size:clamp(1.6rem,2.4vw,2.1rem);letter-spacing:-.02em}
+  .hero-stats .hs span{font-size:13px;letter-spacing:.04em;color:rgba(255,255,255,.6)}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;padding:16px 30px;border-radius:4px;transition:.25s;cursor:pointer;border:1px solid transparent}
+  .btn-light{background:#fff;color:var(--ink)}
+  .btn-light:hover{background:var(--blue);color:#fff;transform:translateY(-2px)}
+  .btn-out{border-color:rgba(255,255,255,.35);color:#fff}
+  .btn-out:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+  section{position:relative}
+  .pad{padding:120px 0}
+  .pad-sm{padding:80px 0}
 
-  /* ===== ABOUT / STATS ===== */
-  section{padding:120px 0}
-  .about{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:center}
-  .about-img{
-    border-radius:24px;overflow:hidden;height:580px;
-  }
-  .about-img img{width:100%;height:100%;object-fit:cover}
-  .about-card{
-    background:var(--cream);border-radius:24px;padding:48px;
-  }
-  .crumb{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);margin-bottom:22px}
-  .crumb .dot{
-    width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;
-    display:flex;align-items:center;justify-content:center;font-size:11px;
-  }
-  .about h2{
-    font-size:clamp(28px,3.4vw,42px);line-height:1.12;
-  }
-  .about h2 .em{font-weight:700}
-  .stats-row{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:30px;
-    margin:42px 0;padding-bottom:34px;border-bottom:1px solid rgba(0,0,0,.08);
-  }
-  .stat .num{font-size:42px;font-weight:600;font-family:'Bricolage Grotesque',serif;line-height:1}
-  .stat .lab{font-size:13px;color:var(--muted);margin-top:6px}
-  .about-card p{font-size:14.5px;color:var(--muted);line-height:1.7;margin-bottom:30px}
-  .dark-cta{
-    display:inline-flex;align-items:center;gap:10px;
-    background:var(--accent);color:#fff;border-radius:999px;
-    padding:12px 22px 12px 12px;font-weight:500;font-size:14px;
-  }
-  .dark-cta:hover{background:var(--accent-2)}
-  .dark-cta .ico{
-    width:30px;height:30px;border-radius:50%;background:#fff;color:var(--accent);
-    display:flex;align-items:center;justify-content:center;
-  }
+  /* About row */
+  .two-col{display:grid;grid-template-columns:0.85fr 2fr;gap:60px}
+  .col-label{font-size:14px;color:var(--soft);font-weight:500}
+  .col-label .lnk{margin-top:18px;color:var(--ink)}
+  .about-lead{font-family:'Bricolage Grotesque';font-size:clamp(1.4rem,2.6vw,2.1rem);font-weight:600;letter-spacing:-.02em;line-height:1.25}
+  .about-lead .hl{color:var(--blue-ink)}
 
-  /* ===== INQUIRY CARD ===== */
-  .inquiry{
-    background:#fff;border-radius:32px;padding:54px 60px;
-    display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:center;
-    margin-top:20px;
-  }
-  .inq-tag{
-    display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);margin-bottom:24px;
-  }
-  .inq-tag .icn{
-    width:30px;height:30px;border-radius:8px;background:var(--cream);color:var(--accent);
-    display:flex;align-items:center;justify-content:center;
-  }
-  .inquiry h2{font-size:clamp(24px,2.6vw,32px);line-height:1.2;margin-bottom:8px}
-  .inquiry h2 .b{font-weight:700}
-  .inquiry p{color:var(--muted);font-size:14.5px;margin:18px 0 28px;line-height:1.65;max-width:480px}
-  .inq-photo{
-    border-radius:20px;overflow:hidden;height:300px;
-  }
-  .inq-photo img{width:100%;height:100%;object-fit:cover}
+  /* Big stats */
+  .stats{display:grid;grid-template-columns:repeat(3,auto);gap:60px 90px;margin-top:64px}
+  .stat{position:relative;padding-top:20px}
+  .stat::before{content:"";position:absolute;top:0;left:0;width:90px;height:2px;background:var(--ink)}
+  .stat .n{font-family:'Bricolage Grotesque';font-size:clamp(3.4rem,7vw,5.6rem);font-weight:700;line-height:.9;letter-spacing:-.03em}
+  .stat .u{font-size:.4em;vertical-align:super;color:var(--blue-ink);font-weight:600}
+  .stat .lab{font-size:14px;color:var(--soft);margin-top:6px}
 
-  /* ===== SERVICES ===== */
-  .services-head{
-    display:grid;grid-template-columns:1.5fr 1fr;gap:30px;align-items:end;margin-bottom:42px;
-  }
-  .services-head h2{font-size:clamp(28px,3.6vw,46px);line-height:1.1}
-  .services-head h2 .em{font-weight:700;font-style:italic}
-  .services-head p{color:var(--muted);font-size:14.5px;line-height:1.65;max-width:420px}
-  .svc-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
-  }
-  .svc-feature{
-    grid-row:span 2;background:var(--ink);color:#fff;border-radius:22px;
-    padding:32px;position:relative;overflow:hidden;min-height:540px;
-    display:flex;flex-direction:column;justify-content:space-between;
-  }
-  .svc-feature .top{display:flex;justify-content:space-between;align-items:flex-start}
-  .new-tag{background:#fff;color:var(--ink);padding:6px 14px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-  .more-arr{
-    width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.15);
-    display:flex;align-items:center;justify-content:center;color:#fff;
-  }
-  .svc-feature h3{font-size:28px;margin-bottom:14px;font-weight:600}
-  .svc-feature .meta{font-size:13px;color:#9CA7B0;line-height:1.7;margin-bottom:16px}
-  .svc-feature .meta strong{color:#fff;font-weight:600}
-  .svc-feature .desc{font-size:13.5px;color:#B5BFC5;line-height:1.65}
-  .svc-card{
-    background:var(--cream);border-radius:22px;overflow:hidden;
-    transition:transform .2s;
-  }
-  .svc-card:hover{transform:translateY(-4px)}
-  .svc-card .img{height:200px;overflow:hidden;position:relative}
-  .svc-card .img img{width:100%;height:100%;object-fit:cover}
-  .svc-card .img .arr{
-    position:absolute;top:14px;right:14px;
-    width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.85);color:var(--ink);
-    display:flex;align-items:center;justify-content:center;
-  }
-  .svc-card .body{padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
-  .svc-card h4{font-size:18px;font-weight:600}
-  .view-more{
-    background:#fff;border:0;border-radius:999px;padding:8px 16px;
-    font-size:12.5px;font-weight:600;cursor:pointer;color:var(--ink);
-  }
+  /* Notable / projects */
+  .sec-head{display:grid;grid-template-columns:0.85fr 2fr;gap:60px;margin-bottom:30px}
+  .proj{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:60px 0;border-top:1px solid var(--line)}
+  .proj:last-child{border-bottom:1px solid var(--line)}
+  .proj.rev .proj-img{order:2}
+  .proj-img{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:4/3;background:var(--cream)}
+  .proj-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.22,1,.36,1)}
+  .proj:hover .proj-img img{transform:scale(1.05)}
+  .proj-img .tag{position:absolute;top:18px;left:18px;background:#fff;padding:6px 14px;border-radius:100px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+  .proj-body h3{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;margin-bottom:16px}
+  .proj-body p{color:var(--soft);font-size:16px;max-width:46ch}
+  .proj-body .lnk{margin-top:24px;color:var(--blue-ink)}
 
-  /* ===== TESTIMONIALS ===== */
-  .testimonials{padding:0 0 80px}
-  .test-wrap{
-    background:var(--cream);border-radius:32px;padding:60px;
-  }
-  .test-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:40px;gap:30px}
-  .test-head h2{font-size:clamp(26px,3vw,40px);line-height:1.1;max-width:600px}
-  .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .test-card{
-    background:#fff;border-radius:18px;padding:32px;
-  }
-  .quote{font-size:34px;color:var(--accent);line-height:1;font-family:'Bricolage Grotesque',serif;margin-bottom:8px}
-  .test-card p{font-size:14.5px;color:var(--ink-2);line-height:1.6;margin-bottom:22px}
-  .stars{color:#C9A35C;letter-spacing:2px;font-size:13px;margin-bottom:14px}
-  .auth{display:flex;align-items:center;gap:12px}
-  .ava{
-    width:42px;height:42px;border-radius:50%;background:var(--accent);color:#fff;
-    display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;
-  }
-  .aname{font-weight:600;font-size:14px}
-  .arole{font-size:12.5px;color:var(--muted)}
+  /* services chips strip */
+  .chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+  .chip{border:1px solid var(--line);border-radius:100px;padding:10px 20px;font-size:14px;font-weight:500;transition:.25s;display:flex;align-items:center;gap:9px}
+  .chip:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .chip .dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
 
-  /* ===== NEWSLETTER / CTA ===== */
-  .newsletter{
-    border-radius:32px;overflow:hidden;
-    background:
-      linear-gradient(180deg, rgba(10,25,30,.4) 0%, rgba(10,25,30,.55) 100%),
-      url('https://www.electricianedinburgh.com/wp-content/uploads/2017/06/commercial-electrician-edinburgh.jpg') center/cover no-repeat;
-    color:#fff;padding:100px 60px;text-align:center;
-  }
-  .newsletter h2{
-    font-size:clamp(36px,5vw,68px);font-weight:500;line-height:1.05;
-  }
-  .newsletter h2 .it{font-style:italic;font-weight:500;color:#E5EFEC}
-  .newsletter p{margin:24px auto 36px;max-width:540px;opacity:.88;font-size:15px}
-  .news-form{
-    display:flex;max-width:480px;margin:0 auto;background:#fff;border-radius:999px;padding:6px;
-  }
-  .news-form input{
-    flex:1;border:0;background:transparent;padding:0 22px;font-size:14px;color:var(--ink);outline:none;
-  }
-  .news-form button{
-    background:var(--accent);color:#fff;border:0;border-radius:999px;
-    padding:14px 28px;font-size:14px;font-weight:600;cursor:pointer;
-  }
+  /* testimonials (cream) */
+  .cream-sec{background:var(--cream)}
+  .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:50px}
+  .t{background:#fff;border-radius:10px;padding:34px;display:flex;flex-direction:column;gap:20px;border:1px solid var(--line)}
+  .t .q{font-family:'Bricolage Grotesque';font-size:1.15rem;font-weight:600;line-height:1.45}
+  .t .stars{color:var(--amber);letter-spacing:3px}
+  .t .who{display:flex;align-items:center;gap:14px;margin-top:auto}
+  .t .av{width:46px;height:46px;border-radius:50%;background:var(--slate);color:#fff;display:grid;place-items:center;font-family:'Bricolage Grotesque';font-weight:700}
+  .t .who b{font-family:'Bricolage Grotesque';font-size:15px}
+  .t .who small{display:block;color:var(--soft);font-size:13px}
 
-  /* ===== FOOTER ===== */
-  footer{padding:80px 0 30px;background:var(--bone)}
-  .foot-top{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-bottom:50px}
-  .foot-top h3{font-size:clamp(28px,3.2vw,40px);line-height:1.1;max-width:480px}
-  .foot-nav{display:flex;justify-content:flex-end;gap:40px;flex-wrap:wrap}
-  .foot-nav a{font-size:14px;color:var(--ink-2)}
-  .foot-mid{
-    display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;
-    padding-top:40px;border-top:1px solid rgba(0,0,0,.1);margin-bottom:30px;
-  }
-  .search-bar{
-    display:flex;background:#fff;border-radius:999px;padding:6px;max-width:380px;
-    border:1px solid var(--line);
-  }
-  .search-bar input{
-    flex:1;border:0;background:transparent;padding:8px 18px;font-size:13.5px;color:var(--ink);outline:none;
-  }
-  .search-bar button{
-    background:var(--accent);color:#fff;border:0;border-radius:50%;
-    width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;
-  }
-  .foot-brand{display:flex;align-items:center;gap:10px;font-family:'Bricolage Grotesque',serif;font-weight:700;font-size:24px;justify-content:flex-end}
-  .foot-brand img{height:38px;width:auto}
-  .foot-addr{font-size:13.5px;color:var(--muted);text-align:right;margin-top:8px;line-height:1.6}
-  .foot-bot{
-    display:flex;justify-content:space-between;align-items:center;padding-top:24px;
-    border-top:1px solid rgba(0,0,0,.1);font-size:13px;color:var(--muted);flex-wrap:wrap;gap:14px;
-  }
-  .socials{display:flex;gap:14px}
-  .socials a{
-    width:32px;height:32px;border-radius:50%;border:1px solid var(--line);
-    display:flex;align-items:center;justify-content:center;color:var(--ink-2);
-  }
+  /* CTA band */
+  .cta{background:var(--slate);color:#fff;position:relative;overflow:hidden}
+  .cta .wrap{position:relative;z-index:2}
+  .cta-inner{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:center}
+  .cta h2{font-size:clamp(2.2rem,4.5vw,3.8rem);font-weight:700}
+  .cta h2 em{font-style:italic;color:#cfe9f7;font-weight:600}
+  .cta p{color:rgba(255,255,255,.72);margin:22px 0 32px;font-size:17px;max-width:44ch}
+  .cta-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:34px}
+  .cta-card .row{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:15px}
+  .cta-card .row:last-child{border:0}
+  .cta-card .row span:first-child{color:rgba(255,255,255,.55)}
+  .cta-card .row a{font-weight:600}
 
-  /* ===== Responsive ===== */
-  @media (max-width: 1020px){
-    .brand-center{position:static;transform:none}
-    .nav-links{display:none}
-    .menu-toggle{display:block}
-    .about{grid-template-columns:1fr;gap:40px}
-    .about-img{height:380px}
-    .about-card{padding:36px 28px}
-    .inquiry{grid-template-columns:1fr;padding:36px 28px}
-    .inq-photo{height:240px}
-    .services-head{grid-template-columns:1fr;gap:18px}
-    .svc-grid{grid-template-columns:1fr 1fr}
-    .svc-feature{grid-row:auto;grid-column:span 2;min-height:auto}
-    .test-wrap{padding:36px 24px}
-    .test-grid{grid-template-columns:1fr}
-    .test-head{flex-direction:column;align-items:flex-start}
-    .newsletter{padding:60px 28px}
-    .foot-top{grid-template-columns:1fr;gap:24px}
-    .foot-nav{justify-content:flex-start}
-    .foot-mid{grid-template-columns:1fr;gap:24px}
-    .foot-brand{justify-content:flex-start}
-    .foot-addr{text-align:left}
-    section{padding:80px 0}
+  /* Footer */
+  footer{background:#0e1614;color:#fff;padding:90px 0 40px}
+  .foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px}
+  .foot-brand img{height:38px;filter:brightness(0) invert(1);margin-bottom:20px}
+  .foot-brand p{color:rgba(255,255,255,.6);font-size:14.5px;max-width:300px}
+  .foot-col h4{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:18px}
+  .foot-col a{display:block;color:rgba(255,255,255,.78);font-size:14.5px;padding:6px 0;transition:.2s}
+  .foot-col a:hover{color:var(--blue);padding-left:4px}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-top:60px;padding-top:28px;border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:13px}
+
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:980px){
+    .two-col,.sec-head{grid-template-columns:1fr;gap:24px}
+    .stats{grid-template-columns:1fr 1fr;gap:46px}
+    .proj,.cta-inner{grid-template-columns:1fr;gap:30px}
+    .proj.rev .proj-img{order:0}
+    .t-grid{grid-template-columns:1fr}
+    .foot-top{grid-template-columns:1fr 1fr}
+    .hero-ring{right:-40%;opacity:.5}
   }
-  @media (max-width: 600px){
-    .hero h1{font-size:46px}
-    .hero{min-height:auto;padding-bottom:40px}
-    .stats-row{grid-template-columns:1fr 1fr;gap:18px}
-    .svc-grid{grid-template-columns:1fr}
-    .svc-feature{grid-column:span 1;min-height:auto}
-    .hero-actions-row{flex-direction:column;align-items:flex-start}
+  @media(max-width:760px){
+    .nav-links,.lang{display:none}
+    .pad{padding:80px 0}
+    .hero-stats{gap:32px}
   }
+  @media(max-width:520px){
+    .wrap{padding:0 20px}
+    .stats{grid-template-columns:1fr}
+    .foot-top{grid-template-columns:1fr}
+    .hero-cta{flex-direction:column;align-items:stretch}
+    .btn{justify-content:center}
+  }
+  .mobile-menu{display:none;position:fixed;inset:0;background:var(--slate);z-index:80;flex-direction:column;padding:40px 28px}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{color:#fff;font-family:'Bricolage Grotesque';font-size:1.8rem;font-weight:700;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+  .mm-close{align-self:flex-end;background:none;border:0;color:#fff;font-size:2rem;cursor:pointer;margin-bottom:20px}
+  .burger-btn{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px;padding:8px}
+  .burger-btn span{width:26px;height:2px;background:#fff;display:block}
+  @media(max-width:760px){.burger-btn{display:flex}}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}}
 </style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
-<body>
+<body id="top">
 
-<!-- ===== HERO with NAV ===== -->
-<section class="hero">
-  <div class="container">
-    <nav class="nav">
-      <div class="nav-left">
-        <div class="nav-links">
-          <a href="#" class="active">Home</a>
-          <a href="#services">Services</a>
-          <a href="#about">About</a>
-          <a href="#testimonials">Reviews</a>
-        </div>
-      </div>
-      <div class="brand-center">
-        <img src="https://www.electricianedinburgh.com/wp-content/uploads/2020/11/northern-electrician-edinburgh-logo.png" alt="Northern Electrical logo" />
-        NORTHERN ELECTRICAL
-      </div>
-      <a href="#contact" class="pill-btn">
-        Contact Us
-        <span class="arr">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </span>
-      </a>
-      <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Northern Electrical — home">
+      <span class="bd"><i class="db"></i><i class="dg"></i><i class="da"></i></span>
+      <span class="bw">NORTHERN<small>ELECTRICAL</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
     </nav>
+    <div class="nav-right">
+      <span class="lang"><b>EN</b> · Edinburgh</span>
+      <a href="tel:07463924482" style="font-weight:600;font-size:14.5px">07463 924482</a>
+      <button class="burger-btn" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
 
-    <div class="hero-content">
-      <h1>
-        EDINBURGH'S TRUSTED<br>
-        <span class="italic">electrical</span> EXPERTS
-      </h1>
-      <p class="intro">Quality service and fully qualified electricians providing a 24‑hour emergency call‑out across Edinburgh, Fife and the Lothians. Over 30 years of doing the job properly.</p>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mm-close" id="mmClose" aria-label="Close">×</button>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Contact</a>
+  <a href="tel:07463924482">Call 07463 924482</a>
+</div>
 
-      <div class="hero-actions-row">
-        <div>
-          <a href="tel:07463924482" class="call-pill">
-            <span class="ico">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
-            </span>
-            24/7 Emergency · 07463 924482
-          </a>
-          <div class="reviews-strip">
-            <div class="ava-stack">
-              <span></span><span></span><span></span><span></span>
-            </div>
-            <div>
-              <div class="num">30+</div>
-              <div class="lab">Years of trusted work</div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <span class="stat-bubble">
-            <span class="ico">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9 12 2l9 7v11a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2z"/></svg>
-            </span>
-            Domestic & Commercial Ready
-          </span>
-        </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><img src="assets/panel.jpg" alt="Qualified Edinburgh electrician at work"></div>
+  <span class="hero-ring"></span>
+  <div class="hero-inner">
+    <div class="hero-eyebrow eyebrow">Edinburgh electricians · 30+ years' experience</div>
+    <h1>We power your home with <em>confidence.</em></h1>
+    <p class="hero-sub">Fully qualified electricians providing a 24 hour emergency call-out service across Edinburgh and Fife — from a single socket to a full rewire, finished to the highest standard of safety.</p>
+    <div class="hero-cta">
+      <a class="btn btn-light" href="#contact">Get a free quote <span class="arr">→</span></a>
+      <a class="btn btn-out" href="tel:07463924482">24/7 emergency: 07463 924482</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><b>30+</b><span>Years' experience</span></div>
+      <div class="hs"><b>24/7</b><span>Emergency call-out</span></div>
+      <div class="hs"><b>18th</b><span>Edition IEE regs</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT + STATS -->
+<section class="pad" id="about">
+  <div class="wrap">
+    <div class="two-col reveal">
+      <div class="col-label">
+        About Northern Electrical
+        <a class="lnk" href="#services" style="display:flex">Our services <span class="arr">→</span></a>
+      </div>
+      <p class="about-lead">As one of the premier electricians in Edinburgh, we provide <span class="hl">all aspects of electrical services</span> in and around the area — and no job is too big or small. With over 30 years' experience, every job is finished to the highest standard of workmanship and safety.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat reveal"><div class="n">30<span class="u">+</span></div><div class="lab">years' experience</div></div>
+      <div class="stat reveal"><div class="n">24<span class="u">h</span></div><div class="lab">emergency call-out</div></div>
+      <div class="stat reveal"><div class="n">18<span class="u">th</span></div><div class="lab">edition IEE regs on every job</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTABLE SERVICES -->
+<section class="pad-sm" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="col-label">Notable services<a class="lnk" href="#contact" style="display:flex;margin-top:18px;color:var(--ink)">Request a quote <span class="arr">→</span></a></div>
+      <p style="font-size:18px;color:var(--soft);max-width:60ch">All work by our highly experienced and qualified electricians is completed in accordance with the 18th Edition of IEE Regulations — with consummate care, professionalism and guaranteed workmanship.</p>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-img"><span class="tag">Consumer units</span><img src="assets/socket.jpg" alt="Fuse board / consumer unit testing"></div>
+      <div class="proj-body">
+        <h3>Fuse board replacements</h3>
+        <p>A consumer unit — also known as a fuse board or electrical fuse box — distributes electricity from the mains supply to individual circuits around your property. We upgrade outdated boards to keep your home safe and compliant.</p>
+        <a class="lnk" href="#contact">Enquire about an upgrade <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="proj rev reveal">
+      <div class="proj-img"><span class="tag">Rewiring</span><img src="assets/rewire.jpg" alt="Full house rewiring and modern controls"></div>
+      <div class="proj-body">
+        <h3>Full house rewiring</h3>
+        <p>A house rewiring involves changing all the wiring and upgrading the home's electrical equipment. It's recommended that you change all your house wiring every 25 years — we handle the whole job, start to finish.</p>
+        <a class="lnk" href="#contact">Book a survey <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-img"><span class="tag">Lighting</span><img src="assets/bulb.jpg" alt="Lighting installation"></div>
+      <div class="proj-body">
+        <h3>Lighting &amp; outdoor power</h3>
+        <p>From a single fixture to a complete overhaul — indoors and out. We install garden, patio and exterior power and lighting so your home looks and works exactly the way you want, day or night.</p>
+        <a class="lnk" href="#contact">Plan your lighting <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="chips">
+        <span class="chip"><span class="dot"></span>Socket Installation</span>
+        <span class="chip"><span class="dot"></span>PAT Testing</span>
+        <span class="chip"><span class="dot"></span>Landlord Certification</span>
+        <span class="chip"><span class="dot"></span>Periodic Safety Inspections</span>
+        <span class="chip"><span class="dot"></span>Fault Finding</span>
+        <span class="chip"><span class="dot"></span>24/7 Emergency Call-Out</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== ABOUT / STATS ===== -->
-<section id="about">
-  <div class="container about">
-    <div class="about-img">
-      <img src="https://www.electricianedinburgh.com/wp-content/uploads/2017/06/domestic-electrician-edinburgh.jpg" alt="Northern Electrical engineer at work" />
+<!-- TESTIMONIALS -->
+<section class="cream-sec pad" id="reviews">
+  <div class="wrap">
+    <div class="two-col reveal">
+      <div class="col-label">What clients say</div>
+      <p class="about-lead">Edinburgh homeowners trust us to turn up on time, work tidily and leave their homes <span class="hl">safe and sound.</span></p>
     </div>
-    <div class="about-card">
-      <div class="crumb">
-        <span class="dot">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 12 2 2 4-4"/></svg>
-        </span>
-        About Us
+    <div class="t-grid">
+      <div class="t reveal">
+        <div class="stars">★★★★★</div>
+        <div class="q">"Fantastic electrical work — I would definitely recommend."</div>
+        <div class="who"><span class="av">SS</span><div><b>Steve Smith</b><small>Edinburgh</small></div></div>
       </div>
-      <h2><span class="em">Trust In Craft,</span> Believe In Safety. Your Project Is In Expert Hands With <span class="em">Northern Electrical.</span></h2>
-      <div class="stats-row">
-        <div class="stat">
-          <div class="num">30+</div>
-          <div class="lab">Years' experience</div>
-        </div>
-        <div class="stat">
-          <div class="num">24/7</div>
-          <div class="lab">Emergency response</div>
-        </div>
-        <div class="stat">
-          <div class="num">100%</div>
-          <div class="lab">Work guaranteed</div>
-        </div>
+      <div class="t reveal">
+        <div class="stars">★★★★★</div>
+        <div class="q">"Lovely job in my garden outhouse — tidy and professional throughout."</div>
+        <div class="who"><span class="av">SS</span><div><b>Sarah Snellington</b><small>Edinburgh</small></div></div>
       </div>
-      <p>We treat every project with the respect it deserves and don't stop until you're satisfied. From a single socket to a full rewire, 18th Edition IEE compliant work delivered with care across Edinburgh, Fife, and East & West Lothian.</p>
-      <a href="#services" class="dark-cta">
-        <span class="ico">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9 12 2l9 7v11a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2z"/></svg>
-        </span>
-        View Our Services
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== INQUIRY ===== -->
-<section style="padding-top:0">
-  <div class="container">
-    <div class="inquiry">
-      <div>
-        <div class="inq-tag">
-          <span class="icn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-          </span>
-          Direct Inquiry
-        </div>
-        <h2><span class="b">Need an electrician today?</span><br>Chat With Our Experts For A Free Quote.</h2>
-        <p>From an initial consultation to completion, we oversee all domestic and commercial electrical work with the greatest care and professionalism. Trust us to deliver not just a fix, but work that lasts.</p>
-        <a href="tel:07463924482" class="dark-cta">
-          <span class="ico">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
-          </span>
-          Call Us Today
-        </a>
-      </div>
-      <div class="inq-photo">
-        <img src="https://www.electricianedinburgh.com/wp-content/uploads/2017/06/commercial-electrician-edinburgh.jpg" alt="Commercial electrical work" />
+      <div class="t reveal">
+        <div class="stars">★★★★★</div>
+        <div class="q">"Great job — turned up on time and very reasonably priced."</div>
+        <div class="who"><span class="av">RW</span><div><b>Roger White-Haslington</b><small>Edinburgh</small></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== SERVICES ===== -->
-<section id="services">
-  <div class="container">
-    <div class="services-head">
-      <h2><span class="em">Northern Electrical</span> Where Trust Meets Expertise. Services Crafted For <span class="em">Every Property, Everywhere.</span></h2>
-      <p>At Northern Electrical, we deliver expert care on every job — from the smallest socket installation to full house rewires and complex commercial projects. Across Edinburgh and beyond.</p>
-    </div>
-
-    <div class="svc-grid">
-
-      <div class="svc-feature">
-        <div>
-          <div class="top">
-            <span class="new-tag">Flagship</span>
-            <span class="more-arr">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </span>
-          </div>
-          <h3 style="margin-top:32px">Full House Rewiring</h3>
-          <div class="meta">
-            <strong>Coverage:</strong> Edinburgh, Fife, Lothians<br>
-            <strong>Scope:</strong> Whole‑home electrical system<br>
-            <strong>Standard:</strong> 18th Edition IEE compliant
-          </div>
-        </div>
-        <p class="desc">A complete electrical overhaul recommended every 25 years — safer wiring, modern consumer units, and full compliance certification. We minimise disruption and clean up properly when we're done.</p>
-      </div>
-
-      <div class="svc-card">
-        <div class="img">
-          <img src="https://www.electricianedinburgh.com/wp-content/uploads/2017/06/commercial-electrician-edinburgh.jpg" alt="Commercial electrical" />
-          <span class="arr">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </span>
-        </div>
-        <div class="body">
-          <h4>Commercial Installs</h4>
-          <button class="view-more">View More</button>
+<!-- CTA -->
+<section class="cta pad" id="contact">
+  <div class="wrap">
+    <div class="cta-inner">
+      <div class="reveal">
+        <div class="eyebrow" style="color:rgba(255,255,255,.6)"><span class="dots"><span class="d-b"></span><span class="d-g"></span><span class="d-a"></span></span> &nbsp; Get in touch today</div>
+        <h2 style="margin-top:18px">Free, <em>no-obligation</em> quote.</h2>
+        <p>Tell us what you need and we'll get back to you fast. For emergencies, call our call-out line any time — day or night.</p>
+        <div class="hero-cta">
+          <a class="btn btn-light" href="tel:07463924482">Call 07463 924482</a>
+          <a class="btn btn-out" href="mailto:hello@northernelectricians.co.uk">Email us</a>
         </div>
       </div>
-
-      <div class="svc-card">
-        <div class="img">
-          <img src="https://www.electricianedinburgh.com/wp-content/uploads/2017/06/domestic-electrician-edinburgh.jpg" alt="Domestic electrical" />
-          <span class="arr">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </span>
-        </div>
-        <div class="body">
-          <h4>Domestic Work</h4>
-          <button class="view-more">View More</button>
-        </div>
-      </div>
-
-      <div class="svc-card">
-        <div class="img">
-          <img src="https://www.electricianedinburgh.com/wp-content/uploads/2019/05/electrician-edinburgh-home.jpg" alt="Lighting installation" />
-          <span class="arr">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </span>
-        </div>
-        <div class="body">
-          <h4>Lighting & Sockets</h4>
-          <button class="view-more">View More</button>
-        </div>
-      </div>
-
-      <div class="svc-card">
-        <div class="img">
-          <img src="https://www.electricianedinburgh.com/wp-content/uploads/2017/06/commercial-electrician-edinburgh.jpg" alt="Fuse board upgrades" />
-          <span class="arr">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </span>
-        </div>
-        <div class="body">
-          <h4>Fuse Board Upgrades</h4>
-          <button class="view-more">View More</button>
-        </div>
-      </div>
-
-      <div class="svc-card">
-        <div class="img">
-          <img src="https://www.electricianedinburgh.com/wp-content/uploads/2017/06/domestic-electrician-edinburgh.jpg" alt="Landlord certification" />
-          <span class="arr">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </span>
-        </div>
-        <div class="body">
-          <h4>Landlord Certs & PAT</h4>
-          <button class="view-more">View More</button>
-        </div>
-      </div>
-
-      <div class="svc-card">
-        <div class="img">
-          <img src="https://www.electricianedinburgh.com/wp-content/uploads/2019/05/electrician-edinburgh-home.jpg" alt="Emergency call out" />
-          <span class="arr">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </span>
-        </div>
-        <div class="body">
-          <h4>24h Emergency</h4>
-          <button class="view-more">View More</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== TESTIMONIALS ===== -->
-<section class="testimonials" id="testimonials">
-  <div class="container">
-    <div class="test-wrap">
-      <div class="test-head">
-        <h2>Loved by homeowners, landlords and businesses across Edinburgh.</h2>
-        <a href="#contact" class="dark-cta">
-          <span class="ico">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </span>
-          Get Your Quote
-        </a>
-      </div>
-      <div class="test-grid">
-
-        <div class="test-card">
-          <div class="quote">"</div>
-          <div class="stars">★★★★★</div>
-          <p>Fantastic electrical work carried out at my house. Would definitely recommend.</p>
-          <div class="auth">
-            <div class="ava">SS</div>
-            <div>
-              <div class="aname">Steve Smith</div>
-              <div class="arole">Edinburgh homeowner</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="test-card">
-          <div class="quote">"</div>
-          <div class="stars">★★★★★</div>
-          <p>Lovely job in my garden outhouse! Tidy work, prompt arrival, and a fair quote.</p>
-          <div class="auth">
-            <div class="ava">SS</div>
-            <div>
-              <div class="aname">Sarah Snellington</div>
-              <div class="arole">Domestic client</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="test-card">
-          <div class="quote">"</div>
-          <div class="stars">★★★★★</div>
-          <p>Great job doing the electrics for our new‑build extension. Smooth from start to finish.</p>
-          <div class="auth">
-            <div class="ava">RW</div>
-            <div>
-              <div class="aname">Roger White‑Haslington</div>
-              <div class="arole">Extension project</div>
-            </div>
-          </div>
-        </div>
-
+      <div class="cta-card reveal">
+        <div class="row"><span>Phone</span><a href="tel:07463924482">07463 924482</a></div>
+        <div class="row"><span>Email</span><a href="mailto:hello@northernelectricians.co.uk">hello@northernelectricians.co.uk</a></div>
+        <div class="row"><span>Address</span><span style="text-align:right;max-width:60%">Rauds Bonnington Bond, 2 Anderson Place, Edinburgh, EH6 5NP</span></div>
+        <div class="row"><span>Hours</span><span>24 / 7 emergency call-out</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== NEWSLETTER ===== -->
-<section style="padding-top:0">
-  <div class="container">
-    <div class="newsletter">
-      <h2>Stay <span class="it">Connected</span><br>With Northern Electrical</h2>
-      <p>Seasonal safety reminders, rewire offers, and updates on landlord certification deadlines — straight to your inbox.</p>
-      <form class="news-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='Subscribed ✓'">
-        <input type="email" placeholder="Your Email" required />
-        <button type="submit">Subscribe</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer id="contact">
-  <div class="container">
+<footer>
+  <div class="wrap">
     <div class="foot-top">
-      <h3>Looking for a trusted electrician in Edinburgh?</h3>
-      <div class="foot-nav">
+      <div class="foot-brand">
+        <a class="brand" href="#top" aria-label="Northern Electrical" style="margin-bottom:20px">
+          <span class="bd"><i class="db"></i><i class="dg"></i><i class="da"></i></span>
+          <span class="bw">NORTHERN<small>ELECTRICAL</small></span>
+        </a>
+        <p>Fully qualified electricians serving Edinburgh and Fife with over 30 years' experience, guaranteed workmanship and a 24 hour emergency call-out service.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <a href="#services">Fuse Boards</a>
+        <a href="#services">House Rewiring</a>
+        <a href="#services">Lighting</a>
+        <a href="#services">PAT Testing</a>
+        <a href="#services">Landlord Certs</a>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
         <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#testimonials">Reviews</a>
-        <a href="#contact">Contact Us</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+        <a href="tel:07463924482">Emergency</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="tel:07463924482">07463 924482</a>
+        <a href="mailto:hello@northernelectricians.co.uk">Email us</a>
+        <a href="#contact">2 Anderson Place, EH6 5NP</a>
       </div>
     </div>
-    <div class="foot-mid">
-      <div class="search-bar">
-        <input type="text" placeholder="Find your service here" />
-        <button aria-label="Search">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-      <div>
-        <div class="foot-brand">
-          <img src="https://www.electricianedinburgh.com/wp-content/uploads/2020/11/northern-electrician-edinburgh-logo.png" alt="Northern Electrical logo" />
-          NORTHERN ELECTRICAL
-        </div>
-        <div class="foot-addr">
-          Rauds Bonnington Bond, 2 Anderson Place<br>
-          Edinburgh EH6 5NP · United Kingdom<br>
-          <a href="tel:07463924482" style="color:var(--accent);font-weight:600">07463 924482</a> · <a href="mailto:hello@northernelectricians.co.uk" style="color:var(--accent);font-weight:600">hello@northernelectricians.co.uk</a>
-        </div>
-      </div>
-    </div>
-    <div class="foot-bot">
-      <span>© 2026 Northern Electrical Services. All rights reserved.</span>
-      <div class="socials">
-        <a href="#" aria-label="Facebook">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
-        </a>
-        <a href="#" aria-label="Instagram">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-        </a>
-        <a href="#" aria-label="LinkedIn">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14M8.5 18V10H6v8h2.5M7.25 8.75a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M18 18v-4.5a3.5 3.5 0 0 0-7 0V18h2.5v-4.5a1 1 0 0 1 2 0V18H18z"/></svg>
-        </a>
-      </div>
+    <div class="foot-bottom">
+      <span>© 2026 Northern Electrical, Edinburgh. All rights reserved.</span>
+      <span>Quality service · Fully qualified · 24 hour emergency call-out</span>
     </div>
   </div>
 </footer>
 
+<script>
+  const hdr=document.getElementById('hdr');
+  addEventListener('scroll',()=>hdr.classList.toggle('fixed',scrollY>120));
+  const burger=document.getElementById('burger'),mm=document.getElementById('mobileMenu'),mc=document.getElementById('mmClose');
+  burger.addEventListener('click',()=>mm.classList.add('open'));
+  mc.addEventListener('click',()=>mm.classList.remove('open'));
+  mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('open')));
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>

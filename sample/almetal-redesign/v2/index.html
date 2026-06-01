@@ -3,444 +3,517 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Almetal Dryer Vent Corporation — A Safe Home Starts Here | Charlotte, NC</title>
-<meta name="description" content="Full-service dryer vent cleaning, installation, repair and replacement across the greater Charlotte, NC metro. Faster drying, lower bills, and a safer home.">
+<title>Almetal Dryer Vent Corporation | Safe, Efficient Dryer Venting</title>
+<meta name="description" content="Almetal Dryer Vent Corporation — the safest, most efficient way to vent your clothes dryer. Rigid aluminum periscope kits and local installation in the Charlotte metro area.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --green:#6ec74a;
-  --green-dark:#57b43a;
-  --bg:#1c1d1f;
-  --panel:#26282b;
-  --panel-2:#2f3134;
-  --line:#3a3d40;
-  --ink:#f3f4f1;
-  --muted:#a6aaa3;
-  --muted-2:#7f847d;
-  --taupe:#b7a489;
+  --green:#46B13C; --green-d:#2F8A2A; --green-l:#e9f6e7;
+  --ink:#14181d; --ink-2:#3a4149; --ink-3:#6c7680;
+  --dark:#171c22; --darker:#0e1216;
+  --paper:#fff; --mist:#f5f7f4; --line:#e6ebe6;
+  --shadow:0 30px 70px -34px rgba(13,17,21,.4);
+  --shadow-sm:0 16px 36px -22px rgba(13,17,21,.4);
+  --maxw:1220px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Jost',system-ui,sans-serif;background:var(--bg);color:var(--muted);line-height:1.8;font-weight:300;-webkit-font-smoothing:antialiased}
-h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;color:var(--ink);line-height:1.1;font-weight:600;letter-spacing:.01em}
+body{font-family:'Manrope',sans-serif;color:var(--ink-2);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Barlow Condensed',sans-serif;color:var(--ink);line-height:1.04;text-transform:uppercase;letter-spacing:.01em}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
-.wrap{max-width:1180px;margin:0 auto;padding:0 30px}
-.eyebrow{font-family:'Jost';font-weight:500;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--taupe)}
-.btn{display:inline-flex;align-items:center;gap:10px;font-family:'Jost';font-weight:500;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;padding:16px 34px;cursor:pointer;border:none;transition:.3s}
-.btn-taupe{background:var(--taupe);color:#1c1d1f}
-.btn-taupe:hover{background:var(--green);color:#10110f}
-.btn-green{background:var(--green);color:#10110f}
-.btn-green:hover{background:#fff}
-.btn-outline{background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff}
-.btn-outline:hover{border-color:var(--green);color:var(--green)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+.eyebrow{font-family:'Barlow Condensed';font-weight:700;font-size:1rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green-d);display:inline-block;margin-bottom:.5rem}
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:'Barlow Condensed';font-weight:700;font-size:1.12rem;text-transform:uppercase;letter-spacing:.04em;padding:.85rem 1.8rem;border:2px solid transparent;cursor:pointer;transition:.25s}
+.btn-primary{background:var(--green);color:#fff}
+.btn-primary:hover{background:var(--green-d);transform:translateY(-2px)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#000;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--green);color:var(--green-d)}
 
-/* ---------- Header ---------- */
-header{position:fixed;top:0;left:0;right:0;z-index:60;transition:.4s;padding:22px 0}
-header.scrolled{background:rgba(20,21,23,.92);backdrop-filter:blur(14px);padding:14px 0;box-shadow:0 10px 30px rgba(0,0,0,.4)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;align-items:center;gap:14px}
-.brand img{height:42px;width:auto;background:#fff;padding:6px 10px;border-radius:6px}
-nav.main{display:flex;gap:38px}
-nav.main a{font-family:'Jost';font-weight:400;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:#dcdfd9;transition:.25s}
-nav.main a:hover{color:var(--green)}
-.nav-right{display:flex;align-items:center;gap:22px}
-.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
-.burger span{width:26px;height:2px;background:#fff;transition:.3s}
+/* Topbar */
+.topbar{background:var(--darker);color:#b9c2bb;font-size:.86rem}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:46px;gap:1rem}
+.topbar a{color:#cfd6cf;transition:.2s}.topbar a:hover{color:var(--green)}
+.tb-left{display:flex;gap:1.8rem;align-items:center}
+.tb-left span{display:flex;align-items:center;gap:.5rem}
+.tb-left svg{color:var(--green)}
+.tb-right{display:flex;gap:.7rem;align-items:center}
+.tb-right b{font-weight:600;color:#cfd6cf;margin-right:.3rem}
+.tb-right a{width:30px;height:30px;border-radius:7px;background:rgba(255,255,255,.08);display:grid;place-items:center}
+.tb-right a:hover{background:var(--green);color:#fff}
 
-/* ---------- Hero ---------- */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:url('assets/prod-side-vent.jpg') center/cover;transform:scale(1.05)}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,21,23,.7),rgba(20,21,23,.55) 45%,rgba(20,21,23,.92))}
-.hero-inner{position:relative;z-index:3;max-width:900px;padding:120px 30px 80px}
-.hero .eyebrow{display:block;margin-bottom:26px;color:var(--green)}
-.hero h1{font-size:clamp(3rem,8vw,6.2rem);color:#fff;font-weight:600;line-height:1}
-.hero .sub{font-family:'Cormorant Garamond';font-style:italic;font-size:clamp(1.3rem,2.6vw,1.9rem);color:#e6e8e2;margin-top:18px;font-weight:500}
-.hero p.lede{max-width:620px;margin:26px auto 38px;color:#c3c7bf;font-size:1.02rem}
-.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.hero-side{position:absolute;left:30px;top:50%;transform:translateY(-50%);z-index:4;display:flex;flex-direction:column;gap:20px}
-.hero-side a{color:#cfd3cb;transition:.25s}
-.hero-side a:hover{color:var(--green)}
-.hero-side svg{width:18px;height:18px;fill:currentColor}
-.scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:4;color:#aeb2aa;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px}
-.scroll-hint::after{content:"";width:1px;height:40px;background:linear-gradient(var(--green),transparent)}
+/* Header */
+header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid var(--line);transition:.3s}
+header.scrolled{box-shadow:0 10px 34px -24px rgba(0,0,0,.4)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:84px;gap:1.5rem}
+.logo img{height:42px}
+.nav-links{display:flex;gap:2.1rem;list-style:none}
+.nav-links a{font-family:'Barlow Condensed';font-weight:600;font-size:1.12rem;text-transform:uppercase;letter-spacing:.03em;color:var(--ink);position:relative;padding:4px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--green);transition:.25s}
+.nav-links a:hover::after{width:100%}
+.nav-links a:hover{color:var(--green-d)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{width:26px;height:2.5px;background:var(--ink);border-radius:2px;transition:.3s}
 
-/* ---------- Services block ---------- */
-.svc{background:var(--bg)}
-.svc-top{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
-.svc-img{background:url('assets/hero.png') center/cover}
-.svc-detail{background:var(--panel);padding:80px 70px;display:flex;flex-direction:column;justify-content:center}
-.svc-detail h2{font-size:3rem;margin:14px 0 26px}
-.svc-list{list-style:none;display:grid;gap:0;margin-bottom:34px}
-.svc-list li{display:flex;align-items:center;gap:16px;padding:17px 0;border-bottom:1px solid var(--line);font-family:'Jost';font-weight:300;color:var(--ink);font-size:1.05rem;letter-spacing:.02em}
-.svc-list li .n{font-family:'Cormorant Garamond';font-size:1.1rem;color:var(--taupe);font-weight:600}
-.svc-list li .price{margin-left:auto;font-size:.8rem;letter-spacing:.1em;color:var(--muted-2);text-transform:uppercase}
+/* Hero */
+.hero{position:relative;color:#fff;background:var(--dark);overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.42}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(14,18,22,.96) 30%,rgba(14,18,22,.55) 70%,rgba(14,18,22,.2))}
+.hero .wrap{position:relative;padding:120px 26px 170px}
+.hero-block{max-width:680px}
+.hero-tag{display:inline-block;background:var(--green);color:#fff;font-family:'Barlow Condensed';font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.4rem 1.1rem;font-size:.95rem;margin-bottom:1.5rem}
+.hero h1{font-size:clamp(3rem,6.5vw,5.4rem);color:#fff;font-weight:700;line-height:.98}
+.hero h1 em{font-style:normal;color:var(--green)}
+.hero p.lead{font-size:1.15rem;color:#c8d0c8;max-width:540px;margin:1.5rem 0 2.2rem}
+.call-box{display:inline-flex;align-items:center;gap:1rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);padding:.5rem .5rem .5rem 1.4rem;backdrop-filter:blur(4px)}
+.call-box .ic{width:54px;height:54px;background:var(--green);display:grid;place-items:center;color:#fff;flex-shrink:0}
+.call-box .txt{padding-right:1rem}
+.call-box small{display:block;font-size:.8rem;color:#aab3aa;text-transform:uppercase;letter-spacing:.1em;font-family:'Barlow Condensed';font-weight:600}
+.call-box b{font-family:'Barlow Condensed';font-size:1.7rem;color:#fff}
+.hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-top:1.6rem}
 
-/* ---------- Icon feature row ---------- */
-.iconrow{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bg)}
-.icell{padding:56px 30px;text-align:center;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:.3s}
-.icell:last-child{border-right:none}
-.icell:hover{background:var(--panel)}
-.icell svg{width:42px;height:42px;stroke:var(--green);fill:none;stroke-width:1.3;margin-bottom:18px}
-.icell h4{font-size:1.5rem;margin-bottom:6px}
-.icell p{font-size:.82rem;letter-spacing:.06em;color:var(--muted-2)}
+/* Stats bar overlapping */
+.stats-wrap{margin-top:-78px;position:relative;z-index:5}
+.stats{background:#fff;box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{display:flex;align-items:center;gap:1rem;padding:34px 32px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat .ic{width:54px;height:54px;background:var(--green-l);color:var(--green-d);display:grid;place-items:center;flex-shrink:0}
+.stat b{font-family:'Barlow Condensed';font-weight:700;font-size:2.1rem;color:var(--ink);display:block;line-height:1}
+.stat span{font-size:.92rem;color:var(--ink-3)}
 
-/* ---------- About ---------- */
-.about{display:grid;grid-template-columns:1fr 1fr;background:var(--bg)}
-.about-copy{padding:90px 70px;display:flex;flex-direction:column;justify-content:center}
-.about-copy h2{font-size:3rem;margin:16px 0 10px}
-.about-copy .name{font-family:'Cormorant Garamond';font-style:italic;color:var(--taupe);font-size:1.4rem;margin-bottom:24px}
-.about-copy p{margin-bottom:18px;font-size:1rem}
-.about-copy p strong{color:var(--ink);font-weight:500}
-.about-copy .btn{align-self:flex-start;margin-top:14px}
-.about-img{background:url('assets/prod-end-vent.jpg') center/cover;min-height:560px}
+/* About split */
+.pad{padding:100px 0}
+.about{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center}
+.about-imgs{position:relative}
+.about-imgs .big{box-shadow:var(--shadow);aspect-ratio:4/3.4;overflow:hidden}
+.about-imgs .big img{width:100%;height:100%;object-fit:cover}
+.about-imgs .small{position:absolute;bottom:-44px;left:-30px;width:46%;aspect-ratio:1/1;overflow:hidden;border:7px solid #fff;box-shadow:var(--shadow);background:#fff}
+.about-imgs .small img{width:100%;height:100%;object-fit:contain;background:#f6f8f6}
+.about-imgs .yrs{position:absolute;bottom:-30px;right:-18px;background:var(--ink);color:#fff;padding:24px 26px;text-align:center;box-shadow:var(--shadow-sm)}
+.about-imgs .yrs b{font-family:'Barlow Condensed';font-size:2.6rem;color:var(--green);display:block;line-height:1}
+.about-imgs .yrs span{font-family:'Barlow Condensed';text-transform:uppercase;letter-spacing:.06em;font-size:.95rem}
+.about h2{font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;margin:.4rem 0 1.2rem}
+.about p{margin-bottom:1.1rem}
+.feat-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.8rem 0 2rem}
+.feat-list li{display:flex;gap:.7rem;align-items:center;font-family:'Barlow Condensed';font-weight:600;font-size:1.15rem;text-transform:uppercase;letter-spacing:.02em;color:var(--ink)}
+.feat-list .ck{width:24px;height:24px;background:var(--green);color:#fff;display:grid;place-items:center;flex-shrink:0}
 
-/* ---------- Stats band ---------- */
-.stats{background:var(--panel-2);padding:70px 0}
-.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
-.stats .b{font-family:'Cormorant Garamond';font-size:3.4rem;color:var(--green);font-weight:600;line-height:1}
-.stats .l{font-family:'Jost';font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+/* Section heads */
+.sec-head{max-width:640px}
+.sec-head.center{margin:0 auto;text-align:center}
+.sec-head h2{font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;margin-top:.3rem}
+.sec-head p{margin-top:.8rem;color:var(--ink-2)}
 
-/* ---------- Projects / gallery ---------- */
-.projects{padding:110px 0 90px;text-align:center}
-.projects h2{font-size:3.2rem;margin:14px 0 10px}
-.projects .intro{max-width:560px;margin:0 auto 56px;color:var(--muted)}
-.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.pitem{position:relative;overflow:hidden;aspect-ratio:4/5;background:var(--panel)}
-.pitem img{width:100%;height:100%;object-fit:cover;transition:.6s;opacity:.92}
-.pitem:hover img{transform:scale(1.08);opacity:1}
-.pitem .cap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;background:linear-gradient(transparent 45%,rgba(16,17,15,.85));text-align:left}
-.pitem .cap span{font-family:'Jost';font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--green)}
-.pitem .cap h4{font-size:1.45rem;color:#fff;margin-top:4px}
+/* Why cards */
+.why{background:var(--mist)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:54px}
+.why-card{background:#fff;padding:38px 32px;border-bottom:4px solid transparent;transition:.3s}
+.why-card:hover{border-color:var(--green);transform:translateY(-6px);box-shadow:var(--shadow)}
+.why-ic{width:66px;height:66px;background:var(--ink);color:var(--green);display:grid;place-items:center;margin-bottom:22px;transition:.3s}
+.why-card:hover .why-ic{background:var(--green);color:#fff}
+.why-card h3{font-size:1.5rem;margin-bottom:.5rem}
+.why-card p{font-size:.97rem}
 
-/* ---------- Shop strip ---------- */
-.shop{background:var(--panel);padding:100px 0}
-.shop .head{text-align:center;margin-bottom:54px}
-.shop h2{font-size:3rem;margin-top:12px}
-.sgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.sprod{background:var(--bg);border:1px solid var(--line);transition:.3s}
-.sprod:hover{border-color:var(--green);transform:translateY(-6px)}
-.sprod .ph{aspect-ratio:1/1;background:#f4f5f2;display:grid;place-items:center;padding:20px}
-.sprod .ph img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
-.sprod .b{padding:22px 22px 26px;text-align:center}
-.sprod h4{font-size:1.4rem}
-.sprod small{display:block;font-family:'Jost';font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);margin:6px 0 12px}
-.sprod .cost{font-family:'Cormorant Garamond';font-size:1.8rem;color:var(--green);font-weight:600}
+/* Products */
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:54px}
+.prod{background:#fff;border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;transition:.3s}
+.prod:hover{box-shadow:var(--shadow);transform:translateY(-5px);border-color:transparent}
+.prod-img{aspect-ratio:1/1;background:#f6f8f6;display:grid;place-items:center;padding:16px;position:relative;overflow:hidden}
+.prod-img img{width:100%;height:100%;object-fit:contain;transition:.4s}
+.prod:hover .prod-img img{transform:scale(1.06)}
+.prod-badge{position:absolute;top:14px;left:14px;background:var(--green);color:#fff;font-family:'Barlow Condensed';font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:.8rem;padding:.25rem .7rem}
+.prod-body{padding:20px 22px 24px;display:flex;flex-direction:column;flex:1}
+.prod h3{font-size:1.32rem;margin-bottom:auto;line-height:1.05}
+.prod-foot{display:flex;align-items:center;justify-content:space-between;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--line)}
+.prod-price{font-family:'Barlow Condensed';font-weight:700;font-size:1.7rem;color:var(--green-d)}
+.prod-foot .btn{font-size:.95rem;padding:.6rem 1.1rem}
 
-/* ---------- Testimonials ---------- */
-.testi{padding:110px 0}
-.testi .head{text-align:center;margin-bottom:58px}
-.testi h2{font-size:3.2rem;margin-top:12px}
-.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-.tcard{background:var(--panel);padding:44px 38px;border-top:2px solid var(--green)}
-.tcard .stars{color:var(--green);letter-spacing:4px;font-size:.9rem;margin-bottom:20px}
-.tcard p{font-family:'Cormorant Garamond';font-style:italic;font-size:1.45rem;color:var(--ink);line-height:1.4;font-weight:500}
-.tcard .who{margin-top:26px;font-family:'Jost'}
-.tcard .who strong{display:block;color:#fff;font-weight:500;letter-spacing:.05em}
-.tcard .who small{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe)}
+/* Process dark */
+.process{background:var(--dark);color:#c2cbc2;position:relative;overflow:hidden}
+.process::before{content:"";position:absolute;top:-40%;right:-10%;width:540px;height:540px;background:radial-gradient(circle,rgba(70,177,60,.18),transparent 65%)}
+.process .wrap{position:relative}
+.process h2{color:#fff}
+.process .sec-head p{color:#9aa49a}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:54px}
+.proc{position:relative;padding-top:18px}
+.proc .n{font-family:'Barlow Condensed';font-weight:700;font-size:3.4rem;color:rgba(70,177,60,.35);line-height:.8}
+.proc h3{color:#fff;font-size:1.4rem;margin:.6rem 0 .5rem}
+.proc p{font-size:.95rem;color:#9aa49a}
+.configs{display:flex;flex-wrap:wrap;gap:12px;margin-top:50px}
+.configs span{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);color:#dfe6df;padding:.6rem 1.2rem;font-family:'Barlow Condensed';font-weight:600;font-size:1.02rem;text-transform:uppercase;letter-spacing:.03em}
+.configs span b{color:var(--green)}
 
-/* ---------- Contact / CTA ---------- */
-.contact{position:relative;padding:120px 0;text-align:center;overflow:hidden}
-.contact-bg{position:absolute;inset:0;background:url('assets/prod-connector.jpg') center/cover;opacity:.18}
-.contact::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,rgba(20,21,23,.6),rgba(20,21,23,.96))}
-.contact .wrap{position:relative;z-index:3}
-.contact h2{font-size:clamp(2.4rem,5vw,4rem);margin-bottom:18px}
-.contact p{max-width:600px;margin:0 auto 36px;color:var(--muted)}
-.contact .actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.contact .areas{margin-top:42px;font-size:.82rem;letter-spacing:.1em;color:var(--muted-2)}
+/* Local CTA */
+.localcta{background:var(--green);color:#fff}
+.localcta .wrap{display:flex;justify-content:space-between;align-items:center;gap:30px;padding:54px 26px;flex-wrap:wrap}
+.localcta h2{color:#fff;font-size:clamp(2rem,3.4vw,2.8rem);font-weight:700}
+.localcta p{color:rgba(255,255,255,.92);max-width:560px;margin-top:.5rem}
+.localcta .btn-white{background:#fff;color:var(--green-d)}
+.localcta .btn-white:hover{background:var(--ink);color:#fff}
 
-/* ---------- Footer ---------- */
-footer{background:#141517;padding:64px 0 30px;border-top:1px solid var(--line)}
-.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px}
-footer .brand img{height:40px;background:#fff;padding:6px 9px;border-radius:6px}
-footer p.d{font-size:.9rem;margin:20px 0;max-width:300px}
-footer h4{color:#fff;font-size:1.4rem;margin-bottom:18px}
-footer ul{list-style:none;display:grid;gap:11px}
-footer ul a,footer ul li{font-size:.9rem;color:var(--muted);transition:.2s}
-footer ul a:hover{color:var(--green)}
-.fsoc{display:flex;gap:12px;margin-top:6px}
-.fsoc a{width:38px;height:38px;border:1px solid var(--line);display:grid;place-items:center;transition:.25s}
-.fsoc a:hover{background:var(--green);border-color:var(--green)}
-.fsoc svg{width:16px;height:16px;fill:var(--muted)}
-.fsoc a:hover svg{fill:#10110f}
-.fbottom{border-top:1px solid var(--line);margin-top:50px;padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.82rem;color:var(--muted-2)}
+/* Testimonials */
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:54px}
+.t-card{background:#fff;border:1px solid var(--line);padding:36px 32px;transition:.3s}
+.t-card:hover{box-shadow:var(--shadow);transform:translateY(-5px);border-color:transparent}
+.t-stars{color:#f6a609;letter-spacing:3px;margin-bottom:14px;font-size:1.05rem}
+.t-quote{font-family:'Barlow Condensed';font-size:1.5rem;color:var(--ink);line-height:1.2;text-transform:none}
+.t-who{display:flex;align-items:center;gap:.85rem;margin-top:24px}
+.t-av{width:48px;height:48px;background:var(--ink);color:var(--green);display:grid;place-items:center;font-family:'Barlow Condensed';font-weight:700;font-size:1.3rem}
+.t-who b{font-family:'Barlow Condensed';font-size:1.25rem;color:var(--ink);display:block;line-height:1}
+.t-who small{color:var(--ink-3);font-size:.88rem}
 
-/* ---------- Responsive ---------- */
-@media(max-width:980px){
-  nav.main{position:fixed;inset:0 0 0 auto;width:280px;background:var(--panel);flex-direction:column;padding:100px 36px;gap:22px;transform:translateX(100%);transition:.4s;z-index:55}
-  nav.main.open{transform:translateX(0)}
+/* Contact */
+.contact{background:var(--mist)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.cinfo{display:grid;gap:16px;margin-top:26px}
+.cinfo a{display:flex;align-items:center;gap:1rem;background:#fff;border:1px solid var(--line);padding:18px 22px;transition:.25s}
+.cinfo a:hover{border-color:var(--green);transform:translateX(5px)}
+.cinfo .ic{width:50px;height:50px;background:var(--green-l);color:var(--green-d);display:grid;place-items:center;flex-shrink:0}
+.cinfo span{font-size:.8rem;color:var(--ink-3);text-transform:uppercase;letter-spacing:.08em;font-family:'Barlow Condensed';font-weight:600}
+.cinfo b{font-family:'Barlow Condensed';font-size:1.3rem;color:var(--ink)}
+.form-card{background:#fff;padding:44px;box-shadow:var(--shadow-sm)}
+.form-card h3{font-size:1.9rem;margin-bottom:.4rem}
+.fields{display:grid;gap:14px;margin-top:22px}
+.fields input,.fields textarea{width:100%;padding:.9rem 1.1rem;border:1px solid var(--line);font-family:inherit;font-size:.95rem;background:var(--mist)}
+.fields input:focus,.fields textarea:focus{outline:2px solid var(--green);border-color:transparent;background:#fff}
+.fields .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* Footer */
+footer{background:var(--darker);color:#9aa49a;padding:76px 0 30px}
+.f-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1.2fr;gap:42px}
+.f-logo{height:40px;margin-bottom:20px;filter:brightness(0) invert(1)}
+.f-desc{font-size:.95rem;max-width:300px}
+.f-social{display:flex;gap:10px;margin-top:22px}
+.f-social a{width:42px;height:42px;background:rgba(255,255,255,.06);display:grid;place-items:center;color:#cfd6cf;transition:.25s}
+.f-social a:hover{background:var(--green);color:#fff;transform:translateY(-3px)}
+footer h4{color:#fff;font-size:1.3rem;margin-bottom:20px}
+.f-links{list-style:none;display:grid;gap:12px}
+.f-links a{font-size:.95rem;transition:.2s}.f-links a:hover{color:var(--green)}
+.f-bot{margin-top:54px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.86rem;align-items:center}
+.f-pay{display:flex;gap:8px;flex-wrap:wrap}
+.f-pay span{background:rgba(255,255,255,.08);padding:5px 10px;font-size:.72rem;font-weight:600;color:#cfd6cf}
+
+.rv{opacity:0;transform:translateY(28px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:1000px){
+  .about,.contact-grid{grid-template-columns:1fr}
+  .about-imgs{max-width:480px;margin:0 auto 40px}
+  .why-grid,.prod-grid,.proc-grid,.t-grid{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:0}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}
+}
+@media(max-width:760px){
+  .nav-links{display:none}
+  .nav-links.open{display:flex;position:absolute;top:84px;left:0;right:0;background:#fff;flex-direction:column;padding:24px;gap:1.2rem;box-shadow:var(--shadow);border-top:1px solid var(--line)}
   .burger{display:flex}
-  .svc-top,.about{grid-template-columns:1fr}
-  .svc-img,.about-img{min-height:360px;order:-1}
-  .iconrow{grid-template-columns:1fr 1fr}
-  .icell:nth-child(2){border-right:none}
-  .sgrid{grid-template-columns:1fr 1fr}
-  .stats .wrap{grid-template-columns:1fr 1fr;gap:40px 20px}
-  .hero-side{display:none}
+  .tb-left span:nth-child(2){display:none}
+  .pad{padding:70px 0}
+  .hero .wrap{padding:80px 26px 130px}
+  .why-grid,.prod-grid,.proc-grid,.t-grid,.feat-list{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0;border-bottom:1px solid var(--line)}
+  .f-grid{grid-template-columns:1fr 1fr}
+  .fields .row{grid-template-columns:1fr}
 }
-@media(max-width:680px){
-  .svc-detail,.about-copy{padding:56px 30px}
-  .pgrid,.tgrid,.sgrid,.fgrid{grid-template-columns:1fr}
-  .iconrow{grid-template-columns:1fr}
-  .icell{border-right:none}
-  .stats .wrap{grid-template-columns:1fr 1fr}
-}
+@media(max-width:460px){.f-grid{grid-template-columns:1fr}.topbar .tb-left{gap:1rem}.form-card{padding:30px 24px}.localcta .wrap{padding:40px 26px}}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header id="header">
+<!-- TOPBAR -->
+<div class="topbar">
   <div class="wrap">
-    <a class="brand" href="#home"><img src="assets/logo.png" alt="Almetal Dryer Vent Corporation"></a>
-    <nav class="main" id="nav">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
-      <a href="#shop">Shop</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="nav-right">
-      <a class="btn btn-taupe" href="tel:7048468368">Call Now</a>
-      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="tb-left">
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:7048468368">704.846.8368</a></span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><a href="mailto:steven.w.helms@gmail.com">steven.w.helms@gmail.com</a></span>
     </div>
+    <div class="tb-right">
+      <b>Follow:</b>
+      <a href="https://www.facebook.com/almetalray/" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H9v3h2v7h3v-7h2.5l.5-3H14V9z"/></svg></a>
+      <a href="https://instagram.com/almetaldryerventcorp/" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://youtube.com/channel/UCipvf5WF4nC9EKtdXNu4ekg" aria-label="YouTube"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3-.4-4.4a2.5 2.5 0 0 0-1.8-1.8C18.4 5.4 12 5.4 12 5.4s-6.4 0-7.8.4A2.5 2.5 0 0 0 2.4 7.6C2 9 2 12 2 12s0 3 .4 4.4a2.5 2.5 0 0 0 1.8 1.8c1.4.4 7.8.4 7.8.4s6.4 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8C22 15 22 12 22 12zM10 15V9l5 3-5 3z"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#top" class="logo"><img src="assets/logo.png" alt="Almetal Dryer Vent Corporation"></a>
+    <ul class="nav-links" id="menu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#why">Why Almetal</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#process">Installation</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-primary" style="margin-left:auto">Request Service
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
+<main id="top">
+
 <!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-side">
-    <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2 0-3.5 1.5-3.5 3.5V11H8v3h2.5v7h3v-7H16l.5-3H13.5V9.5C13.5 9.2 13.7 9 14 9z"/></svg></a>
-    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3 0 4.1.1 1 0 1.7.2 2.3.5.6.2 1.1.5 1.6 1 .5.5.8 1 1 1.6.3.6.5 1.3.5 2.3.1 1.1.1 1.4.1 4.1s0 3-.1 4.1c0 1-.2 1.7-.5 2.3-.2.6-.5 1.1-1 1.6-.5.5-1 .8-1.6 1-.6.3-1.3.5-2.3.5-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-1 0-1.7-.2-2.3-.5-.6-.2-1.1-.5-1.6-1-.5-.5-.8-1-1-1.6-.3-.6-.5-1.3-.5-2.3C2 15 2 14.7 2 12s0-3 .1-4.1c0-1 .2-1.7.5-2.3.2-.6.5-1.1 1-1.6.5-.5 1-.8 1.6-1 .6-.3 1.3-.5 2.3-.5C9 2 9.3 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.8 7.2a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg></a>
-    <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M21.6 7.2c-.2-.9-.9-1.6-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4c-.9.2-1.6.9-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.8c.2.9.9 1.6 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4c.9-.2 1.6-.9 1.8-1.8.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3L10 15z"/></svg></a>
-  </div>
-  <div class="hero-inner">
-    <span class="eyebrow">Almetal Dryer Vent Corporation · Charlotte, NC</span>
-    <h1>A Safe Home<br>Starts Here</h1>
-    <p class="sub">The safest, most efficient way to vent your clothes dryer</p>
-    <p class="lede">Full-service dryer vent cleaning, installation, repair and replacement for the greater Charlotte metro — faster drying, lower energy bills, and protection from lint-fueled fires.</p>
-    <div class="hero-actions">
-      <a class="btn btn-green" href="#contact">Request a Quote</a>
-      <a class="btn btn-outline" href="#services">Our Services</a>
+<section class="hero">
+  <div class="hero-bg"><img src="assets/dryer.jpg" alt="Row of clothes dryers"></div>
+  <div class="wrap">
+    <div class="hero-block">
+      <span class="hero-tag">Safe &amp; Efficient Dryer Venting</span>
+      <h1>The Safest Way<br>To Vent Your<br><em>Clothes Dryer</em></h1>
+      <p class="lead">Lint builds up in flexible hoses even when you clean the filter — restricting airflow, overheating your dryer, and raising fire risk. Almetal's rigid aluminum periscope fixes that for good.</p>
+      <div class="hero-actions">
+        <a href="tel:7048468368" class="call-box">
+          <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+          <span class="txt"><small>Call us now</small><b>704.846.8368</b></span>
+        </a>
+        <a href="#shop" class="btn btn-primary">Shop Kits</a>
+      </div>
     </div>
   </div>
-  <div class="scroll-hint">Scroll</div>
-</section>
-
-<!-- SERVICES -->
-<section class="svc" id="services">
-  <div class="svc-top">
-    <div class="svc-img" role="img" aria-label="Dryer vent service in progress"></div>
-    <div class="svc-detail">
-      <span class="eyebrow">What We Do</span>
-      <h2>Our Services</h2>
-      <ul class="svc-list">
-        <li><span class="n">01</span> Dryer Vent Cleaning <span class="price">From $185</span></li>
-        <li><span class="n">02</span> Quick Connect® Periscope Installation <span class="price">From $280</span></li>
-        <li><span class="n">03</span> Vent Repair & Replacement <span class="price">Estimate</span></li>
-        <li><span class="n">04</span> Inspection & Airflow Testing <span class="price">Included</span></li>
-        <li><span class="n">05</span> Hood, Bath Fan & Downdraft Vents <span class="price">Call</span></li>
-      </ul>
-      <a class="btn btn-taupe" href="#contact">More Info</a>
-    </div>
-  </div>
-  <!-- ICON ROW -->
-  <div class="iconrow">
-    <div class="icell">
-      <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3z"/></svg>
-      <h4>Fire Safety</h4>
-      <p>No lint traps, no hazards</p>
-    </div>
-    <div class="icell">
-      <svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-      <h4>Faster Drying</h4>
-      <p>Shorter cycles, every load</p>
-    </div>
-    <div class="icell">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v3M12 20v3M4 12H1M23 12h-3"/></svg>
-      <h4>Lower Bills</h4>
-      <p>Pays for itself in savings</p>
-    </div>
-    <div class="icell">
-      <svg viewBox="0 0 24 24"><path d="M12 2 2 7v7c0 1 1 2 2 2h2v6h3v-5h2v5h3v-6h2c1 0 2-1 2-2V7L12 2z"/></svg>
-      <h4>Local Pros</h4>
-      <p>Charlotte metro, done right</p>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-copy">
-    <span class="eyebrow">About Us</span>
-    <h2>Vented the Correct Way</h2>
-    <div class="name">Almetal Dryer Vent Corporation</div>
-    <p>Most people don't realize their clothes dryer is one of the highest energy-using appliances in their home. Even with a regularly cleaned lint filter, lint keeps building up inside the hose — restricting airflow, lengthening drying, and creating a fire risk.</p>
-    <p>It has become a personal goal of ours to place an Almetal® Dryer Vent in as many homes as possible. <strong>Vent your clothes dryer the correct way</strong> and you'll cut your energy bills, be greener, and make your home safer in the process.</p>
-    <p>Our dryer vent pays for itself in a short time with the energy savings alone — and we back every install with the best product information and proven installation methods.</p>
-    <a class="btn btn-green" href="#contact">Get in Touch</a>
-  </div>
-  <div class="about-img" role="img" aria-label="Almetal end-vent periscope dryer vent"></div>
 </section>
 
 <!-- STATS -->
-<section class="stats">
-  <div class="wrap">
-    <div><div class="b">50mi</div><div class="l">Charlotte metro radius</div></div>
-    <div><div class="b">90→40</div><div class="l">Minutes per load*</div></div>
-    <div><div class="b">100%</div><div class="l">Rigid metal vents</div></div>
-    <div><div class="b">$185</div><div class="l">Cleaning, starting at</div></div>
+<div class="wrap stats-wrap">
+  <div class="stats rv">
+    <div class="stat"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></div><div><b>~50%</b><span>Less drying time</span></div></div>
+    <div class="stat"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2s7 4 7 10a7 7 0 1 1-14 0c0-3 2-5 2-5s1 2 3 2c0-3-2-5-2-7 0 0 4 2 4 7"/></svg></div><div><b>100%</b><span>Rigid aluminum</span></div></div>
+    <div class="stat"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16"/></svg></div><div><b>4</b><span>Vent configurations</span></div></div>
+    <div class="stat"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><b>Charlotte</b><span>Local install, NC</span></div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="pad" id="about">
+  <div class="wrap about">
+    <div class="about-imgs rv">
+      <div class="big"><img src="assets/laundry2.jpg" alt="Laundry and dryer area"></div>
+      <div class="small"><img src="assets/side-vent-periscope.jpg" alt="Almetal aluminum periscope kit"></div>
+      <div class="yrs"><b>1</b><span>Goal:<br>Safer Homes</span></div>
+    </div>
+    <div class="rv">
+      <span class="eyebrow">About Almetal</span>
+      <h2>We make dryer venting safer &amp; smarter</h2>
+      <p>It has become a personal goal of ours to place an Almetal® Dryer Vent in as many homes as possible. Clothes dryers are among the highest energy-consuming appliances in any home — and the way they vent has a direct impact on both your safety and your power bill.</p>
+      <p>Our rigid aluminum periscope system replaces crushable foil hoses with a clean, straight airflow path. It pays for itself in a short time through energy savings alone.</p>
+      <ul class="feat-list">
+        <li><span class="ck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Reduced Fire Risk</li>
+        <li><span class="ck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Faster Drying</li>
+        <li><span class="ck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Lower Energy Use</li>
+        <li><span class="ck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Flush To The Wall</li>
+        <li><span class="ck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Built To Last</li>
+        <li><span class="ck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Local Install</li>
+      </ul>
+      <a href="#shop" class="btn btn-dark">Explore The System</a>
+    </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section class="projects" id="projects">
+<!-- WHY -->
+<section class="why pad" id="why">
   <div class="wrap">
-    <span class="eyebrow">Our Work</span>
-    <h2>Recent Projects</h2>
-    <p class="intro">From periscope installs that tuck the dryer to the wall, to full rotary-brush cleanings — here's the Almetal standard at work across Charlotte.</p>
-    <div class="pgrid">
-      <div class="pitem">
-        <img src="assets/prod-side-vent.jpg" alt="Side-vent periscope installation">
-        <div class="cap"><span>Installation</span><h4>Side / Wall Periscope</h4></div>
+    <div class="sec-head center rv">
+      <span class="eyebrow">Why Use Almetal</span>
+      <h2>The perfect solution for your laundry room</h2>
+      <p>Even with regular filter cleaning, lint accumulates in hoses and restricts airflow. Here's how Almetal keeps your dryer cool, fast and safe.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card rv">
+        <div class="why-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2s7 4 7 10a7 7 0 1 1-14 0c0-3 2-5 2-5s1 2 3 2c0-3-2-5-2-7 0 0 4 2 4 7"/></svg></div>
+        <h3>Safer Against Fire</h3>
+        <p>Trapped lint and restricted airflow cause dryers to overheat — a leading household fire hazard. Almetal's straight aluminum path gives lint nowhere to collect.</p>
       </div>
-      <div class="pitem">
-        <img src="assets/prod-end-vent.jpg" alt="End-vent periscope installation">
-        <div class="cap"><span>Installation</span><h4>End-Vent Periscope</h4></div>
+      <div class="why-card rv">
+        <div class="why-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>
+        <h3>More Efficient</h3>
+        <p>Better airflow means clothes dry in a fraction of the time on far less energy — so the kit pays for itself in savings on one of your home's hungriest appliances.</p>
       </div>
-      <div class="pitem">
-        <img src="assets/hero.png" alt="Dryer vent cleaning and inspection">
-        <div class="cap"><span>Cleaning</span><h4>Rotary Brush & Inspect</h4></div>
+      <div class="why-card rv">
+        <div class="why-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>Space-Saving Design</h3>
+        <p>The low-profile periscope lets your dryer sit flush against the wall — no crushed hose, no wasted space, just a clean, professional finish.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- SHOP -->
-<section class="shop" id="shop">
+<section class="pad" id="shop">
   <div class="wrap">
-    <div class="head">
-      <span class="eyebrow">The Shop</span>
-      <h2>Pro-Grade DIY Kits</h2>
+    <div class="sec-head center rv">
+      <span class="eyebrow">Featured Products</span>
+      <h2>Shop the Almetal vent system</h2>
+      <p>Aluminum-built kits and connectors sized for standard dryer setups — with free guidance on choosing the right configuration.</p>
     </div>
-    <div class="sgrid">
-      <div class="sprod">
-        <div class="ph"><img src="assets/prod-side-vent.jpg" alt="Quick Connect Periscope Kit"></div>
-        <div class="b"><h4>Periscope Kit</h4><small>Side / Wall Vent</small><div class="cost">$69.95</div></div>
-      </div>
-      <div class="sprod">
-        <div class="ph"><img src="assets/prod-end-vent.jpg" alt="Quick Connect Periscope Kit End Vent"></div>
-        <div class="b"><h4>Periscope · End Vent</h4><small>Floor / Ceiling</small><div class="cost">$74.95</div></div>
-      </div>
-      <div class="sprod">
-        <div class="ph"><img src="assets/prod-connector.jpg" alt="Untrimmed Connector"></div>
-        <div class="b"><h4>Untrimmed Connector</h4><small>Custom Lengths</small><div class="cost">$49.95</div></div>
-      </div>
-      <div class="sprod">
-        <div class="ph"><img src="assets/prod-extender.jpg" alt="Quick Connect Extender"></div>
-        <div class="b"><h4>Quick Connect Extender</h4><small>Exhaust Pipe</small><div class="cost">$14.00</div></div>
-      </div>
+    <div class="prod-grid">
+      <article class="prod rv">
+        <div class="prod-img"><span class="prod-badge">Side Vent</span><img src="assets/side-vent-periscope.jpg" alt="Quick Connect Periscope Kit – Side Vent"></div>
+        <div class="prod-body"><h3>Quick Connect® Periscope Kit</h3>
+          <div class="prod-foot"><span class="prod-price">$69.95</span><a href="#" class="btn btn-dark">Add</a></div></div>
+      </article>
+      <article class="prod rv">
+        <div class="prod-img"><span class="prod-badge">End Vent</span><img src="assets/end-vent-periscope.jpg" alt="Quick Connect Periscope Kit – End Vent"></div>
+        <div class="prod-body"><h3>Periscope Kit — End Vent</h3>
+          <div class="prod-foot"><span class="prod-price">$74.95</span><a href="#" class="btn btn-dark">Add</a></div></div>
+      </article>
+      <article class="prod rv">
+        <div class="prod-img"><span class="prod-badge">Connector</span><img src="assets/untrimmed-connector.jpg" alt="Untrimmed Connector"></div>
+        <div class="prod-body"><h3>Untrimmed Connector</h3>
+          <div class="prod-foot"><span class="prod-price">$49.95</span><a href="#" class="btn btn-dark">Add</a></div></div>
+      </article>
+      <article class="prod rv">
+        <div class="prod-img"><span class="prod-badge">Add-On</span><img src="assets/exhaust-extender.jpg" alt="Exhaust Extender with Clamp"></div>
+        <div class="prod-body"><h3>Exhaust Extender with Clamp</h3>
+          <div class="prod-foot"><span class="prod-price">$14.95</span><a href="#" class="btn btn-dark">Add</a></div></div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testi">
+<!-- PROCESS -->
+<section class="process pad" id="process">
   <div class="wrap">
-    <div class="head">
-      <span class="eyebrow">Testimonials</span>
-      <h2>Homeowners Feel the Difference</h2>
+    <div class="sec-head center rv">
+      <span class="eyebrow" style="color:var(--green)">Installation</span>
+      <h2>Installed in a few hours</h2>
+      <p>Most installs take just a few hours with standard tools. In some homes a contractor is advisable — and we'll gladly refer a local HVAC pro.</p>
     </div>
-    <div class="tgrid">
-      <div class="tcard">
-        <div class="stars">★★★★★</div>
-        <p>"I love it! I feel more secure against fires and save half on drying time."</p>
-        <div class="who"><strong>Diane</strong><small>Charlotte, NC</small></div>
+    <div class="proc-grid">
+      <div class="proc rv"><div class="n">01</div><h3>Measure &amp; Set Up</h3><p>Pull the dryer out, take a few measurements, and position the periscope and receiver behind it.</p></div>
+      <div class="proc rv"><div class="n">02</div><h3>Mount Receiver</h3><p>The receiver is installed against the wall, floor or ceiling to match your vent configuration.</p></div>
+      <div class="proc rv"><div class="n">03</div><h3>Fit Extender</h3><p>The exhaust pipe extender is installed directly on the dryer for a clean, sealed connection.</p></div>
+      <div class="proc rv"><div class="n">04</div><h3>Reconnect</h3><p>Slide the dryer back, reconnect to the vent system, and enjoy faster, safer drying.</p></div>
+    </div>
+    <div class="configs rv">
+      <span>Through Floor — <b>End Vent</b></span>
+      <span>Through Wall — <b>Side Vent</b></span>
+      <span>Through Ceiling — <b>End Vent</b></span>
+      <span>New Construction — <b>End or Side Vent</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL CTA -->
+<section class="localcta" id="local">
+  <div class="wrap">
+    <div>
+      <h2>Local installation in the Charlotte metro</h2>
+      <p>Prefer it done for you? We install across the Charlotte metro area — and refer trusted HVAC contractors anywhere our team can't reach.</p>
+    </div>
+    <a href="tel:7048468368" class="btn btn-white">Call 704.846.8368
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="pad" id="reviews">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="eyebrow">Testimonials</span>
+      <h2>What homeowners are saying</h2>
+    </div>
+    <div class="t-grid">
+      <div class="t-card rv">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">“I love it! I feel more secure against fires and save half on drying time.”</p>
+        <div class="t-who"><div class="t-av">D</div><div><b>Diane</b><small>Charlotte, NC</small></div></div>
       </div>
-      <div class="tcard">
-        <div class="stars">★★★★★</div>
-        <p>"The difference is night and day after they resolved our dryer problems."</p>
-        <div class="who"><strong>Nancy</strong><small>Charlotte, NC</small></div>
+      <div class="t-card rv">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">“The difference is night and day.”</p>
+        <div class="t-who"><div class="t-av">N</div><div><b>Nancy</b><small>Charlotte, NC</small></div></div>
       </div>
-      <div class="tcard">
-        <div class="stars">★★★★★</div>
-        <p>"My drying time went from 1.5 hours to 40 minutes — and I see it on my power bill."</p>
-        <div class="who"><strong>Donna</strong><small>Weddington, NC</small></div>
+      <div class="t-card rv">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">“My drying time went from an hour and a half down to just 40 minutes.”</p>
+        <div class="t-who"><div class="t-av">D</div><div><b>Donna</b><small>Weddington, NC</small></div></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="contact-bg"></div>
-  <div class="wrap">
-    <span class="eyebrow" style="color:var(--green)">Get Started</span>
-    <h2>Ready for a Safer Home?</h2>
-    <p>Call Almetal Dryer Vent today for a consultation and estimate anywhere in the greater Charlotte, NC metro. We inspect, clean, repair and replace — the correct way.</p>
-    <div class="actions">
-      <a class="btn btn-green" href="tel:7048468368">Call (704) 846-VENT</a>
-      <a class="btn btn-outline" href="mailto:steven.w.helms@gmail.com">Email Us</a>
+<section class="contact pad" id="contact">
+  <div class="wrap contact-grid">
+    <div class="rv">
+      <span class="eyebrow">Get In Touch</span>
+      <h2 style="font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;margin-top:.3rem">Make your home safer today</h2>
+      <p style="margin-top:1rem">Talk to Steven and the Almetal team about the right kit, installation, or local service in the Charlotte area. A safe home starts here.</p>
+      <div class="cinfo">
+        <a href="tel:7048468368"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><div><span>Phone</span><b>704.846.8368</b></div></a>
+        <a href="mailto:steven.w.helms@gmail.com"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><span>Email</span><b>steven.w.helms@gmail.com</b></div></a>
+        <a href="#local"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><div><span>Service Area</span><b>Charlotte Metro, NC</b></div></a>
+      </div>
     </div>
-    <div class="areas">Matthews · Mint Hill · Huntersville · Indian Trail · Monroe · Rock Hill · Weddington · + 50-mile radius</div>
+    <div class="form-card rv">
+      <h3>Request a kit or service</h3>
+      <p>Send a message and we'll help you choose the right configuration.</p>
+      <form class="fields" onsubmit="return false">
+        <div class="row"><input type="text" placeholder="Full name" required><input type="tel" placeholder="Phone"></div>
+        <input type="email" placeholder="Email address" required>
+        <textarea rows="4" placeholder="Tell us about your dryer setup or vent configuration"></textarea>
+        <button type="submit" class="btn btn-primary">Send Message
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </form>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+</main>
+
 <footer>
   <div class="wrap">
-    <div class="fgrid">
+    <div class="f-grid">
       <div>
-        <a class="brand" href="#home"><img src="assets/logo.png" alt="Almetal Dryer Vent Corporation"></a>
-        <p class="d">A full-service dryer vent company serving the greater Charlotte, NC metro. We inspect, clean, repair and replace dryer vents. A safe home starts here.</p>
-        <div class="fsoc">
-          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2 0-3.5 1.5-3.5 3.5V11H8v3h2.5v7h3v-7H16l.5-3H13.5V9.5C13.5 9.2 13.7 9 14 9z"/></svg></a>
-          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3 0 4.1.1 1 0 1.7.2 2.3.5.6.2 1.1.5 1.6 1 .5.5.8 1 1 1.6.3.6.5 1.3.5 2.3.1 1.1.1 1.4.1 4.1s0 3-.1 4.1c0 1-.2 1.7-.5 2.3-.2.6-.5 1.1-1 1.6-.5.5-1 .8-1.6 1-.6.3-1.3.5-2.3.5-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-1 0-1.7-.2-2.3-.5-.6-.2-1.1-.5-1.6-1-.5-.5-.8-1-1-1.6-.3-.6-.5-1.3-.5-2.3C2 15 2 14.7 2 12s0-3 .1-4.1c0-1 .2-1.7.5-2.3.2-.6.5-1.1 1-1.6.5-.5 1-.8 1.6-1 .6-.3 1.3-.5 2.3-.5C9 2 9.3 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.8 7.2a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg></a>
-          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M21.6 7.2c-.2-.9-.9-1.6-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4c-.9.2-1.6.9-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.8c.2.9.9 1.6 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4c.9-.2 1.6-.9 1.8-1.8.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3L10 15z"/></svg></a>
+        <img src="assets/logo.png" alt="Almetal Dryer Vent Corporation" class="f-logo">
+        <p class="f-desc">The safest and most efficient way to vent your clothes dryer. A safe home starts here.</p>
+        <div class="f-social">
+          <a href="https://www.facebook.com/almetalray/" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H9v3h2v7h3v-7h2.5l.5-3H14V9z"/></svg></a>
+          <a href="https://instagram.com/almetaldryerventcorp/" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://youtube.com/channel/UCipvf5WF4nC9EKtdXNu4ekg" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3-.4-4.4a2.5 2.5 0 0 0-1.8-1.8C18.4 5.4 12 5.4 12 5.4s-6.4 0-7.8.4A2.5 2.5 0 0 0 2.4 7.6C2 9 2 12 2 12s0 3 .4 4.4a2.5 2.5 0 0 0 1.8 1.8c1.4.4 7.8.4 7.8.4s6.4 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8C22 15 22 12 22 12zM10 15V9l5 3-5 3z"/></svg></a>
         </div>
       </div>
-      <div>
-        <h4>Services</h4>
-        <ul>
-          <li><a href="#services">Vent Cleaning</a></li>
-          <li><a href="#services">Periscope Install</a></li>
-          <li><a href="#services">Repair & Replace</a></li>
-          <li><a href="#services">Inspection</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#shop">Shop</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="tel:7048468368">704.846.8368 · (704) 846-VENT</a></li>
-          <li><a href="mailto:steven.w.helms@gmail.com">steven.w.helms@gmail.com</a></li>
-          <li>Greater Charlotte, NC metro</li>
-        </ul>
-      </div>
+      <div><h4>Shop</h4><ul class="f-links">
+        <li><a href="#shop">Periscope Kit — Side Vent</a></li>
+        <li><a href="#shop">Periscope Kit — End Vent</a></li>
+        <li><a href="#shop">Untrimmed Connector</a></li>
+        <li><a href="#shop">Exhaust Extender</a></li>
+      </ul></div>
+      <div><h4>Company</h4><ul class="f-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#why">Why Almetal</a></li>
+        <li><a href="#process">Installation</a></li>
+        <li><a href="#local">Local Service</a></li>
+      </ul></div>
+      <div><h4>Contact</h4><ul class="f-links">
+        <li><a href="tel:7048468368">704.846.8368</a></li>
+        <li><a href="mailto:steven.w.helms@gmail.com">steven.w.helms@gmail.com</a></li>
+        <li><a href="#local">Charlotte Metro, North Carolina</a></li>
+      </ul></div>
     </div>
-    <div class="fbottom">
+    <div class="f-bot">
       <span>© 2026 Almetal Dryer Vent Corporation. All rights reserved.</span>
-      <span>*Result reported by customer. Drying times vary by setup.</span>
+      <div class="f-pay"><span>VISA</span><span>Mastercard</span><span>Amex</span><span>Discover</span><span>Apple Pay</span><span>Google Pay</span><span>Shop Pay</span></div>
     </div>
   </div>
 </footer>
 
 <script>
-  const header=document.getElementById('header'),burger=document.getElementById('burger'),nav=document.getElementById('nav');
-  window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>40));
-  burger.addEventListener('click',()=>nav.classList.toggle('open'));
-  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>10));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*60);io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
