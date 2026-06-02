@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mostly Air | Air Conditioning &amp; Refrigeration — Adelaide Hills, SA</title>
+<meta name="description" content="We are the Adelaide Hills. Mostly Air — trusted split system &amp; ducted air conditioning installs, sales, repairs and maintenance since 1994. Owner-operated by A-Class electrician Andrew Moseley. Daikin specialist.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a2536;
+  --ink-2:#274b60;
+  --brand:#05abe0;
+  --brand-d:#0487b3;
+  --brand-dd:#034c66;
+  --navy:#0a2a3d;
+  --sky:#87e0fd;
+  --sky-soft:#e3f5fc;
+  --bg:#eef6fa;
+  --paper:#fff;
+  --line:#dcebf2;
+  --muted:#5a7383;
+  --shadow:0 22px 50px -22px rgba(7,42,61,.34);
+  --shadow-sm:0 12px 30px -16px rgba(7,42,61,.32);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Archivo',sans-serif;color:var(--navy);line-height:1.06;font-weight:800;letter-spacing:-.01em}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.muted{color:var(--muted)}
+.kicker{font-family:'Archivo',sans-serif;font-weight:700;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brand-d);display:inline-flex;align-items:center;gap:9px}
+.kicker svg{width:16px;height:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:'Archivo',sans-serif;font-weight:700;font-size:.92rem;letter-spacing:.01em;padding:14px 26px;border-radius:7px;cursor:pointer;border:none;transition:.22s;white-space:nowrap}
+.btn svg{width:18px;height:18px}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 12px 24px -12px rgba(5,171,224,.75)}
+.btn-primary:hover{background:var(--brand-d);transform:translateY(-2px)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:#0d3a52;transform:translateY(-2px)}
+.btn-out{background:transparent;border:2px solid var(--brand);color:var(--brand-d)}
+.btn-out:hover{background:var(--brand);color:#fff}
+.btn-white{background:#fff;color:var(--navy)}
+.btn-white:hover{background:var(--sky-soft);transform:translateY(-2px)}
+
+/* PROMO BAR */
+.promo{background:var(--navy);color:#fff;font-size:.86rem}
+.promo .wrap{display:flex;align-items:center;justify-content:center;gap:14px;height:42px;text-align:center}
+.promo b{font-family:'Archivo',sans-serif;font-weight:700}
+.promo .tag{background:var(--brand);color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:4px}
+.promo a{color:var(--sky);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:70;background:#fff;border-bottom:1px solid var(--line);transition:.3s}
+header.scrolled{box-shadow:0 10px 30px -20px rgba(7,42,61,.5)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:78px;gap:20px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-icon{width:46px;height:46px;border-radius:9px;background:linear-gradient(150deg,var(--brand),var(--brand-dd));display:flex;align-items:center;justify-content:center;flex:0 0 auto;box-shadow:0 10px 18px -10px rgba(5,171,224,.85)}
+.logo-icon svg{width:25px;height:25px;color:#fff}
+.logo-mark{display:flex;flex-direction:column;line-height:1}
+.logo-mark .a{font-family:'Archivo',sans-serif;font-weight:900;font-size:1.34rem;color:var(--navy);letter-spacing:.005em}
+.logo-mark .b{font-family:'Archivo',sans-serif;font-weight:700;font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:#fff;background:var(--brand);padding:2px 6px;border-radius:3px;margin-top:3px;width:fit-content}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{font-family:'Archivo',sans-serif;font-weight:600;font-size:.9rem;color:var(--ink-2);transition:.2s}
+.nav-links a:hover{color:var(--brand-d)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.loc{display:flex;align-items:center;gap:7px;font-size:.84rem;font-weight:600;color:var(--ink-2);background:var(--bg);padding:9px 14px;border-radius:7px}
+.loc svg{width:16px;height:16px;color:var(--brand)}
+.burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+.burger span{width:24px;height:2.4px;background:var(--navy);border-radius:2px;transition:.3s}
+
+/* HERO */
+.hero{position:relative;color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(8,32,46,.93) 0%,rgba(9,42,61,.84) 42%,rgba(4,76,102,.66) 100%)}
+.hero-inner{position:relative;z-index:2;padding:96px 0 150px;text-align:center;max-width:880px;margin:0 auto}
+.hero .kicker{color:var(--sky);justify-content:center;margin-bottom:20px}
+.hero h1{color:#fff;font-size:clamp(2.5rem,6vw,4.6rem);font-weight:900;line-height:1.02;text-transform:uppercase;letter-spacing:-.015em}
+.hero h1 .hl{color:var(--sky)}
+.hero .sub{font-size:1.18rem;color:#d3e6f0;margin:22px auto 10px;max-width:620px}
+.hero .guarantee{font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:.04em;color:#fff;font-size:1.02rem;margin-top:8px;display:inline-flex;align-items:center;gap:10px}
+.hero .guarantee svg{width:22px;height:22px;color:var(--sky)}
+.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.hero-badge{position:absolute;top:30px;right:24px;z-index:3;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(8px);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:12px}
+.hero-badge .ic{width:42px;height:42px;border-radius:9px;background:var(--brand);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.hero-badge .ic svg{width:22px;height:22px;color:#fff}
+.hero-badge .n{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.05rem;color:#fff;line-height:1.1}
+.hero-badge .l{font-size:.72rem;color:#cfe6f1}
+
+/* SERVICE CARDS OVERLAP */
+.svc-strip{margin-top:-96px;position:relative;z-index:5}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);transition:.3s;border:1px solid var(--line)}
+.svc-card:hover{transform:translateY(-8px);box-shadow:0 30px 60px -28px rgba(7,42,61,.5)}
+.svc-card .ph{height:158px;position:relative;overflow:hidden}
+.svc-card .ph img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.svc-card:hover .ph img{transform:scale(1.07)}
+.svc-card .ph .tag{position:absolute;left:14px;top:14px;width:44px;height:44px;border-radius:9px;background:#fff;display:flex;align-items:center;justify-content:center;color:var(--brand-d);box-shadow:var(--shadow-sm)}
+.svc-card .ph .tag svg{width:24px;height:24px}
+.svc-card .bd{padding:24px}
+.svc-card h3{color:var(--brand-d);font-size:1.28rem;text-transform:uppercase;margin-bottom:10px}
+.svc-card p{font-size:.92rem;color:var(--muted);margin-bottom:16px}
+.svc-card .more{font-family:'Archivo',sans-serif;font-weight:700;font-size:.85rem;color:var(--navy);display:inline-flex;align-items:center;gap:7px;transition:.2s}
+.svc-card .more svg{width:15px;height:15px;transition:.2s}
+.svc-card:hover .more{color:var(--brand-d)}
+.svc-card:hover .more svg{transform:translate(3px,-3px)}
+
+/* SECTIONS */
+section.block{padding:92px 0}
+.sec-head{max-width:640px}
+.sec-head.center{margin:0 auto;text-align:center}
+.sec-head h2{font-size:clamp(2rem,4vw,3rem);margin-top:14px;text-transform:uppercase}
+.sec-head p{margin-top:16px;color:var(--muted);font-size:1.05rem}
+
+/* DIFFERENCE */
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.checks{list-style:none;margin:26px 0 32px}
+.checks li{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:9px;padding:15px 18px;margin-bottom:12px;font-family:'Archivo',sans-serif;font-weight:600;color:var(--navy);font-size:1rem;transition:.2s}
+.checks li:hover{border-color:var(--brand);transform:translateX(5px)}
+.checks li .ck{width:26px;height:26px;border-radius:50%;background:var(--brand);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.checks li .ck svg{width:15px;height:15px;color:#fff}
+.diff-media{position:relative}
+.diff-media .img{border-radius:14px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:5/4.4}
+.diff-media .img img{width:100%;height:100%;object-fit:cover}
+.diff-media .float{position:absolute;left:-24px;bottom:-24px;background:var(--navy);color:#fff;border-radius:12px;padding:20px 24px;box-shadow:var(--shadow);display:flex;align-items:center;gap:14px}
+.diff-media .float .n{font-family:'Archivo',sans-serif;font-weight:900;font-size:2rem;line-height:1;color:var(--sky)}
+.diff-media .float .l{font-size:.82rem;color:#cfe6f1;font-weight:500}
+
+/* DAIKIN BAND */
+.daikin{background:linear-gradient(115deg,var(--navy),#0d3a52 60%,var(--brand-dd));color:#fff;position:relative;overflow:hidden}
+.daikin::before{content:"";position:absolute;inset:0;background:url('assets/daikin-units.jpg') center/cover;opacity:.13}
+.daikin .wrap{position:relative;z-index:2}
+.daikin-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:54px;align-items:center;padding:80px 0}
+.daikin h2{color:#fff;font-size:clamp(1.9rem,3.4vw,2.7rem);text-transform:uppercase}
+.daikin .kicker{color:var(--sky)}
+.daikin p{color:#c8dded;margin:18px 0 22px;max-width:520px}
+.wcard{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:32px;text-align:center}
+.wcard .num{font-family:'Archivo',sans-serif;font-weight:900;font-size:3.6rem;color:var(--sky);line-height:1}
+.wcard .y{font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:1rem;margin-bottom:14px}
+.wcard p{color:#c8dded;font-size:.9rem;margin:14px 0 18px}
+.wcard .chip{background:#fff;border-radius:8px;padding:10px 14px;display:inline-block}
+.wcard .chip img{height:32px}
+
+/* STATS BAND */
+.stats{background:var(--brand);color:#fff;padding:54px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+.stats .s .n{font-family:'Archivo',sans-serif;font-weight:900;font-size:2.7rem;line-height:1}
+.stats .s .l{font-size:.92rem;color:#e4f6fd;margin-top:6px;font-weight:500}
+.stats .s+.s{border-left:1px solid rgba(255,255,255,.25)}
+
+/* FEATURE / STORY */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.story-media{border-radius:14px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3;position:relative}
+.story-media img{width:100%;height:100%;object-fit:cover}
+.quote-pull{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.5rem;color:var(--navy);line-height:1.3;border-left:4px solid var(--brand);padding-left:22px;margin:22px 0}
+.story-by{font-weight:600;color:var(--muted)}
+.story-by b{color:var(--navy);font-family:'Archivo',sans-serif}
+
+/* SERVICES GRID */
+.allsvc{background:var(--bg)}
+.svc-list{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
+.sl{background:#fff;border:1px solid var(--line);border-radius:12px;padding:30px 26px;transition:.3s}
+.sl:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
+.sl .ic{width:56px;height:56px;border-radius:12px;background:var(--sky-soft);display:flex;align-items:center;justify-content:center;color:var(--brand-d);margin-bottom:18px}
+.sl .ic svg{width:28px;height:28px}
+.sl h4{font-size:1.16rem;text-transform:uppercase;margin-bottom:9px}
+.sl p{font-size:.92rem;color:var(--muted)}
+
+/* AREA */
+.area-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.area-media{border-radius:14px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:16/11}
+.area-media img{width:100%;height:100%;object-fit:cover}
+.chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:7px;padding:9px 16px;font-size:.88rem;font-weight:600;font-family:'Archivo',sans-serif;color:var(--ink-2)}
+.chip svg{width:15px;height:15px;color:var(--brand)}
+
+/* CONTACT */
+.contact{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;bottom:-160px;left:-120px;width:460px;height:460px;background:radial-gradient(circle,rgba(5,171,224,.4),transparent 65%)}
+.contact .wrap{position:relative;z-index:2}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding:84px 0;align-items:center}
+.contact h2{color:#fff;font-size:clamp(2rem,3.8vw,2.9rem);text-transform:uppercase}
+.contact .lead{color:#c8dded;margin:18px 0 30px;max-width:440px}
+.cc{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:20px 22px;margin-bottom:14px;transition:.22s}
+.cc:hover{background:rgba(255,255,255,.11);transform:translateX(4px)}
+.cc .ic{width:50px;height:50px;border-radius:11px;background:var(--brand);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.cc .ic svg{width:23px;height:23px;color:#fff}
+.cc .l{font-size:.76rem;color:#9dbecf;text-transform:uppercase;letter-spacing:.1em;font-family:'Archivo',sans-serif;font-weight:600}
+.cc .v{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.1rem;color:#fff}
+
+/* FOOTER */
+footer{background:#061b29;color:#9dbecf;padding:54px 0 26px}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:36px;padding-bottom:38px;border-bottom:1px solid rgba(255,255,255,.1)}
+footer .logo-mark .a{color:#fff}
+footer p{font-size:.9rem;margin-top:15px;max-width:280px}
+.foot-col h5{font-family:'Archivo',sans-serif;color:#fff;font-size:.92rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:15px}
+.foot-col a,.foot-col div{display:block;font-size:.9rem;padding:5px 0;color:#9dbecf;transition:.2s}
+.foot-col a:hover{color:var(--sky)}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;font-size:.83rem}
+
+.reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.16,.84,.44,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* drawer */
+.drawer{position:fixed;inset:0;z-index:90;background:rgba(6,27,41,.55);opacity:0;pointer-events:none;transition:.3s}
+.drawer.open{opacity:1;pointer-events:auto}
+.drawer-panel{position:absolute;top:0;right:0;width:min(82%,330px);height:100%;background:#fff;padding:30px 26px;transform:translateX(100%);transition:.35s;display:flex;flex-direction:column;gap:4px}
+.drawer.open .drawer-panel{transform:none}
+.drawer-panel a{padding:14px 0;border-bottom:1px solid var(--line);font-family:'Archivo',sans-serif;font-weight:600}
+.drawer-panel .btn{margin-top:18px}
+.drawer-close{align-self:flex-end;background:none;border:none;font-size:1.7rem;cursor:pointer;color:var(--navy);margin-bottom:8px}
+
+@media(max-width:980px){
+  .nav-links,.loc{display:none}
+  .burger{display:flex}
+  .svc-grid,.svc-list,.stats-grid{grid-template-columns:1fr 1fr}
+  .diff-grid,.daikin-grid,.story-grid,.area-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .diff-media{max-width:480px;margin:0 auto}
+  .story-media{order:-1}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .hero-badge{display:none}
+}
+@media(max-width:600px){
+  .wrap{padding:0 18px}
+  .svc-strip{margin-top:-60px}
+  .svc-grid,.svc-list,.stats-grid{grid-template-columns:1fr}
+  .stats .s+.s{border-left:none;border-top:1px solid rgba(255,255,255,.25);padding-top:22px;margin-top:6px}
+  .foot-grid{grid-template-columns:1fr}
+  section.block{padding:62px 0}
+  .promo .wrap{font-size:.76rem;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<!-- PROMO -->
+<div class="promo">
+  <div class="wrap">
+    <span class="tag">Daikin</span>
+    <span>Every Daikin system includes a full <b>5-Year Parts &amp; Labour Warranty</b> — <a href="#contact">Ask Andrew</a></span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="logo">
+      <span class="logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6a3 3 0 1 1 2.5 4.5H2"/><path d="M14 18a3 3 0 1 0 2.5-4.5H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/></svg></span>
+      <span class="logo-mark"><span class="a">Mostly Air</span><span class="b">Air Conditioning</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#difference">Why Us</a>
+      <a href="#daikin">Daikin</a>
+      <a href="#area">Service Area</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <span class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Adelaide Hills, SA</span>
+      <a href="#contact" class="btn btn-navy">Contact</a>
+      <a href="tel:0411135918" class="btn btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.74-1.27a2 2 0 0 1 2.11-.45c.74.34 1.53.57 2.34.7A2 2 0 0 1 22 16.92z"/></svg>0411 135 918</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- drawer -->
+<div class="drawer" id="drawer">
+  <div class="drawer-panel">
+    <button class="drawer-close" id="drawerClose" aria-label="Close">&times;</button>
+    <a href="#services">Services</a>
+    <a href="#difference">Why Us</a>
+    <a href="#daikin">Daikin</a>
+    <a href="#area">Service Area</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:0411135918" class="btn btn-out">Call 0411 135 918</a>
+    <a href="#contact" class="btn btn-primary">Contact Us</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><img src="assets/van.jpg" alt="Andrew Moseley and the Mostly Air service van"></div>
+  <div class="hero-badge">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+    <div><div class="n">A-Class Licensed</div><div class="l">Electrician &amp; Technician</div></div>
+  </div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Adelaide Hills, South Australia</span>
+      <h1>We Are the Hills.<br><span class="hl">We Are Air Conditioning.</span></h1>
+      <p class="sub">Trusted heating &amp; cooling across the Adelaide Hills since 1994 — split systems, ducted systems, sales, repairs and maintenance, all from one experienced local technician.</p>
+      <div class="guarantee"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>Quality work, fairly priced — done right the first time</div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+        <a href="tel:0411135918" class="btn btn-white"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.74-1.27a2 2 0 0 1 2.11-.45c.74.34 1.53.57 2.34.7A2 2 0 0 1 22 16.92z"/></svg>0411 135 918</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE CARDS -->
+<div class="wrap svc-strip">
+  <div class="svc-grid">
+    <div class="svc-card reveal">
+      <div class="ph"><img src="assets/bedroom.jpg" alt="Cooling and heating for a comfortable home"><span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M12 6l3-3M12 6 9 3m3 9 3-3m-3 3-3-3m3 9 3-3m-3 3-3-3"/></svg></span></div>
+      <div class="bd">
+        <h3>Cooling</h3>
+        <p>Split system and ducted cooling sized for your space — efficient, quiet relief through the South Australian summer.</p>
+        <a href="#services" class="more">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+      </div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="ph"><img src="assets/living.jpg" alt="Reverse-cycle heating for winter comfort"><span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6m0 0a3 3 0 1 0 0 6m0-6h6m0 0a3 3 0 1 1 0 6m0-6V2M9 14v8m6-8v8"/><circle cx="12" cy="11" r="1"/></svg></span></div>
+      <div class="bd">
+        <h3>Heating</h3>
+        <p>Reverse-cycle warmth tailored to the Hills' cold mornings — keeping every room comfortable when it counts.</p>
+        <a href="#services" class="more">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+      </div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="ph"><img src="assets/electrical.jpg" alt="Air conditioning repairs and maintenance"><span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6 6a2 2 0 1 0 2.8 2.8l6-6a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.3-2.3z"/></svg></span></div>
+      <div class="bd">
+        <h3>Service &amp; Repairs</h3>
+        <p>Repairs and scheduled maintenance on all makes and models — restoring comfort and keeping systems running for longer.</p>
+        <a href="#services" class="more">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIFFERENCE -->
+<section class="block" id="difference">
+  <div class="wrap diff-grid">
+    <div class="reveal">
+      <span class="kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Why Mostly Air</span>
+      <h2 class="sec-head" style="margin-top:14px">See the Mostly Air Difference for Yourself</h2>
+      <p class="muted" style="margin-top:16px">Don't call a stranger — call the local technician the Adelaide Hills has trusted since 1994. Every job is handled personally by Andrew, from first quote to final commissioning.</p>
+      <ul class="checks">
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Qualified A-Class registered electrician</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Trusted local service since 1994</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>One phone call for a complete service</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Locally owned &amp; owner-operated</li>
+      </ul>
+      <a href="#contact" class="btn btn-primary">Request Service</a>
+    </div>
+    <div class="diff-media reveal">
+      <div class="img"><img src="assets/van.jpg" alt="The Mostly Air service van, servicing the Adelaide Hills"></div>
+      <div class="float"><div class="n">1994</div><div class="l">Serving the Adelaide<br>Hills ever since</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="wrap stats-grid">
+    <div class="s reveal"><div class="n" data-count="30">0</div><div class="l">Years in the trade</div></div>
+    <div class="s reveal"><div class="n">A-Class</div><div class="l">Licensed electrician</div></div>
+    <div class="s reveal"><div class="n" data-count="5">0</div><div class="l">Year Daikin warranty</div></div>
+    <div class="s reveal"><div class="n">1 Call</div><div class="l">Complete service</div></div>
+  </div>
+</div>
+
+<!-- DAIKIN -->
+<section class="daikin" id="daikin">
+  <div class="wrap daikin-grid">
+    <div class="reveal">
+      <span class="kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Recommended Brand</span>
+      <h2>An Industry Leader, Installed by a Specialist</h2>
+      <p>Andrew uses and recommends Daikin — a world leader in air conditioning technology across Australia and New Zealand. Prefer a different brand? Mostly Air installs, services and repairs all types and makes, so you're never locked in.</p>
+      <a href="#contact" class="btn btn-primary">Talk to Andrew</a>
+    </div>
+    <div class="wcard reveal">
+      <div class="y">Full Parts &amp; Labour</div>
+      <div class="num">5<span style="font-size:1.4rem">yr</span></div>
+      <p>All Daikin Australia air conditioning units are sold with a full 5-year parts &amp; labour warranty.</p>
+      <span class="chip"><img src="assets/daikin.png" alt="Daikin — a world leader in air conditioning technology"></span>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="block">
+  <div class="wrap story-grid">
+    <div class="story-media reveal"><img src="assets/wiring.jpg" alt="Andrew's hands-on, qualified approach to every job"></div>
+    <div class="reveal">
+      <span class="kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 1 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>The Owner</span>
+      <h2 class="sec-head" style="margin-top:14px;font-size:clamp(1.8rem,3.4vw,2.6rem)">A Tradesman Who Takes Pride in the Work</h2>
+      <p class="muted" style="margin-top:16px">Andrew Moseley began in the trade in 1994 and has worked across every area of air conditioning and refrigeration — domestic, commercial and industrial. As a qualified A-Class electrician, he completes installations without the need for additional tradesmen, and a lifetime in the Adelaide Hills means he understands exactly what the local climate demands.</p>
+      <div class="quote-pull">"A good quality job, priced fairly, will result in a satisfied customer — and that leads to return customers and strong word-of-mouth."</div>
+      <div class="story-by">— <b>Andrew Moseley</b>, Owner &amp; Technician, Mostly Air</div>
+    </div>
+  </div>
+</section>
+
+<!-- ALL SERVICES -->
+<section class="block allsvc" id="services">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="kicker" style="justify-content:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6 6a2 2 0 1 0 2.8 2.8l6-6a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.3-2.3z"/></svg>What We Do</span>
+      <h2>Complete Air Conditioning Services</h2>
+      <p>From a single split system to a full ducted install — and everything after — managed end to end by one trusted local technician.</p>
+    </div>
+    <div class="svc-list">
+      <div class="sl reveal">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="9" rx="2"/><path d="M6 8h.01M10 8h4M6 17v3m12-3v3M9 13v2m6-2v2"/></svg></span>
+        <h4>Split System Installs</h4>
+        <p>Efficient wall-mounted reverse-cycle systems, expertly sized and installed for heating in winter and cooling in summer.</p>
+      </div>
+      <div class="sl reveal">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v4H3zM3 13h18M7 13v4m5-4v4m5-4v4"/></svg></span>
+        <h4>Ducted System Installs</h4>
+        <p>Discreet, whole-home climate control with zoning for even comfort in every room — domestic through to commercial.</p>
+      </div>
+      <div class="sl reveal">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 13.42 20.6a2 2 0 0 1-2.83 0l-7.18-7.18a2 2 0 0 1 0-2.83l7.18-7.18a2 2 0 0 1 2.83 0l7.17 7.17a2 2 0 0 1 0 2.83Z"/><path d="M7.5 12h.01"/></svg></span>
+        <h4>Sales &amp; Advice</h4>
+        <p>Honest, no-pressure guidance on the right system and brand for your home or business — including industry-leading Daikin.</p>
+      </div>
+      <div class="sl reveal">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6 6a2 2 0 1 0 2.8 2.8l6-6a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.3-2.3z"/></svg></span>
+        <h4>Repairs</h4>
+        <p>Fast, fair diagnosis and repair of all types and makes of air conditioner — getting your comfort back without the wait.</p>
+      </div>
+      <div class="sl reveal">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4m0 12v4m10-10h-4M6 12H2"/><circle cx="12" cy="12" r="4"/></svg></span>
+        <h4>Maintenance</h4>
+        <p>Scheduled servicing that protects efficiency and reliability — fewer breakdowns, lower running costs, longer system life.</p>
+      </div>
+      <div class="sl reveal">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+        <h4>Refrigeration</h4>
+        <p>Extensive refrigeration experience alongside air conditioning — covering domestic, commercial and industrial needs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREA -->
+<section class="block" id="area">
+  <div class="wrap area-grid">
+    <div class="reveal">
+      <span class="kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Proudly Local</span>
+      <h2 class="sec-head" style="margin-top:14px">Born &amp; Based in the Adelaide Hills</h2>
+      <p class="muted" style="margin-top:16px">Andrew has lived in the Adelaide Hills his entire life and is a community-minded local with past and present involvement in local sporting groups and clubs. That local knowledge means systems designed for real Hills conditions — and a tradesman who genuinely stands behind the work.</p>
+      <div class="chip-row">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Domestic</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Commercial</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Industrial</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Based in Blakiston, SA</span>
+      </div>
+    </div>
+    <div class="area-media reveal"><img src="assets/hills.jpg" alt="The Adelaide Hills, South Australia"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <span class="kicker" style="color:var(--sky)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.74-1.27a2 2 0 0 1 2.11-.45c.74.34 1.53.57 2.34.7A2 2 0 0 1 22 16.92z"/></svg>Contact Us</span>
+      <h2>Live Here. We Service Here.</h2>
+      <p class="lead">For a quote, a repair, or honest advice on the right system — get in touch with Andrew directly. One phone call is all it takes to get started.</p>
+      <a href="tel:0411135918" class="btn btn-primary" style="margin-right:12px">Call 0411 135 918</a>
+      <a href="mailto:andrew@mostlyair.com.au" class="btn btn-white">Email Andrew</a>
+    </div>
+    <div class="reveal">
+      <a href="tel:0411135918" class="cc">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.74-1.27a2 2 0 0 1 2.11-.45c.74.34 1.53.57 2.34.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <div><div class="l">Phone</div><div class="v">0411 135 918</div></div>
+      </a>
+      <a href="mailto:andrew@mostlyair.com.au" class="cc">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></span>
+        <div><div class="l">Email</div><div class="v">andrew@mostlyair.com.au</div></div>
+      </a>
+      <div class="cc">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <div><div class="l">Address</div><div class="v">126 Bald Hills Road, Blakiston SA</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#" class="logo">
+          <span class="logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6a3 3 0 1 1 2.5 4.5H2"/><path d="M14 18a3 3 0 1 0 2.5-4.5H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/></svg></span>
+          <span class="logo-mark"><span class="a">Mostly Air</span><span class="b">Air Conditioning</span></span>
+        </a>
+        <p>Air conditioning &amp; refrigeration for the Adelaide Hills, South Australia. Owner-operated by Andrew Moseley since 1994.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Services</h5>
+        <a href="#services">Split Systems</a>
+        <a href="#services">Ducted Systems</a>
+        <a href="#services">Repairs &amp; Maintenance</a>
+        <a href="#services">Sales &amp; Advice</a>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="#difference">Why Us</a>
+        <a href="#daikin">Daikin</a>
+        <a href="#area">Service Area</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h5>Get in Touch</h5>
+        <a href="tel:0411135918">0411 135 918</a>
+        <a href="mailto:andrew@mostlyair.com.au">andrew@mostlyair.com.au</a>
+        <div>126 Bald Hills Road</div>
+        <div>Blakiston SA</div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>&copy; <span id="yr"></span> Mostly Air. All rights reserved.</div>
+      <div>Air Conditioning &amp; Refrigeration · Adelaide Hills, SA</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>10));
+const drawer=document.getElementById('drawer');
+document.getElementById('burger').onclick=()=>drawer.classList.add('open');
+document.getElementById('drawerClose').onclick=()=>drawer.classList.remove('open');
+drawer.querySelectorAll('a').forEach(a=>a.onclick=()=>drawer.classList.remove('open'));
+drawer.onclick=e=>{if(e.target===drawer)drawer.classList.remove('open')};
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const cio=new IntersectionObserver((es)=>es.forEach(e=>{
+  if(!e.isIntersecting)return;cio.unobserve(e.target);
+  const t=+e.target.dataset.count,d=1400,s=performance.now();
+  (function tick(now){let p=Math.min((now-s)/d,1);e.target.textContent=Math.round(p*t);if(p<1)requestAnimationFrame(tick)})(s);
+}),{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
