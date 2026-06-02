@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Advanced Training Institute — Career &amp; Technical Training in Las Vegas</title>
+<meta name="description" content="Hands-on, in-demand career training in Las Vegas. The Advanced Training Institute (ATI) trains students for industry-recognized certifications in Automotive, Electrical, HVAC/R, Personal Fitness Training and Massage Therapy. ACCET-accredited since 2018." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#062D56;
+  --blue:#004d99;
+  --gold:#fcc61c;
+  --gold-soft:#ffe8a3;
+  --bone:#e9e4d8;
+  --bone-2:#dcd6c6;
+  --paper:#f4f2ec;
+  --ink:#15171c;
+  --muted:#62656e;
+  --line:#d8d3c6;
+  --line-dk:rgba(255,255,255,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Archivo',sans-serif;font-weight:600;line-height:1.02;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+.label{font-family:'Archivo';font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--blue)}
+.hl{background:var(--gold);box-shadow:0 0 0 3px var(--gold);border-radius:1px}
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:'Archivo';font-weight:600;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;padding:1rem 1.7rem;border:1.5px solid var(--navy);cursor:pointer;transition:.25s;background:var(--navy);color:#fff}
+.btn:hover{background:transparent;color:var(--navy)}
+.btn svg{width:16px;height:16px}
+.btn-line{background:transparent;color:var(--navy)}
+.btn-line:hover{background:var(--navy);color:#fff}
+.btn-gold{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.btn-gold:hover{background:transparent;color:var(--navy);border-color:var(--navy)}
+
+/* header */
+header{position:sticky;top:0;z-index:60;background:rgba(244,242,236,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 0}
+.brand{display:flex;align-items:center;gap:.7rem}
+.brand img{height:40px}
+.brand .bn{font-family:'Archivo';font-weight:700;font-size:1.05rem;letter-spacing:-.01em;color:var(--navy);line-height:1}
+.brand .bn span{display:block;font-family:'Inter';font-weight:500;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.menu{display:flex;align-items:center;gap:2rem}
+.menu a{font-family:'Archivo';font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);position:relative;padding:.2rem 0}
+.menu a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:2px;background:var(--gold);transition:.28s}
+.menu a:hover::after{width:100%}
+.menu .btn{padding:.7rem 1.2rem;color:#fff}
+.menu .btn::after{display:none}
+.menu .btn:hover{color:var(--navy)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
+.burger span{width:24px;height:2px;background:var(--navy)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:84vh;border-bottom:1px solid var(--line)}
+.hero-left{background:var(--bone);padding:clamp(2.5rem,5vw,4.5rem) clamp(2rem,4vw,4rem);display:flex;flex-direction:column;justify-content:center;position:relative}
+.hero-left::after{content:"";position:absolute;left:0;right:0;bottom:0;height:10px;background:var(--gold)}
+.hero-left .label{margin-bottom:2rem}
+.hero h1{font-size:clamp(2.6rem,5.2vw,4.6rem);font-weight:700;letter-spacing:-.03em}
+.hero h1 .hl{font-weight:700}
+.hero-left p{font-size:1.1rem;color:#3a3d45;max-width:40ch;margin:1.8rem 0 2.2rem}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2.2rem}
+.tagpill{font-family:'Archivo';font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.5rem .9rem;border:1px solid var(--navy);color:var(--navy);background:rgba(255,255,255,.4)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.8rem}
+.hero-right{position:relative;background:var(--navy);overflow:hidden;min-height:46vh}
+.hero-right img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-meta{position:absolute;left:0;bottom:0;background:var(--navy);color:#fff;padding:1rem 1.4rem;display:flex;align-items:center;gap:.7rem;font-family:'Archivo';font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.hero-meta .gd{width:9px;height:9px;background:var(--gold);border-radius:50%}
+
+/* statement */
+.statement{padding:clamp(4rem,8vw,8rem) 0}
+.statement p{font-family:'Archivo';font-weight:500;font-size:clamp(1.8rem,4vw,3.4rem);line-height:1.18;letter-spacing:-.02em;max-width:24ch}
+.statement .sub{font-family:'Inter';font-size:1.05rem;font-weight:400;color:var(--muted);max-width:52ch;margin-top:2.2rem;line-height:1.7;letter-spacing:0}
+
+/* ticker */
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bone);overflow:hidden;padding:.9rem 0}
+.ticker-track{display:flex;gap:3rem;white-space:nowrap;animation:scroll 28s linear infinite;font-family:'Archivo';font-weight:600;font-size:1rem;letter-spacing:.04em;color:var(--navy);text-transform:uppercase}
+.ticker-track span{display:inline-flex;align-items:center;gap:1rem}
+.ticker-track span::after{content:"";width:7px;height:7px;background:var(--gold);border-radius:50%}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* program rows */
+.prog-sec{padding:clamp(3rem,5vw,5rem) 0}
+.prog-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;padding-bottom:2.5rem;border-bottom:2px solid var(--navy);margin-bottom:0}
+.prog-head h2{font-size:clamp(2.2rem,4.6vw,3.6rem);font-weight:700}
+.prog-head .label{margin-bottom:.8rem}
+.prow{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,4rem);align-items:center;padding:clamp(2.5rem,4vw,3.5rem) 0;border-bottom:1px solid var(--line)}
+.prow:nth-child(even) .ptext{order:2}
+.ptext .pnum{font-family:'Archivo';font-weight:700;font-size:.9rem;color:var(--gold);letter-spacing:.05em;-webkit-text-stroke:.4px var(--navy)}
+.ptext h3{font-size:clamp(1.9rem,3.6vw,2.9rem);font-weight:700;margin:.5rem 0 1rem}
+.ptext p{color:var(--muted);font-size:1.02rem;max-width:46ch;margin-bottom:.8rem}
+.ptext .meta{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 1.5rem}
+.ptext .meta b{font-family:'Archivo';font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.45rem .8rem;background:var(--bone);color:var(--navy)}
+.plink{display:inline-flex;align-items:center;gap:.6rem;font-family:'Archivo';font-weight:600;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:3px}
+.plink svg{width:15px;height:15px;transition:.25s}
+.plink:hover svg{transform:translateX(5px)}
+.pimg{position:relative;overflow:hidden;aspect-ratio:4/3.2;background:var(--bone-2)}
+.pimg img{width:100%;height:100%;object-fit:cover;transition:.6s cubic-bezier(.2,.7,.3,1)}
+.prow:hover .pimg img{transform:scale(1.05)}
+.pimg .corner{position:absolute;top:0;right:0;background:var(--gold);color:var(--navy);font-family:'Archivo';font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:.5rem .9rem}
+
+/* values / why band */
+.why{background:var(--navy);color:#fff;padding:clamp(4rem,7vw,7rem) 0}
+.why .label{color:var(--gold)}
+.why h2{color:#fff;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;max-width:18ch;margin:1rem 0 0}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3.5rem;border-top:1px solid var(--line-dk)}
+.why-item{padding:2rem 1.6rem 2rem 0;border-right:1px solid var(--line-dk)}
+.why-item:last-child{border-right:0;padding-right:0}
+.why-item .wic{width:40px;height:40px;color:var(--gold);margin-bottom:1.2rem}
+.why-item .wic svg{width:100%;height:100%}
+.why-item h4{font-family:'Archivo';font-size:1.15rem;font-weight:600;color:#fff;margin-bottom:.6rem}
+.why-item p{font-size:.9rem;color:#a9bbd4}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-dk);margin-top:3.5rem}
+.stats .s{padding:2rem 1rem 0;border-right:1px solid var(--line-dk)}
+.stats .s:last-child{border-right:0}
+.stats .s b{font-family:'Archivo';font-size:clamp(2.4rem,5vw,3.4rem);font-weight:700;color:var(--gold);display:block;line-height:1}
+.stats .s span{font-size:.82rem;color:#a9bbd4;letter-spacing:.04em;display:block;margin-top:.5rem}
+
+/* accreditation */
+.accred{padding:clamp(3rem,5vw,5rem) 0;border-bottom:1px solid var(--line)}
+.accred-in{display:flex;align-items:center;gap:clamp(1.5rem,4vw,4rem);flex-wrap:wrap;justify-content:center}
+.accred-in .lbl{font-family:'Archivo';font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.accred-in img{height:64px;width:auto;filter:grayscale(.2)}
+
+/* split cta (campus) */
+.campus{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.campus-img{min-height:420px;position:relative;overflow:hidden;background:var(--navy)}
+.campus-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.campus-text{background:var(--bone);padding:clamp(2.5rem,5vw,5rem)}
+.campus-text .label{margin-bottom:1.4rem}
+.campus-text h2{font-size:clamp(2rem,4vw,3rem);font-weight:700;margin-bottom:1.3rem}
+.campus-text p{color:#3a3d45;max-width:46ch;margin-bottom:1rem;font-size:1.02rem}
+
+/* contact */
+.contact{padding:clamp(4rem,6vw,7rem) 0;background:var(--paper)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,5vw,5rem);align-items:start}
+.contact h2{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:700;letter-spacing:-.03em}
+.contact .clead{color:var(--muted);font-size:1.08rem;margin:1.5rem 0 2.5rem;max-width:42ch}
+.cinfo-item{display:flex;gap:1.1rem;padding:1.3rem 0;border-top:1px solid var(--line)}
+.cinfo-item:last-child{border-bottom:1px solid var(--line)}
+.cinfo-item .ic{flex:0 0 auto;width:42px;height:42px;border:1.5px solid var(--navy);display:grid;place-items:center}
+.cinfo-item .ic svg{width:20px;height:20px;color:var(--navy)}
+.cinfo-item .t{font-family:'Archivo';font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.cinfo-item .v{font-family:'Archivo';font-weight:600;font-size:1.1rem;color:var(--navy)}
+.cinfo-item .v a:hover{color:var(--blue)}
+.formwrap{background:#fff;border:1.5px solid var(--navy);padding:clamp(1.8rem,3vw,2.6rem)}
+.formwrap h3{font-family:'Archivo';font-size:1.4rem;font-weight:700;margin-bottom:.4rem}
+.formwrap .fsub{color:var(--muted);font-size:.92rem;margin-bottom:1.6rem}
+.field{margin-bottom:1rem}
+.field label{display:block;font-family:'Archivo';font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);margin-bottom:.45rem}
+.field input,.field select{width:100%;padding:.85rem 1rem;border:1.5px solid var(--line);font-family:inherit;font-size:.95rem;background:var(--paper);transition:.2s}
+.field input:focus,.field select:focus{outline:none;border-color:var(--navy);background:#fff}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.consent{font-size:.72rem;color:var(--muted);margin:.6rem 0 1.1rem;line-height:1.5}
+.formwrap .btn{width:100%;justify-content:center}
+
+/* footer */
+footer{background:var(--navy);color:#b9c8de;padding:clamp(3.5rem,6vw,5rem) 0 2rem}
+.foot-top{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:2rem;padding-bottom:3rem;border-bottom:1px solid var(--line-dk)}
+.foot-brand img{height:48px;background:#fff;padding:7px 10px;margin-bottom:1.2rem}
+.foot-brand p{font-size:.9rem;color:#90a3c0;max-width:32ch}
+.foot-col h5{font-family:'Archivo';color:#fff;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1.1rem;font-weight:600}
+.foot-col a{display:block;font-size:.92rem;padding:.32rem 0;color:#b9c8de;transition:.2s}
+.foot-col a:hover{color:var(--gold);padding-left:5px}
+.foot-bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-top:1.6rem;font-size:.82rem;color:#7e90ac}
+.socials{display:flex;gap:.5rem;margin-top:1.3rem}
+.socials a{width:38px;height:38px;border:1px solid var(--line-dk);display:grid;place-items:center;transition:.25s}
+.socials a:hover{background:var(--gold);border-color:var(--gold)}
+.socials a:hover svg{color:var(--navy)}
+.socials svg{width:17px;height:17px;color:#fff}
+
+.reveal{opacity:0;transform:translateY(28px);transition:.75s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* mobile nav */
+.mobnav{position:fixed;inset:0;background:var(--bone);z-index:200;transform:translateX(100%);transition:.35s;padding:1.6rem;display:flex;flex-direction:column}
+.mobnav.open{transform:none}
+.mobnav .mclose{align-self:flex-end;background:none;border:0;font-size:2rem;color:var(--navy);cursor:pointer}
+.mobnav a{font-family:'Archivo';font-weight:700;font-size:1.6rem;color:var(--navy);padding:.7rem 0;border-bottom:1px solid var(--line)}
+
+@media(max-width:980px){
+  .menu .menu-links{display:none}
+  .burger{display:flex}
+  .hero{grid-template-columns:1fr}
+  .hero-right{min-height:50vh;order:-1}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .why-item{border-right:0;border-bottom:1px solid var(--line-dk);padding-right:0}
+  .stats{grid-template-columns:1fr 1fr}
+  .stats .s:nth-child(2){border-right:0}
+  .campus{grid-template-columns:1fr}
+  .campus-img{min-height:300px}
+  .contact-grid{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .wrap{padding:0 20px}
+  .prow{grid-template-columns:1fr;gap:1.5rem}
+  .prow:nth-child(even) .ptext{order:0}
+  .prog-head{flex-direction:column;align-items:flex-start}
+  .why-grid,.stats,.frow{grid-template-columns:1fr}
+  .stats .s{border-right:0;border-bottom:1px solid var(--line-dk);padding-bottom:1.5rem}
+  .foot-top{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <img src="assets/logo.png" alt="Advanced Training Institute logo" />
+      <span class="bn">Advanced Training Institute<span>Las Vegas · Nevada</span></span>
+    </a>
+    <div class="menu">
+      <div class="menu-links" style="display:flex;gap:2rem;align-items:center">
+        <a href="#programs">Programs</a>
+        <a href="#why">About</a>
+        <a href="#campus">Campus</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#contact" class="btn">Apply Now</a>
+      <button class="burger" aria-label="Menu" onclick="document.getElementById('mobnav').classList.add('open')"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobnav" id="mobnav">
+  <button class="mclose" onclick="this.parentElement.classList.remove('open')">&times;</button>
+  <a href="#programs" onclick="cn()">Programs</a>
+  <a href="#why" onclick="cn()">About</a>
+  <a href="#campus" onclick="cn()">Campus</a>
+  <a href="#contact" onclick="cn()">Contact</a>
+  <a href="tel:+17027638611" onclick="cn()">702-763-8611</a>
+</div>
+
+<a id="top"></a>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="label">Career &amp; Technical College — Las Vegas, NV</span>
+    <h1>Hands-on training for an <span class="hl">essential</span> career</h1>
+    <p>The Advanced Training Institute trains motivated people for industry-recognized certifications in high-demand, technical careers — many completed in a year or less.</p>
+    <div class="hero-tags">
+      <span class="tagpill">ACCET-accredited since 2018</span>
+      <span class="tagpill">Day &amp; evening classes</span>
+      <span class="tagpill">Veteran benefits</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-gold">Request information<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="#programs" class="btn btn-line">View programs</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="assets/photo3.jpg" alt="ATI students training on an engine with their instructor" />
+    <div class="hero-meta"><span class="gd"></span>Training the skilled trades of Las Vegas</div>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement">
+  <div class="wrap">
+    <p><span class="hl">Train</span> for the careers that keep Las Vegas running — in <span class="hl">automotive</span>, electrical, <span class="hl">HVAC/R</span>, fitness, and massage therapy.</p>
+    <p class="sub">ATI gives students hands-on, practical training that prepares graduates for employment in their area of study upon graduation. Come see if ATI is a fit for you — and if you're a fit for ATI and our network of employers.</p>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Automotive Technology</span><span>Electrician</span><span>HVAC/CR Technologies</span><span>Personal Fitness Trainer</span><span>Massage Therapy / Reflexology</span>
+    <span>Automotive Technology</span><span>Electrician</span><span>HVAC/CR Technologies</span><span>Personal Fitness Trainer</span><span>Massage Therapy / Reflexology</span>
+  </div>
+</div>
+
+<!-- PROGRAMS -->
+<section class="prog-sec" id="programs">
+  <div class="wrap">
+    <div class="prog-head">
+      <div>
+        <span class="label">Programs offered</span>
+        <h2>Five paths. One goal — a career you're proud of.</h2>
+      </div>
+      <a href="#contact" class="plink">Request info<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+
+    <div class="prow reveal">
+      <div class="ptext">
+        <span class="pnum">01 — Automotive</span>
+        <h3>Automotive Technology</h3>
+        <p>Automotive Technicians are in high demand. Learn to inspect, diagnose, maintain and repair cars and light trucks — and work anywhere there are cars, which means anywhere you want to live.</p>
+        <div class="meta"><b>In-demand trade</b><b>Hands-on diagnostics</b><b>Day &amp; evening</b></div>
+        <a href="#contact" class="plink">Learn more<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="pimg"><span class="corner">01</span><img src="assets/photo2.jpg" alt="Automotive technology training" /></div>
+    </div>
+
+    <div class="prow reveal">
+      <div class="ptext">
+        <span class="pnum">02 — Electrical</span>
+        <h3>Electrician</h3>
+        <p>Everything we do depends on electricity. Electricians install, maintain and repair power, communications, lighting and control systems in homes, businesses and factories — and they're paid well.</p>
+        <div class="meta"><b>Growing demand</b><b>Indoor &amp; outdoor work</b><b>Skilled trade</b></div>
+        <a href="#contact" class="plink">Learn more<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="pimg"><span class="corner">02</span><img src="assets/photo4.jpg" alt="Electrical and HVAC training" /></div>
+    </div>
+
+    <div class="prow reveal">
+      <div class="ptext">
+        <span class="pnum">03 — HVAC/R</span>
+        <h3>HVAC/CR Technologies</h3>
+        <p>Homes and businesses rely on heating, ventilation, air conditioning and commercial refrigeration year-round. Our program teaches more than an introduction — you'll learn to install, service and repair real systems.</p>
+        <div class="meta"><b>Year-round work</b><b>Multi-trade skills</b><b>Certification prep</b></div>
+        <a href="#contact" class="plink">Learn more<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="pimg"><span class="corner">03</span><img src="assets/photo1.jpg" alt="HVAC/R technology training" /></div>
+    </div>
+
+    <div class="prow reveal">
+      <div class="ptext">
+        <span class="pnum">04 — Fitness</span>
+        <h3>Personal Fitness Trainer</h3>
+        <p>If you're passionate about health and fitness, make a career of it. In as few as 10 months, our PFT program builds coaching skills, exercise-science knowledge and preparation for NASM certification.</p>
+        <div class="meta"><b>10-month program</b><b>NASM prep</b><b>Client coaching</b></div>
+        <a href="#contact" class="plink">Learn more<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="pimg"><span class="corner">04</span><img src="assets/photo5.jpg" alt="Personal fitness trainer graduate with NASM certificate" /></div>
+    </div>
+
+    <div class="prow reveal">
+      <div class="ptext">
+        <span class="pnum">05 — Massage Therapy</span>
+        <h3>Massage Therapy / Reflexology</h3>
+        <p>An 880-clock-hour program building hands-on skills in massage, reflexology, client care, ethics and supervised clinic practice — preparing you for the MBLEx and the pathway toward Nevada licensure.</p>
+        <div class="meta"><b>880 clock hours</b><b>MBLEx prep</b><b>Supervised clinic</b></div>
+        <a href="#contact" class="plink">Learn more<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="pimg"><span class="corner">05</span><img src="assets/photo6.jpg" alt="ATI graduates" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="wrap">
+    <span class="label">Dedicated to your success</span>
+    <h2>At ATI, we want to see you succeed — every step of the way.</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h4>Hands-on training</h4>
+        <p>Practical instruction designed to train you to function as a professional from day one.</p>
+      </div>
+      <div class="why-item">
+        <div class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <h4>Open-door support</h4>
+        <p>Full access to faculty and staff for academic and vocational advising, plus tutoring when you need it.</p>
+      </div>
+      <div class="why-item">
+        <div class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 7h-9M14 17H5M17 3l3 4-3 4M7 21l-3-4 3-4"/></svg></div>
+        <h4>Career services</h4>
+        <p>Job-placement assistance and a network of employers to help launch your new career.</p>
+      </div>
+      <div class="why-item">
+        <div class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="6"/><path d="M15.5 13l1.5 8-5-3-5 3 1.5-8"/></svg></div>
+        <h4>Industry certifications</h4>
+        <p>Many programs let you test for certifications recognized across your field of study.</p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="s"><b>5</b><span>Career programs</span></div>
+      <div class="s"><b>2018</b><span>ACCET-accredited since</span></div>
+      <div class="s"><b>&lt;1 yr</b><span>Many programs completed in</span></div>
+      <div class="s"><b>Day+Eve</b><span>Class schedules that fit you</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCREDITATION -->
+<section class="accred">
+  <div class="wrap accred-in">
+    <span class="lbl">Accredited &amp; recognized</span>
+    <img src="assets/accet.png" alt="ACCET Accredited since 2018" />
+    <img src="assets/hvac-logo.png" alt="HVAC Excellence" />
+    <img src="assets/college-nevada.png" alt="College of Southern Nevada" />
+  </div>
+</section>
+
+<!-- CAMPUS -->
+<section class="campus" id="campus">
+  <div class="campus-img"><img src="assets/photo7.jpg" alt="ATI campus on S. Decatur Blvd, Las Vegas" /></div>
+  <div class="campus-text">
+    <span class="label">Our campus</span>
+    <h2>A modern facility in the heart of Las Vegas</h2>
+    <p>ATI is conveniently located at 5150 S. Decatur Blvd., easily accessible from all major highways and thoroughfares. Las Vegas is the pulse of Nevada's vibrant economy.</p>
+    <p>Our campus boasts a large, modern facility with well-lit parking for cars, motorbikes and bicycles. Need transportation assistance or a carpool? Our Placement Department is here to help.</p>
+    <a href="#contact" class="btn btn-line" style="margin-top:1rem">Schedule a campus visit<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="label">Get started on your career</span>
+      <h2>Take the next step toward a new career.</h2>
+      <p class="clead">We'd love to hear from you. Visit our campus, give us a call, or send a message — we're here for you in anything you need.</p>
+      <div class="cinfo-item">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div><div class="t">Call us</div><div class="v"><a href="tel:+17027638611">702-763-8611</a></div></div>
+      </div>
+      <div class="cinfo-item">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><div class="t">Visit</div><div class="v">5150 S. Decatur Blvd., Las Vegas, NV 89118</div></div>
+      </div>
+      <div class="cinfo-item">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div><div class="t">Office hours</div><div class="v">Weekdays · 9:00 am – 5:00 pm</div></div>
+      </div>
+    </div>
+    <div class="formwrap">
+      <h3>Request more information</h3>
+      <p class="fsub">Fill out the form to take the next step toward a new career.</p>
+      <form onsubmit="event.preventDefault();this.querySelector('.btn').textContent='Thank you — we will be in touch';">
+        <div class="frow">
+          <div class="field"><label>First name</label><input type="text" required placeholder="Jane" /></div>
+          <div class="field"><label>Last name</label><input type="text" required placeholder="Doe" /></div>
+        </div>
+        <div class="frow">
+          <div class="field"><label>Email</label><input type="email" required placeholder="you@email.com" /></div>
+          <div class="field"><label>Phone</label><input type="tel" required placeholder="(702) 000-0000" /></div>
+        </div>
+        <div class="field">
+          <label>I'm interested in</label>
+          <select>
+            <option>Automotive Technology</option>
+            <option>Electrician</option>
+            <option>HVAC/CR Technologies</option>
+            <option>Personal Fitness Trainer</option>
+            <option>Massage Therapy / Reflexology</option>
+            <option>I'm not sure yet</option>
+          </select>
+        </div>
+        <p class="consent">By submitting, I provide my consent to be called and texted by or on behalf of Advanced Training Institute, via auto dialer or prerecorded voice, at the number above. I understand I am not required to provide this consent to enroll.</p>
+        <button class="btn btn-gold" type="submit">Submit my request<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo.png" alt="Advanced Training Institute" />
+        <p>Preparing students for rewarding new careers by providing technical training to motivated people just like you. ACCET-accredited and monitored to maintain the highest standard.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.5-.4-5a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.4A2.5 2.5 0 0 0 1.4 7C1 8.5 1 12 1 12s0 3.5.4 5a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.5.4-5 .4-5zM10 15V9l5 3z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Programs</h5>
+        <a href="#programs">Automotive Technology</a>
+        <a href="#programs">Electrician</a>
+        <a href="#programs">HVAC/CR Technologies</a>
+        <a href="#programs">Personal Fitness Trainer</a>
+        <a href="#programs">Massage Therapy / Reflexology</a>
+      </div>
+      <div class="foot-col">
+        <h5>About</h5>
+        <a href="#why">About ATI</a>
+        <a href="#why">Mission Statement</a>
+        <a href="#campus">Our Campus</a>
+        <a href="#why">Our Accreditation</a>
+        <a href="#contact">Career Services</a>
+      </div>
+      <div class="foot-col">
+        <h5>Admissions</h5>
+        <a href="#contact">Admission Info</a>
+        <a href="#contact">Financial Aid</a>
+        <a href="#contact">International Students</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#why">Student Consumer Info</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Copyright © 2026 Advanced Training Institute — All rights reserved.</span>
+      <span>5150 S. Decatur Blvd., Las Vegas, NV 89118 · 702-763-8611</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function cn(){document.getElementById('mobnav').classList.remove('open');}
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
