@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Race City Locksmiths — Trusted Mobile Locksmith on the I-77 Corridor | Mooresville, NC</title>
+<meta name="description" content="Bonded, insured & licensed mobile locksmith serving Mooresville, NC and the I-77 corridor. Residential, commercial & automotive locksmith. NC License #2124. Call 704-754-0195.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15171c;
+    --ink-2:#2a2e36;
+    --body:#4b5160;
+    --muted:#7a8190;
+    --bg:#ffffff;
+    --bg-soft:#f4f6f8;
+    --bg-soft-2:#eceef2;
+    --lime:#aebd0f;        /* darkened lime for contrast on light bg */
+    --lime-bright:#c6d92d; /* brand lime for dark areas/accents */
+    --line:#e4e7ec;
+    --dark:#16181d;
+    --shadow:0 24px 60px rgba(20,24,33,.12);
+    --shadow-sm:0 10px 30px rgba(20,24,33,.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Barlow',sans-serif;color:var(--body);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,h4{font-family:'Rajdhani',sans-serif;color:var(--ink);line-height:1.08;letter-spacing:.005em}
+  a{text-decoration:none;color:inherit}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  section{position:relative}
+  .eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:'Rajdhani',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--lime);font-size:.86rem}
+  .eyebrow::before{content:"";width:30px;height:2px;background:var(--lime)}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1.05rem;text-transform:uppercase;letter-spacing:.03em;padding:15px 28px;border-radius:6px;cursor:pointer;transition:transform .22s,box-shadow .22s,background .22s,color .22s;border:2px solid transparent}
+  .btn svg{width:18px;height:18px}
+  .btn-primary{background:var(--lime-bright);color:var(--ink)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(198,217,45,.4)}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn-dark:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(20,24,33,.3)}
+  .btn-outline{background:transparent;border-color:var(--line);color:var(--ink)}
+  .btn-outline:hover{border-color:var(--ink);transform:translateY(-3px)}
+
+  /* ---------- Top bar ---------- */
+  .topbar{background:var(--ink);color:#cfd4dd;font-size:.84rem;font-weight:500}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;min-height:42px;gap:16px;flex-wrap:wrap}
+  .topbar .g{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+  .topbar .i{display:flex;align-items:center;gap:8px}
+  .topbar .i svg{width:14px;height:14px;color:var(--lime-bright)}
+  .topbar a:hover{color:#fff}
+
+  /* ---------- Nav ---------- */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+  header.nav.scrolled{box-shadow:0 6px 24px rgba(20,24,33,.07)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;min-height:80px;gap:20px}
+  .brand img{height:44px;width:auto}
+  .menu{display:flex;align-items:center;gap:32px;list-style:none}
+  .menu a{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:1.02rem;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-2);position:relative;padding:6px 0}
+  .menu a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--lime);transition:width .28s}
+  .menu a:hover::after{width:100%}
+  .burger{display:none;background:none;border:0;color:var(--ink);cursor:pointer}
+  .burger svg{width:30px;height:30px}
+
+  /* ---------- Hero ---------- */
+  .hero{background:var(--bg-soft);overflow:hidden;position:relative}
+  .hero .checker{position:absolute;left:0;bottom:0;width:160px;height:120px;opacity:.5;
+    background-image:linear-gradient(45deg,#dfe3e8 25%,transparent 25%,transparent 75%,#dfe3e8 75%),linear-gradient(45deg,#dfe3e8 25%,transparent 25%,transparent 75%,#dfe3e8 75%);
+    background-size:30px 30px;background-position:0 0,15px 15px}
+  .hero .row{display:grid;grid-template-columns:1.05fr 1fr;gap:50px;align-items:center;padding:80px 0;position:relative;z-index:2}
+  .hero h1{font-size:clamp(2.7rem,5.6vw,4.6rem);font-weight:700;margin:22px 0 0;text-transform:uppercase}
+  .hero h1 .lime{color:var(--lime)}
+  .hero p.lead{font-size:1.18rem;margin:24px 0 34px;max-width:48ch;color:var(--body)}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-trust{margin-top:34px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .hero-trust .stars{display:flex;gap:3px}
+  .hero-trust .stars svg{width:19px;height:19px;color:#f5a623}
+  .hero-trust b{color:var(--ink);font-family:'Rajdhani';font-weight:700}
+  .hero-img{position:relative}
+  .hero-img .main{border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transform:rotate(1.5deg)}
+  .hero-img .main img{width:100%;height:520px;object-fit:cover}
+  .hero-img .float{position:absolute;left:-26px;bottom:-24px;background:#fff;border-radius:14px;padding:18px 22px;box-shadow:var(--shadow-sm);display:flex;align-items:center;gap:14px;border:1px solid var(--line)}
+  .hero-img .float .ic{width:48px;height:48px;border-radius:10px;background:var(--lime-bright);display:grid;place-items:center;flex:none}
+  .hero-img .float .ic svg{width:24px;height:24px;color:var(--ink)}
+  .hero-img .float b{font-family:'Rajdhani';font-weight:700;color:var(--ink);font-size:1.5rem;display:block;line-height:1}
+  .hero-img .float span{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+
+  /* ---------- Trust strip ---------- */
+  .badges{border-bottom:1px solid var(--line);background:#fff}
+  .badges .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:30px 0}
+  .badges .b{display:flex;align-items:center;gap:14px}
+  .badges .b svg{width:30px;height:30px;color:var(--lime);flex:none}
+  .badges .b b{font-family:'Rajdhani';font-weight:700;color:var(--ink);display:block;font-size:1.05rem;line-height:1.1}
+  .badges .b span{font-size:.84rem;color:var(--muted)}
+
+  /* ---------- About ---------- */
+  .about{padding:104px 0}
+  .about .row{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:center}
+  .about-media{position:relative;min-height:480px}
+  .about-media .m1{position:absolute;top:0;left:0;width:66%;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);z-index:2}
+  .about-media .m1 img{width:100%;height:330px;object-fit:cover}
+  .about-media .m2{position:absolute;bottom:0;right:0;width:58%;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:6px solid #fff}
+  .about-media .m2 img{width:100%;height:280px;object-fit:cover}
+  .about-media .frame{position:absolute;top:30px;right:30px;width:55%;height:300px;border:2px solid var(--lime-bright);border-radius:16px;z-index:1}
+  .about h2{font-size:clamp(2rem,4.2vw,3.1rem);font-weight:700;margin:16px 0 20px;text-transform:uppercase}
+  .about p{font-size:1.08rem;margin-bottom:18px}
+  .about .sign{display:flex;align-items:center;gap:16px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+  .about .sign .nm{font-family:'Rajdhani';font-weight:700;color:var(--ink);font-size:1.3rem;line-height:1}
+  .about .sign .rl{font-size:.9rem;color:var(--muted)}
+  .about .sign .av{width:56px;height:56px;border-radius:50%;background:var(--ink);color:var(--lime-bright);display:grid;place-items:center;font-family:'Rajdhani';font-weight:700;font-size:1.4rem;flex:none}
+
+  /* ---------- Offer band + cards ---------- */
+  .offer{position:relative;background:var(--dark);padding:96px 0 200px;overflow:hidden}
+  .offer .bgimg{position:absolute;inset:0}
+  .offer .bgimg img{width:100%;height:100%;object-fit:cover;opacity:.16}
+  .offer .bgimg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,24,29,.82),rgba(22,24,29,.95))}
+  .offer .checker{position:absolute;top:0;right:0;width:200px;height:100%;opacity:.25;
+    background-image:linear-gradient(45deg,#23262d 25%,transparent 25%,transparent 75%,#23262d 75%),linear-gradient(45deg,#23262d 25%,transparent 25%,transparent 75%,#23262d 75%);
+    background-size:42px 42px;background-position:0 0,21px 21px;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 70%);mask-image:linear-gradient(90deg,transparent,#000 70%)}
+  .offer .wrap{position:relative;z-index:2;text-align:center}
+  .offer .eyebrow{justify-content:center;color:var(--lime-bright)}
+  .offer .eyebrow::before{background:var(--lime-bright)}
+  .offer h2{color:#fff;font-size:clamp(2rem,4.6vw,3.3rem);font-weight:700;margin:16px auto 0;max-width:20ch;text-transform:uppercase}
+  .offer p{color:#b6bcc7;max-width:62ch;margin:18px auto 0;font-size:1.08rem}
+  .cards{margin-top:-150px;position:relative;z-index:5}
+  .cards .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);transition:transform .32s;position:relative}
+  .card:hover{transform:translateY(-10px)}
+  .card .ph{height:180px;position:relative;overflow:hidden}
+  .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .card:hover .ph img{transform:scale(1.08)}
+  .card .ico{position:absolute;left:18px;top:154px;width:52px;height:52px;border-radius:12px;background:var(--lime-bright);display:grid;place-items:center;box-shadow:var(--shadow-sm);z-index:3}
+  .card .ico svg{width:26px;height:26px;color:var(--ink)}
+  .card .cb{padding:36px 24px 28px}
+  .card h3{font-size:1.4rem;font-weight:700;text-transform:uppercase;margin-bottom:10px}
+  .card p{font-size:.97rem;color:var(--body);margin-bottom:16px}
+  .card a.more{display:inline-flex;align-items:center;gap:8px;font-family:'Rajdhani';font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--lime);font-size:.92rem}
+  .card a.more svg{width:16px;height:16px;transition:transform .25s}
+  .card:hover a.more svg{transform:translateX(4px)}
+
+  /* ---------- Why choose / list ---------- */
+  .choose{padding:104px 0}
+  .choose .row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .choose h2{font-size:clamp(2rem,4.2vw,3rem);font-weight:700;text-transform:uppercase;margin:16px 0 18px}
+  .choose .lead{font-size:1.1rem;margin-bottom:30px}
+  .choose .list{display:grid;gap:14px}
+  .choose .li{display:flex;gap:16px;background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:20px 22px;transition:.25s}
+  .choose .li:hover{border-color:var(--lime-bright);transform:translateX(6px)}
+  .choose .li .ic{width:46px;height:46px;border-radius:10px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;flex:none}
+  .choose .li .ic svg{width:23px;height:23px;color:var(--lime)}
+  .choose .li h4{font-size:1.18rem;font-weight:700;text-transform:uppercase;margin-bottom:3px}
+  .choose .li p{font-size:.96rem;color:var(--muted)}
+  .choose-media{position:relative;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+  .choose-media img{width:100%;height:560px;object-fit:cover}
+  .choose-media .tag{position:absolute;top:22px;left:22px;background:var(--lime-bright);color:var(--ink);font-family:'Rajdhani';font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:10px 18px;border-radius:8px;font-size:.92rem}
+
+  /* ---------- Stats ---------- */
+  .stats{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:64px 0}
+  .stats .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+  .stats .n{font-family:'Rajdhani';font-weight:700;font-size:3rem;color:var(--ink);line-height:1}
+  .stats .n .lime{color:var(--lime)}
+  .stats .l{margin-top:8px;text-transform:uppercase;letter-spacing:.1em;font-size:.84rem;color:var(--muted)}
+
+  /* ---------- Testimonials ---------- */
+  .reviews{padding:104px 0}
+  .reviews .head{text-align:center;margin-bottom:54px}
+  .reviews .head .eyebrow{justify-content:center}
+  .reviews .head h2{font-size:clamp(2rem,4.4vw,3.1rem);font-weight:700;text-transform:uppercase;margin-top:14px}
+  .reviews .head p{max-width:54ch;margin:14px auto 0;color:var(--muted)}
+  .rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .rcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:14px;transition:transform .3s}
+  .rcard:hover{transform:translateY(-6px)}
+  .rcard .stars{display:flex;gap:3px}
+  .rcard .stars svg{width:18px;height:18px;color:#f5a623}
+  .rcard p{color:var(--ink-2);font-size:1.02rem}
+  .rcard .who{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:8px}
+  .rcard .av{width:42px;height:42px;border-radius:50%;background:var(--lime-bright);color:var(--ink);display:grid;place-items:center;font-family:'Rajdhani';font-weight:700;font-size:1.15rem}
+  .rcard .who b{color:var(--ink);font-weight:600;display:block;font-size:.98rem;line-height:1.2}
+  .rcard .who span{font-size:.8rem;color:var(--muted)}
+
+  /* ---------- CTA ---------- */
+  .cta{padding:0 0 104px}
+  .cta .box{background:var(--dark);border-radius:22px;padding:70px 50px;text-align:center;position:relative;overflow:hidden}
+  .cta .box::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 85% 15%,rgba(198,217,45,.16),transparent 45%)}
+  .cta .box .checker{position:absolute;left:0;bottom:0;width:140px;height:90px;opacity:.2;
+    background-image:linear-gradient(45deg,#2a2e36 25%,transparent 25%,transparent 75%,#2a2e36 75%),linear-gradient(45deg,#2a2e36 25%,transparent 25%,transparent 75%,#2a2e36 75%);
+    background-size:26px 26px;background-position:0 0,13px 13px}
+  .cta .inner{position:relative;z-index:2}
+  .cta .eyebrow{justify-content:center;color:var(--lime-bright)}
+  .cta .eyebrow::before{background:var(--lime-bright)}
+  .cta h2{color:#fff;font-size:clamp(2.2rem,4.8vw,3.6rem);font-weight:700;text-transform:uppercase;margin:14px auto 14px;max-width:18ch}
+  .cta p{color:#b6bcc7;font-size:1.15rem;margin-bottom:34px}
+  .cta .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;align-items:center}
+  .cta .phone{font-family:'Rajdhani';font-weight:700;font-size:1.8rem;color:var(--lime-bright);display:inline-flex;align-items:center;gap:12px}
+  .cta .phone svg{width:26px;height:26px}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--dark);color:#aab0bb;padding:70px 0 28px}
+  .foot{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.1fr;gap:40px}
+  .foot img{height:36px;margin-bottom:20px;background:#fff;padding:8px 12px;border-radius:8px}
+  .foot p{font-size:.96rem;color:#9aa0ab}
+  .foot h4{color:#fff;font-family:'Rajdhani';font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:1.08rem;margin-bottom:16px}
+  .foot ul{list-style:none;display:grid;gap:10px}
+  .foot li,.foot li a{font-size:.96rem;color:#9aa0ab;display:flex;align-items:center;gap:10px}
+  .foot li a:hover{color:var(--lime-bright)}
+  .foot li svg{width:15px;height:15px;color:var(--lime-bright);flex:none}
+  .social{display:flex;gap:10px;margin-top:18px}
+  .social a{width:38px;height:38px;border-radius:8px;border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;transition:.25s}
+  .social a:hover{background:var(--lime-bright);border-color:var(--lime-bright)}
+  .social a:hover svg{color:var(--ink)}
+  .social svg{width:17px;height:17px;color:#aab0bb}
+  .copy{border-top:1px solid rgba(255,255,255,.1);margin-top:46px;padding-top:24px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.85rem;color:#7a8190}
+
+  .floatcall{position:fixed;right:22px;bottom:22px;z-index:60;background:var(--lime-bright);color:var(--ink);width:60px;height:60px;border-radius:50%;display:grid;place-items:center;box-shadow:0 12px 30px rgba(198,217,45,.4);animation:pulse 2.4s infinite}
+  .floatcall svg{width:27px;height:27px}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(198,217,45,.5)}70%{box-shadow:0 0 0 18px rgba(198,217,45,0)}100%{box-shadow:0 0 0 0 rgba(198,217,45,0)}}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* drawer */
+  .drawer{position:fixed;inset:0;z-index:70;background:#fff;display:flex;flex-direction:column;padding:28px 24px;transform:translateX(100%);transition:transform .35s}
+  .drawer.open{transform:none}
+  .drawer .x{align-self:flex-end;background:none;border:0;color:var(--ink);cursor:pointer}
+  .drawer .x svg{width:32px;height:32px}
+  .drawer a{font-family:'Rajdhani';font-weight:600;text-transform:uppercase;font-size:1.45rem;color:var(--ink-2);padding:15px 0;border-bottom:1px solid var(--line)}
+  .drawer .btn{margin-top:22px;justify-content:center}
+
+  @media(max-width:980px){
+    .menu,.deskcta{display:none}.burger{display:block}
+    .hero .row,.about .row,.choose .row{grid-template-columns:1fr;gap:44px}
+    .about-media{min-height:430px}
+    .badges .grid{grid-template-columns:1fr 1fr}
+    .cards .grid{grid-template-columns:1fr 1fr}
+    .rgrid{grid-template-columns:1fr 1fr}
+    .stats .grid{grid-template-columns:1fr 1fr;gap:34px}
+    .choose-media img{height:440px}
+  }
+  @media(max-width:640px){
+    .badges .grid,.cards .grid,.rgrid,.stats .grid{grid-template-columns:1fr}
+    .topbar .g.sec{display:none}
+    .hero-img .main img{height:380px}
+    .cta .box{padding:50px 24px}
+    .cards{margin-top:-130px}
+  }
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="g">
+      <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Mon–Sat 7AM–7PM · Sun 7AM–5PM</span>
+      <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Mooresville, NC · I-77 Corridor</span>
+    </div>
+    <div class="g sec">
+      <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>NC License #2124</span>
+      <a class="i" href="tel:7047540195"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 4a13 13 0 0 0 11 11l-2.5 2.5a2 2 0 0 1-2.2.45 18 18 0 0 1-8.7-8.7A2 2 0 0 1 7.5 6.5L10 4"/></svg>704-754-0195</a>
+    </div>
+  </div>
+</div>
+
+<!-- Nav -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/logo.png" alt="Race City Locksmiths"></a>
+    <nav>
+      <ul class="menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary deskcta" href="tel:7047540195">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 4a13 13 0 0 0 11 11l-2.5 2.5a2 2 0 0 1-2.2.45 18 18 0 0 1-8.7-8.7A2 2 0 0 1 7.5 6.5L10 4"/></svg>
+      Call Now
+    </a>
+    <button class="burger" id="burger" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<!-- Drawer -->
+<div class="drawer" id="drawer">
+  <button class="x" id="closeDrawer" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#why">Why Us</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Contact</a>
+  <a class="btn btn-primary" href="tel:7047540195">Call 704-754-0195</a>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="top">
+  <div class="checker"></div>
+  <div class="wrap">
+    <div class="row">
+      <div class="reveal">
+        <span class="eyebrow">Your Trusted Locksmiths on the I-77 Corridor</span>
+        <h1>Fast, Honest <span class="lime">Locksmith Service</span> You Can Count On.</h1>
+        <p class="lead">Bonded, insured and licensed mobile locksmith serving Mooresville and the towns north of Charlotte. Residential, commercial and automotive — we come to you.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tel:7047540195">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 4a13 13 0 0 0 11 11l-2.5 2.5a2 2 0 0 1-2.2.45 18 18 0 0 1-8.7-8.7A2 2 0 0 1 7.5 6.5L10 4"/></svg>
+            704-754-0195
+          </a>
+          <a class="btn btn-outline" href="#services">View Services</a>
+        </div>
+        <div class="hero-trust">
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg>
+          </div>
+          <span><b>4.8 / 5</b> from <b>400+</b> Google reviews</span>
+        </div>
+      </div>
+      <div class="hero-img reveal">
+        <div class="main"><img src="assets/team.jpg" alt="Locksmith handing a freshly cut key to a customer"></div>
+        <div class="float">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div><b>15–30 min</b><span>Typical Arrival</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Badges -->
+<div class="badges">
+  <div class="wrap">
+    <div class="grid">
+      <div class="b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg><div><b>Licensed & Insured</b><span>NC License #2124</span></div></div>
+      <div class="b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><div><b>Fast Response</b><span>Same-day service</span></div></div>
+      <div class="b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l1.5-4.5A2 2 0 0 1 8.4 7h7.2a2 2 0 0 1 1.9 1.5L19 13"/><path d="M4 13h16v4H4z"/><circle cx="8" cy="17" r="1.3"/><circle cx="16" cy="17" r="1.3"/></svg><div><b>Mobile Service</b><span>We come to you</span></div></div>
+      <div class="b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><div><b>Fair Pricing</b><span>Less than the dealer</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- About -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="row">
+      <div class="about-media reveal">
+        <div class="frame"></div>
+        <div class="m1"><img src="assets/wassim.jpg" alt="Locksmith working on a door lock"></div>
+        <div class="m2"><img src="assets/four.jpg" alt="Door hardware installation"></div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">About Race City Locksmiths</span>
+        <h2>We Don't Just Cut Keys. We Earn Your Trust.</h2>
+        <p>Race City Locksmiths is a bonded, insured and licensed company owned and operated by <strong style="color:var(--ink)">John Stewart</strong>, who brings over 20 years of hands-on experience to every job. From a single house re-key to a transponder key cut roadside, every call is handled personally — fast, fairly, and done right the first time.</p>
+        <p>No call centers and no upsells — just a true tradesman who shows up quickly, explains the work, and gets you back into your home, business or vehicle. That's how Race City earned a 4.8-star reputation across more than 400 reviews.</p>
+        <div class="sign">
+          <div class="av">JS</div>
+          <div><div class="nm">John Stewart</div><div class="rl">Owner & Master Locksmith · NC License #2124</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Offer band -->
+<section class="offer" id="services">
+  <div class="bgimg"><img src="assets/padlock.jpg" alt=""></div>
+  <div class="checker"></div>
+  <div class="wrap">
+    <span class="eyebrow">What We Offer</span>
+    <h2>Complete Locksmith Services, One Trusted Local Pro</h2>
+    <p>Residential, commercial and automotive locksmith work across the I-77 corridor — every job done by the owner with the right tools and an honest price.</p>
+  </div>
+</section>
+
+<!-- Service cards -->
+<div class="cards">
+  <div class="wrap">
+    <div class="grid">
+      <article class="card reveal">
+        <div class="ph"><img src="assets/four.jpg" alt="Residential door hardware"></div><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><rect x="10" y="13" width="4" height="7"/></svg></div>
+        <div class="cb">
+          <h3>Residential</h3>
+          <p>Lock re-keying & changes, deadbolt installations, decorative hardware, and house lockouts.</p>
+          <a class="more" href="#contact">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="ph"><img src="assets/padlock.jpg" alt="Commercial security"></div><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/></svg></div>
+        <div class="cb">
+          <h3>Commercial</h3>
+          <p>Security access systems, commercial hardware installations, and master-key lock re-keying.</p>
+          <a class="more" href="#contact">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="ph"><img src="assets/key.jpg" alt="Automotive keys"></div><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M5 13l1.5-4.5A2 2 0 0 1 8.4 7h7.2a2 2 0 0 1 1.9 1.5L19 13"/><path d="M4 13h16v4H4z"/><circle cx="8" cy="17" r="1.3"/><circle cx="16" cy="17" r="1.3"/></svg></div>
+        <div class="cb">
+          <h3>Automotive</h3>
+          <p>Transponder key origination, laser-cut keys, fob programming and emergency lockouts.</p>
+          <a class="more" href="#contact">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="ph"><img src="assets/ishan.jpg" alt="Key cutting and re-keying"></div><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="8" cy="14" r="5"/><path d="M11.5 10.5L20 2"/><path d="M16 6l2 2M18 4l2 2"/></svg></div>
+        <div class="cb">
+          <h3>Re-Key & Lockouts</h3>
+          <p>Fast lockout response and full property re-keys for homes, offices and rental turnovers.</p>
+          <a class="more" href="#contact">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- Why choose -->
+<section class="choose" id="why">
+  <div class="wrap">
+    <div class="row">
+      <div class="reveal">
+        <span class="eyebrow">Why Choose Race City</span>
+        <h2>The Locksmith Your Neighbors Recommend</h2>
+        <p class="lead">Built on word of mouth across Mooresville and the I-77 corridor. Here's what keeps customers calling John first.</p>
+        <div class="list">
+          <div class="li"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><h4>Rapid Response</h4><p>Customers regularly report arrivals in 15–30 minutes — often back on the road within the hour.</p></div></div>
+          <div class="li"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><h4>Honest, Fair Pricing</h4><p>Straightforward quotes that consistently come in well below the dealer — no surprises.</p></div></div>
+          <div class="li"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><div><h4>Licensed, Bonded & Insured</h4><p>A fully credentialed NC professional (#2124) — your security and property are in safe hands.</p></div></div>
+          <div class="li"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></div><div><h4>Owner-Operated</h4><p>You deal directly with John — the same expert who answers, quotes and does the work.</p></div></div>
+        </div>
+      </div>
+      <div class="choose-media reveal">
+        <span class="tag">20+ Years In The Trade</span>
+        <img src="assets/darmel1.jpg" alt="Locksmith at work">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="stats">
+  <div class="wrap">
+    <div class="grid">
+      <div class="reveal"><div class="n">20<span class="lime">+</span></div><div class="l">Years Experience</div></div>
+      <div class="reveal"><div class="n">4.8<span class="lime">★</span></div><div class="l">Average Rating</div></div>
+      <div class="reveal"><div class="n">400<span class="lime">+</span></div><div class="l">Google Reviews</div></div>
+      <div class="reveal"><div class="n">7<span class="lime">-Day</span></div><div class="l">Weekly Service</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Customer Reviews</span>
+      <h2>Trusted by Drivers & Homeowners</h2>
+      <p>A few words from the 400+ neighbors who've called Race City Locksmiths.</p>
+    </div>
+    <div class="rgrid">
+      <div class="rcard reveal">
+        <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg></div>
+        <p>"My son lost his one and only car key. John was there in 20 minutes with a new programmed key. I'd never think a locksmith call could be so pleasant."</p>
+        <div class="who"><div class="av">L</div><div><b>Lisa</b><span>Automotive Key</span></div></div>
+      </div>
+      <div class="rcard reveal">
+        <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg></div>
+        <p>"Arrived ahead of time and made my new keys in under an hour. Worked promptly and smoothly — incredibly helpful. 10/10 recommend."</p>
+        <div class="who"><div class="av">K</div><div><b>Kyle Steckly</b><span>Key Replacement</span></div></div>
+      </div>
+      <div class="rcard reveal">
+        <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg></div>
+        <p>"Reprogrammed my truck keys quickly and efficiently. Overall cost was considerably less than the dealer. Fast, friendly, fair."</p>
+        <div class="who"><div class="av">M</div><div><b>Michael Mills</b><span>Truck Key Reprogram</span></div></div>
+      </div>
+      <div class="rcard reveal">
+        <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg></div>
+        <p>"Completely re-keyed every lock on the property in two hours. Great guy and great service — efficient and cheerful the whole time."</p>
+        <div class="who"><div class="av">L</div><div><b>Lee Hinson</b><span>Whole-Home Re-Key</span></div></div>
+      </div>
+      <div class="rcard reveal">
+        <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg></div>
+        <p>"I locked myself out of my house and 15 minutes later they were here. Prompt, friendly — and they even threw in a spare key."</p>
+        <div class="who"><div class="av">M</div><div><b>Meagan Edwards</b><span>House Lockout</span></div></div>
+      </div>
+      <div class="rcard reveal">
+        <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.3 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg></div>
+        <p>"Arrived ahead of time and finished in less than half an hour — $100 cheaper than the Ford dealer. Fantastic job from start to finish."</p>
+        <div class="who"><div class="av">J</div><div><b>Joseph Whitonis</b><span>Automotive Key</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="wrap">
+    <div class="box">
+      <div class="checker"></div>
+      <div class="inner">
+        <span class="eyebrow">Ready When You Are</span>
+        <h2>Locked Out or Need a Key? Call Race City.</h2>
+        <p>Open Monday–Saturday 7AM–7PM and Sunday 7AM–5PM. One call reaches the owner — and a fast, fair quote.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="tel:7047540195">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 4a13 13 0 0 0 11 11l-2.5 2.5a2 2 0 0 1-2.2.45 18 18 0 0 1-8.7-8.7A2 2 0 0 1 7.5 6.5L10 4"/></svg>
+            Call Now
+          </a>
+          <a class="phone" href="tel:7047540195">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 4a13 13 0 0 0 11 11l-2.5 2.5a2 2 0 0 1-2.2.45 18 18 0 0 1-8.7-8.7A2 2 0 0 1 7.5 6.5L10 4"/></svg>
+            704-754-0195
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img src="assets/logo.png" alt="Race City Locksmiths">
+        <p>Bonded, insured and licensed mobile locksmith proudly serving Mooresville and the I-77 corridor north of Charlotte.</p>
+        <div class="social">
+          <a href="https://www.facebook.com/RaceCityLocksmiths/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Residential Locksmith</a></li>
+          <li><a href="#services">Commercial Security</a></li>
+          <li><a href="#services">Automotive Keys</a></li>
+          <li><a href="#services">Re-Key & Lockouts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Service Area</h4>
+        <ul>
+          <li>Mooresville, NC</li>
+          <li>Cornelius · Davidson</li>
+          <li>Huntersville</li>
+          <li>Concord · Kannapolis</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 4a13 13 0 0 0 11 11l-2.5 2.5a2 2 0 0 1-2.2.45 18 18 0 0 1-8.7-8.7A2 2 0 0 1 7.5 6.5L10 4"/></svg><a href="tel:7047540195">704-754-0195</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Mon–Sat 7AM–7PM</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Sun 7AM–5PM</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg>NC License #2124</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© 2026 Race City Locksmiths. All rights reserved.</span>
+      <span>Bonded · Insured · Licensed · NC #2124</span>
+    </div>
+  </div>
+</footer>
+
+<a class="floatcall" href="tel:7047540195" aria-label="Call now"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 4a13 13 0 0 0 11 11l-2.5 2.5a2 2 0 0 1-2.2.45 18 18 0 0 1-8.7-8.7A2 2 0 0 1 7.5 6.5L10 4"/></svg></a>
+
+<script>
+  const burger=document.getElementById('burger'),drawer=document.getElementById('drawer'),closeD=document.getElementById('closeDrawer');
+  burger.addEventListener('click',()=>drawer.classList.add('open'));
+  closeD.addEventListener('click',()=>drawer.classList.remove('open'));
+  drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>drawer.classList.remove('open')));
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>10));
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
