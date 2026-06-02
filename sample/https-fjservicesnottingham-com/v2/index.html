@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FJ Services — Property Maintenance Done Right · Nottingham</title>
+<meta name="description" content="FJ Services delivers expert property maintenance across Nottingham — kitchen & bathroom renovations, carpentry, plumbing, electrical works and general repairs. Available 24 hours." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16130f;
+  --ink-soft:#403a32;
+  --paper:#faf8f4;
+  --white:#ffffff;
+  --stone:#857c70;
+  --line:#e7e0d4;
+  --serif:"Playfair Display",Georgia,serif;
+  --sans:"Jost",-apple-system,"Segoe UI",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.1}
+.wrap{max-width:1260px;margin:0 auto;padding:0 36px}
+.eyebrow{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--stone);font-weight:500}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;padding:15px 32px;background:var(--ink);color:#fff;border:1px solid var(--ink);transition:.35s cubic-bezier(.2,.7,.3,1);cursor:pointer}
+.btn:hover{background:transparent;color:var(--ink)}
+.btn--light{background:#fff;color:var(--ink);border-color:#fff}
+.btn--light:hover{background:transparent;color:#fff}
+.btn--outline{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+.btn--outline:hover{background:#fff;color:var(--ink)}
+.btn svg{width:14px;height:14px}
+
+/* Header */
+header{position:fixed;top:0;left:0;right:0;z-index:60;transition:.4s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(250,248,244,.96);backdrop-filter:blur(10px);border-bottom-color:var(--line)}
+.nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:80px}
+.navlinks{display:flex;gap:30px}
+.navlinks a{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#fff;transition:.3s;position:relative}
+header.scrolled .navlinks a,header.scrolled .brand,header.scrolled .nav-right .ph{color:var(--ink)}
+.navlinks a:hover{opacity:.65}
+.brand{font-family:var(--serif);font-size:21px;letter-spacing:.22em;text-transform:uppercase;color:#fff;text-align:center;display:flex;align-items:center;gap:11px;justify-content:center;transition:.3s}
+.brand img{height:50px;transition:.3s}
+header:not(.scrolled) .brand img{filter:invert(1)}
+.nav-right{display:flex;justify-content:flex-end;align-items:center;gap:22px}
+.nav-right .ph{font-size:13px;letter-spacing:.08em;color:#fff;transition:.3s}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
+.burger span{width:26px;height:2px;background:#fff;transition:.3s}
+header.scrolled .burger span{background:var(--ink)}
+
+/* Hero */
+.hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('assets/TOP-OF-THE-PAGE-2.jpeg') center/cover;transform:scale(1.05);animation:slowzoom 14s ease-in-out infinite alternate}
+@keyframes slowzoom{to{transform:scale(1.13)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,19,15,.55),rgba(22,19,15,.62))}
+.hero-inner{position:relative;z-index:2;max-width:920px;padding:0 24px}
+.hero-inner .eyebrow{color:rgba(255,255,255,.85);margin-bottom:26px}
+.hero-inner h1{font-size:clamp(38px,6.5vw,84px);font-weight:400;letter-spacing:.01em}
+.hero-inner h1 em{font-style:italic}
+.hero-inner .sub{margin:24px auto 0;max-width:50ch;color:rgba(255,255,255,.88);font-size:17px;font-weight:300}
+.hero-actions{display:flex;gap:0;justify-content:center;margin-top:42px}
+.hero-actions .btn{min-width:190px}
+.scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.7);font-size:11px;letter-spacing:.25em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-hint span{width:1px;height:38px;background:rgba(255,255,255,.5);animation:drop 2s ease-in-out infinite}
+@keyframes drop{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+/* Meet section */
+.meet{padding:120px 0}
+.meet-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.meet-img{position:relative}
+.meet-img img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.meet-img .frame{position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--line);z-index:-1}
+.meet-text .eyebrow{margin-bottom:20px}
+.meet-text h2{font-size:clamp(30px,3.8vw,46px);font-weight:400;max-width:18ch}
+.meet-text p{color:var(--ink-soft);margin-top:22px;max-width:52ch}
+.meet-points{margin:30px 0 34px;display:grid;gap:14px}
+.meet-points li{list-style:none;display:flex;gap:14px;align-items:flex-start;font-size:15.5px;color:var(--ink-soft)}
+.meet-points .tick{flex:0 0 22px;width:22px;height:22px;border:1px solid var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:3px}
+.meet-points .tick svg{width:12px;height:12px;stroke:var(--ink);stroke-width:2;fill:none}
+
+/* Marquee strip (services, replaces press logos) */
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--white);overflow:hidden;padding:26px 0}
+.marq{display:flex;gap:64px;white-space:nowrap;animation:scrollx 28s linear infinite;width:max-content}
+.marq span{font-family:var(--serif);font-size:24px;font-style:italic;color:var(--stone);display:flex;align-items:center;gap:64px}
+.marq span::after{content:"•";color:var(--line);font-style:normal}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+
+/* Featured projects (horizontal) */
+.featured{padding:110px 0 0}
+.feat-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;gap:20px;flex-wrap:wrap}
+.feat-head .eyebrow{margin-bottom:0}
+.feat-head h2{font-size:clamp(26px,3.4vw,42px);font-weight:400;margin-top:8px}
+.feat-scroll{display:flex;gap:24px;overflow-x:auto;padding:0 36px 50px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.feat-scroll::-webkit-scrollbar{height:5px}
+.feat-scroll::-webkit-scrollbar-thumb{background:var(--line)}
+.feat-card{position:relative;flex:0 0 min(82vw,760px);height:480px;scroll-snap-align:center;overflow:hidden}
+.feat-card img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.3,1)}
+.feat-card:hover img{transform:scale(1.05)}
+.feat-card .cap{position:absolute;left:30px;bottom:30px;background:#fff;padding:26px 30px;max-width:320px}
+.feat-card .cap h3{font-size:25px;font-weight:500}
+.feat-card .cap .meta{font-size:13px;letter-spacing:.08em;color:var(--stone);margin-top:8px;text-transform:uppercase}
+
+/* Services grid */
+.svc{padding:110px 0}
+.svc-head{text-align:center;margin-bottom:56px}
+.svc-head .eyebrow{margin-bottom:14px;display:block}
+.svc-head h2{font-size:clamp(28px,3.8vw,46px);font-weight:400}
+.grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.gc{background:var(--white);border:1px solid var(--line);overflow:hidden;transition:.4s}
+.gc:hover{transform:translateY(-6px);box-shadow:0 26px 50px -28px rgba(22,19,15,.4)}
+.gc .ph{height:210px;overflow:hidden;position:relative}
+.gc .ph img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.3,1)}
+.gc:hover .ph img{transform:scale(1.08)}
+.gc .ph .ico{position:absolute;bottom:-22px;right:22px;width:54px;height:54px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center}
+.gc .ph .ico svg{width:24px;height:24px;stroke-width:1.4;fill:none;stroke:currentColor}
+.gc .info{padding:30px 26px 28px}
+.gc h3{font-size:23px;font-weight:500}
+.gc p{color:var(--stone);font-size:14.5px;margin-top:10px}
+.gc .lnk{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+.gc .lnk svg{width:13px;height:13px;transition:.3s}
+.gc:hover .lnk svg{transform:translateX(5px)}
+
+/* Stats band */
+.band{background:var(--ink);color:#fff;padding:80px 0}
+.band-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+.band .n{font-family:var(--serif);font-size:clamp(40px,5vw,62px);font-weight:400}
+.band .t{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:8px}
+
+/* Areas */
+.areas{padding:110px 0;text-align:center}
+.areas h2{font-size:clamp(28px,3.6vw,44px);font-weight:400;margin-top:14px}
+.areas .lead{color:var(--stone);max-width:54ch;margin:16px auto 44px}
+.chips{display:flex;flex-wrap:wrap;gap:11px;justify-content:center;max-width:940px;margin:0 auto}
+.chips span{padding:9px 19px;border:1px solid var(--line);font-size:14px;color:var(--ink-soft);transition:.3s}
+.chips span:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* CTA */
+.contact{position:relative;color:#fff;text-align:center;padding:140px 0}
+.contact-bg{position:absolute;inset:0;background:url('assets/electrician-working-in-a-residential-electrical-system.jpg') center/cover}
+.contact::after{content:"";position:absolute;inset:0;background:rgba(22,19,15,.72)}
+.contact .wrap{position:relative;z-index:2}
+.contact h2{font-size:clamp(32px,5.2vw,66px);font-weight:400;max-width:20ch;margin:16px auto 0}
+.contact .sub{color:rgba(255,255,255,.85);max-width:48ch;margin:20px auto 0}
+.contact-actions{display:flex;gap:16px;justify-content:center;margin-top:40px;flex-wrap:wrap}
+
+/* Footer */
+footer{background:#100d0a;color:rgba(255,255,255,.7);padding:78px 0 32px;font-size:14.5px}
+.fgrid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1.3fr;gap:50px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.12)}
+.fbrand{font-family:var(--serif);font-size:22px;letter-spacing:.2em;text-transform:uppercase;color:#fff;display:flex;align-items:center;gap:12px}
+.fbrand img{height:50px;filter:invert(1)}
+.fcol h4{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#fff;margin-bottom:20px;font-weight:500}
+.fcol a,.fcol p{display:block;color:rgba(255,255,255,.7);margin-bottom:11px;transition:.3s}
+.fcol a:hover{color:#fff}
+.fdesc{margin-top:18px;max-width:36ch;line-height:1.7}
+.fsoc{display:flex;gap:13px;margin-top:20px}
+.fsoc a{width:38px;height:38px;border:1px solid rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;transition:.3s}
+.fsoc a:hover{background:#fff;color:var(--ink)}
+.fsoc svg{width:17px;height:17px}
+.fbot{display:flex;justify-content:space-between;padding-top:26px;font-size:12.5px;color:rgba(255,255,255,.5);flex-wrap:wrap;gap:10px}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:980px){
+  .meet-grid{grid-template-columns:1fr;gap:46px}
+  .meet-img .frame{inset:14px -14px -14px 14px}
+  .grid6{grid-template-columns:repeat(2,1fr)}
+  .band-grid{grid-template-columns:repeat(2,1fr);gap:44px}
+}
+@media(max-width:760px){
+  .wrap{padding:0 22px}
+  .nav{grid-template-columns:auto 1fr auto}
+  .navlinks{display:none;position:absolute;top:80px;left:0;right:0;background:var(--ink);flex-direction:column;padding:24px;gap:20px}
+  .navlinks.open{display:flex}
+  .navlinks a{color:#fff!important}
+  .nav-right .ph{display:none}
+  .burger{display:flex}
+  .brand{justify-self:start;text-align:left}
+  .nav{grid-template-columns:1fr auto}
+  .brand{grid-column:1}
+  .nav-right{grid-column:2}
+  .hero-actions{flex-direction:column;width:100%;max-width:300px;margin-inline:auto}
+  .grid6{grid-template-columns:1fr}
+  .feat-card{flex-basis:86vw;height:400px}
+  .meet,.svc,.areas{padding:72px 0}
+  .featured{padding:72px 0 0}
+  .feat-scroll{padding-inline:22px}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <nav class="navlinks" id="menu">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Our Work</a>
+      <a href="#areas">Areas</a>
+    </nav>
+    <a href="#top" class="brand" aria-label="FJ Services"><img src="assets/Screenshot-2025-04-03-153049.png" alt="FJ Services"/></a>
+    <div class="nav-right">
+      <a href="tel:07785963296" class="ph">07785 963296</a>
+      <a href="#contact" class="btn btn--light" style="padding:12px 24px">Contact Us</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <p class="eyebrow">Nottingham's Trusted Property Maintenance Team</p>
+      <h1>Comprehensive Property Maintenance, <em>Done Right</em></h1>
+      <p class="sub">Renovations, repairs and installations delivered by one skilled local team — professional, reliable and available around the clock.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn--light">Get a Quote</a>
+        <a href="#services" class="btn btn--outline">Our Services</a>
+      </div>
+    </div>
+    <div class="scroll-hint">Scroll<span></span></div>
+  </section>
+
+  <!-- MEET FJ SERVICES -->
+  <section class="meet" id="about">
+    <div class="wrap meet-grid">
+      <div class="meet-img reveal">
+        <img src="assets/man-smoothing-wood-cabinet-with-scraper-3_1.jpg" alt="FJ Services craftsman at work"/>
+        <div class="frame"></div>
+      </div>
+      <div class="meet-text reveal">
+        <p class="eyebrow">Meet FJ Services</p>
+        <h2>Your trusted property maintenance experts in Nottingham</h2>
+        <p>Welcome to FJ Services. We proudly serve Nottingham and the surrounding area with comprehensive, professional and reliable property maintenance — covering everything from full renovations to everyday repairs under one dependable roof.</p>
+        <ul class="meet-points">
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-11"/></svg></span>Six core trades handled in-house — no juggling contractors</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-11"/></svg></span>Available 24 hours a day, seven days a week</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-11"/></svg></span>Quality craftsmanship and a clean, considerate finish</li>
+        </ul>
+        <a href="#contact" class="btn">Work With Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE STRIP -->
+  <div class="strip" aria-hidden="true">
+    <div class="marq">
+      <span>Kitchen Renovations</span><span>Bathroom Renovations</span><span>General Repairs</span><span>Carpentry</span><span>Plumbing</span><span>Electrical Works</span>
+      <span>Kitchen Renovations</span><span>Bathroom Renovations</span><span>General Repairs</span><span>Carpentry</span><span>Plumbing</span><span>Electrical Works</span>
+    </div>
+  </div>
+
+  <!-- FEATURED PROJECTS -->
+  <section class="featured" id="work">
+    <div class="wrap feat-head reveal">
+      <div>
+        <p class="eyebrow">Recent Work</p>
+        <h2>A look at our latest projects</h2>
+      </div>
+      <a href="#contact" class="btn">Start Your Project</a>
+    </div>
+    <div class="feat-scroll">
+      <article class="feat-card reveal">
+        <img src="assets/TOP-OF-THE-PAGE.jpeg" alt="Fitted bedroom wardrobes"/>
+        <div class="cap"><h3>Bespoke Fitted Wardrobes</h3><div class="meta">Loft Carpentry · Nottingham</div></div>
+      </article>
+      <article class="feat-card reveal">
+        <img src="assets/487665384_122095357346831368_5607687661543062848_n.jpg" alt="Custom storage build"/>
+        <div class="cap"><h3>Custom Storage Joinery</h3><div class="meta">Carpentry · Nottingham</div></div>
+      </article>
+      <article class="feat-card reveal">
+        <img src="assets/custom-master-bathroom-design-drawing-gradating-to-finished-photo-4.jpg" alt="Master bathroom renovation"/>
+        <div class="cap"><h3>Master Bathroom Renovation</h3><div class="meta">Bathroom · Nottingham</div></div>
+      </article>
+      <article class="feat-card reveal">
+        <img src="assets/487934943_122094827432831368_4997095646721189755_n.jpg" alt="Renovation in progress"/>
+        <div class="cap"><h3>Full Room Refit</h3><div class="meta">Renovation · Nottingham</div></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section class="svc" id="services">
+    <div class="wrap">
+      <div class="svc-head reveal">
+        <span class="eyebrow">Our Services</span>
+        <h2>What we can do for your property</h2>
+      </div>
+      <div class="grid6">
+        <article class="gc reveal">
+          <div class="ph"><img src="assets/stylish-light-gray-handles-on-cabinets-close-up-kitchen-interior-with-modern-furniture-and.jpg" alt="Kitchen renovation"/>
+            <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 9v12"/></svg></span></div>
+          <div class="info"><h3>Kitchen Renovations</h3><p>Transform your kitchen with expert renovations, combining style, functionality and quality craftsmanship.</p><a href="#contact" class="lnk">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6" stroke-width="1.6"/></svg></a></div>
+        </article>
+        <article class="gc reveal">
+          <div class="ph"><img src="assets/custom-master-bathroom-design-drawing-gradating-to-finished-photo-4.jpg" alt="Bathroom renovation"/>
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 12h16v4a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-4z"/><path d="M6 12V6a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2"/></svg></span></div>
+          <div class="info"><h3>Bathroom Renovations</h3><p>Upgrade your bathroom with professional renovations for a modern, comfortable and efficient space.</p><a href="#contact" class="lnk">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6" stroke-width="1.6"/></svg></a></div>
+        </article>
+        <article class="gc reveal">
+          <div class="ph"><img src="assets/woman-looking-at-instruction-manual-to-assemble-furniture-1_1.jpg" alt="General repairs"/>
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 0 0 5.4-5.4l-2.3 2.3-2-2 2.3-2.3z" stroke-linejoin="round"/></svg></span></div>
+          <div class="info"><h3>General Repairs</h3><p>Reliable general repair services to keep your home or business in top condition.</p><a href="#contact" class="lnk">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6" stroke-width="1.6"/></svg></a></div>
+        </article>
+        <article class="gc reveal">
+          <div class="ph"><img src="assets/man-smoothing-wood-cabinet-with-scraper-3_1.jpg" alt="Carpentry"/>
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M3 7l4-4 3 3-4 4-3-3zM7 10l10 10 4-4L11 6" stroke-linejoin="round"/></svg></span></div>
+          <div class="info"><h3>Carpentry</h3><p>Skilled carpentry services for custom woodwork, repairs and high-quality finishes.</p><a href="#contact" class="lnk">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6" stroke-width="1.6"/></svg></a></div>
+        </article>
+        <article class="gc reveal">
+          <div class="ph"><img src="assets/plumber-at-work-in-a-bathroom-plumbing-repair-service-assemble-and-install-concept-1_1.jpg" alt="Plumbing"/>
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M9 3v5a4 4 0 0 0 4 4h2a3 3 0 0 1 3 3v6M9 3H6m6 0h0"/></svg></span></div>
+          <div class="info"><h3>Plumbing</h3><p>Expert plumbing solutions for installations, repairs and maintenance.</p><a href="#contact" class="lnk">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6" stroke-width="1.6"/></svg></a></div>
+        </article>
+        <article class="gc reveal">
+          <div class="ph"><img src="assets/electrician-working-in-a-residential-electrical-system.jpg" alt="Electrical works"/>
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z" stroke-linejoin="round"/></svg></span></div>
+          <div class="info"><h3>Electrical Works</h3><p>Professional electrical services for safe and efficient installations, repairs and upgrades.</p><a href="#contact" class="lnk">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6" stroke-width="1.6"/></svg></a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAND -->
+  <section class="band">
+    <div class="wrap band-grid">
+      <div class="reveal"><div class="n">24/7</div><div class="t">Always Available</div></div>
+      <div class="reveal"><div class="n">6</div><div class="t">Core Trades</div></div>
+      <div class="reveal"><div class="n">22+</div><div class="t">Areas Covered</div></div>
+      <div class="reveal"><div class="n">100%</div><div class="t">Local &amp; Reliable</div></div>
+    </div>
+  </section>
+
+  <!-- AREAS -->
+  <section class="areas" id="areas">
+    <div class="wrap">
+      <p class="eyebrow reveal">Where We Work</p>
+      <h2 class="reveal">Covering Nottingham &amp; the surrounding area</h2>
+      <p class="lead reveal">If you're nearby and need a dependable hand with your property, we'd be glad to help.</p>
+      <div class="chips reveal">
+        <span>Nottingham</span><span>Arnold</span><span>Woodthorpe</span><span>Lambley</span><span>Dorkey Head</span><span>Woodborough</span><span>Calverton</span><span>Bestwood Village</span><span>Hucknall</span><span>Epperstone</span><span>Oxton</span><span>Bulcote</span><span>Burton Joyce</span><span>Gedling</span><span>Carlton</span><span>Netherfield</span><span>Hyson Green</span><span>Colwick</span><span>Linby</span><span>Papplewick</span><span>West Bridgford</span><span>Holme Pierrepont</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section class="contact" id="contact">
+    <div class="contact-bg"></div>
+    <div class="wrap">
+      <p class="eyebrow" style="color:rgba(255,255,255,.8)">Get In Touch</p>
+      <h2>Ready to get the job done right?</h2>
+      <p class="sub">Tell us what your property needs. We're available 24 hours a day — call now for a friendly chat and a no-obligation quote.</p>
+      <div class="contact-actions">
+        <a href="tel:07785963296" class="btn btn--light">Call 07785 963296</a>
+        <a href="mailto:contact@fj-services.co.uk" class="btn btn--outline">Email Us</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fcol">
+        <div class="fbrand"><img src="assets/Screenshot-2025-04-03-153049.png" alt="FJ Services"/></div>
+        <p class="fdesc">Comprehensive property maintenance for homes and businesses across Nottingham — professional, reliable and available around the clock.</p>
+        <div class="fsoc">
+          <a href="https://www.facebook.com/profile.php?id=61574941044849" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H9v3h2v6h3v-6h2.5l.5-3H14V9z"/></svg></a>
+          <a href="https://www.instagram.com/_fjservices/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="5" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://maps.app.goo.gl/dwVmybyYB9PouDAv5" aria-label="Google Maps" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 21s7-6.6 7-12a7 7 0 1 0-14 0c0 5.4 7 12 7 12z" stroke-width="1.6"/><circle cx="12" cy="9" r="2.5" stroke-width="1.6"/></svg></a>
+        </div>
+      </div>
+      <div class="fcol">
+        <h4>Services</h4>
+        <a href="#services">Kitchen Renovations</a>
+        <a href="#services">Bathroom Renovations</a>
+        <a href="#services">General Repairs</a>
+        <a href="#services">Carpentry</a>
+        <a href="#services">Plumbing</a>
+        <a href="#services">Electrical Works</a>
+      </div>
+      <div class="fcol">
+        <h4>Company</h4>
+        <a href="#about">About Us</a>
+        <a href="#work">Our Work</a>
+        <a href="#areas">Service Areas</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="fcol">
+        <h4>Contact</h4>
+        <a href="tel:07785963296">07785 963296</a>
+        <a href="mailto:contact@fj-services.co.uk">contact@fj-services.co.uk</a>
+        <p>Nottingham, United Kingdom</p>
+        <p>Open 24 hours, 7 days a week</p>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>Copyright © 2025 FJ Services. All rights reserved.</span>
+      <span>Professional &amp; Reliable · Nottingham</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3)*0.08+'s';io.observe(el);});
+</script>
+</body>
+</html>
