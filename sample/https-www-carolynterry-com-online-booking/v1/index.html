@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personalized Facials for Women 40+ | Carolyn Terry Skin Care — Chicago Gold Coast</title>
+<meta name="description" content="Personalized facials, brow shaping, and waxing in Chicago's Gold Coast. Expert, planning-based care for women 40+ in a calm, private studio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --espresso:#1c1611;
+    --espresso-2:#26201a;
+    --cream:#f5efe6;
+    --cream-2:#faf6ef;
+    --gold:#bd9a5f;
+    --gold-deep:#a07e44;
+    --ink:#2a241e;
+    --muted:#6e6457;
+    --line:#e3d9c9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Jost',sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.7;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.12;letter-spacing:.005em}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:'Jost',sans-serif;font-weight:400;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-deep)}
+  .serif-i{font-style:italic;font-weight:400}
+
+  /* Buttons */
+  .btn{
+    display:inline-block;font-family:'Jost',sans-serif;font-weight:400;
+    font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;
+    padding:17px 38px;background:var(--gold);color:#fff;border:1px solid var(--gold);
+    transition:.45s cubic-bezier(.2,.7,.3,1);cursor:pointer;
+  }
+  .btn:hover{background:var(--gold-deep);border-color:var(--gold-deep);letter-spacing:.27em}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--cream)}
+  .btn-ghost-light{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5)}
+  .btn-ghost-light:hover{background:#fff;color:var(--espresso);border-color:#fff}
+
+  /* Utility bar */
+  .util{background:var(--espresso);color:#cbbfa9;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase}
+  .util .wrap{display:flex;justify-content:space-between;align-items:center;height:36px;font-weight:400}
+  .util a{transition:color .3s}
+  .util a:hover{color:#fff}
+  .util .mid{color:var(--gold);font-weight:400}
+
+  /* Header */
+  header{background:var(--espresso);position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(189,154,95,.18)}
+  .nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:76px}
+  .nav ul{display:flex;list-style:none;gap:34px}
+  .nav ul a{color:#ddd2bf;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:400;position:relative;padding:6px 0}
+  .nav ul a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .4s}
+  .nav ul a:hover{color:#fff}
+  .nav ul a:hover::after{width:100%}
+  .nav .left{justify-self:start}
+  .nav .right{justify-self:end}
+  .brand{text-align:center;color:#fff}
+  .brand .name{font-family:'Cormorant Garamond',serif;font-size:1.65rem;letter-spacing:.18em;text-transform:uppercase;line-height:1}
+  .brand .sub{font-size:.56rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-top:4px}
+  .menu-btn{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
+
+  /* Hero */
+  .hero{position:relative;min-height:82vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.05);animation:slowzoom 18s ease-out forwards}
+  @keyframes slowzoom{to{transform:scale(1)}}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,22,17,.55),rgba(28,22,17,.35) 45%,rgba(28,22,17,.6))}
+  .hero-inner{position:relative;z-index:2;max-width:680px;padding:40px 24px}
+  .hero h1{font-size:clamp(2.6rem,5.6vw,4.5rem);margin-bottom:22px;text-shadow:0 2px 30px rgba(0,0,0,.3)}
+  .hero p{font-weight:300;font-size:1.02rem;letter-spacing:.02em;max-width:520px;margin:0 auto 34px;color:#f0e9dc}
+  .hero .eyebrow{color:var(--gold);margin-bottom:22px;display:block}
+
+  /* Credentials strip */
+  .strip{background:var(--espresso-2);border-top:1px solid rgba(189,154,95,.16)}
+  .strip .wrap{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 56px;padding:30px 28px}
+  .strip .item{display:flex;align-items:center;gap:12px;color:#cdbfa6;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase}
+  .strip .item svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.3}
+
+  /* Section base */
+  section{padding:104px 0}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:54px}
+  .sec-head h2{font-size:clamp(2rem,4vw,3rem)}
+  .sec-head .eyebrow{margin-bottom:14px;display:block}
+
+  /* Services */
+  .services{background:var(--cream-2)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+  .card{background:transparent}
+  .card .ph{position:relative;overflow:hidden;aspect-ratio:4/5;background:#e7ddcc}
+  .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.3,1)}
+  .card:hover .ph img{transform:scale(1.06)}
+  .card h3{font-size:1.55rem;margin:22px 0 8px}
+  .card .price{font-family:'Jost',sans-serif;font-weight:400;font-size:.74rem;letter-spacing:.16em;color:var(--gold-deep);text-transform:uppercase;margin-bottom:10px}
+  .card p{font-size:.92rem;color:var(--muted);font-weight:300}
+  .card .more{display:inline-flex;align-items:center;gap:12px;margin-top:18px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);transition:gap .3s}
+  .card .more svg{width:34px;height:10px;stroke:var(--ink);transition:transform .4s}
+  .card:hover .more{gap:20px;color:var(--gold-deep)}
+  .card:hover .more svg{stroke:var(--gold-deep);transform:translateX(6px)}
+
+  /* Welcome / About split */
+  .welcome{background:var(--espresso);color:#e9e0d0;display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+  .welcome .txt{padding:96px clamp(28px,6vw,90px)}
+  .welcome .eyebrow{color:var(--gold);display:block;margin-bottom:18px}
+  .welcome h2{color:#fff;font-size:clamp(2.1rem,3.8vw,3.2rem);margin-bottom:26px}
+  .welcome p{font-weight:300;color:#cdc1ad;margin-bottom:20px;font-size:1rem}
+  .welcome .img{background-size:cover;background-position:center;min-height:520px}
+  .welcome .btn{margin-top:14px}
+
+  /* Quote band */
+  .quote{background:var(--cream);text-align:center}
+  .quote .wrap{max-width:920px}
+  .quote .mark{font-family:'Cormorant Garamond',serif;font-size:5rem;color:var(--gold);line-height:.5;height:40px}
+  .quote p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.7rem,3.6vw,2.7rem);color:var(--ink);line-height:1.35}
+  .quote .em{color:var(--gold-deep)}
+
+  /* Testimonials */
+  .reviews{background:var(--cream-2)}
+  .rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+  .rcard{background:#fff;padding:40px 34px;border:1px solid var(--line);transition:.5s}
+  .rcard:hover{transform:translateY(-6px);box-shadow:0 24px 50px -28px rgba(60,45,25,.28)}
+  .stars{display:flex;gap:4px;margin-bottom:18px}
+  .stars svg{width:16px;height:16px;fill:var(--gold);stroke:none}
+  .rcard p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.18rem;color:var(--ink);line-height:1.45;margin-bottom:22px}
+  .rcard .who{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep)}
+  .rcard .who span{display:block;color:var(--muted);letter-spacing:.12em;margin-top:5px;font-size:.66rem}
+
+  /* Pricing list */
+  .menu-sec{background:var(--cream)}
+  .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 70px}
+  .mrow{display:flex;align-items:baseline;gap:14px;padding:20px 0;border-bottom:1px solid var(--line)}
+  .mrow .nm{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--ink);white-space:nowrap}
+  .mrow .dot{flex:1;border-bottom:1px dotted #c9bca6;transform:translateY(-4px)}
+  .mrow .pr{font-family:'Jost',sans-serif;font-weight:400;letter-spacing:.06em;color:var(--gold-deep)}
+  .mrow small{display:block;font-size:.82rem;color:var(--muted);font-weight:300;letter-spacing:0;text-transform:none;margin-top:2px}
+  .mrow .nmwrap{display:flex;flex-direction:column}
+
+  /* CTA / Booking */
+  .booking{position:relative;color:#fff;text-align:center;overflow:hidden}
+  .booking-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+  .booking::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(28,22,17,.72),rgba(28,22,17,.78))}
+  .booking .wrap{position:relative;z-index:2;max-width:760px}
+  .booking h2{color:#fff;font-size:clamp(2.2rem,4.4vw,3.4rem);margin-bottom:20px}
+  .booking p{color:#e3d8c6;font-weight:300;margin-bottom:34px;font-size:1.05rem}
+  .booking .info{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;margin-top:46px;color:#d8ccb8;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
+  .booking .info div{display:flex;align-items:center;gap:10px}
+  .booking .info svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.4}
+
+  /* Footer */
+  footer{background:var(--espresso);color:#b6a98f;padding:80px 0 36px}
+  .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:44px;margin-bottom:54px}
+  footer .brand{text-align:left;color:#fff;margin-bottom:20px}
+  footer .brand .name{font-size:1.5rem}
+  footer .brand .sub{margin-left:0}
+  footer p{font-size:.9rem;font-weight:300;color:#a99c82;max-width:280px}
+  footer h4{color:#fff;font-family:'Jost',sans-serif;font-weight:400;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px}
+  footer ul{list-style:none}
+  footer li{margin-bottom:12px}
+  footer li a{font-size:.9rem;font-weight:300;color:#b6a98f;transition:color .3s}
+  footer li a:hover{color:var(--gold)}
+  .fbar{border-top:1px solid rgba(189,154,95,.18);padding-top:28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.74rem;letter-spacing:.1em;color:#8a7e66}
+  .flogo{height:62px;width:auto;margin-bottom:20px;background:#f4efe6;padding:11px 16px;border-radius:10px;display:inline-block;box-shadow:0 10px 28px -14px rgba(0,0,0,.55)}
+
+  /* Reveal */
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.2,.7,.3,1),transform 1s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* Mobile nav panel */
+  .mnav{display:none}
+
+  @media(max-width:960px){
+    .cards,.rgrid{grid-template-columns:1fr 1fr}
+    .menu-grid{grid-template-columns:1fr;gap:0}
+    .welcome{grid-template-columns:1fr}
+    .welcome .img{min-height:360px;order:-1}
+    .fgrid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:680px){
+    section{padding:70px 0}
+    .nav{grid-template-columns:auto 1fr auto}
+    .nav ul{display:none}
+    .nav .right{display:none}
+    .menu-btn{display:block;justify-self:end}
+    .nav .left{justify-self:start}
+    .brand{justify-self:center}
+    .cards,.rgrid,.fgrid{grid-template-columns:1fr}
+    .sec-head{flex-direction:column;align-items:flex-start}
+    .util .wrap{justify-content:center;gap:18px}
+    .util .side{display:none}
+    .mnav.open{display:block;background:var(--espresso-2);border-top:1px solid rgba(189,154,95,.18)}
+    .mnav ul{list-style:none;padding:14px 28px 22px}
+    .mnav li a{display:block;padding:13px 0;color:#ddd2bf;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid rgba(189,154,95,.1)}
+  }
+  @media(max-width:460px){
+    .wrap{padding:0 20px}
+    section{padding:58px 0}
+    .hero{min-height:80vh}
+    .hero h1{font-size:2.15rem}
+    .hero p{font-size:.95rem}
+    .btn{padding:15px 28px;font-size:.7rem;letter-spacing:.16em}
+    .strip .wrap{gap:14px 24px;padding:24px 20px}
+    .strip .item{font-size:.68rem}
+    .card .ph{aspect-ratio:3/2}
+    .welcome .txt{padding:60px 24px}
+    .quote p{font-size:1.45rem}
+    .rcard{padding:30px 24px}
+    .mrow{flex-wrap:wrap}
+    .mrow .nm{font-size:1.25rem;white-space:normal}
+    .booking .info{flex-direction:column;align-items:center;gap:14px}
+    .brand .name{font-size:1.32rem}
+    .util .wrap{height:auto;padding:8px 0;flex-wrap:wrap}
+  }
+</style>
+</head>
+<body>
+
+<!-- Utility bar -->
+<div class="util">
+  <div class="wrap">
+    <span class="side">21 W Elm St, 2nd Fl · Chicago Gold Coast</span>
+    <a href="#booking" class="mid">Book an Appointment</a>
+    <a href="tel:+13122650481" class="side">312·265·0481</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header>
+  <div class="wrap nav">
+    <ul class="left">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#menu">Pricing</a></li>
+    </ul>
+    <a href="#" class="brand">
+      <div class="name">Carolyn Terry</div>
+      <div class="sub">Skin Care</div>
+    </a>
+    <ul class="right">
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#booking">Contact</a></li>
+    </ul>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+  <nav class="mnav" id="mnav">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#menu">Pricing</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#booking">Contact &amp; Booking</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero" style="padding:0">
+  <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1900&q=80')"></div>
+  <div class="hero-inner">
+    <span class="eyebrow">Personalized Facials · Chicago Gold Coast</span>
+    <h1>Get the Skin You've<br>Always Dreamed Of</h1>
+    <p>For nearly four decades, women 40+ have trusted Carolyn Terry to read their skin, customize every treatment, and deliver a glow that lasts between visits.</p>
+    <a href="#booking" class="btn">Book an Appointment</a>
+  </div>
+</section>
+
+<!-- Credentials strip -->
+<div class="strip">
+  <div class="wrap">
+    <div class="item"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.5H21l-5.3 4 2 6.5L12 15l-5.7 4 2-6.5L3 8.5h6.6z"/></svg>Licensed Esthetician</div>
+    <div class="item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>30+ Years of Care</div>
+    <div class="item"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a7 7 0 0114 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>Gold Coast Studio</div>
+    <div class="item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Tailored to Women 40+</div>
+  </div>
+</div>
+
+<!-- Services -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Our Signature Treatments</span>
+        <h2>Care, Customized to Your Skin</h2>
+      </div>
+      <a href="#menu" class="btn btn-ghost">View Full Menu</a>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <div class="ph"><img src="https://www.carolynterry.com/uploads/b/22f8fa50-1852-11ea-8257-cdac3b921ace/3531b9248ba3f92222d311131940c43db18611ce6b1903fb42232c25fe3223a7.jpg" alt="Personalized facial treatment in Chicago"></div>
+        <h3>Personalized Facial</h3>
+        <div class="price">60 Minutes</div>
+        <p>Start here. A full 60-minute treatment built around expert analysis and real-time customization for your skin's needs that day.</p>
+        <a href="#booking" class="more">Book Now <svg viewBox="0 0 34 10"><path d="M0 5h32M27 1l5 4-5 4" fill="none" stroke-width="1.2"/></svg></a>
+      </article>
+      <article class="card reveal">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=900&q=80" alt="Hydra-Dew hydration facial"></div>
+        <h3>Hydra-Dew Facial</h3>
+        <div class="price">Deep Hydration</div>
+        <p>Feel like your skin is stuck? This corrective treatment restores hydration, glow, and calm — especially for women 40+.</p>
+        <a href="#booking" class="more">Book Now <svg viewBox="0 0 34 10"><path d="M0 5h32M27 1l5 4-5 4" fill="none" stroke-width="1.2"/></svg></a>
+      </article>
+      <article class="card reveal">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=900&q=80" alt="Nano Infusion and LED light therapy facial"></div>
+        <h3>Nano Glow + LED</h3>
+        <div class="price">Advanced Renewal</div>
+        <p>Nano infusion paired with LED light therapy to deeply hydrate, smooth, and rejuvenate — real, glow-restoring results.</p>
+        <a href="#booking" class="more">Book Now <svg viewBox="0 0 34 10"><path d="M0 5h32M27 1l5 4-5 4" fill="none" stroke-width="1.2"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Welcome / About -->
+<section class="welcome" id="about" style="padding:0">
+  <div class="txt reveal">
+    <span class="eyebrow">Welcome to the Studio</span>
+    <h2>Where expertise meets <span class="serif-i">calm.</span></h2>
+    <p>Carolyn Terry is a licensed esthetician in Chicago's Gold Coast with nearly four decades of experience in personalized skin care. Her studio is more than a place to get a facial — it's a private, unhurried space designed around you.</p>
+    <p>Her approach is planning-based: focused on assessment, consistency, tolerance, and long-term skin health — never quick fixes. Every cut of time is spent reading your skin and tailoring the treatment to where you are today, so results carry between visits.</p>
+    <a href="#booking" class="btn btn-ghost-light">Schedule a Consultation</a>
+  </div>
+  <div class="img" style="background-image:url('https://www.carolynterry.com/uploads/b/22f8fa50-1852-11ea-8257-cdac3b921ace/facial-results-near-north-chicago-skincare.jpg.png')"></div>
+</section>
+
+<!-- Quote -->
+<section class="quote">
+  <div class="wrap reveal">
+    <div class="mark">&ldquo;</div>
+    <p>Experience the beauty of <span class="serif-i em">healthy, ageless</span> skin — because you deserve care built on knowledge, not <span class="serif-i em">quick fixes.</span></p>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal" style="justify-content:center;text-align:center;flex-direction:column;align-items:center">
+      <span class="eyebrow">Loved by Gold Coast Clients</span>
+      <h2>Five Stars, Earned Over Decades</h2>
+    </div>
+    <div class="rgrid">
+      <div class="rcard reveal">
+        <div class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.5H21l-5.3 4 2 6.5L12 15l-5.7 4 2-6.5L3 8.5h6.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.5H21l-5.3 4 2 6.5L12 15l-5.7 4 2-6.5L3 8.5h6.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.5H21l-5.3 4 2 6.5L12 15l-5.7 4 2-6.5L3 8.5h6.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.5H21l-5.3 4 2 6.5L12 15l-5.7 4 2-6.5L3 8.5h6.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.5H21l-5.3 4 2 6.5L12 15l-5.7 4 2-6.5L3 8.5h6.6z"/></svg></div>
+        <p>"I highly recommend Carolyn — she is a master of her craft, very professional, with great knowledge of her products."</p>
+        <div class="who">Erin Johnson<span>Client of 10+ years</span></div>
+      </div>
+      <div class="rcard reveal">
+        <div class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.5H21l-5.3 4 2 6.5L12 15l-5.7 4 2-6.5L3 8.5h6.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.5H21l-5.3 4 2 6.5L12 15l-5.7 4 2-6.5L3 8.5h6.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.5H21l-5.3 4 2 6.5L12 15l-5.7 4 2-6.5L3 8.5h6.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.5H21l-5.3 4 2 6.5L12 15l-5.7 4 2-6.5L3 8.5h6.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.5H21l-5.3 4 2 6.5L12 15l-5.7 4 2-6.5L3 8.5h6.6z"/></svg></div>
+        <p>"Carolyn is a truly talented technician who delivers everything your skin needs. She often also takes care of your soul too!"</p>
+        <div class="who">Jenni Gordon<span>Verified Review</span></div>
+      </div>
+      <div class="rcard reveal">
+        <div class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.5H21l-5.3 4 2 6.5L12 15l-5.7 4 2-6.5L3 8.5h6.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.5H21l-5.3 4 2 6.5L12 15l-5.7 4 2-6.5L3 8.5h6.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.5H21l-5.3 4 2 6.5L12 15l-5.7 4 2-6.5L3 8.5h6.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.5H21l-5.3 4 2 6.5L12 15l-5.7 4 2-6.5L3 8.5h6.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.5H21l-5.3 4 2 6.5L12 15l-5.7 4 2-6.5L3 8.5h6.6z"/></svg></div>
+        <p>"I've been a client for over 10 years and can't recommend her enough. After her routine, my skin has improved noticeably."</p>
+        <div class="who">Karla Stewart<span>Client of 10+ years</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing / Menu -->
+<section class="menu-sec" id="menu">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Service Menu</span>
+        <h2>Facials, Brows &amp; Body Care</h2>
+      </div>
+      <a href="#booking" class="btn">Book a Service</a>
+    </div>
+    <div class="menu-grid reveal">
+      <div class="mrow"><div class="nmwrap"><span class="nm">Personalized Facial</span><small>60 min · expert analysis &amp; real-time customization</small></div><span class="dot"></span><span class="pr">From $130</span></div>
+      <div class="mrow"><div class="nmwrap"><span class="nm">Corrective Facial</span><small>For dehydrated skin · hydration that lasts</small></div><span class="dot"></span><span class="pr">From $145</span></div>
+      <div class="mrow"><div class="nmwrap"><span class="nm">Hydra-Dew Facial</span><small>Deep hydration &amp; skin reset</small></div><span class="dot"></span><span class="pr">From $150</span></div>
+      <div class="mrow"><div class="nmwrap"><span class="nm">Nano Glow + LED Facial</span><small>Nano infusion with LED light therapy</small></div><span class="dot"></span><span class="pr">From $185</span></div>
+      <div class="mrow"><div class="nmwrap"><span class="nm">Radiant Reset Facial</span><small>75 min · Carolyn's signature treatment</small></div><span class="dot"></span><span class="pr">$175</span></div>
+      <div class="mrow"><div class="nmwrap"><span class="nm">Refresh + Glow Peel</span><small>Chemical exfoliation · 30 or 60 min</small></div><span class="dot"></span><span class="pr">From $95</span></div>
+      <div class="mrow"><div class="nmwrap"><span class="nm">Brazilian &amp; Brow Waxing</span><small>Expert face &amp; body waxing</small></div><span class="dot"></span><span class="pr">From $45</span></div>
+      <div class="mrow"><div class="nmwrap"><span class="nm">Brow &amp; Lash Tinting</span><small>Custom, long-lasting, low-maintenance</small></div><span class="dot"></span><span class="pr">From $30</span></div>
+      <div class="mrow"><div class="nmwrap"><span class="nm">Body Treatments</span><small>Professional scrubs &amp; back treatments</small></div><span class="dot"></span><span class="pr">From $90</span></div>
+      <div class="mrow"><div class="nmwrap"><span class="nm">Gift Certificates</span><small>The gift of healthy, radiant skin</small></div><span class="dot"></span><span class="pr">Any Value</span></div>
+    </div>
+    <p class="reveal" style="margin-top:26px;font-size:.86rem;color:var(--muted);max-width:640px">Prices are starting guidelines and may vary with treatment customization. Your first visit begins with a personalized skin consultation. Call <a href="tel:+13122650481" style="color:var(--gold-deep)">312·265·0481</a> with any questions.</p>
+  </div>
+</section>
+
+<!-- Booking / CTA -->
+<section class="booking" id="booking">
+  <div class="booking-bg" style="background-image:url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1900&q=80')"></div>
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--gold);display:block;margin-bottom:18px">Online Booking</span>
+    <h2>Ready When You Are</h2>
+    <p>Reserve your facial, peel, or waxing appointment online in moments — or call the studio directly. New clients begin with a personalized skin consultation.</p>
+    <a href="https://www.carolynterry.com/online-booking" class="btn">Book Your Appointment</a>
+    <div class="info">
+      <div><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-3 2a14 14 0 006 6l2-3 5 2v4a2 2 0 01-2 2A17 17 0 013 6a2 2 0 012-2z"/></svg>312·265·0481</div>
+      <div><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a7 7 0 0114 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>21 W Elm St, 2nd Floor</div>
+      <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Thu &amp; Fri 10:30–5 · Sat 9–5</div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="brand"><div class="name">Carolyn Terry</div><div class="sub">Skin Care</div></div>
+        <p>Personalized facials, brow shaping, and waxing for women 40+ in Chicago's Gold Coast. Your GPS to healthy and ageless skin.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About Carolyn</a></li>
+          <li><a href="#services">Treatments</a></li>
+          <li><a href="#menu">Pricing</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>21 W Elm St, 2nd Floor</li>
+          <li>Chicago, IL 60610</li>
+          <li>Gold Coast / Near North</li>
+          <li><a href="https://g.page/carolyn-terry-skin-care">Get Directions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <ul>
+          <li>Thursday · 10:30am – 5pm</li>
+          <li>Friday · 10:30am – 5pm</li>
+          <li>Saturday · 9am – 5pm</li>
+          <li><a href="tel:+13122650481">312·265·0481</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbar">
+      <span>© 2026 Carolyn Terry Skin Care · Chicago Gold Coast</span>
+      <span>Licensed Esthetician · By Appointment</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav
+  var mb=document.getElementById('menuBtn'),mn=document.getElementById('mnav');
+  mb&&mb.addEventListener('click',function(){mn.classList.toggle('open')});
+  document.querySelectorAll('.mnav a').forEach(function(a){a.addEventListener('click',function(){mn.classList.remove('open')})});
+  // Reveal on scroll
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(function(el,i){el.style.transitionDelay=(i%3*.08)+'s';io.observe(el)});
+</script>
+</body>
+</html>
