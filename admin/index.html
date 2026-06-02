@@ -518,7 +518,7 @@ async function delDir(dirPath){if(!confirm(`Delete folder ${dirPath} and all its
 
 function openNew(){$("newScrim").classList.remove("hidden");$("newScrim").classList.add("flex");["nl_name","nl_slug","nl_site","nl_email"].forEach(id=>$(id).value="");setTimeout(()=>$("nl_name").focus(),50)}
 function closeNew(){$("newScrim").classList.add("hidden");$("newScrim").classList.remove("flex")}
-function updateSlug(){$("nl_slug").value=$("nl_name").value.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
+function updateSlug(){let s=$("nl_name").value.toLowerCase().replace(/^https?:\/\//,"").replace(/^www\./,"").replace(/\.(com|org|net|edu|co|ca|au|uk|io|ai)(\..+)?\/?$/,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");$("nl_slug").value=s}
 async function createLead(){
   const name=$("nl_name").value.trim(),slug=$("nl_slug").value;
   if(!slug)return toast("Enter company name","err");
