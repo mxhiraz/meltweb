@@ -221,17 +221,14 @@ async function getBlobUpload(){
   }catch(e){console.warn("blob SDK load failed",e);return null}
 }
 async function uploadViaBlob(path,file){
-  // dynamic import @vercel/blob/client
-  const mod=await import("https://esm.sh/@vercel/blob@0.27.3/client");
-  const up=mod.upload;
-  if(!up)throw new Error("Vercel Blob SDK not available");
-  const blob=await up(path,file,{
-    access:"public",
-    handleUploadUrl:"/api/blob-token",
-    clientPayload:JSON.stringify({path}),
-    headers:{"x-admin-pw":pw()}
+  // POST raw file body to server-side put() endpoint. No multipart, no base64 overhead.
+  const r=await fetch(`/api/blob-upload?pw=${encodeURIComponent(pw())}&filename=${encodeURIComponent(path)}`,{
+    method:"POST",
+    body:file
   });
-  return blob.url;
+  if(!r.ok)throw new Error("blob upload "+r.status+": "+(await r.text()));
+  const j=await r.json();
+  return j.url;
 }
 
 function paintStaticIcons(){
