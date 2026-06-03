@@ -208,6 +208,32 @@ const openLeads=new Set();
 function toggleLead(L){const opening=!openLeads.has(L);if(opening){openLeads.add(L);toast("Opened "+prettyName(L))}else openLeads.delete(L);renderList()}
 const openDirs=new Set();
 
+
+// Vercel Blob direct client upload (for files >3MB - bypasses Vercel 4.5MB function body limit)
+let blobUploadFn=null;
+async function getBlobUpload(){
+  if(blobUploadFn)return blobUploadFn;
+  try{
+    const m=await import("https://cdn.jsdelivr.net/npm/@vercel/blob@0.27.3/dist/index.esm.js");
+    // fallback to local SDK if jsdelivr fails - check named export
+    blobUploadFn=m.upload||m.default?.upload;
+    return blobUploadFn;
+  }catch(e){console.warn("blob SDK load failed",e);return null}
+}
+async function uploadViaBlob(path,file){
+  // dynamic import @vercel/blob/client
+  const mod=await import("https://esm.sh/@vercel/blob@0.27.3/client");
+  const up=mod.upload;
+  if(!up)throw new Error("Vercel Blob SDK not available");
+  const blob=await up(path,file,{
+    access:"public",
+    handleUploadUrl:"/api/blob-token",
+    clientPayload:JSON.stringify({path}),
+    headers:{"x-admin-pw":pw()}
+  });
+  return blob.url;
+}
+
 function paintStaticIcons(){
   const map={"search":ICONS.search,"plus":ICONS.plus,"refresh-cw":ICONS.refresh,"copy":ICONS.copy,"external-link":ICONS.external,"eye":ICONS.eye,"upload":ICONS.upload,"trash-2":ICONS.trash,"folder":ICONS.folder,"folder-open":ICONS.folderOpen,"file":ICONS.file,"info":ICONS.info,"more-vertical":ICONS.dots,"chevron-right":ICONS.chev};
   document.querySelectorAll("[data-lucide]").forEach(el=>{const n=el.dataset.lucide;if(map[n]){const wrap=document.createElement("span");if(el.className)wrap.className=el.className;if(el.style.cssText)wrap.style.cssText=el.style.cssText;wrap.innerHTML=map[n];el.replaceWith(wrap)}});
@@ -605,13 +631,22 @@ async function handleFolder(fl,replaceMode){
       batch.forEach(i=>{i.row.firstElementChild.outerHTML=`<span class="text-emerald-600 font-bold">✓</span>`});
       totalOk+=r.uploaded;
     }catch(e){
-      // fallback: try files individually with single upload (handles oversized files via blob API)
       console.warn("batch failed, retrying individually:",e.message);
       for(const i of batch){
+        // get original file from arr (we need the actual File for Blob upload)
+        const origFile=arr.find(f=>{const rp=f.webkitRelativePath||f.name;const parts=rp.split("/");parts.shift();return (parts.length?parts.join("/"):f.name)===i.path.replace(upTarget+"/","")});
+        const sizeMB=(origFile?.size||0)/1024/1024;
         try{
-          await api("upload",{method:"POST",body:JSON.stringify({path:i.path,contentBase64:i.contentBase64})});
+          if(sizeMB>3.5&&origFile){
+            // large file: client-side direct upload to Vercel Blob (bypasses 4.5MB body limit)
+            setProgress(bi+1,batches.length,`Blob upload (${sizeMB.toFixed(1)}MB) ${i.path.split("/").pop()}…`);
+            const blobUrl=await uploadViaBlob(i.path,origFile);
+            await api("save-blob-ref",{method:"POST",body:JSON.stringify({path:i.path,blobUrl})});
+          }else{
+            await api("upload",{method:"POST",body:JSON.stringify({path:i.path,contentBase64:i.contentBase64})});
+          }
           i.row.firstElementChild.outerHTML=`<span class="text-emerald-600 font-bold">✓</span>`;totalOk++;
-        }catch(e2){i.row.firstElementChild.outerHTML=`<span class="text-red-600 font-bold">✗</span>`;totalFail++}
+        }catch(e2){i.row.firstElementChild.outerHTML=`<span class="text-red-600 font-bold">✗</span>`;totalFail++;console.error("upload failed for",i.path,e2)}
       }
     }
   }
