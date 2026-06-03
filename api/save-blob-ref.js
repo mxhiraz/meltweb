@@ -5,8 +5,9 @@ export default async function handler(req, res) {
   if (!path || !blobUrl) return res.status(400).json({ error: 'path + blobUrl required' });
   const REPO = process.env.GH_REPO || 'mxhiraz/meltweb';
   const TOKEN = process.env.GH_TOKEN;
-  // tiny HTML stub that redirects to actual blob content
-  const stub = `<!doctype html><meta http-equiv="refresh" content="0;url=${blobUrl}"><script>location.replace("${blobUrl}")</script><a href="${blobUrl}">View content</a>`;
+  // proxy URL avoids Vercel Blob's Content-Disposition:attachment header → renders inline
+  const proxyUrl = `/api/serve?u=${encodeURIComponent(blobUrl)}`;
+  const stub = `<!doctype html><meta http-equiv="refresh" content="0;url=${proxyUrl}"><script>location.replace(${JSON.stringify(proxyUrl)})</script><a href="${proxyUrl}">View content</a>`;
   // also save side-car .blob.json so admin knows the actual URL
   const sidecar = path + '.blob.json';
   const sidecarBody = JSON.stringify({ blob_url: blobUrl, original_path: path }, null, 2);
