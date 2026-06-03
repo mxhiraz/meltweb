@@ -586,15 +586,36 @@ async function handleFolder(fl,replaceMode){
     list.appendChild(row);list.scrollTop=list.scrollHeight;
     return {path:`${upTarget}/${finalPath}`,contentBase64:b64,row};
   }));
-  setProgress(arr.length,arr.length,"Committing to GitHub…");
-  try{
-    const r=await api("uploadBulk",{method:"POST",body:JSON.stringify({files:items.map(i=>({path:i.path,contentBase64:i.contentBase64})),message:`admin: upload ${arr.length} files to ${upTarget}`})});
-    items.forEach(i=>{i.row.firstElementChild.outerHTML=`<span class="text-emerald-600 font-bold">✓</span>`});
-    toast(`Uploaded ${r.uploaded} files in 1 commit (saves Vercel quota)`,"ok");
-  }catch(e){
-    items.forEach(i=>{i.row.firstElementChild.outerHTML=`<span class="text-red-600 font-bold">✗</span>`});
-    toast("Bulk upload failed: "+e.message,"err");
+  // batch by accumulated base64 size - Vercel Hobby has ~4.5MB body limit
+  const BATCH_LIMIT=3500000; // 3.5MB raw base64 per batch (under 4.5MB with overhead)
+  const batches=[];let cur=[],curSize=0;
+  for(const it of items){
+    const sz=it.contentBase64.length;
+    if(sz>BATCH_LIMIT&&cur.length===0){batches.push([it]);continue}
+    if(curSize+sz>BATCH_LIMIT&&cur.length){batches.push(cur);cur=[];curSize=0}
+    cur.push(it);curSize+=sz;
   }
+  if(cur.length)batches.push(cur);
+  let totalOk=0,totalFail=0;
+  for(let bi=0;bi<batches.length;bi++){
+    const batch=batches[bi];
+    setProgress(bi+1,batches.length,`Committing batch ${bi+1}/${batches.length} (${batch.length} files)…`);
+    try{
+      const r=await api("uploadBulk",{method:"POST",body:JSON.stringify({files:batch.map(i=>({path:i.path,contentBase64:i.contentBase64})),message:`admin: upload ${batch.length} files to ${upTarget} (batch ${bi+1}/${batches.length})`})});
+      batch.forEach(i=>{i.row.firstElementChild.outerHTML=`<span class="text-emerald-600 font-bold">✓</span>`});
+      totalOk+=r.uploaded;
+    }catch(e){
+      // fallback: try files individually with single upload (handles oversized files via blob API)
+      console.warn("batch failed, retrying individually:",e.message);
+      for(const i of batch){
+        try{
+          await api("upload",{method:"POST",body:JSON.stringify({path:i.path,contentBase64:i.contentBase64})});
+          i.row.firstElementChild.outerHTML=`<span class="text-emerald-600 font-bold">✓</span>`;totalOk++;
+        }catch(e2){i.row.firstElementChild.outerHTML=`<span class="text-red-600 font-bold">✗</span>`;totalFail++}
+      }
+    }
+  }
+  toast(`Uploaded ${totalOk}/${items.length} files in ${batches.length} commits`,totalFail?"err":"ok");
   setTimeout(()=>showProgress(false),1500);
   loadList();
 }
