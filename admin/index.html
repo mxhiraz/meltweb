@@ -562,7 +562,7 @@ function closeUp(){$("upScrim").classList.add("hidden");$("upScrim").classList.r
 function handleDrop(e){e.preventDefault();e.target.classList.remove("drag");handleFiles(e.dataTransfer.files)}
 async function handleFolder(fl,replaceMode){
   if(!fl||!fl.length)return;
-  showProgress(true);setProgress(0,fl.length,"Preparing…");
+  showProgress(true);setProgress(0,fl.length,"Preparing files…");
   if(replaceMode){
     setProgress(0,fl.length,"Deleting old files…");
     try{
@@ -571,25 +571,30 @@ async function handleFolder(fl,replaceMode){
     }catch(e){toast("Replace cleanup failed: "+e.message,"err");showProgress(false);return}
   }
   const list=$("upList");
-  let done=0,fail=0;
-  for(const f of fl){
+  // read all files to base64 first (parallel)
+  const arr=Array.from(fl);
+  let prepped=0;
+  const items=await Promise.all(arr.map(async f=>{
     const relPath=f.webkitRelativePath||f.name;
     const parts=relPath.split("/");parts.shift();
     const finalPath=parts.length?parts.join("/"):f.name;
-    setProgress(done+1,fl.length,`Uploading ${finalPath}`);
+    const buf=await f.arrayBuffer();
+    const b64=btoa(new Uint8Array(buf).reduce((s,b)=>s+String.fromCharCode(b),""));
+    prepped++;setProgress(prepped,arr.length,`Read ${finalPath}`);
     const row=document.createElement("div");row.className="flex items-center gap-2 py-1.5 border-b border-line-2 last:border-b-0";
     row.innerHTML=`<span class="text-gray-400">${ICONS.spin}</span><span class="flex-1 truncate text-[11px]">${finalPath}</span><span class="text-gray-400 text-[11px]">${(f.size/1024).toFixed(0)}KB</span>`;
     list.appendChild(row);list.scrollTop=list.scrollHeight;
-    try{
-      const buf=await f.arrayBuffer();
-      const b64=btoa(new Uint8Array(buf).reduce((s,b)=>s+String.fromCharCode(b),""));
-      await api("upload",{method:"POST",body:JSON.stringify({path:`${upTarget}/${finalPath}`,contentBase64:b64})});
-      row.firstElementChild.outerHTML=`<span class="text-emerald-600 font-bold">✓</span>`;
-    }catch(e){row.firstElementChild.outerHTML=`<span class="text-red-600 font-bold">✗</span>`;fail++}
-    done++;
+    return {path:`${upTarget}/${finalPath}`,contentBase64:b64,row};
+  }));
+  setProgress(arr.length,arr.length,"Committing to GitHub…");
+  try{
+    const r=await api("uploadBulk",{method:"POST",body:JSON.stringify({files:items.map(i=>({path:i.path,contentBase64:i.contentBase64})),message:`admin: upload ${arr.length} files to ${upTarget}`})});
+    items.forEach(i=>{i.row.firstElementChild.outerHTML=`<span class="text-emerald-600 font-bold">✓</span>`});
+    toast(`Uploaded ${r.uploaded} files in 1 commit (saves Vercel quota)`,"ok");
+  }catch(e){
+    items.forEach(i=>{i.row.firstElementChild.outerHTML=`<span class="text-red-600 font-bold">✗</span>`});
+    toast("Bulk upload failed: "+e.message,"err");
   }
-  setProgress(done,fl.length,fail?`Done with ${fail} errors`:"Done");
-  toast(`Uploaded ${done-fail}/${fl.length} files`,fail?"err":"ok");
   setTimeout(()=>showProgress(false),1500);
   loadList();
 }
