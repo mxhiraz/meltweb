@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Helpful Heating &amp; Air | HVAC Services in Wayne County, MI</title>
+<meta name="description" content="Full-service HVAC/r company in Southeast Michigan. Installations, maintenance, 24-hour emergency repairs and inspections at fair prices. Your Bridge To Comfort.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#E11F26; --red-dk:#B0141A; --red-soft:#FDECEC;
+  --blue:#1BA0E0; --blue-dk:#1380BC; --blue-soft:#E9F6FD;
+  --ink:#15171C; --ink-2:#20242D; --slate:#5B6472; --line:#E7EAF0;
+  --bg:#FFFFFF; --bg-soft:#F4F6FA;
+  --shadow:0 24px 60px -22px rgba(20,30,55,.28);
+  --shadow-sm:0 12px 30px -16px rgba(20,30,55,.22);
+  --r:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Plus Jakarta Sans',sans-serif;line-height:1.12;letter-spacing:-.02em;color:var(--ink)}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans';font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.eyebrow::before{content:"";width:26px;height:3px;border-radius:2px;background:var(--red)}
+.eyebrow.blue{color:var(--blue-dk)}.eyebrow.blue::before{background:var(--blue)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans';font-weight:700;font-size:.95rem;padding:15px 28px;border-radius:50px;cursor:pointer;border:none;transition:.25s;white-space:nowrap}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 12px 26px -10px rgba(225,31,38,.6)}
+.btn-red:hover{background:var(--red-dk);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+.btn-ghost:hover{background:#fff;color:var(--ink);border-color:#fff}
+.btn-dark{background:var(--ink);color:#fff}.btn-dark:hover{background:var(--ink-2);transform:translateY(-2px)}
+.btn svg{width:18px;height:18px}
+
+/* ---------- Header ---------- */
+header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);transition:.3s}
+.nav{display:flex;align-items:center;justify-content:space-between;height:84px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:50px;height:50px;border-radius:50%;object-fit:cover;box-shadow:0 6px 16px -8px rgba(0,0,0,.4)}
+.brand b{font-family:'Plus Jakarta Sans';font-weight:800;font-size:1.18rem;letter-spacing:-.02em}
+.brand b span{color:var(--red)}
+.brand small{display:block;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--slate);font-weight:600}
+.menu{display:flex;align-items:center;gap:34px;list-style:none}
+.menu a{font-family:'Plus Jakarta Sans';font-weight:600;font-size:.96rem;color:var(--ink);position:relative;padding:6px 0}
+.menu a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--red);transition:.25s}
+.menu a:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:18px}
+.nav-phone{display:flex;align-items:center;gap:9px;font-family:'Plus Jakarta Sans';font-weight:700;color:var(--ink)}
+.nav-phone svg{width:34px;height:34px;padding:8px;background:var(--blue-soft);color:var(--blue-dk);border-radius:50%}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{width:26px;height:2.5px;background:var(--ink);border-radius:2px;transition:.3s}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url(assets/bridge.jpg) center/cover}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(11,16,28,.93) 0%,rgba(13,20,36,.82) 42%,rgba(13,20,36,.35) 100%)}
+.hero .wrap{position:relative;z-index:2}
+.hero-inner{padding:104px 0 170px;max-width:660px;margin:0;text-align:left}
+.hero h1{font-size:clamp(2.6rem,5.6vw,4.3rem);font-weight:800;color:#fff;margin:22px 0 0}
+.hero h1 u{text-decoration:none;position:relative;white-space:nowrap;color:var(--blue)}
+.hero h1 u::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:10px;background:var(--red);border-radius:6px;z-index:-1;opacity:.92}
+.hero p{font-size:1.12rem;color:rgba(255,255,255,.86);margin:24px 0 34px;max-width:560px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);padding:8px 16px;border-radius:50px;font-size:.82rem;font-weight:600;letter-spacing:.04em}
+.hero-badge svg{width:16px;height:16px;color:var(--blue)}
+
+/* ---------- Estimate strip ---------- */
+.estimate{position:relative;z-index:5;margin-top:-92px}
+.estimate-card{background:#fff;border-radius:var(--r);box-shadow:var(--shadow);padding:38px 40px;display:grid;grid-template-columns:1.1fr 2fr;gap:34px;align-items:center}
+.estimate-card h3{font-size:1.6rem;font-weight:800}
+.estimate-card h3 span{color:var(--red)}
+.estimate-card .sub{color:var(--slate);font-size:.94rem;margin-top:6px}
+.efields{display:grid;grid-template-columns:1fr 1fr auto;gap:14px}
+.field label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-bottom:7px}
+.field input,.field select{width:100%;padding:14px 15px;border:1.5px solid var(--line);border-radius:12px;font-family:inherit;font-size:.92rem;background:var(--bg-soft);transition:.2s}
+.field input:focus,.field select:focus{outline:none;border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px var(--blue-soft)}
+.efields .btn{align-self:end;height:50px;justify-content:center}
+
+/* ---------- Sections ---------- */
+section{padding:96px 0}
+.sec-head{max-width:680px}
+.sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:800;margin:16px 0 0}
+.sec-head p{color:var(--slate);margin-top:16px;font-size:1.03rem}
+
+/* Who we are */
+.who{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center}
+.who-media{position:relative}
+.who-media img{border-radius:22px;box-shadow:var(--shadow);width:100%;height:560px;object-fit:cover}
+.exp-badge{position:absolute;top:26px;left:-26px;background:var(--red);color:#fff;width:128px;height:128px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 18px 40px -14px rgba(225,31,38,.65);border:5px solid #fff}
+.exp-badge b{font-family:'Plus Jakarta Sans';font-weight:800;font-size:1.5rem;line-height:1}
+.exp-badge small{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;margin-top:6px;font-weight:600;opacity:.95}
+.who-body h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:800;margin:14px 0 18px}
+.who-body p{color:var(--slate);font-size:1.02rem}
+.feat-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:30px 0}
+.feat{display:flex;gap:14px}
+.feat .ic{flex:none;width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:var(--blue-soft);color:var(--blue-dk)}
+.feat .ic.r{background:var(--red-soft);color:var(--red)}
+.feat .ic svg{width:24px;height:24px}
+.feat h4{font-size:1.05rem;font-weight:700;margin-bottom:4px}
+.feat p{font-size:.9rem;color:var(--slate);margin:0}
+
+/* Why choose */
+.why{background:var(--bg-soft)}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:54px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:34px 28px;transition:.3s}
+.card:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:transparent}
+.card .ic{width:62px;height:62px;border-radius:18px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:22px;box-shadow:0 14px 28px -12px rgba(225,31,38,.6)}
+.card:hover .ic{transform:rotate(-6deg)}
+.card .ic svg{width:30px;height:30px}
+.card h4{font-size:1.18rem;font-weight:700;margin-bottom:10px}
+.card p{font-size:.92rem;color:var(--slate)}
+
+/* Services */
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:54px}
+.svc{position:relative;border-radius:var(--r);overflow:hidden;min-height:300px;display:flex;align-items:flex-end;color:#fff;box-shadow:var(--shadow-sm)}
+.svc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.6s}
+.svc:hover img{transform:scale(1.07)}
+.svc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,18,30,.05) 30%,rgba(13,18,30,.92) 100%)}
+.svc-body{position:relative;z-index:2;padding:32px}
+.svc-num{position:absolute;top:24px;right:28px;z-index:2;font-family:'Plus Jakarta Sans';font-weight:800;font-size:2.4rem;color:rgba(255,255,255,.22)}
+.svc .tag{display:inline-flex;align-items:center;gap:8px;background:var(--red);padding:6px 14px;border-radius:50px;font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+.svc .tag svg{width:14px;height:14px}
+.svc h4{color:#fff;font-size:1.5rem;font-weight:800;margin-bottom:8px}
+.svc p{font-size:.94rem;color:rgba(255,255,255,.85)}
+
+/* Bridge band */
+.bridge{position:relative;color:#fff;overflow:hidden}
+.bridge-bg{position:absolute;inset:0;background:url(assets/bridge.jpg) center/cover}
+.bridge-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,16,28,.92),rgba(11,16,28,.55))}
+.bridge-inner{position:relative;z-index:2;padding:104px 0;max-width:640px}
+.bridge-inner h2{color:#fff;font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:800;margin:16px 0 18px}
+.bridge-inner p{color:rgba(255,255,255,.86);font-size:1.05rem;margin-bottom:30px}
+.bridge-stats{display:flex;gap:46px;margin-top:38px;flex-wrap:wrap}
+.bstat b{display:block;font-family:'Plus Jakarta Sans';font-weight:800;font-size:2.2rem;color:var(--blue)}
+.bstat span{font-size:.86rem;color:rgba(255,255,255,.78)}
+
+/* CTA */
+.cta{background:var(--red);color:#fff;border-radius:26px;padding:64px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;box-shadow:0 30px 60px -24px rgba(225,31,38,.7);position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;right:-60px;top:-60px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.08)}
+.cta h2{color:#fff;font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:800;max-width:560px;position:relative;z-index:2}
+.cta .sub{color:rgba(255,255,255,.9);margin-top:10px;position:relative;z-index:2}
+.cta-actions{display:flex;flex-direction:column;gap:12px;position:relative;z-index:2}
+.cta .btn-white{background:#fff;color:var(--red)}
+.cta .btn-white:hover{transform:translateY(-2px);background:#fff}
+.cta-phone{text-align:center;font-family:'Plus Jakarta Sans';font-weight:800;font-size:1.5rem;color:#fff}
+
+/* Footer */
+footer{background:var(--ink);color:#fff;padding:80px 0 32px}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-brand{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.foot-brand img{width:54px;height:54px;border-radius:50%}
+.foot-brand b{font-family:'Plus Jakarta Sans';font-weight:800;font-size:1.2rem}
+.foot-brand b span{color:var(--red)}
+footer p{color:rgba(255,255,255,.62);font-size:.92rem}
+.foot-col h5{font-family:'Plus Jakarta Sans';font-weight:700;font-size:1rem;margin-bottom:18px}
+.foot-col ul{list-style:none}
+.foot-col li{margin-bottom:11px}
+.foot-col a{color:rgba(255,255,255,.62);font-size:.92rem;transition:.2s}
+.foot-col a:hover{color:var(--blue)}
+.foot-contact li{display:flex;gap:12px;align-items:flex-start;color:rgba(255,255,255,.62);font-size:.92rem;margin-bottom:14px}
+.foot-contact svg{width:18px;height:18px;color:var(--red);flex:none;margin-top:3px}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;flex-wrap:wrap;gap:12px}
+.foot-bottom p{font-size:.84rem;color:rgba(255,255,255,.45)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* Responsive */
+@media(max-width:980px){
+  .menu,.nav-phone{display:none}
+  .burger{display:flex}
+  .estimate-card{grid-template-columns:1fr;gap:22px}
+  .who{grid-template-columns:1fr;gap:40px}
+  .who-media img{height:440px}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:34px}
+}
+@media(max-width:680px){
+  section{padding:68px 0}
+  .estimate{margin-top:-70px}
+  .estimate-card{padding:26px 22px}
+  .efields{grid-template-columns:1fr}
+  .feat-row,.why-grid,.svc-grid{grid-template-columns:1fr}
+  .cta{padding:42px 28px}
+  .foot-grid{grid-template-columns:1fr}
+  .exp-badge{left:50%;transform:translateX(-50%);top:-26px}
+  .who-media{padding-top:30px}
+}
+/* mobile drawer */
+.drawer{position:fixed;inset:0;z-index:80;background:rgba(11,16,28,.5);opacity:0;pointer-events:none;transition:.3s}
+.drawer.open{opacity:1;pointer-events:auto}
+.drawer-panel{position:absolute;top:0;right:0;width:min(82vw,340px);height:100%;background:#fff;padding:30px 26px;transform:translateX(100%);transition:.35s;display:flex;flex-direction:column;gap:6px}
+.drawer.open .drawer-panel{transform:none}
+.drawer a{padding:14px 6px;font-family:'Plus Jakarta Sans';font-weight:600;border-bottom:1px solid var(--line)}
+.drawer .btn{margin-top:20px;justify-content:center}
+.drawer-close{align-self:flex-end;background:none;border:none;font-size:1.8rem;cursor:pointer;color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="top">
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <img src="assets/logo.jpg" alt="Helpful Heating & Air logo">
+      <span><b>Helpful <span>Heating</span></b><small>Heating &amp; Air</small></span>
+    </a>
+    <ul class="menu">
+      <li><a href="#top">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:7342888273" class="nav-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        734.288.8273
+      </a>
+      <a href="#contact" class="btn btn-red">Get a Quote</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- mobile drawer -->
+<div class="drawer" id="drawer">
+  <div class="drawer-panel">
+    <button class="drawer-close" id="drawerClose" aria-label="Close">&times;</button>
+    <a href="#top">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#why">Why Us</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:7342888273" class="btn btn-red">Call 734.288.8273</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" style="padding:0">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="hero-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.6 5.7 21l2.3-7.2-6-4.4h7.6z"/></svg> Full-Service HVAC/r Company &mdash; Southeast Michigan</span>
+      <h1>Solving Problems,<br>Providing <u>Solutions</u></h1>
+      <p>In Southeast Michigan, comfort isn't optional. From frigid winters to hot, muggy summers, Helpful Heating &amp; Air keeps your home comfortable year-round &mdash; with honest pricing and service you can count on day or night.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-red">Request Service
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#services" class="btn btn-ghost">Explore Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESTIMATE STRIP -->
+<div class="wrap estimate">
+  <div class="estimate-card reveal">
+    <div>
+      <h3>Get Your Free <span>Estimate</span> Today</h3>
+      <p class="sub">Tell us what you need &mdash; we'll get back to you for easy scheduling, day or night.</p>
+    </div>
+    <form class="efields" onsubmit="return false">
+      <div class="field">
+        <label>Your Name</label>
+        <input type="text" placeholder="Full name" required>
+      </div>
+      <div class="field">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="(734) 000-0000" required>
+      </div>
+      <button class="btn btn-red" type="submit">Submit
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </form>
+  </div>
+</div>
+
+<!-- WHO WE ARE -->
+<section id="about">
+  <div class="wrap who">
+    <div class="who-media reveal">
+      <img src="assets/install.jpg" alt="Helpful Heating & Air condenser installation">
+      <div class="exp-badge"><b>24<span style="font-size:1rem">hr</span></b><small>Emergency<br>Service</small></div>
+    </div>
+    <div class="who-body reveal">
+      <span class="eyebrow">Who We Are</span>
+      <h2>Your Trusted Michigan-Based HVAC Contractor</h2>
+      <p>At Helpful Heating &amp; Air, we understand Michigan weather. Joe and our team have experienced it all &mdash; from years above the mighty Mackinac Bridge to many more right here in Metro Detroit. We excel in top-notch installations, rapid emergency repairs, and dependable services at fair prices. Call us day or night for easy scheduling. We won't disappoint.</p>
+      <div class="feat-row">
+        <div class="feat">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.6 5.7 21l2.3-7.2-6-4.4h7.6z"/></svg></div>
+          <div><h4>Built for Michigan</h4><p>Systems sized for our climate extremes, summer and winter.</p></div>
+        </div>
+        <div class="feat">
+          <div class="ic r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+          <div><h4>Fast &amp; Reliable</h4><p>Rapid emergency repairs and dependable, on-time service.</p></div>
+        </div>
+      </div>
+      <a href="#contact" class="btn btn-dark">More About Us
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why" class="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow blue">Why Choose Us</span>
+      <h2>Comfort Is Our Primary Focus</h2>
+      <p>A full-service HVAC/r company built on doing right by our neighbors &mdash; honest work, fair prices, and answers when you need them.</p>
+    </div>
+    <div class="why-grid">
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h4>Honest, Fair Pricing</h4>
+        <p>Dependable service at fair prices &mdash; no surprises, no pressure.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4>Full-Service HVAC/r</h4>
+        <p>Heating, cooling and refrigeration &mdash; one trusted team for it all.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h4>Day or Night</h4>
+        <p>24-hour emergency service whenever comfort can't wait.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-7-11a7 7 0 0 1 14 0c0 6.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <h4>Local to Metro Detroit</h4>
+        <p>Wayne County neighbors who know Southeast Michigan firsthand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:0">
+      <span class="eyebrow">What We Do</span>
+      <h2>Complete Heating &amp; Cooling Care</h2>
+      <p>From brand-new installs to the call you make at midnight, we cover every part of keeping your home comfortable.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc reveal">
+        <img src="assets/install.jpg" alt="HVAC installation">
+        <span class="svc-num">01</span>
+        <div class="svc-body">
+          <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2-2 2.5-2.5z"/></svg> Installations</span>
+          <h4>System Installations</h4>
+          <p>Top-notch installs of furnaces, AC and full HVAC systems, sized right for your home.</p>
+        </div>
+      </article>
+      <article class="svc reveal">
+        <img src="assets/bridge.jpg" alt="Maintenance and tune-ups">
+        <span class="svc-num">02</span>
+        <div class="svc-body">
+          <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-2.82 1.17V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 14H4.5a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 6 9.4l-.06-.06A2 2 0 1 1 8.77 6.5l.06.06A1.65 1.65 0 0 0 11 7v-.09a2 2 0 1 1 4 0V7a1.65 1.65 0 0 0 2.82 1.17l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 21.4 14H21a2 2 0 1 1 0 4h-.09z"/></svg> Maintenance</span>
+          <h4>Maintenance &amp; Tune-Ups</h4>
+          <p>Seasonal maintenance that keeps your system reliable, efficient and ready for Michigan weather.</p>
+        </div>
+      </article>
+      <article class="svc reveal">
+        <img src="assets/bridge.jpg" alt="24 hour emergency repairs">
+        <span class="svc-num">03</span>
+        <div class="svc-body">
+          <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg> Emergencies</span>
+          <h4>24-Hour Emergency Repairs</h4>
+          <p>No heat or no cooling? Call us day or night for rapid emergency repairs that get comfort back fast.</p>
+        </div>
+      </article>
+      <article class="svc reveal">
+        <img src="assets/install.jpg" alt="System inspections">
+        <span class="svc-num">04</span>
+        <div class="svc-body">
+          <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><rect x="3" y="4" width="14" height="18" rx="2"/></svg> Inspections</span>
+          <h4>Inspections</h4>
+          <p>Thorough system inspections to catch small issues before they become costly breakdowns.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- BRIDGE STORY BAND -->
+<section class="bridge" style="padding:0">
+  <div class="bridge-bg"></div>
+  <div class="wrap bridge-inner">
+    <span class="eyebrow blue" style="color:var(--blue)">Your Bridge To Comfort</span>
+    <h2>From the Mackinac Bridge to Metro Detroit</h2>
+    <p>Joe and our team have weathered it all &mdash; years of service above the mighty Mackinac Bridge and many more right here at home. That experience is your bridge to year-round comfort, whatever Michigan throws at us.</p>
+    <a href="#contact" class="btn btn-red">Schedule Service
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="bridge-stats">
+      <div class="bstat"><b>24/7</b><span>Emergency availability</span></div>
+      <div class="bstat"><b>4</b><span>Core HVAC/r services</span></div>
+      <div class="bstat"><b>Fair</b><span>Honest, upfront pricing</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact">
+  <div class="wrap">
+    <div class="cta reveal">
+      <div>
+        <h2>Stay Comfortable Year-Round &mdash; Call Us Day or Night.</h2>
+        <p class="sub">Easy scheduling for installations, maintenance, emergencies and inspections across Wayne County.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="tel:7342888273" class="cta-phone">734.288.8273</a>
+        <a href="mailto:joe@helpfulheatingair.com" class="btn btn-white">Email Joe Directly
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16v16H4z" fill="none"/><path d="M22 6l-10 7L2 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <img src="assets/logo.jpg" alt="Helpful Heating & Air">
+          <b>Helpful <span>Heating</span> &amp; Air</b>
+        </div>
+        <p>Full-service HVAC/r company keeping Southeast Michigan comfortable year-round. Your Bridge To Comfort &mdash; solving problems, providing solutions.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Installations</a></li>
+          <li><a href="#services">Maintenance</a></li>
+          <li><a href="#services">Emergency Repairs</a></li>
+          <li><a href="#services">Inspections</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#why">Why Choose Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="tel:7342888273">Emergency Service</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Get In Touch</h5>
+        <ul class="foot-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <a href="tel:7342888273">734.288.8273</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg> <a href="mailto:joe@helpfulheatingair.com">joe@helpfulheatingair.com</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-7-11a7 7 0 0 1 14 0c0 6.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Wayne County, Metro Detroit, MI</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Mon&ndash;Fri 8AM&ndash;6PM &middot; 24hr Emergency</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>&copy; 2026 Helpful Heating &amp; Air. All rights reserved.</p>
+      <p>Solving Problems | Providing Solutions</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// mobile drawer
+const drawer=document.getElementById('drawer');
+document.getElementById('burger').onclick=()=>drawer.classList.add('open');
+document.getElementById('drawerClose').onclick=()=>drawer.classList.remove('open');
+drawer.onclick=e=>{if(e.target===drawer)drawer.classList.remove('open')};
+drawer.querySelectorAll('a').forEach(a=>a.onclick=()=>drawer.classList.remove('open'));
+// reveal on scroll
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*70)+'ms';io.observe(el)});
+// header shadow
+addEventListener('scroll',()=>{document.querySelector('header').style.boxShadow=scrollY>20?'0 8px 30px -18px rgba(20,30,55,.35)':'none'});
+</script>
+</body>
+</html>
