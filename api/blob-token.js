@@ -18,7 +18,7 @@ export default async function handler(req, res) {
         if (pw !== (process.env.ADMIN_PW || 'sex')) throw new Error('unauth');
         if (!process.env.BLOB_READ_WRITE_TOKEN) throw new Error('BLOB_READ_WRITE_TOKEN env var missing — add it in Vercel project Settings → Environment Variables');
         return {
-          allowedContentTypes: ['*/*'],
+          // omit allowedContentTypes — SDK rejects '*/*'; absence = allow all
           maximumSizeInBytes: 100 * 1024 * 1024,
           addRandomSuffix: false,
           tokenPayload: JSON.stringify({ pathname }),
