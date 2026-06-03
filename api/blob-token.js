@@ -3,26 +3,33 @@ import { handleUpload } from '@vercel/blob/client';
 export const config = { api: { bodyParser: { sizeLimit: '1mb' } } };
 
 export default async function handler(req, res) {
-  // Auth via query param — Vercel Blob client SDK doesn't forward custom headers
+  const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
   const url = new URL(req.url, `http://${req.headers.host}`);
-  const pw = url.searchParams.get('pw');
-  if (pw !== (process.env.ADMIN_PW || 'sex')) return res.status(401).json({ error: 'unauth' });
+  const queryPw = url.searchParams.get('pw');
   try {
     const json = await handleUpload({
-      body: req.body,
+      body,
       request: req,
-      onBeforeGenerateToken: async (pathname, clientPayload) => ({
-        allowedContentTypes: ['*/*'],
-        maximumSizeInBytes: 100 * 1024 * 1024,
-        addRandomSuffix: false,
-        tokenPayload: clientPayload || JSON.stringify({ pathname }),
-      }),
+      onBeforeGenerateToken: async (pathname, clientPayload) => {
+        // Auth: pw via query param (SDK won't forward custom headers, but query+body both reach here)
+        let payload = {};
+        try { payload = clientPayload ? JSON.parse(clientPayload) : {}; } catch {}
+        const pw = queryPw || payload.pw;
+        if (pw !== (process.env.ADMIN_PW || 'sex')) throw new Error('unauth');
+        if (!process.env.BLOB_READ_WRITE_TOKEN) throw new Error('BLOB_READ_WRITE_TOKEN env var missing — add it in Vercel project Settings → Environment Variables');
+        return {
+          allowedContentTypes: ['*/*'],
+          maximumSizeInBytes: 100 * 1024 * 1024,
+          addRandomSuffix: false,
+          tokenPayload: JSON.stringify({ pathname }),
+        };
+      },
       onUploadCompleted: async ({ blob }) => {
-        console.log('blob uploaded:', blob.url);
+        console.log('blob upload completed:', blob.url);
       },
     });
-    res.status(200).json(json);
+    return res.status(200).json(json);
   } catch (e) {
-    res.status(500).json({ error: e.message });
+    return res.status(400).json({ error: e.message });
   }
 }

@@ -222,13 +222,13 @@ async function getBlobUpload(){
 }
 async function uploadViaBlob(path,file){
   // Direct browser→Blob via signed URL — bypasses 4.5MB Vercel function body limit
-  const mod=await import("https://esm.sh/@vercel/blob@0.27.3/client");
+  const mod=await import("https://esm.sh/@vercel/blob@1.1.1/client?bundle");
   const up=mod.upload;
-  if(!up)throw new Error("Vercel Blob client SDK not available");
+  if(!up)throw new Error("Vercel Blob client SDK upload() not found");
   const blob=await up(path,file,{
     access:"public",
     handleUploadUrl:`/api/blob-token?pw=${encodeURIComponent(pw())}`,
-    clientPayload:JSON.stringify({path})
+    clientPayload:JSON.stringify({path,pw:pw()})
   });
   return blob.url;
 }
